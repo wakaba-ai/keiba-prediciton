@@ -412,6 +412,21 @@
   }
   .data-table td.name-cell { text-align: left; font-family: 'Noto Sans JP', sans-serif; }
   .data-table tr:hover td { background: var(--bg2); }
+
+  /* ── 危険馬フラグ ── */
+  .danger-flag {
+    display: inline-block; font-size: 9px; font-weight: 700;
+    padding: 1px 5px; border-radius: 3px; margin-left: 4px;
+    background: rgba(224,72,72,0.15); color: var(--red);
+    border: 1px solid rgba(224,72,72,0.3);
+  }
+  .kill-flag {
+    display: inline-block; font-size: 9px; font-weight: 700;
+    padding: 1px 5px; border-radius: 3px; margin-left: 4px;
+    background: rgba(90,112,144,0.15); color: var(--text2);
+    border: 1px solid var(--border2);
+  }
+  .danger-tooltip { color: var(--red); font-size: 10px; }
   @media (max-width: 600px) {
     .sidebar { width: 150px; }
     .reco-grid { grid-template-columns: 1fr; }
@@ -475,6 +490,15 @@ let dataSortKey = 'umaban';   // 馬データ：デフォルト馬番順
 let dataSortDesc = false;
 let aiSortKey = 'ability';    // AI分析：デフォルト勝率順
 let aiSortDesc = true;
+
+// 各項目の自然な並び順（true=降順から開始/大きいほど良い）
+const NATURAL_DESC = {
+  umaban: false, odds: false, agari: false,  // 小さいほど良い/見たい → 昇順から
+  ability: true, place: true, ev: true, sp: true, mining: true,
+  jockey: true, trainer: true, recent: true, blood: true, waku: true,
+  baba: true, baju: true, rest: false,
+};
+
 
 const BET_BADGES = {
   '単勝':'b-tansho','複勝':'b-fukusho','馬連':'b-umaren',
@@ -669,7 +693,7 @@ function buildPanel(race) {
     <!-- 全馬一覧（新聞/AIモード切替） -->
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px">
       <div class="view-mode-bar" style="margin-bottom:0">
-        <button class="view-mode-btn${viewMode==='data'?' active':''}" onclick="setViewMode('${race.race_id}','data')">馬データ</button>
+        <button class="view-mode-btn${viewMode==='data'?' active':''}" onclick="setViewMode('${race.race_id}','data')">馬柱</button>
         <button class="view-mode-btn${viewMode==='ai'?' active':''}" onclick="setViewMode('${race.race_id}','ai')">AI分析</button>
       </div>
       <div style="font-size:10px;color:var(--text3)">項目名タップでソート</div>
@@ -759,8 +783,12 @@ function applyAISort(horses, key, desc, isPlace) {
 }
 
 function setSortAI(raceId, key) {
-  if (aiSortKey === key) { aiSortDesc = !aiSortDesc; }
-  else { aiSortKey = key; aiSortDesc = true; }
+  if (aiSortKey === key) {
+    aiSortDesc = !aiSortDesc;  // 同じ項目→逆順トグル
+  } else {
+    aiSortKey = key;
+    aiSortDesc = NATURAL_DESC[key] !== undefined ? NATURAL_DESC[key] : true;  // 初回は自然な順
+  }
   const race = allData.races.find(r => r.race_id === raceId);
   const el = document.getElementById(`horseTable_${raceId}`);
   if (race && el) el.innerHTML = buildHorseTable(race);
@@ -798,6 +826,7 @@ function buildHorseTable(race, sortKey) {
   const arrBaba  = hs.map(h => h.baba_place_rate);
 
   const marks = calcHorseMarks(hs);
+  const dangerFlags = calcDangerFlags(race);
 
   const rows = horses.map(h => {
     const prob  = isPlace ? h.p_place : h.p_ability;
@@ -818,11 +847,15 @@ function buildHorseTable(race, sortKey) {
 
     const rk = r => `<td><span class="rank-cell rk-${r==='—'?'none':r.toLowerCase()}">${r}</span></td>`;
 
+    const df = dangerFlags[h.horse_name] || { danger:[], kill:[] };
+    const dangerBadge = df.danger.length ? `<span class="danger-flag">危険</span>` : '';
+    const killBadge   = df.kill.length ? `<span class="kill-flag">消</span>` : '';
     return `<tr onclick="openModal('${race.race_id}','${h.horse_name}')">
       <td style="text-align:left;white-space:nowrap">
         <span class="horse-mark ${m.cls}" style="margin-right:4px">${m.mark}</span>
         <strong style="color:#fff">${h.umaban}番</strong>
         <span style="color:var(--text2);font-size:11px;margin-left:4px">${h.horse_name.slice(0,8)}</span>
+        ${dangerBadge}${killBadge}
       </td>
       <td style="font-size:10px;color:var(--text2)">${h.jockey ? h.jockey.slice(0,4) : ''}</td>
       <td><span style="background:var(--bg4);border-radius:3px;padding:1px 5px;font-size:10px">${kyaku}</span></td>
@@ -878,8 +911,12 @@ function toggleReco(headerEl) {
 }
 
 function sortByColumn(raceId, key) {
-  if (dataSortKey === key) { dataSortDesc = !dataSortDesc; }
-  else { dataSortKey = key; dataSortDesc = true; }
+  if (dataSortKey === key) {
+    dataSortDesc = !dataSortDesc;
+  } else {
+    dataSortKey = key;
+    dataSortDesc = NATURAL_DESC[key] !== undefined ? NATURAL_DESC[key] : true;
+  }
   const race = allData.races.find(r => r.race_id === raceId);
   const el = document.getElementById(`horseTable_${raceId}`);
   if (race && el) {
@@ -990,6 +1027,51 @@ function sortHorses(race, sortKey) {
 }
 
 
+
+
+// ── 危険な人気馬・消し候補の判定 ────────────────────────────
+function calcDangerFlags(race) {
+  const flags = {};
+  const horses = race.horses || [];
+  // 人気順位を計算（オッズ昇順）
+  const byOdds = [...horses].filter(h => h.tansho_odds != null)
+    .sort((a,b) => a.tansho_odds - b.tansho_odds);
+  const ninkiRank = {};
+  byOdds.forEach((h, i) => { ninkiRank[h.horse_name] = i + 1; });
+
+  horses.forEach(h => {
+    const reasons = [];
+    const isPopular = (ninkiRank[h.horse_name] || 99) <= 5; // 5番人気以内
+
+    // ── 危険な人気馬 ──
+    if (isPopular) {
+      if ((h.rest_weeks || 0) >= 26) reasons.push('半年以上の休み明け');
+      if (Math.abs(h.dist_diff || 0) >= 400) reasons.push('距離大幅変更');
+      if (h.surface_changed) reasons.push('芝↔ダート替わり');
+    }
+
+    // ── 絶対消し候補 ──
+    const killReasons = [];
+    if ((h.course_place_rate || 0) === 0 && (h.past_races||[]).length >= 3) {
+      // 当該コース実績が全くない（複勝率0かつ3走以上）
+      // ※course_place_rateは出走実績がある場合のみ意味を持つので慎重に
+    }
+    // 前走大敗（着順が頭数の下位20%）
+    const pr = (h.past_races||[])[0];
+    if (pr && pr.chakujun && pr.atama && pr.chakujun > pr.atama * 0.8) {
+      killReasons.push('前走大敗');
+    }
+    // 年齢ピーク過ぎ（7歳以上）
+    if ((h.age || 0) >= 7) killReasons.push('高齢');
+
+    flags[h.horse_name] = {
+      danger: reasons,        // 危険な人気馬の理由
+      kill: killReasons,      // 消し候補の理由
+      isPopular: isPopular,
+    };
+  });
+  return flags;
+}
 
 // ── 馬マーク計算 ──────────────────────────────────────────
 function calcHorseMarks(horses) {
@@ -1128,8 +1210,20 @@ function openModal(raceId, horseName) {
   ).join('');
   const paramDiv = document.createElement('div');
   paramDiv.className = 'modal-param-section';
+
+  // 危険馬・消し候補の理由
+  const dFlags = calcDangerFlags(race);
+  const df = dFlags[horseName] || { danger:[], kill:[] };
+  let warnHtml = '';
+  if (df.danger.length || df.kill.length) {
+    warnHtml = `<div class="section-label" style="margin-top:12px">注意フラグ</div><div style="font-size:12px;line-height:1.8">`;
+    if (df.danger.length) warnHtml += `<div class="danger-tooltip">⚠️ 危険な人気馬: ${df.danger.join('、')}</div>`;
+    if (df.kill.length)   warnHtml += `<div style="color:var(--text2)">▽ 消し要素: ${df.kill.join('、')}</div>`;
+    warnHtml += `</div>`;
+  }
+
   paramDiv.innerHTML = `<div class="section-label" style="margin-top:12px">パラメータランク（レース内相対）</div>
-    <div class="param-grid">${rankHtml}</div><div style="margin-top:16px"></div>`;
+    <div class="param-grid">${rankHtml}</div>${warnHtml}<div style="margin-top:16px"></div>`;
 
   // modal-statsの後に挿入
   document.getElementById('modalStats').after(paramDiv);
