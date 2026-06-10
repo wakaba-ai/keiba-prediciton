@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hara AI Keiba</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+  :root {
+    --bg:     #07090d;
+    --bg2:    #0c0f15;
+    --bg3:    #111620;
+    --bg4:    #161c28;
+    --border: #1c2333;
+    --border2:#253044;
+    --text:   #c4d0e0;
+    --text2:  #5a7090;
+    --text3:  #2e3f55;
+    --gold:   #c8a84a;
+    --gold2:  #e8c870;
+    --green:  #4aad78;
+    --blue:   #4898f8;
+    --red:    #e04848;
+    --purple: #9060f0;
+    --orange: #f07830;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Noto Sans JP', sans-serif; font-size: 13px; }
+
+  /* ── ヘッダー ── */
+  .header {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(7,9,13,0.96); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    height: 50px; padding: 0 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .logo {
+    font-size: 14px; font-weight: 900; letter-spacing: 0.1em;
+    background: linear-gradient(135deg, var(--gold), var(--gold2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+  }
+  .header-date { color: var(--text2); font-size: 11px; font-family: 'JetBrains Mono', monospace; }
+  .header-right { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+
+  .btn {
+    padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 700;
+    cursor: pointer; border: 1px solid var(--border2); background: transparent;
+    color: var(--text2); transition: all 0.15s; font-family: 'Noto Sans JP', sans-serif;
+  }
+  .btn:hover { color: var(--text); border-color: var(--text2); }
+  .btn.active-gold { border-color: var(--gold); color: var(--gold); background: rgba(200,168,74,0.1); }
+  .btn.active-green { border-color: var(--green); color: var(--green); background: rgba(74,173,120,0.1); }
+  .btn-refresh {
+    padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 700;
+    cursor: pointer; border: 1px solid rgba(200,168,74,0.4);
+    background: rgba(200,168,74,0.08); color: var(--gold);
+    font-family: 'Noto Sans JP', sans-serif; transition: all 0.2s;
+  }
+  .btn-refresh:hover { background: rgba(200,168,74,0.16); }
+
+  /* ── レイアウト ── */
+  .layout { display: flex; height: calc(100vh - 50px); }
+
+  /* ── サイドバー ── */
+  .sidebar {
+    width: 200px; flex-shrink: 0;
+    border-right: 1px solid var(--border);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .venue-bar {
+    padding: 8px; display: flex; flex-wrap: wrap; gap: 4px;
+    border-bottom: 1px solid var(--border); flex-shrink: 0;
+  }
+  .venue-btn {
+    padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;
+    cursor: pointer; border: 1px solid var(--border2);
+    background: transparent; color: var(--text2);
+    font-family: 'Noto Sans JP', sans-serif; transition: all 0.15s;
+  }
+  .venue-btn:hover { color: var(--text); }
+  .venue-btn.active { border-color: var(--blue); color: var(--blue); background: rgba(72,152,248,0.1); }
+  .race-list { overflow-y: auto; flex: 1; }
+  .race-item {
+    padding: 9px 12px; cursor: pointer; border-bottom: 1px solid var(--border);
+    transition: background 0.12s; display: flex; flex-direction: column; gap: 2px;
+  }
+  .race-item:hover { background: var(--bg2); }
+  .race-item.active { background: var(--bg3); border-left: 2px solid var(--gold); padding-left: 10px; }
+  .race-item.skip { opacity: 0.4; }
+  .race-r { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text3); }
+  .race-name { font-size: 12px; font-weight: 600; color: var(--text); }
+  .race-sub { font-size: 10px; color: var(--text2); }
+  .race-badge {
+    font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 3px;
+    display: inline-block; margin-top: 2px; align-self: flex-start;
+  }
+  .badge-reco { background: rgba(200,168,74,0.15); color: var(--gold); }
+  .badge-skip { background: rgba(46,63,85,0.4); color: var(--text3); }
+
+  /* ── コンテンツ ── */
+  .content { flex: 1; overflow-y: auto; padding: 20px; }
+  .race-panel { display: none; }
+  .race-panel.active { display: block; }
+
+  /* ── レースヘッダー ── */
+  .race-hdr { margin-bottom: 16px; }
+  .race-title { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: 0.02em; }
+  .race-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; align-items: center; }
+  .tag {
+    padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;
+    border: 1px solid var(--border2); color: var(--text2);
+  }
+  .tag.turf { border-color: rgba(74,173,120,0.4); color: var(--green); }
+  .tag.dirt { border-color: rgba(200,168,74,0.4); color: var(--gold); }
+  .tag.baba-good { color: var(--green); border-color: rgba(74,173,120,0.4); }
+  .tag.baba-yaya { color: var(--gold); border-color: rgba(200,168,74,0.4); }
+  .tag.baba-heavy { color: var(--red); border-color: rgba(224,72,72,0.4); }
+
+  /* ── レース総評 ── */
+  .comment-box {
+    background: var(--bg2); border: 1px solid var(--border2);
+    border-radius: 10px; padding: 16px; margin-bottom: 20px;
+  }
+  .comment-label {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.15em;
+    color: var(--text3); margin-bottom: 10px;
+  }
+  .comment-summary {
+    font-size: 14px; font-weight: 700; color: #fff; line-height: 1.6;
+    margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
+  }
+  .comment-detail { font-size: 13px; color: var(--text); line-height: 1.9; }
+  .comment-loading { color: var(--text2); font-size: 12px; display: flex; align-items: center; gap: 8px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spin { display: inline-block; width: 12px; height: 12px; border: 2px solid var(--border2); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; }
+
+  /* ── 馬券種選択 ── */
+  .bet-selector { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+  .bet-type-btn {
+    padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 700;
+    cursor: pointer; border: 1px solid var(--border2);
+    background: transparent; color: var(--text2);
+    font-family: 'Noto Sans JP', sans-serif; transition: all 0.15s;
+  }
+  .bet-type-btn:hover { color: var(--text); }
+  .bet-type-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(200,168,74,0.1); }
+
+  /* ── 推奨カード ── */
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+    color: var(--text3); margin-bottom: 10px;
+    padding-bottom: 6px; border-bottom: 1px solid var(--border);
+  }
+  .reco-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin-bottom: 24px; }
+  .reco-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px; transition: border-color 0.2s;
+  }
+  .reco-card.hot { border-color: var(--gold); background: linear-gradient(135deg, rgba(200,168,74,0.07), var(--bg2)); }
+  .reco-card.hot.place { border-color: var(--green); background: linear-gradient(135deg, rgba(74,173,120,0.07), var(--bg2)); }
+  .reco-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .bet-badge {
+    font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px;
+  }
+  .b-tansho  { background: rgba(200,168,74,0.15); color: var(--gold); }
+  .b-fukusho { background: rgba(74,173,120,0.15); color: var(--green); }
+  .b-umaren  { background: rgba(72,152,248,0.15); color: var(--blue); }
+  .b-wide    { background: rgba(144,96,240,0.15); color: var(--purple); }
+  .b-umatan  { background: rgba(240,120,48,0.15); color: var(--orange); }
+  .b-sanrenpuku { background: rgba(224,72,72,0.15); color: var(--red); }
+
+  .ev-val { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 900; }
+  .ev-hot { color: var(--gold); }
+  .ev-mid { color: var(--green); }
+  .ev-low { color: var(--text2); }
+  .ev-na  { color: var(--text3); font-size: 12px; }
+
+  .reco-combo { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .reco-stats { display: flex; gap: 14px; }
+  .stat { display: flex; flex-direction: column; }
+  .stat-l { font-size: 9px; color: var(--text3); letter-spacing: 0.08em; }
+  .stat-v { font-size: 12px; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+  .ov  { color: var(--orange); }
+  .hv  { color: var(--blue); }
+  .pv  { color: var(--text2); }
+  .reco-footer {
+    margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border);
+    font-size: 10px; color: var(--text2);
+  }
+
+  .skip-notice {
+    background: rgba(46,63,85,0.15); border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 16px; color: var(--text3);
+    font-size: 12px; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  /* ── 全馬テーブル ── */
+  .horse-table-wrap { overflow-x: auto; }
+  .horse-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .horse-table th {
+    padding: 7px 10px; text-align: right; font-size: 9px; font-weight: 700;
+    letter-spacing: 0.08em; color: var(--text3); border-bottom: 1px solid var(--border); white-space: nowrap;
+  }
+  .horse-table th:nth-child(1),
+  .horse-table th:nth-child(2) { text-align: left; }
+  .horse-table td {
+    padding: 8px 10px; border-bottom: 1px solid var(--border);
+    text-align: right; white-space: nowrap; cursor: pointer;
+  }
+  .horse-table td:nth-child(1) { text-align: center; }
+  .horse-table td:nth-child(2) { text-align: left; }
+  .horse-table tr:hover td { background: var(--bg2); }
+
+  .ub {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 50%; font-size: 11px; font-weight: 700;
+    border: 1px solid var(--border2); color: var(--text2);
+  }
+  .bar-wrap { display: flex; align-items: center; gap: 5px; justify-content: flex-end; }
+  .bar { width: 50px; height: 3px; background: var(--border2); border-radius: 2px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 2px; }
+  .bf-win   { background: linear-gradient(90deg, var(--gold), var(--gold2)); }
+  .bf-place { background: linear-gradient(90deg, #2d7a56, var(--green)); }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .ev-g { color: var(--gold); font-weight: 700; }
+  .ev-k { color: var(--green); font-weight: 700; }
+  .ev-b { color: var(--text3); }
+  .dp { color: var(--green); }
+  .dn { color: var(--red); }
+  .d0 { color: var(--text3); }
+
+  /* ── 馬詳細モーダル ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 500;
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--bg3); border: 1px solid var(--border2);
+    border-radius: 14px; width: 100%; max-width: 520px;
+    max-height: 80vh; overflow-y: auto; padding: 20px;
+    animation: slideUp 0.2s ease;
+  }
+  @keyframes slideUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  .modal-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
+  .modal-horse { font-size: 20px; font-weight: 900; color: #fff; }
+  .modal-close {
+    width: 28px; height: 28px; border-radius: 50%; background: var(--bg4);
+    border: 1px solid var(--border); color: var(--text2); cursor: pointer;
+    display: flex; align-items: center; justify-content: center; font-size: 14px;
+    font-family: monospace; flex-shrink: 0;
+  }
+  .modal-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .modal-stat { background: var(--bg4); border-radius: 6px; padding: 10px; }
+  .modal-stat-l { font-size: 9px; color: var(--text3); letter-spacing: 0.1em; margin-bottom: 3px; }
+  .modal-stat-v { font-size: 14px; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+  .modal-comment { font-size: 13px; line-height: 1.85; color: var(--text); }
+  .modal-comment-loading { color: var(--text2); font-size: 12px; display: flex; align-items: center; gap: 8px; }
+
+
+  /* ── 馬マーク ── */
+  .horse-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 20px; height: 20px;
+    font-weight: 900; flex-shrink: 0;
+  }
+  .mark-honmei { color: var(--gold);   font-size: 14px; }
+  .mark-taikou { color: var(--blue);   font-size: 14px; }
+  .mark-3ban   { color: var(--green);  font-size: 14px; }
+  .mark-chuumoku { color: var(--orange); font-size: 14px; }
+  .mark-myomi  { color: var(--purple); font-size: 14px; }
+  .mark-none   { color: var(--text3); font-size: 12px; }
+
+  /* ── パラメータランク ── */
+  .param-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 8px; }
+  .param-item { background: var(--bg4); border-radius: 5px; padding: 5px 7px; }
+  .param-label { font-size: 9px; color: var(--text3); margin-bottom: 2px; }
+  .param-rank  { font-size: 12px; font-weight: 900; font-family: 'JetBrains Mono', monospace; }
+  .rank-a { color: #f8d94a; } /* A: 金 */
+  .rank-b { color: var(--green); } /* B: 緑 */
+  .rank-c { color: var(--blue); }  /* C: 青 */
+  .rank-d { color: var(--text2); } /* D: グレー */
+  .rank-e { color: var(--text3); } /* E: 暗い */
+
+  /* ── ソートボタン ── */
+  .sort-bar { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; align-items: center; }
+  .sort-label { font-size: 10px; color: var(--text3); margin-right: 2px; }
+  .sort-btn {
+    padding: 4px 10px; border-radius: 5px; font-size: 10px; font-weight: 700;
+    cursor: pointer; border: 1px solid var(--border2);
+    background: transparent; color: var(--text2);
+    font-family: 'Noto Sans JP', sans-serif; transition: all 0.15s;
+  }
+  .sort-btn:hover { color: var(--text); }
+  .sort-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(200,168,74,0.1); }
+
+  /* ── 時刻表示 ── */
+  .time-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 2px 8px; border-radius: 4px; font-size: 10px;
+    font-family: 'JetBrains Mono', monospace; font-weight: 700;
+  }
+  .time-start { background: rgba(72,152,248,0.1); color: var(--blue); border: 1px solid rgba(72,152,248,0.3); }
+  .time-close { background: rgba(224,72,72,0.1);  color: var(--red);  border: 1px solid rgba(224,72,72,0.3); }
+
+  /* ── 表示モード切替 ── */
+  .view-mode-bar { display: flex; gap: 6px; margin-bottom: 14px; }
+  .view-mode-btn {
+    padding: 6px 16px; border-radius: 6px; font-size: 12px; font-weight: 700;
+    cursor: pointer; border: 1px solid var(--border2);
+    background: transparent; color: var(--text2);
+    font-family: 'Noto Sans JP', sans-serif; transition: all 0.15s;
+  }
+  .view-mode-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(200,168,74,0.12); }
+
+  /* ── 新聞モード（馬柱） ── */
+  .shinbun-wrap { overflow-x: auto; }
+  .shinbun-table { border-collapse: collapse; font-size: 11px; min-width: 100%; }
+  .shinbun-table th {
+    padding: 5px 8px; font-size: 9px; font-weight: 700; color: var(--text3);
+    border: 1px solid var(--border); background: var(--bg2); white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+  .shinbun-table td {
+    padding: 6px 8px; border: 1px solid var(--border);
+    vertical-align: top; white-space: nowrap;
+  }
+  .sb-waku {
+    width: 26px; text-align: center; font-weight: 900; font-size: 13px;
+    color: #fff;
+  }
+  .waku-1 { background: #f0f0f0; color: #111 !important; }
+  .waku-2 { background: #111; }
+  .waku-3 { background: #c4302b; }
+  .waku-4 { background: #1864c8; }
+  .waku-5 { background: #c8a020; color: #111 !important; }
+  .waku-6 { background: #2a8c4a; }
+  .waku-7 { background: #d4691e; }
+  .waku-8 { background: #c850a0; }
+
+  .sb-horse-name { font-weight: 700; color: #fff; font-size: 12px; }
+  .sb-sub { font-size: 9px; color: var(--text2); }
+  .sb-ai-index {
+    font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 900;
+    text-align: center;
+  }
+  .sb-past {
+    font-size: 9px; line-height: 1.5; min-width: 110px;
+  }
+  .sb-past-date { color: var(--text3); }
+  .sb-past-chaku { font-size: 13px; font-weight: 900; }
+  .chaku-1 { color: var(--gold); }
+  .chaku-2 { color: var(--blue); }
+  .chaku-3 { color: var(--green); }
+  .chaku-x { color: var(--text2); }
+
+  /* ── AIモードランク表 ── */
+  .rank-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .rank-table th {
+    padding: 7px 6px; font-size: 9px; font-weight: 700; color: var(--text3);
+    border-bottom: 1px solid var(--border); text-align: center; white-space: nowrap;
+  }
+  .rank-table th .weight { color: var(--green); font-size: 8px; display: block; }
+  .rank-table td {
+    padding: 8px 6px; border-bottom: 1px solid var(--border);
+    text-align: center; cursor: pointer;
+  }
+  .rank-table tr:hover td { background: var(--bg2); }
+  .rank-cell {
+    font-family: 'JetBrains Mono', monospace; font-weight: 900; font-size: 13px;
+  }
+  .rk-s { color: #f8d94a; }
+  .rk-a { color: #4aad78; }
+  .rk-b { color: #4898f8; }
+  .rk-c { color: #8a9ab0; }
+  .rk-d { color: #3a4a60; }
+  .rk-none { color: #2a3548; }
+
+  /* ── 折りたたみセクション ── */
+  .collapse-header {
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
+    padding: 8px 0; user-select: none;
+  }
+  .collapse-icon { font-size: 10px; color: var(--text2); transition: transform 0.2s; }
+  .collapse-header.collapsed .collapse-icon { transform: rotate(-90deg); }
+  .collapse-body { overflow: hidden; transition: max-height 0.3s ease; }
+  .collapse-body.hidden { max-height: 0 !important; }
+
+  /* ── ソート可能ヘッダー ── */
+  .sortable { cursor: pointer; user-select: none; position: relative; }
+  .sortable:hover { color: var(--gold) !important; }
+  .sortable.sorted-active { color: var(--gold) !important; }
+  .sort-arrow { font-size: 8px; margin-left: 2px; }
+
+  /* ── 馬データ詳細表 ── */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  .data-table th {
+    padding: 6px 8px; font-size: 9px; font-weight: 700; color: var(--text3);
+    border: 1px solid var(--border); background: var(--bg2); white-space: nowrap;
+    text-align: center;
+  }
+  .data-table td {
+    padding: 6px 8px; border: 1px solid var(--border); white-space: nowrap;
+    text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  }
+  .data-table td.name-cell { text-align: left; font-family: 'Noto Sans JP', sans-serif; }
+  .data-table tr:hover td { background: var(--bg2); }
+  @media (max-width: 600px) {
+    .sidebar { width: 150px; }
+    .reco-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">HARA AI KEIBA</div>
+  <div class="header-date" id="headerDate">—</div>
+  <div class="header-right">
+    <div id="profileToggle" style="display:flex;">
+      <button class="btn active-gold" onclick="setProfile('win')" id="btnWin">単勝モード</button>
+      <button class="btn" onclick="setProfile('place')" id="btnPlace" style="margin-left:4px">複勝モード</button>
+    </div>
+    <button class="btn-refresh" onclick="loadData()">↺ 更新</button>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar">
+    <div class="venue-bar" id="venueBar"></div>
+    <div class="race-list" id="raceList"></div>
+  </nav>
+  <main class="content" id="content">
+    <div id="loadingMsg" style="padding:40px;color:var(--text2);">読み込み中...</div>
+    <div id="panels"></div>
+  </main>
+</div>
+
+<!-- 馬詳細モーダル -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-horse" id="modalHorseName"></div>
+        <div style="font-size:11px;color:var(--text2);margin-top:4px" id="modalJockey"></div>
+      </div>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-stats" id="modalStats"></div>
+    <div class="section-label">AI分析コメント</div>
+    <div id="modalComment" class="modal-comment">
+      <div class="modal-comment-loading"><div class="spin"></div>分析中...</div>
+    </div>
+  </div>
+</div>
+
+<script>
+let allData = null;
+let activeRaceId = null;
+let profile = 'win';
+let activeVenue = 'ALL';
+let activeBetTypes = new Set(['単勝','複勝','馬連','馬単','ワイド','三連複']);
+let horseCommentCache = {};
+let currentSort = 'ability'; // 'ability' | 'sp' | 'agari'
+let viewMode = 'ai'; // 'data' | 'ai'
+let recoCollapsed = false;
+let dataSortKey = 'umaban';   // 馬データ：デフォルト馬番順
+let dataSortDesc = false;
+let aiSortKey = 'ability';    // AI分析：デフォルト勝率順
+let aiSortDesc = true;
+
+const BET_BADGES = {
+  '単勝':'b-tansho','複勝':'b-fukusho','馬連':'b-umaren',
+  'ワイド':'b-wide','馬単':'b-umatan','三連複':'b-sanrenpuku'
+};
+const KYAKU_LABEL = {0:'逃',1:'先',2:'差',3:'追'};
+const BABA_CLASS  = {'良':'baba-good','稍重':'baba-yaya','重':'baba-heavy','不良':'baba-heavy'};
+
+async function loadData() {
+  try {
+    const res = await fetch(`./predictions.json?t=${Date.now()}`);
+    allData = await res.json();
+    init();
+  } catch(e) {
+    document.getElementById('loadingMsg').innerHTML =
+      `<div style="color:var(--red)">predictions.json が見つかりません</div>`;
+  }
+}
+
+function init() {
+  document.getElementById('loadingMsg').style.display = 'none';
+  if (allData.date) {
+    const d = String(allData.date);
+    document.getElementById('headerDate').textContent = `${d.slice(0,4)}/${d.slice(4,6)}/${d.slice(6,8)}`;
+  }
+  buildVenueBar();
+  renderAll();
+}
+
+function buildVenueBar() {
+  const venues = ['ALL', ...new Set(allData.races.map(r => r.place).filter(Boolean))];
+  const bar = document.getElementById('venueBar');
+  bar.innerHTML = venues.map(v =>
+    `<button class="venue-btn${v===activeVenue?' active':''}" onclick="setVenue('${v}')">${v}</button>`
+  ).join('');
+}
+
+function setVenue(v) {
+  activeVenue = v;
+  document.querySelectorAll('.venue-btn').forEach(b => b.classList.toggle('active', b.textContent===v));
+  renderAll();
+}
+
+function setProfile(p) {
+  profile = p;
+  document.getElementById('btnWin').className   = 'btn' + (p==='win'   ? ' active-gold'  : '');
+  document.getElementById('btnPlace').className = 'btn' + (p==='place' ? ' active-green' : '');
+  renderAll();
+}
+
+function toggleBetType(bt) {
+  if (activeBetTypes.has(bt)) { if (activeBetTypes.size > 1) activeBetTypes.delete(bt); }
+  else activeBetTypes.add(bt);
+  document.querySelectorAll('.bet-type-btn').forEach(b => {
+    b.classList.toggle('active', activeBetTypes.has(b.dataset.bt));
+  });
+  renderRecoSection();
+}
+
+function filteredRaces() {
+  let races = [...allData.races];
+  if (activeVenue !== 'ALL') {
+    races = races.filter(r => r.place === activeVenue).sort((a,b) => a.race_no - b.race_no);
+  } else {
+    // ALL表示は時刻順、時刻がない場合はrace_no順
+    races.sort((a,b) => {
+      const ta = a.start_time || '99:99';
+      const tb = b.start_time || '99:99';
+      if (ta !== tb) return ta.localeCompare(tb);
+      return a.race_no - b.race_no;
+    });
+  }
+  return races;
+}
+
+function renderAll() {
+  renderSidebar();
+  renderPanels();
+  if (!activeRaceId) {
+    const races = filteredRaces();
+    if (races.length) setActive(races[0].race_id);
+  } else {
+    setActive(activeRaceId);
+  }
+}
+
+function renderSidebar() {
+  const races = filteredRaces();
+  document.getElementById('raceList').innerHTML = races.map(race => {
+    const hasReco = race.recommendations?.some(r => r.recommended && matchProfile(r));
+    return `<div class="race-item${race.skip?' skip':''}${race.race_id===activeRaceId?' active':''}"
+      onclick="setActive('${race.race_id}')">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div class="race-r">${String(race.race_no).padStart(2,'0')}R</div>
+        ${race.start_time ? `<div style="font-size:10px;color:var(--blue);font-family:'JetBrains Mono',monospace">${race.start_time}</div>` : ''}
+      </div>
+      <div class="race-name">${race.grade||''}</div>
+      <div class="race-sub">${getSurfLabel(race.surface)}${race.distance}m·${race.atama}頭</div>
+      ${hasReco && !race.skip
+        ? '<div class="race-badge badge-reco">推奨あり</div>'
+        : race.skip ? '<div class="race-badge badge-skip">見送り</div>' : ''}
+    </div>`;
+  }).join('');
+}
+
+function renderPanels() {
+  const races = filteredRaces();
+  document.getElementById('panels').innerHTML = races.map(race =>
+    `<div class="race-panel" id="panel_${race.race_id}">${buildPanel(race)}</div>`
+  ).join('');
+}
+
+function setActive(raceId) {
+  activeRaceId = raceId;
+  document.querySelectorAll('.race-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.race-item').forEach(el => {
+    el.classList.toggle('active', el.onclick?.toString().includes(raceId));
+  });
+  const panel = document.getElementById(`panel_${raceId}`);
+  if (panel) panel.classList.add('active');
+  renderSidebar();
+}
+
+function matchProfile(r) {
+  return profile === 'win' ? r.profile === '穴馬派' : r.profile === '安定派';
+}
+
+function getSurfLabel(s) {
+  if (!s) return '';
+  return s.includes('芝') ? '芝' : 'ダ';
+}
+
+function getSurfClass(s) {
+  if (!s) return '';
+  return s.includes('芝') ? 'turf' : 'dirt';
+}
+
+function getBabaClass(baba) {
+  return BABA_CLASS[baba] || '';
+}
+
+function buildPanel(race) {
+  const surf     = getSurfLabel(race.surface);
+  const surfCls  = getSurfClass(race.surface);
+  const babaCls  = getBabaClass(race.baba);
+  const babaText = race.baba || '—';
+
+  return `
+    <div class="race-hdr">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div class="race-title">
+          ${String(race.race_no).padStart(2,'0')}R ${race.grade||''}
+          ${race.start_time ? `<span style="font-size:14px;color:var(--blue);font-family:'JetBrains Mono',monospace;margin-left:10px">▶ ${race.start_time}</span>` : ''}
+        </div>
+        ${race.close_time ? `<span class="time-badge time-close">締切 ${race.close_time}</span>` : ''}
+      </div>
+      <div class="race-tags">
+        <span class="tag ${surfCls}">${surf}${race.distance}m</span>
+        <span class="tag">${race.atama}頭</span>
+        <span class="tag">${race.place||''}</span>
+        <span class="tag ${babaCls}">馬場:${babaText}</span>
+        ${race.skip ? `<span class="tag" style="color:var(--text3)">馬券見送り</span>` : ''}
+      </div>
+    </div>
+
+    <!-- レース総評 -->
+    <div class="comment-box" id="comment_${race.race_id}">
+      <div class="comment-label">AI レース総評</div>
+      <div style="color:var(--text3);font-size:12px;padding:4px 0">読み込み中...</div>
+    </div>
+
+    ${race.skip ? `<div class="skip-notice"><span>—</span>馬券見送り推奨。馬の能力評価のみ表示します。</div>` : ''}
+
+    <!-- 推奨馬券（券種選択も折りたたみ対象） -->
+    ${!race.skip ? `
+    <div class="collapse-header${recoCollapsed?' collapsed':''}" onclick="toggleReco(this)">
+      <span class="collapse-icon">▼</span>
+      <span class="section-label" style="margin:0;border:none">推奨馬券</span>
+    </div>
+    <div class="collapse-body${recoCollapsed?' hidden':''}" style="max-height:2000px">
+      <div class="bet-selector">
+        ${['単勝','複勝','馬連','馬単','ワイド','三連複'].map(bt =>
+          `<button class="bet-type-btn${activeBetTypes.has(bt)?' active':''}" data-bt="${bt}" onclick="toggleBetType('${bt}')">${bt}</button>`
+        ).join('')}
+      </div>
+      <div class="reco-grid" id="reco_${race.race_id}">
+        ${buildRecoCards(race)}
+      </div>
+    </div>
+    ` : ''}
+
+    <!-- 全馬一覧（新聞/AIモード切替） -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px">
+      <div class="view-mode-bar" style="margin-bottom:0">
+        <button class="view-mode-btn${viewMode==='data'?' active':''}" onclick="setViewMode('${race.race_id}','data')">馬データ</button>
+        <button class="view-mode-btn${viewMode==='ai'?' active':''}" onclick="setViewMode('${race.race_id}','ai')">AI分析</button>
+      </div>
+      <div style="font-size:10px;color:var(--text3)">項目名タップでソート</div>
+    </div>
+    <div class="horse-table-wrap" id="horseTable_${race.race_id}">${viewMode==='data' ? buildDataTable(race) : buildHorseTable(race, currentSort)}</div>
+  `;
+}
+
+function setSort(raceId, sortKey) {
+  currentSort = sortKey;
+  // ボタンのactive状態を更新
+  document.querySelectorAll(`[data-sort]`).forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.sort === sortKey);
+  });
+  // テーブルを再描画
+  const race = allData.races.find(r => r.race_id === raceId);
+  const el   = document.getElementById(`horseTable_${raceId}`);
+  if (race && el) el.innerHTML = buildHorseTable(race, sortKey);
+}
+
+function renderRecoSection() {
+  if (!activeRaceId) return;
+  const race = allData.races.find(r => r.race_id === activeRaceId);
+  if (!race) return;
+  const el = document.getElementById(`reco_${activeRaceId}`);
+  if (el) el.innerHTML = buildRecoCards(race);
+}
+
+function buildRecoCards(race) {
+  const recos = (race.recommendations || [])
+    .filter(r => matchProfile(r) && activeBetTypes.has(r.bet_type))
+    .sort((a,b) => (b.ev||0)-(a.ev||0));
+
+  if (!recos.length) return `<div style="color:var(--text3);font-size:12px;padding:8px">
+    選択した馬券種に推奨がありません</div>`;
+
+  return recos.map(r => {
+    const isHot  = r.recommended;
+    const isPlace = r.profile === '安定派';
+    const ev     = r.ev;
+    const evTxt  = ev != null ? ev.toFixed(2) : '—';
+    const evCls  = ev == null ? 'ev-na' : ev >= 1.2 ? 'ev-hot' : ev >= 1.05 ? 'ev-mid' : 'ev-low';
+    const badge  = BET_BADGES[r.bet_type] || 'b-tansho';
+    const combo  = r.combination?.join(' - ') || '—';
+    const hit    = r.hit_rate != null ? r.hit_rate.toFixed(1)+'%' : '—';
+    const odds   = r.odds != null ? r.odds.toFixed(1)+'倍' : '取得中';
+
+    return `<div class="reco-card${isHot?' hot':''}${isHot&&isPlace?' place':''}">
+      <div class="reco-top">
+        <span class="bet-badge ${badge}">${r.bet_type}</span>
+        <span class="ev-val ${evCls}">${evTxt}</span>
+      </div>
+      <div class="reco-combo">${combo}</div>
+      <div class="reco-stats">
+        <div class="stat"><span class="stat-l">ODDS</span><span class="stat-v ov">${odds}</span></div>
+        <div class="stat"><span class="stat-l">的中率</span><span class="stat-v hv">${hit}</span></div>
+        <div class="stat"><span class="stat-l">点数</span><span class="stat-v pv">${r.points||1}点</span></div>
+      </div>
+      ${isHot ? `<div class="reco-footer">${isPlace?'✓ 複勝モード推奨':'✓ 単勝モード推奨'} · EV ${evTxt}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+
+// ── AI分析テーブルのソート ──────────────────────────────────
+function applyAISort(horses, key, desc, isPlace) {
+  return [...horses].sort((a,b) => {
+    let va, vb;
+    switch(key) {
+      case 'ability': va=a.p_ability; vb=b.p_ability; break;
+      case 'place':   va=a.p_place; vb=b.p_place; break;
+      case 'odds':    va=-(a.tansho_odds||999); vb=-(b.tansho_odds||999); break;
+      case 'ev':      va=(isPlace?a.ev_fukusho:a.ev_tansho); vb=(isPlace?b.ev_fukusho:b.ev_tansho); break;
+      case 'sp':      va=a.prev_speed_index; vb=b.prev_speed_index; break;
+      case 'jockey':  va=a.jockey_win_rate; vb=b.jockey_win_rate; break;
+      case 'trainer': va=a.trainer_win_rate; vb=b.trainer_win_rate; break;
+      case 'recent':  va=a.win_rate_last3; vb=b.win_rate_last3; break;
+      case 'blood':   va=a.blood_stamina_score; vb=b.blood_stamina_score; break;
+      case 'waku':    va=a.waku_win_rate; vb=b.waku_win_rate; break;
+      case 'agari':   va=-(a.agari_rank_avg||99); vb=-(b.agari_rank_avg||99); break;
+      case 'baba':    va=a.baba_place_rate; vb=b.baba_place_rate; break;
+      default:        va=a.p_ability; vb=b.p_ability;
+    }
+    va = va==null?-Infinity:va; vb = vb==null?-Infinity:vb;
+    return desc ? vb-va : va-vb;
+  });
+}
+
+function setSortAI(raceId, key) {
+  if (aiSortKey === key) { aiSortDesc = !aiSortDesc; }
+  else { aiSortKey = key; aiSortDesc = true; }
+  const race = allData.races.find(r => r.race_id === raceId);
+  const el = document.getElementById(`horseTable_${raceId}`);
+  if (race && el) el.innerHTML = buildHorseTable(race);
+}
+
+function buildHorseTable(race, sortKey) {
+  const isPlace = profile === 'place';
+  // AI分析は専用のソートキー（勝率/複勝率/各パラメータ）
+  const horses  = applyAISort(race.horses||[], aiSortKey, aiSortDesc, isPlace);
+
+  // ランク計算（レース内相対・パーセンタイル方式）
+  function rankOf(val, arr, reverse) {
+    const valid = arr.filter(v => v != null && !isNaN(v));
+    // データ不足 or 全部同じ値 → '—'（評価不能）
+    if (valid.length < 2 || val == null || isNaN(val)) return '—';
+    const uniqueVals = [...new Set(valid)];
+    if (uniqueVals.length === 1) return '—'; // 全馬同値は評価不能
+    // 自分より下位の数をカウントしてパーセンタイル算出
+    const below = valid.filter(v => reverse ? v > val : v < val).length;
+    const pct = below / valid.length; // 0=最下位, 1=最上位
+    if (pct >= 0.85) return 'S';
+    if (pct >= 0.65) return 'A';
+    if (pct >= 0.40) return 'B';
+    if (pct >= 0.20) return 'C';
+    return 'D';
+  }
+  const hs = race.horses || [];
+  const arrSpd   = hs.map(h => h.prev_speed_index);
+  const arrJk    = hs.map(h => h.jockey_win_rate);
+  const arrTr    = hs.map(h => h.trainer_win_rate);
+  const arrRecent= hs.map(h => h.win_rate_last3);
+  const arrBlood = hs.map(h => h.blood_stamina_score);
+  const arrWaku  = hs.map(h => h.waku_win_rate);
+  const arrAgari = hs.map(h => h.agari_rank_avg);
+  const arrBaba  = hs.map(h => h.baba_place_rate);
+
+  const marks = calcHorseMarks(hs);
+
+  const rows = horses.map(h => {
+    const prob  = isPlace ? h.p_place : h.p_ability;
+    const ev    = isPlace ? h.ev_fukusho : h.ev_tansho;
+    const odds  = isPlace ? h.fukusho_odds : h.tansho_odds;
+    const m     = marks[h.horse_name] || { mark:'－', cls:'mark-none' };
+    const kyaku = KYAKU_LABEL[h.kyakushitsu_code] || '先';
+    const evCls = ev==null?'ev-b':ev>=1.2?'ev-g':ev>=1.05?'ev-k':'ev-b';
+
+    const rSpd   = rankOf(h.prev_speed_index, arrSpd);
+    const rJk    = rankOf(h.jockey_win_rate, arrJk);
+    const rTr    = rankOf(h.trainer_win_rate, arrTr);
+    const rRecent= rankOf(h.win_rate_last3, arrRecent);
+    const rBlood = rankOf(h.blood_stamina_score, arrBlood);
+    const rWaku  = rankOf(h.waku_win_rate, arrWaku);
+    const rAgari = rankOf(h.agari_rank_avg, arrAgari, true);
+    const rBaba  = rankOf(h.baba_place_rate, arrBaba);
+
+    const rk = r => `<td><span class="rank-cell rk-${r==='—'?'none':r.toLowerCase()}">${r}</span></td>`;
+
+    return `<tr onclick="openModal('${race.race_id}','${h.horse_name}')">
+      <td style="text-align:left;white-space:nowrap">
+        <span class="horse-mark ${m.cls}" style="margin-right:4px">${m.mark}</span>
+        <strong style="color:#fff">${h.umaban}番</strong>
+        <span style="color:var(--text2);font-size:11px;margin-left:4px">${h.horse_name.slice(0,8)}</span>
+      </td>
+      <td style="font-size:10px;color:var(--text2)">${h.jockey ? h.jockey.slice(0,4) : ''}</td>
+      <td><span style="background:var(--bg4);border-radius:3px;padding:1px 5px;font-size:10px">${kyaku}</span></td>
+      <td class="mono" style="font-size:11px;color:var(--orange)">${odds!=null?odds.toFixed(1):'—'}</td>
+      <td class="mono" style="font-size:11px">${prob!=null?prob.toFixed(1)+'%':'—'}</td>
+      <td class="mono ${evCls}" style="font-size:11px">${ev!=null?ev.toFixed(2):'—'}</td>
+      ${rk(rSpd)}${rk(rJk)}${rk(rTr)}${rk(rRecent)}${rk(rBlood)}${rk(rWaku)}${rk(rAgari)}${rk(rBaba)}
+    </tr>`;
+  }).join('');
+
+  const arrow = key => currentSort===key ? (aiSortDesc?' ▼':' ▲') : '';
+  const sb = (key, label, sub) =>
+    `<th class="sortable${currentSort===key?' sorted-active':''}" onclick="setSortAI('${race.race_id}','${key}')">${label}${sub?`<span class="weight">${sub}</span>`:''}<span class="sort-arrow">${arrow(key)}</span></th>`;
+
+  return `<table class="rank-table">
+    <thead><tr>
+      <th style="text-align:left">馬</th>
+      <th>騎手</th><th>脚質</th>
+      ${sb('odds','オッズ')}
+      ${sb(isPlace?'place':'ability', isPlace?'複勝率':'勝率')}
+      ${sb('ev','EV')}
+      ${sb('sp','速度','SP指数')}
+      ${sb('jockey','騎手','勝率')}
+      ${sb('trainer','調教','師勝率')}
+      ${sb('recent','近走','3走')}
+      ${sb('blood','血統','距離適性')}
+      ${sb('waku','枠順','バイアス')}
+      ${sb('agari','上がり','順位')}
+      ${sb('baba','馬場','適性')}
+    </tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
+}
+
+
+
+// ── 表示モード切替 ──────────────────────────────────────────
+function setViewMode(raceId, mode) {
+  viewMode = mode;
+  const race = allData.races.find(r => r.race_id === raceId);
+  const panel = document.getElementById(`panel_${raceId}`);
+  if (race && panel) {
+    panel.innerHTML = buildPanel(race);
+    loadRaceComment(race);
+  }
+}
+
+function toggleReco(headerEl) {
+  recoCollapsed = !recoCollapsed;
+  headerEl.classList.toggle('collapsed', recoCollapsed);
+  const body = headerEl.nextElementSibling;
+  if (body) body.classList.toggle('hidden', recoCollapsed);
+}
+
+function sortByColumn(raceId, key) {
+  if (dataSortKey === key) { dataSortDesc = !dataSortDesc; }
+  else { dataSortKey = key; dataSortDesc = true; }
+  const race = allData.races.find(r => r.race_id === raceId);
+  const el = document.getElementById(`horseTable_${raceId}`);
+  if (race && el) {
+    el.innerHTML = viewMode==='data' ? buildDataTable(race) : buildHorseTable(race, currentSort);
+  }
+}
+
+function applySortKey(horses, key, desc) {
+  return [...horses].sort((a,b) => {
+    let va, vb;
+    switch(key) {
+      case 'umaban':  va=a.umaban; vb=b.umaban; break;
+      case 'ability': va=a.p_ability; vb=b.p_ability; break;
+      case 'place':   va=a.p_place; vb=b.p_place; break;
+      case 'sp':      va=a.prev_speed_index; vb=b.prev_speed_index; break;
+      case 'mining':  va=a.mining; vb=b.mining; break;
+      case 'agari':   va=-(a.agari_rank_avg||99); vb=-(b.agari_rank_avg||99); break;
+      case 'odds':    va=-(a.tansho_odds||999); vb=-(b.tansho_odds||999); break;
+      case 'ev':      va=a.ev_tansho; vb=b.ev_tansho; break;
+      case 'baju':    va=a.baju; vb=b.baju; break;
+      case 'rest':    va=a.rest_weeks; vb=b.rest_weeks; break;
+      default:        va=a.p_ability; vb=b.p_ability;
+    }
+    va = va==null?-Infinity:va; vb = vb==null?-Infinity:vb;
+    return desc ? vb-va : va-vb;
+  });
+}
+
+function buildDataTable(race) {
+  const horses = applySortKey(race.horses||[], dataSortKey, dataSortDesc);
+  const marks  = calcHorseMarks(race.horses || []);
+  const maxPast = Math.min(Math.max(...horses.map(h => (h.past_races||[]).length), 1), 5);
+
+  const arrow = key => dataSortKey===key ? (dataSortDesc?' ▼':' ▲') : '';
+  const sortable = (key, label) =>
+    `<th class="sortable${dataSortKey===key?' sorted-active':''}" onclick="sortByColumn('${race.race_id}','${key}')">${label}<span class="sort-arrow">${arrow(key)}</span></th>`;
+
+  const pastHeaders = Array.from({length:maxPast}, (_,i) => `<th>${i+1}走前</th>`).join('');
+
+  const rows = horses.map(h => {
+    const m = marks[h.horse_name] || { mark:'－', cls:'mark-none' };
+    const wakuCls = h.waku ? `waku-${h.waku}` : '';
+    const bajuTxt = h.baju ? `${h.baju}(${(h.baju_diff>0?'+':'')+(h.baju_diff||0)})` : '—';
+    const aiCls = h.p_ability >= 15 ? 'rk-s' : h.p_ability >= 10 ? 'rk-a' : h.p_ability >= 6 ? 'rk-b' : 'rk-c';
+
+    const pastCells = Array.from({length:maxPast}, (_,i) => {
+      const p = (h.past_races||[])[i];
+      if (!p) return '<td class="sb-past" style="color:var(--text3)">—</td>';
+      const chakuCls = p.chakujun===1?'chaku-1':p.chakujun===2?'chaku-2':p.chakujun===3?'chaku-3':'chaku-x';
+      return `<td class="sb-past" style="text-align:left">
+        <div class="sb-past-date">${p.date||''} ${p.place||''}</div>
+        <div>${p.surface||''}${p.distance||''} ${p.baba||''} ${(p.grade||'').slice(0,7)}</div>
+        <div><span class="sb-past-chaku ${chakuCls}">${p.chakujun||'—'}</span><span style="color:var(--text3)">着/${p.atama||'—'} ${p.ninki?p.ninki+'人':''}</span></div>
+        <div style="color:var(--text2)">${p.time||''} 上${p.agari||'—'}${p.agari_rank?'('+p.agari_rank+')':''}</div>
+        <div style="color:var(--text3)">${p.kyaku||''} SP${p.speed_index!=null?p.speed_index:'—'}</div>
+      </td>`;
+    }).join('');
+
+    return `<tr onclick="openModal('${race.race_id}','${h.horse_name}')" style="cursor:pointer">
+      <td class="sb-waku ${wakuCls}">${h.waku||''}</td>
+      <td style="font-weight:700">${h.umaban}</td>
+      <td><span class="horse-mark ${m.cls}">${m.mark}</span></td>
+      <td class="name-cell">
+        <div class="sb-horse-name">${h.horse_name}</div>
+        <div class="sb-sub">${h.jockey||''}(${h.kinryo||''})</div>
+        <div class="sb-sub">${h.sire||''}${h.bms?'×'+h.bms:''}</div>
+        <div class="sb-sub">${h.trainer||''}</div>
+      </td>
+      <td>${bajuTxt}</td>
+      <td style="color:var(--orange)">${h.tansho_odds!=null?h.tansho_odds.toFixed(1):'—'}</td>
+      <td class="${aiCls}" style="font-weight:900">${h.p_ability!=null?h.p_ability.toFixed(1):'—'}</td>
+      <td>${h.mining!=null?h.mining:'—'}</td>
+      <td>${h.prev_speed_index!=null?h.prev_speed_index.toFixed(0):'—'}</td>
+      <td>${h.agari_rank_avg!=null?h.agari_rank_avg.toFixed(1):'—'}</td>
+      <td>${h.rest_weeks!=null?h.rest_weeks+'W':'—'}</td>
+      ${pastCells}
+    </tr>`;
+  }).join('');
+
+  return `<table class="shinbun-table">
+    <thead><tr>
+      <th>枠</th>${sortable('umaban','馬番')}<th>印</th>
+      <th>馬名/騎手/血統</th>
+      ${sortable('baju','馬体重')}
+      ${sortable('odds','オッズ')}
+      ${sortable('ability','AI勝率')}
+      ${sortable('mining','マイニング')}
+      ${sortable('sp','SP指数')}
+      ${sortable('agari','上がり')}
+      ${sortable('rest','間隔')}
+      ${pastHeaders}
+    </tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
+}
+
+
+
+// ── ソートヘルパー ──────────────────────────────────────────
+function sortHorses(race, sortKey) {
+  const isPlace = profile === 'place';
+  return [...(race.horses||[])].sort((a,b) => {
+    if (sortKey === 'sp')     return (b.prev_speed_index||0) - (a.prev_speed_index||0);
+    if (sortKey === 'agari')  return (a.agari_rank_avg||99) - (b.agari_rank_avg||99);
+    if (sortKey === 'umaban') return (a.umaban||0) - (b.umaban||0);
+    return isPlace ? (b.p_place||0)-(a.p_place||0) : (b.p_ability||0)-(a.p_ability||0);
+  });
+}
+
+
+
+// ── 馬マーク計算 ──────────────────────────────────────────
+function calcHorseMarks(horses) {
+  const sorted = [...horses].sort((a,b) => (b.p_ability||0)-(a.p_ability||0));
+  const marks = {};
+
+  // ◎○▲は勝率上位3頭
+  if (sorted[0]) marks[sorted[0].horse_name] = { mark:'◎', cls:'mark-honmei', label:'本命' };
+  if (sorted[1]) marks[sorted[1].horse_name] = { mark:'○', cls:'mark-taikou', label:'対抗' };
+  if (sorted[2]) marks[sorted[2].horse_name] = { mark:'▲', cls:'mark-3ban',   label:'3番手' };
+
+  // △: EV高い & 人気薄（勝率4位以下でEV>=1.1）
+  const anaCands = sorted.slice(3).filter(h => (h.ev_tansho||0) >= 1.1);
+  if (anaCands.length > 0) {
+    const top = anaCands.sort((a,b) => (b.ev_tansho||0)-(a.ev_tansho||0))[0];
+    if (!marks[top.horse_name]) marks[top.horse_name] = { mark:'△', cls:'mark-chuumoku', label:'注目穴' };
+  }
+
+  // ☆: 乖離が最大（市場の過小評価が最も大きい馬）
+  const divCands = horses.filter(h => (h.divergence||0) > 0.05 && !marks[h.horse_name]);
+  if (divCands.length > 0) {
+    const top = divCands.sort((a,b) => (b.divergence||0)-(a.divergence||0))[0];
+    marks[top.horse_name] = { mark:'☆', cls:'mark-myomi', label:'妙味' };
+  }
+
+  // 残りは無印
+  horses.forEach(h => {
+    if (!marks[h.horse_name]) marks[h.horse_name] = { mark:'－', cls:'mark-none', label:'' };
+  });
+
+  return marks;
+}
+
+// ── パラメータランク計算（レース内相対）─────────────────
+function calcParamRanks(horse, horses) {
+  function rank(val, arr) {
+    const sorted = [...arr].filter(v => v != null && !isNaN(v)).sort((a,b) => b-a);
+    if (sorted.length === 0) return 'C';
+    const idx = sorted.findIndex(v => v <= val);
+    const pct = idx < 0 ? 1.0 : idx / sorted.length;
+    if (pct <= 0.10) return 'A';
+    if (pct <= 0.30) return 'B';
+    if (pct <= 0.60) return 'C';
+    if (pct <= 0.80) return 'D';
+    return 'E';
+  }
+
+  const allSpd    = horses.map(h => h.prev_speed_index);
+  const allWinR   = horses.map(h => h.p_ability);
+  const allEv     = horses.map(h => h.ev_tansho);
+  const allJockey = horses.map(h => h.jockey_win_rate || 0);
+  const allCourse = horses.map(h => h.course_place_rate || 0);
+
+  // 休養適性: 5-8週が最良、極端に短い/長いはD
+  const rest = horse.rest_weeks || 4;
+  const restRank = (rest >= 3 && rest <= 10) ? 'B' : (rest >= 2 && rest <= 12) ? 'C' : 'D';
+
+  return {
+    'SP指数':   rank(horse.prev_speed_index, allSpd),
+    'AI勝率':   rank(horse.p_ability, allWinR),
+    '期待値':   rank(horse.ev_tansho || 0, allEv),
+    '騎手':     rank(horse.jockey_win_rate || 0, allJockey),
+    'コース':   rank(horse.course_place_rate || 0, allCourse),
+    'ローテ':   restRank,
+  };
+}
+
+// ── レース総評をロード ──────────────────────────────────────
+async function loadRaceComment(race) {
+  const el = document.getElementById(`comment_${race.race_id}`);
+  if (!el) return;
+  if (race.ai_comment) {
+    renderComment(el, race.ai_comment); return;
+  }
+  // predictions.jsonにコメントがなければ表示なし
+  el.innerHTML = `<div class="comment-label">AI レース総評</div>
+    <div style="color:var(--text3);font-size:12px">STEP2実行時にClaude APIでコメントが生成されます</div>`;
+}
+
+function renderComment(el, text) {
+  const lines = text.split('\n').filter(l => l.trim());
+  let summary = '', detail = '';
+  let inDetail = false;
+  for (const line of lines) {
+    if (line.includes('【詳細') || line.includes('詳細分析')) { inDetail = true; continue; }
+    if (line.includes('【要約') || line.includes('要約'))  { inDetail = false; continue; }
+    if (inDetail) detail += line + '\n';
+    else summary += line + ' ';
+  }
+  if (!summary && !detail) { summary = text.slice(0, 80); detail = text.slice(80); }
+  el.innerHTML = `
+    <div class="comment-label">AI レース総評</div>
+    ${summary ? `<div class="comment-summary">${summary.trim()}</div>` : ''}
+    ${detail  ? `<div class="comment-detail">${detail.trim()}</div>`  : ''}
+  `;
+}
+
+// ── 馬詳細モーダル ──────────────────────────────────────────
+function openModal(raceId, horseName) {
+  const race  = allData.races.find(r => r.race_id === raceId);
+  const horse = race?.horses?.find(h => h.horse_name === horseName);
+  if (!horse || !race) return;
+
+  // モーダルをクリア（前回のパラメータランクが残らないように）
+  const existing = document.querySelector('.modal-param-section');
+  if (existing) existing.remove();
+
+  document.getElementById('modalHorseName').textContent = horseName;
+  document.getElementById('modalJockey').textContent    = horse.jockey || '';
+  document.getElementById('modalComment').innerHTML =
+    `<div class="modal-comment-loading"><div class="spin"></div>&nbsp;AI分析中...</div>`;
+
+  const isPlace = profile === 'place';
+  const n = v => v != null ? v : '—';
+  const stats = [
+    ['勝率',      horse.p_ability    != null ? horse.p_ability.toFixed(1)+'%'  : '—'],
+    ['複勝率',    horse.p_place      != null ? horse.p_place.toFixed(1)+'%'    : '—'],
+    ['単勝EV',    horse.ev_tansho    != null ? horse.ev_tansho.toFixed(2)      : '—'],
+    ['複勝EV',    horse.ev_fukusho   != null ? horse.ev_fukusho.toFixed(2)     : '—'],
+    ['単勝オッズ',horse.tansho_odds  != null ? horse.tansho_odds.toFixed(1)+'倍': '—'],
+    ['複勝オッズ',horse.fukusho_odds != null ? horse.fukusho_odds.toFixed(1)+'倍':'—'],
+    ['乖離',      horse.divergence   != null ? (horse.divergence>0?'+':'')+horse.divergence.toFixed(3) : '—'],
+    ['前走着順',  horse.prev_chakujun!= null ? horse.prev_chakujun+'着'        : '—'],
+  ];
+  document.getElementById('modalStats').innerHTML = stats.map(([l,v]) =>
+    `<div class="modal-stat"><div class="modal-stat-l">${l}</div><div class="modal-stat-v">${v}</div></div>`
+  ).join('');
+
+  // パラメータランク
+  const ranks = calcParamRanks(horse, race?.horses || []);
+  const rankHtml = Object.entries(ranks).map(([label, rank]) =>
+    `<div class="param-item">
+      <div class="param-label">${label}</div>
+      <div class="param-rank rank-${rank.toLowerCase()}">${rank}</div>
+    </div>`
+  ).join('');
+  const paramDiv = document.createElement('div');
+  paramDiv.className = 'modal-param-section';
+  paramDiv.innerHTML = `<div class="section-label" style="margin-top:12px">パラメータランク（レース内相対）</div>
+    <div class="param-grid">${rankHtml}</div><div style="margin-top:16px"></div>`;
+
+  // modal-statsの後に挿入
+  document.getElementById('modalStats').after(paramDiv);
+
+  // 馬マーク表示
+  const marks2 = calcHorseMarks(race?.horses || []);
+  const m2 = marks2[horseName];
+  if (m2 && m2.label) {
+    document.getElementById('modalHorseName').innerHTML =
+      `<span class="horse-mark ${m2.cls}" style="margin-right:8px;display:inline-flex">${m2.mark}</span>${horseName}`;
+  }
+
+  const horse_data = horse;
+
+  const cacheKey = `${raceId}_${horseName}`;
+  if (horseCommentCache[cacheKey]) {
+    document.getElementById('modalComment').textContent = horseCommentCache[cacheKey];
+  } else if (horse.ai_comment) {
+    horseCommentCache[cacheKey] = horse.ai_comment;
+    document.getElementById('modalComment').textContent = horse.ai_comment;
+  } else {
+    // コメントなし → パラメータ情報を表示
+    const kyakuLabel = ['逃げ','先行','差し','追込'];
+    const kyaku = kyakuLabel[horse.kyakushitsu_code] || '先行';
+    const spd   = horse.prev_speed_index != null ? horse.prev_speed_index.toFixed(1) : '—';
+    const prev  = horse.prev_chakujun != null ? horse.prev_chakujun+'着' : '—';
+    const rest  = horse.rest_weeks != null ? horse.rest_weeks+'週' : '—';
+    const blink = horse.blinker_first ? '初ブリンカー' : horse.blinker_remove ? 'ブリンカー外し' : horse.blinker_keep ? 'ブリンカー継続' : 'なし';
+    const jockeyChg = horse.jockey_changed ? '乗り替わりあり' : '変更なし';
+    document.getElementById('modalComment').innerHTML =
+      `<div style="color:var(--text2);font-size:12px;line-height:1.9">
+        <div>脚質: <strong>${kyaku}</strong> / SP指数: <strong>${spd}</strong></div>
+        <div>前走: <strong>${prev}</strong> / 休養: <strong>${rest}</strong></div>
+        <div>ブリンカー: <strong>${blink}</strong></div>
+        <div>騎手: <strong>${jockeyChg}</strong></div>
+        <div style="margin-top:8px;color:var(--text3);font-size:11px">
+          ※ STEP2でClaude API連携後に詳細分析が表示されます
+        </div>
+      </div>`;
+  }
+
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+// ── パネル表示時にコメントをロード ────────────────────────
+const observer = new MutationObserver(mutations => {
+  mutations.forEach(m => {
+    if (m.target.classList.contains('active') && m.target.classList.contains('race-panel')) {
+      const raceId = m.target.id.replace('panel_','');
+      const race   = allData?.races?.find(r => r.race_id === raceId);
+      if (race) loadRaceComment(race);
+    }
+  });
+});
+
+// ── 初期化 ─────────────────────────────────────────────────
+loadData().then(() => {
+  document.querySelectorAll('.race-panel').forEach(p => {
+    observer.observe(p, { attributes: true, attributeFilter: ['class'] });
+  });
+});
+</script>
+</body>
+</html>
