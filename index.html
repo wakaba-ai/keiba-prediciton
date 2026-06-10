@@ -427,6 +427,12 @@
     border: 1px solid var(--border2);
   }
   .danger-tooltip { color: var(--red); font-size: 10px; }
+  .upset-flag {
+    display: inline-block; font-size: 9px; font-weight: 700;
+    padding: 1px 5px; border-radius: 3px; margin-left: 3px;
+    background: rgba(144,96,240,0.15); color: var(--purple);
+    border: 1px solid rgba(144,96,240,0.3);
+  }
   @media (max-width: 600px) {
     .sidebar { width: 150px; }
     .reco-grid { grid-template-columns: 1fr; }
@@ -485,7 +491,7 @@ let activeBetTypes = new Set(['単勝','複勝','馬連','馬単','ワイド','�
 let horseCommentCache = {};
 let currentSort = 'ability'; // 'ability' | 'sp' | 'agari'
 let viewMode = 'ai'; // 'data' | 'ai'
-let recoCollapsed = false;
+let recoCollapsed = true;  // デフォルト非表示
 let dataSortKey = 'umaban';   // 馬データ：デフォルト馬番順
 let dataSortDesc = false;
 let aiSortKey = 'ability';    // AI分析：デフォルト勝率順
@@ -728,9 +734,22 @@ function buildRecoCards(race) {
     .sort((a,b) => (b.ev||0)-(a.ev||0));
 
   if (!recos.length) return `<div style="color:var(--text3);font-size:12px;padding:8px">
-    選択した馬券種に推奨がありません</div>`;
+    選択した馬券種に候補がありません</div>`;
 
-  return recos.map(r => {
+  // 推奨馬券（EV閾値クリア）があるか
+  const hasRecommended = recos.some(r => r.recommended);
+  // 様子見バナー（推奨なしの場合）
+  let watchBanner = '';
+  if (!hasRecommended) {
+    const best = recos[0];
+    const evTxt = best.ev != null ? best.ev.toFixed(2) : '—';
+    watchBanner = `<div style="grid-column:1/-1;background:rgba(74,152,248,0.08);border:1px solid rgba(74,152,248,0.3);border-radius:8px;padding:12px 14px;margin-bottom:4px;font-size:12px;color:var(--blue)">
+      🔵 様子見推奨レース：期待値が閾値（${allData.ev_threshold || 1.05}）に届く馬券はありません。<br>
+      <span style="color:var(--text2)">参考までに最も期待値が高いのは ${best.bet_type} ${(best.combination||[]).join('-')}（EV ${evTxt}）。買うかどうかはご自身の判断で。</span>
+    </div>`;
+  }
+
+  return watchBanner + recos.map(r => {
     const isHot  = r.recommended;
     const isPlace = r.profile === '安定派';
     const ev     = r.ev;
@@ -765,7 +784,7 @@ function applyAISort(horses, key, desc, isPlace) {
     switch(key) {
       case 'ability': va=a.p_ability; vb=b.p_ability; break;
       case 'place':   va=a.p_place; vb=b.p_place; break;
-      case 'odds':    va=-(a.tansho_odds||999); vb=-(b.tansho_odds||999); break;
+      case 'odds':    va=a.tansho_odds; vb=b.tansho_odds; break;
       case 'ev':      va=(isPlace?a.ev_fukusho:a.ev_tansho); vb=(isPlace?b.ev_fukusho:b.ev_tansho); break;
       case 'sp':      va=a.prev_speed_index; vb=b.prev_speed_index; break;
       case 'jockey':  va=a.jockey_win_rate; vb=b.jockey_win_rate; break;
@@ -773,11 +792,15 @@ function applyAISort(horses, key, desc, isPlace) {
       case 'recent':  va=a.win_rate_last3; vb=b.win_rate_last3; break;
       case 'blood':   va=a.blood_stamina_score; vb=b.blood_stamina_score; break;
       case 'waku':    va=a.waku_win_rate; vb=b.waku_win_rate; break;
-      case 'agari':   va=-(a.agari_rank_avg||99); vb=-(b.agari_rank_avg||99); break;
-      case 'baba':    va=a.baba_place_rate; vb=b.baba_place_rate; break;
+      case 'agari':   va=a.agari_rank_avg; vb=b.agari_rank_avg; break;
+      case 'umaban':  va=a.umaban; vb=b.umaban; break;
+      case 'baju':    va=a.baju; vb=b.baju; break;
       default:        va=a.p_ability; vb=b.p_ability;
     }
-    va = va==null?-Infinity:va; vb = vb==null?-Infinity:vb;
+    // null値は常に最後に回す
+    if (va==null && vb==null) return 0;
+    if (va==null) return 1;
+    if (vb==null) return -1;
     return desc ? vb-va : va-vb;
   });
 }
@@ -847,15 +870,16 @@ function buildHorseTable(race, sortKey) {
 
     const rk = r => `<td><span class="rank-cell rk-${r==='—'?'none':r.toLowerCase()}">${r}</span></td>`;
 
-    const df = dangerFlags[h.horse_name] || { danger:[], kill:[] };
+    const df = dangerFlags[h.horse_name] || { danger:[], kill:[], upset:[] };
     const dangerBadge = df.danger.length ? `<span class="danger-flag">危険</span>` : '';
     const killBadge   = df.kill.length ? `<span class="kill-flag">消</span>` : '';
+    const upsetBadges = (df.upset||[]).map(u => `<span class="upset-flag">${u}</span>`).join('');
     return `<tr onclick="openModal('${race.race_id}','${h.horse_name}')">
       <td style="text-align:left;white-space:nowrap">
         <span class="horse-mark ${m.cls}" style="margin-right:4px">${m.mark}</span>
         <strong style="color:#fff">${h.umaban}番</strong>
         <span style="color:var(--text2);font-size:11px;margin-left:4px">${h.horse_name.slice(0,8)}</span>
-        ${dangerBadge}${killBadge}
+        ${dangerBadge}${killBadge}${upsetBadges}
       </td>
       <td style="font-size:10px;color:var(--text2)">${h.jockey ? h.jockey.slice(0,4) : ''}</td>
       <td><span style="background:var(--bg4);border-radius:3px;padding:1px 5px;font-size:10px">${kyaku}</span></td>
@@ -866,9 +890,9 @@ function buildHorseTable(race, sortKey) {
     </tr>`;
   }).join('');
 
-  const arrow = key => currentSort===key ? (aiSortDesc?' ▼':' ▲') : '';
+  const arrow = key => aiSortKey===key ? (aiSortDesc?' ▼':' ▲') : '';
   const sb = (key, label, sub) =>
-    `<th class="sortable${currentSort===key?' sorted-active':''}" onclick="setSortAI('${race.race_id}','${key}')">${label}${sub?`<span class="weight">${sub}</span>`:''}<span class="sort-arrow">${arrow(key)}</span></th>`;
+    `<th class="sortable${aiSortKey===key?' sorted-active':''}" onclick="setSortAI('${race.race_id}','${key}')">${label}${sub?`<span class="weight">${sub}</span>`:''}<span class="sort-arrow">${arrow(key)}</span></th>`;
 
   return `<table class="rank-table">
     <thead><tr>
@@ -933,14 +957,16 @@ function applySortKey(horses, key, desc) {
       case 'place':   va=a.p_place; vb=b.p_place; break;
       case 'sp':      va=a.prev_speed_index; vb=b.prev_speed_index; break;
       case 'mining':  va=a.mining; vb=b.mining; break;
-      case 'agari':   va=-(a.agari_rank_avg||99); vb=-(b.agari_rank_avg||99); break;
-      case 'odds':    va=-(a.tansho_odds||999); vb=-(b.tansho_odds||999); break;
+      case 'agari':   va=a.agari_rank_avg; vb=b.agari_rank_avg; break;
+      case 'odds':    va=a.tansho_odds; vb=b.tansho_odds; break;
       case 'ev':      va=a.ev_tansho; vb=b.ev_tansho; break;
       case 'baju':    va=a.baju; vb=b.baju; break;
       case 'rest':    va=a.rest_weeks; vb=b.rest_weeks; break;
       default:        va=a.p_ability; vb=b.p_ability;
     }
-    va = va==null?-Infinity:va; vb = vb==null?-Infinity:vb;
+    if (va==null && vb==null) return 0;
+    if (va==null) return 1;
+    if (vb==null) return -1;
     return desc ? vb-va : va-vb;
   });
 }
@@ -1064,9 +1090,20 @@ function calcDangerFlags(race) {
     // 年齢ピーク過ぎ（7歳以上）
     if ((h.age || 0) >= 7) killReasons.push('高齢');
 
+    // ── 穴要素（注目ポジティブ要素）──
+    const upsetFactors = [];
+    if (h.jockey_changed) upsetFactors.push('乗替');
+    if (h.blinker_first)  upsetFactors.push('初B');
+    if ((h.dist_diff || 0) <= -200) upsetFactors.push('短縮');
+    if ((h.dist_diff || 0) >= 200)  upsetFactors.push('延長');
+    // 人気薄（6番人気以下）でAI評価が高い
+    const ninki = ninkiRank[h.horse_name] || 99;
+    if (ninki >= 6 && (h.p_ability || 0) >= 8) upsetFactors.push('妙味');
+
     flags[h.horse_name] = {
       danger: reasons,        // 危険な人気馬の理由
       kill: killReasons,      // 消し候補の理由
+      upset: upsetFactors,    // 穴要素
       isPopular: isPopular,
     };
   });
