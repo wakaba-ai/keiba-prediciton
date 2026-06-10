@@ -1,6 +1,6 @@
 {
   "date": "20260607",
-  "generated_at": "2026-06-10T12:30:48.852290",
+  "generated_at": "2026-06-10T15:58:43.030333",
   "ev_threshold": 1.05,
   "total_races": 24,
   "races": [
@@ -915,11 +915,11 @@
           "age": 3,
           "p_ability": 34.3,
           "p_place": 58.0,
-          "divergence": 0.0,
-          "tansho_odds": null,
-          "fukusho_odds": 1.0,
-          "ev_tansho": null,
-          "ev_fukusho": 0.58,
+          "divergence": 0.242,
+          "tansho_odds": 9.9,
+          "fukusho_odds": 4.7,
+          "ev_tansho": 3.0,
+          "ev_fukusho": 2.726,
           "past_races": [
             {
               "n": 1,
@@ -1750,6 +1750,18 @@
         {
           "bet_type": "単勝",
           "combination": [
+            9
+          ],
+          "points": 1,
+          "ev": 3.0,
+          "hit_rate": 34.3,
+          "odds": 9.9,
+          "profile": "穴馬派",
+          "recommended": true
+        },
+        {
+          "bet_type": "単勝",
+          "combination": [
             7
           ],
           "points": 1,
@@ -1768,18 +1780,6 @@
           "ev": 3.0,
           "hit_rate": 4.0,
           "odds": 157.3,
-          "profile": "穴馬派",
-          "recommended": true
-        },
-        {
-          "bet_type": "単勝",
-          "combination": [
-            16
-          ],
-          "points": 1,
-          "ev": 3.0,
-          "hit_rate": 2.1,
-          "odds": 303.1,
           "profile": "穴馬派",
           "recommended": true
         },
@@ -1980,8 +1980,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:38.692923"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburaF2RMWmvoriTWDdCV'}",
+      "updated_at": "2026-06-10T15:58:33.938729"
     },
     {
       "race_id": "20260607_東京_10",
@@ -4520,8 +4520,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:39.137860"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburaJAvrqcMXWDg5gezi'}",
+      "updated_at": "2026-06-10T15:58:34.661756"
     },
     {
       "race_id": "20260607_東京_11",
@@ -5837,11 +5837,11 @@
           "age": 4,
           "p_ability": 5.1,
           "p_place": 23.9,
-          "divergence": 0.0,
-          "tansho_odds": null,
-          "fukusho_odds": 1.0,
-          "ev_tansho": null,
-          "ev_fukusho": 0.239,
+          "divergence": -0.042,
+          "tansho_odds": 10.7,
+          "fukusho_odds": 3.3,
+          "ev_tansho": 0.549,
+          "ev_fukusho": 0.789,
           "past_races": [
             {
               "n": 1,
@@ -6409,11 +6409,11 @@
           "age": 7,
           "p_ability": 6.2,
           "p_place": 23.7,
-          "divergence": 0.0,
-          "tansho_odds": null,
-          "fukusho_odds": 1.0,
-          "ev_tansho": null,
-          "ev_fukusho": 0.237,
+          "divergence": -0.054,
+          "tansho_odds": 8.6,
+          "fukusho_odds": 2.65,
+          "ev_tansho": 0.532,
+          "ev_fukusho": 0.627,
           "past_races": [
             {
               "n": 1,
@@ -7203,8 +7203,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:39.574382"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburaLDiHX7bAYWJzHFe4'}",
+      "updated_at": "2026-06-10T15:58:35.089542"
     },
     {
       "race_id": "20260607_東京_12",
@@ -9723,8 +9723,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:39.966509"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburaMwtuEHH6uxfiYr4Z'}",
+      "updated_at": "2026-06-10T15:58:35.501179"
     },
     {
       "race_id": "20260607_東京_2",
@@ -11802,8 +11802,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:40.356567"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburaPHWWACeC8TUE7Jez'}",
+      "updated_at": "2026-06-10T15:58:35.804388"
     },
     {
       "race_id": "20260607_東京_3",
@@ -12733,11 +12733,11 @@
           "age": 3,
           "p_ability": 4.0,
           "p_place": 8.9,
-          "divergence": 0.0,
-          "tansho_odds": null,
-          "fukusho_odds": 1.0,
-          "ev_tansho": null,
-          "ev_fukusho": 0.089,
+          "divergence": 0.013,
+          "tansho_odds": 36.7,
+          "fukusho_odds": 18.7,
+          "ev_tansho": 1.46,
+          "ev_fukusho": 1.664,
           "past_races": [
             {
               "n": 1,
@@ -13800,8 +13800,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:40.761424"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburaRxF8oc6MreCymk7J'}",
+      "updated_at": "2026-06-10T15:58:36.433974"
     },
     {
       "race_id": "20260607_東京_4",
@@ -15745,8 +15745,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:41.143582"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburaTUmdtJPT8grSnq2V'}",
+      "updated_at": "2026-06-10T15:58:36.803044"
     },
     {
       "race_id": "20260607_東京_5",
@@ -16184,8 +16184,8 @@
         }
       ],
       "recommendations": [],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:41.462499"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburaUazuH7Jpwwd5t2WR'}",
+      "updated_at": "2026-06-10T15:58:37.049982"
     },
     {
       "race_id": "20260607_東京_6",
@@ -17936,11 +17936,11 @@
           "age": 3,
           "p_ability": 3.4,
           "p_place": 11.1,
-          "divergence": 0.0,
-          "tansho_odds": null,
-          "fukusho_odds": 1.0,
-          "ev_tansho": null,
-          "ev_fukusho": 0.111,
+          "divergence": 0.028,
+          "tansho_odds": 161.8,
+          "fukusho_odds": 47.75,
+          "ev_tansho": 3.0,
+          "ev_fukusho": 3.0,
           "past_races": [
             {
               "n": 1,
@@ -18071,8 +18071,8 @@
         }
       ],
       "recommendations": [],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:41.951786"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburaVpf8jYFLfU8JGfwT'}",
+      "updated_at": "2026-06-10T15:58:37.713965"
     },
     {
       "race_id": "20260607_東京_7",
@@ -20511,8 +20511,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:42.757600"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburaZWRGXgxyWBBQNY1M'}",
+      "updated_at": "2026-06-10T15:58:38.343480"
     },
     {
       "race_id": "20260607_東京_8",
@@ -23094,8 +23094,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:43.271819"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburabXD9cg6AzerLnCAi'}",
+      "updated_at": "2026-06-10T15:58:38.912005"
     },
     {
       "race_id": "20260607_東京_9",
@@ -24450,8 +24450,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:43.639611"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburadcDuHtv37TEdT6gJ'}",
+      "updated_at": "2026-06-10T15:58:39.150748"
     },
     {
       "race_id": "20260607_阪神_1",
@@ -26704,8 +26704,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:44.005313"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburaesdEj4NN5QU1F6hY'}",
+      "updated_at": "2026-06-10T15:58:39.502410"
     },
     {
       "race_id": "20260607_阪神_10",
@@ -26877,11 +26877,11 @@
           "age": 4,
           "p_ability": 6.3,
           "p_place": 15.9,
-          "divergence": 0.0,
-          "tansho_odds": null,
-          "fukusho_odds": 1.0,
-          "ev_tansho": null,
-          "ev_fukusho": 0.159,
+          "divergence": 0.056,
+          "tansho_odds": 147.6,
+          "fukusho_odds": 35.0,
+          "ev_tansho": 3.0,
+          "ev_fukusho": 3.0,
           "past_races": [
             {
               "n": 1,
@@ -28010,8 +28010,8 @@
         }
       ],
       "recommendations": [],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:44.340959"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011Cburag1aqQ7cqNdfrfZXb'}",
+      "updated_at": "2026-06-10T15:58:39.708072"
     },
     {
       "race_id": "20260607_阪神_11",
@@ -30550,8 +30550,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:44.754834"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburahF1FCeMEbjd7T7ZS'}",
+      "updated_at": "2026-06-10T15:58:40.079685"
     },
     {
       "race_id": "20260607_阪神_12",
@@ -32358,8 +32358,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:45.199818"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburaimXeciKgcNuyyhWZ'}",
+      "updated_at": "2026-06-10T15:58:40.362892"
     },
     {
       "race_id": "20260607_阪神_2",
@@ -34194,8 +34194,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:45.559390"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburajyDCMFASnURNMKmh'}",
+      "updated_at": "2026-06-10T15:58:40.646043"
     },
     {
       "race_id": "20260607_阪神_3",
@@ -35521,11 +35521,11 @@
           "age": 3,
           "p_ability": 2.4,
           "p_place": 7.9,
-          "divergence": 0.0,
-          "tansho_odds": null,
-          "fukusho_odds": 1.0,
-          "ev_tansho": null,
-          "ev_fukusho": 0.079,
+          "divergence": 0.021,
+          "tansho_odds": 323.4,
+          "fukusho_odds": 75.15,
+          "ev_tansho": 3.0,
+          "ev_fukusho": 3.0,
           "past_races": [
             {
               "n": 1,
@@ -35882,12 +35882,12 @@
         {
           "bet_type": "複勝",
           "combination": [
-            9
+            14
           ],
           "points": 1,
           "ev": 3.0,
-          "hit_rate": 5.0,
-          "odds": 96.05,
+          "hit_rate": 7.9,
+          "odds": 75.15,
           "profile": "安定派",
           "recommended": true
         },
@@ -36052,8 +36052,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:46.026268"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburamHLf6msNB8yFmvd4'}",
+      "updated_at": "2026-06-10T15:58:40.950696"
     },
     {
       "race_id": "20260607_阪神_4",
@@ -37683,11 +37683,11 @@
           "age": 3,
           "p_ability": 15.1,
           "p_place": 18.7,
-          "divergence": 0.0,
-          "tansho_odds": null,
-          "fukusho_odds": 1.0,
-          "ev_tansho": null,
-          "ev_fukusho": 0.187,
+          "divergence": 0.078,
+          "tansho_odds": 13.7,
+          "fukusho_odds": 3.4000000000000004,
+          "ev_tansho": 2.073,
+          "ev_fukusho": 0.636,
           "past_races": [
             {
               "n": 1,
@@ -38111,8 +38111,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:46.485549"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburanVm5C5H3PyVGnBca'}",
+      "updated_at": "2026-06-10T15:58:41.253948"
     },
     {
       "race_id": "20260607_阪神_5",
@@ -38592,8 +38592,8 @@
         }
       ],
       "recommendations": [],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:46.869181"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburapstEqkvb6nypfdo2'}",
+      "updated_at": "2026-06-10T15:58:41.790341"
     },
     {
       "race_id": "20260607_阪神_6",
@@ -38971,11 +38971,11 @@
           "age": 3,
           "p_ability": 3.1,
           "p_place": 11.9,
-          "divergence": 0.0,
-          "tansho_odds": null,
-          "fukusho_odds": 1.0,
-          "ev_tansho": null,
-          "ev_fukusho": 0.119,
+          "divergence": -0.201,
+          "tansho_odds": 4.3,
+          "fukusho_odds": 1.85,
+          "ev_tansho": 0.135,
+          "ev_fukusho": 0.219,
           "past_races": [
             {
               "n": 1,
@@ -40692,8 +40692,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:47.354196"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburarJDRyrf8BoGAkb14'}",
+      "updated_at": "2026-06-10T15:58:42.117853"
     },
     {
       "race_id": "20260607_阪神_7",
@@ -42195,11 +42195,11 @@
           "age": 4,
           "p_ability": 2.1,
           "p_place": 10.6,
-          "divergence": 0.0,
-          "tansho_odds": null,
-          "fukusho_odds": 1.0,
-          "ev_tansho": null,
-          "ev_fukusho": 0.106,
+          "divergence": -0.044,
+          "tansho_odds": 15.3,
+          "fukusho_odds": 4.35,
+          "ev_tansho": 0.321,
+          "ev_fukusho": 0.46,
           "past_races": [
             {
               "n": 1,
@@ -43052,8 +43052,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:47.810784"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburasV9X5RVxewdzjwsG'}",
+      "updated_at": "2026-06-10T15:58:42.391769"
     },
     {
       "race_id": "20260607_阪神_8",
@@ -44414,9 +44414,9 @@
           "p_place": 9.9,
           "divergence": 0.0,
           "tansho_odds": null,
-          "fukusho_odds": 1.0,
+          "fukusho_odds": null,
           "ev_tansho": null,
-          "ev_fukusho": 0.099,
+          "ev_fukusho": null,
           "past_races": [
             {
               "n": 1,
@@ -45698,8 +45698,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:48.325481"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburatmJCShXaWJe9ufPz'}",
+      "updated_at": "2026-06-10T15:58:42.713432"
     },
     {
       "race_id": "20260607_阪神_9",
@@ -48198,8 +48198,8 @@
           "recommended": false
         }
       ],
-      "ai_comment": "コメント生成エラー: 401",
-      "updated_at": "2026-06-10T12:30:48.850689"
+      "ai_comment": "コメント生成失敗: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-sonnet-4-20250514'}, 'request_id': 'req_011CburavEqyyaNbsi4pTUKR'}",
+      "updated_at": "2026-06-10T15:58:43.029443"
     }
   ]
 }

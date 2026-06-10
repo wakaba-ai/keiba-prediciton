@@ -919,6 +919,12 @@ function buildHorseTable(race, sortKey) {
 // ── 表示モード切替 ──────────────────────────────────────────
 function setViewMode(raceId, mode) {
   viewMode = mode;
+  // 馬柱モードは馬番順、AI分析モードは勝率順にリセット
+  if (mode === 'data') {
+    dataSortKey = 'umaban'; dataSortDesc = false;
+  } else {
+    aiSortKey = profile === 'place' ? 'place' : 'ability'; aiSortDesc = true;
+  }
   const race = allData.races.find(r => r.race_id === raceId);
   const panel = document.getElementById(`panel_${raceId}`);
   if (race && panel) {
