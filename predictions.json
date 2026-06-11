@@ -1,6 +1,6 @@
 {
   "date": "20260607",
-  "generated_at": "2026-06-11T12:47:41.974906",
+  "generated_at": "2026-06-11T13:00:48.369843",
   "ev_threshold": 1.05,
   "total_races": 24,
   "races": [
@@ -2013,7 +2013,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:40.228679"
+      "updated_at": "2026-06-11T13:00:46.193083"
     },
     {
       "race_id": "20260607_東京_10",
@@ -4585,7 +4585,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:40.314691"
+      "updated_at": "2026-06-11T13:00:46.339997"
     },
     {
       "race_id": "20260607_東京_11",
@@ -7302,7 +7302,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:40.424922"
+      "updated_at": "2026-06-11T13:00:46.489930"
     },
     {
       "race_id": "20260607_東京_12",
@@ -9854,7 +9854,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:40.511331"
+      "updated_at": "2026-06-11T13:00:46.632203"
     },
     {
       "race_id": "20260607_東京_2",
@@ -11965,7 +11965,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:40.592514"
+      "updated_at": "2026-06-11T13:00:46.762995"
     },
     {
       "race_id": "20260607_東京_3",
@@ -13995,7 +13995,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:40.677591"
+      "updated_at": "2026-06-11T13:00:46.893458"
     },
     {
       "race_id": "20260607_東京_4",
@@ -15976,7 +15976,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:40.766987"
+      "updated_at": "2026-06-11T13:00:47.037770"
     },
     {
       "race_id": "20260607_東京_5",
@@ -16435,7 +16435,7 @@
       ],
       "recommendations": [],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:40.802751"
+      "updated_at": "2026-06-11T13:00:47.109213"
     },
     {
       "race_id": "20260607_東京_6",
@@ -18354,7 +18354,7 @@
       ],
       "recommendations": [],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:40.867865"
+      "updated_at": "2026-06-11T13:00:47.188659"
     },
     {
       "race_id": "20260607_東京_7",
@@ -20826,7 +20826,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:40.946450"
+      "updated_at": "2026-06-11T13:00:47.271125"
     },
     {
       "race_id": "20260607_東京_8",
@@ -23443,7 +23443,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.036817"
+      "updated_at": "2026-06-11T13:00:47.363950"
     },
     {
       "race_id": "20260607_東京_9",
@@ -24815,7 +24815,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.085953"
+      "updated_at": "2026-06-11T13:00:47.410417"
     },
     {
       "race_id": "20260607_阪神_1",
@@ -27097,7 +27097,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.159274"
+      "updated_at": "2026-06-11T13:00:47.482374"
     },
     {
       "race_id": "20260607_阪神_10",
@@ -28421,7 +28421,7 @@
       ],
       "recommendations": [],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.201586"
+      "updated_at": "2026-06-11T13:00:47.526733"
     },
     {
       "race_id": "20260607_阪神_11",
@@ -30993,7 +30993,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.288906"
+      "updated_at": "2026-06-11T13:00:47.619821"
     },
     {
       "race_id": "20260607_阪神_12",
@@ -32825,7 +32825,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.351162"
+      "updated_at": "2026-06-11T13:00:47.682849"
     },
     {
       "race_id": "20260607_阪神_2",
@@ -34691,7 +34691,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.435831"
+      "updated_at": "2026-06-11T13:00:47.755558"
     },
     {
       "race_id": "20260607_阪神_3",
@@ -36581,7 +36581,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.516866"
+      "updated_at": "2026-06-11T13:00:47.833727"
     },
     {
       "race_id": "20260607_阪神_4",
@@ -38672,7 +38672,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.595597"
+      "updated_at": "2026-06-11T13:00:47.913771"
     },
     {
       "race_id": "20260607_阪神_5",
@@ -39175,7 +39175,7 @@
       ],
       "recommendations": [],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.634592"
+      "updated_at": "2026-06-11T13:00:47.956478"
     },
     {
       "race_id": "20260607_阪神_6",
@@ -41307,7 +41307,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.709672"
+      "updated_at": "2026-06-11T13:00:48.034851"
     },
     {
       "race_id": "20260607_阪神_7",
@@ -43699,7 +43699,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.795628"
+      "updated_at": "2026-06-11T13:00:48.129947"
     },
     {
       "race_id": "20260607_阪神_8",
@@ -46381,7 +46381,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.887959"
+      "updated_at": "2026-06-11T13:00:48.217568"
     },
     {
       "race_id": "20260607_阪神_9",
@@ -48913,7 +48913,7 @@
         }
       ],
       "ai_comment": "コメント生成失敗: \"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted\"",
-      "updated_at": "2026-06-11T12:47:41.974234"
+      "updated_at": "2026-06-11T13:00:48.369069"
     }
   ]
 }
