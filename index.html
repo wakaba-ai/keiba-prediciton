@@ -433,6 +433,42 @@
     background: rgba(144,96,240,0.15); color: var(--purple);
     border: 1px solid rgba(144,96,240,0.3);
   }
+
+  /* ── 展開予想図（隊列図） ── */
+  .formation-box {
+    background: var(--bg2); border: 1px solid var(--border2);
+    border-radius: 10px; padding: 14px; margin-bottom: 20px;
+    overflow-x: auto;
+  }
+  .formation-label { font-size: 9px; font-weight: 700; letter-spacing: 0.15em; color: var(--text3); margin-bottom: 12px; }
+  .formation-track { display: flex; align-items: stretch; gap: 0; min-width: 500px; position: relative; }
+  .formation-group {
+    flex: 1; padding: 8px 6px; border-right: 1px dashed var(--border2);
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .formation-group:last-child { border-right: none; }
+  .formation-group-label {
+    font-size: 10px; font-weight: 700; text-align: center; margin-bottom: 6px;
+    padding-bottom: 4px; border-bottom: 1px solid var(--border);
+  }
+  .fg-nige { color: var(--red); }
+  .fg-senko { color: var(--orange); }
+  .fg-sashi { color: var(--blue); }
+  .fg-oikomi { color: var(--purple); }
+  .formation-horse {
+    display: flex; align-items: center; gap: 5px;
+    background: var(--bg3); border-radius: 5px; padding: 4px 6px;
+    font-size: 11px;
+  }
+  .formation-umaban {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 18px; height: 18px; border-radius: 50%; font-size: 10px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .formation-arrow {
+    position: absolute; bottom: -6px; left: 10px; right: 10px;
+    font-size: 9px; color: var(--text3); text-align: center;
+  }
   @media (max-width: 600px) {
     .sidebar { width: 150px; }
     .reco-grid { grid-template-columns: 1fr; }
@@ -631,6 +667,9 @@ function setActive(raceId) {
   });
   const panel = document.getElementById(`panel_${raceId}`);
   if (panel) panel.classList.add('active');
+  // コメントを確実にロード（MutationObserverに依存しない）
+  const race = allData.races.find(r => r.race_id === raceId);
+  if (race) loadRaceComment(race);
   renderSidebar();
 }
 
@@ -685,6 +724,8 @@ function buildPanel(race) {
     </div>
 
     ${race.skip ? `<div class="skip-notice"><span>—</span>馬券見送り推奨。馬の能力評価のみ表示します。</div>` : ''}
+
+    ${buildFormation(race)}
 
     <!-- 推奨馬券（券種選択も折りたたみ対象。地力モードでは非表示） -->
     ${!race.skip && profile !== 'jiriki' ? `
@@ -796,7 +837,7 @@ function applyAISort(horses, key, desc, isPlace) {
       case 'ev':      va=(isPlace?a.ev_fukusho:a.ev_tansho); vb=(isPlace?b.ev_fukusho:b.ev_tansho); break;
       case 'sp':      va=a.prev_speed_index; vb=b.prev_speed_index; break;
       case 'jockey':  va=a.jockey_win_rate; vb=b.jockey_win_rate; break;
-      case 'trainer': va=a.trainer_win_rate; vb=b.trainer_win_rate; break;
+      case 'trainer': va=a.training_score; vb=b.training_score; break;
       case 'recent':  va=a.win_rate_last3; vb=b.win_rate_last3; break;
       case 'blood':   va=a.blood_stamina_score; vb=b.blood_stamina_score; break;
       case 'waku':    va=a.waku_win_rate; vb=b.waku_win_rate; break;
@@ -850,7 +891,7 @@ function buildHorseTable(race, sortKey) {
   const hs = race.horses || [];
   const arrSpd   = hs.map(h => h.prev_speed_index);
   const arrJk    = hs.map(h => h.jockey_win_rate);
-  const arrTr    = hs.map(h => h.trainer_win_rate);
+  const arrTr    = hs.map(h => h.training_score);  // 調教スコアに変更
   const arrRecent= hs.map(h => h.win_rate_last3);
   const arrBlood = hs.map(h => h.blood_stamina_score);
   const arrWaku  = hs.map(h => h.waku_win_rate);
@@ -870,7 +911,7 @@ function buildHorseTable(race, sortKey) {
 
     const rSpd   = rankOf(h.prev_speed_index, arrSpd);
     const rJk    = rankOf(h.jockey_win_rate, arrJk);
-    const rTr    = rankOf(h.trainer_win_rate, arrTr);
+    const rTr    = rankOf(h.training_score, arrTr);
     const rRecent= rankOf(h.win_rate_last3, arrRecent);
     const rBlood = rankOf(h.blood_stamina_score, arrBlood);
     const rWaku  = rankOf(h.waku_win_rate, arrWaku);
@@ -912,7 +953,7 @@ function buildHorseTable(race, sortKey) {
       ${isJiriki ? '' : sb('ev','EV')}
       ${sb('sp','速度','SP指数')}
       ${sb('jockey','騎手','勝率')}
-      ${sb('trainer','調教','師勝率')}
+      ${sb('trainer','調教','追切')}
       ${sb('recent','近走','3走')}
       ${sb('blood','血統','距離適性')}
       ${sb('waku','枠順','バイアス')}
@@ -1070,6 +1111,47 @@ function sortHorses(race, sortKey) {
 
 
 
+
+// ── 展開予想図（隊列図） ──────────────────────────────────
+function buildFormation(race) {
+  const groups = { 0:[], 1:[], 2:[], 3:[] }; // 逃げ/先行/差し/追込
+  (race.horses||[]).forEach(h => {
+    const k = h.kyakushitsu_code;
+    if (groups[k]) groups[k].push(h);
+    else groups[1].push(h);
+  });
+
+  const wakuColor = w => {
+    const colors = ['','#f0f0f0','#333','#c4302b','#1864c8','#c8a020','#2a8c4a','#d4691e','#c850a0'];
+    return colors[w] || '#555';
+  };
+  const wakuText = w => (w===1||w===5) ? '#111' : '#fff';
+
+  const renderGroup = (label, cls, horses) => {
+    const items = horses
+      .sort((a,b) => (b.p_ability||0)-(a.p_ability||0))
+      .map(h => `<div class="formation-horse">
+        <span class="formation-umaban" style="background:${wakuColor(h.waku)};color:${wakuText(h.waku)}">${h.umaban}</span>
+        <span style="color:var(--text)">${h.horse_name.slice(0,6)}</span>
+      </div>`).join('');
+    return `<div class="formation-group">
+      <div class="formation-group-label ${cls}">${label}<br><span style="font-size:9px;color:var(--text3)">${horses.length}頭</span></div>
+      ${items || '<div style="font-size:10px;color:var(--text3);text-align:center">—</div>'}
+    </div>`;
+  };
+
+  return `<div class="formation-box">
+    <div class="formation-label">展開予想図（脚質別の隊列イメージ）</div>
+    <div class="formation-track">
+      ${renderGroup('逃げ','fg-nige',groups[0])}
+      ${renderGroup('先行','fg-senko',groups[1])}
+      ${renderGroup('差し','fg-sashi',groups[2])}
+      ${renderGroup('追込','fg-oikomi',groups[3])}
+      <div class="formation-arrow">← ゴール　　　スタート →</div>
+    </div>
+  </div>`;
+}
+
 // ── 危険な人気馬・消し候補の判定 ────────────────────────────
 function calcDangerFlags(race) {
   const flags = {};
@@ -1084,7 +1166,48 @@ function calcDangerFlags(race) {
     const reasons = [];
     const isPopular = (ninkiRank[h.horse_name] || 99) <= 5; // 5番人気以内
 
-    // ── 危険な人気馬 ──
+    
+// ── 展開予想図（隊列図） ──────────────────────────────────
+function buildFormation(race) {
+  const groups = { 0:[], 1:[], 2:[], 3:[] }; // 逃げ/先行/差し/追込
+  (race.horses||[]).forEach(h => {
+    const k = h.kyakushitsu_code;
+    if (groups[k]) groups[k].push(h);
+    else groups[1].push(h);
+  });
+
+  const wakuColor = w => {
+    const colors = ['','#f0f0f0','#333','#c4302b','#1864c8','#c8a020','#2a8c4a','#d4691e','#c850a0'];
+    return colors[w] || '#555';
+  };
+  const wakuText = w => (w===1||w===5) ? '#111' : '#fff';
+
+  const renderGroup = (label, cls, horses) => {
+    const items = horses
+      .sort((a,b) => (b.p_ability||0)-(a.p_ability||0))
+      .map(h => `<div class="formation-horse">
+        <span class="formation-umaban" style="background:${wakuColor(h.waku)};color:${wakuText(h.waku)}">${h.umaban}</span>
+        <span style="color:var(--text)">${h.horse_name.slice(0,6)}</span>
+      </div>`).join('');
+    return `<div class="formation-group">
+      <div class="formation-group-label ${cls}">${label}<br><span style="font-size:9px;color:var(--text3)">${horses.length}頭</span></div>
+      ${items || '<div style="font-size:10px;color:var(--text3);text-align:center">—</div>'}
+    </div>`;
+  };
+
+  return `<div class="formation-box">
+    <div class="formation-label">展開予想図（脚質別の隊列イメージ）</div>
+    <div class="formation-track">
+      ${renderGroup('逃げ','fg-nige',groups[0])}
+      ${renderGroup('先行','fg-senko',groups[1])}
+      ${renderGroup('差し','fg-sashi',groups[2])}
+      ${renderGroup('追込','fg-oikomi',groups[3])}
+      <div class="formation-arrow">← ゴール　　　スタート →</div>
+    </div>
+  </div>`;
+}
+
+// ── 危険な人気馬 ──
     if (isPopular) {
       if ((h.rest_weeks || 0) >= 26) reasons.push('半年以上の休み明け');
       if (Math.abs(h.dist_diff || 0) >= 400) reasons.push('距離大幅変更');
