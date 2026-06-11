@@ -448,6 +448,7 @@
     <div id="profileToggle" style="display:flex;">
       <button class="btn active-gold" onclick="setProfile('win')" id="btnWin">単勝モード</button>
       <button class="btn" onclick="setProfile('place')" id="btnPlace" style="margin-left:4px">複勝モード</button>
+      <button class="btn" onclick="setProfile('jiriki')" id="btnJiriki" style="margin-left:4px">地力モード</button>
     </div>
     <button class="btn-refresh" onclick="loadData()">↺ 更新</button>
   </div>
@@ -550,8 +551,13 @@ function setVenue(v) {
 
 function setProfile(p) {
   profile = p;
-  document.getElementById('btnWin').className   = 'btn' + (p==='win'   ? ' active-gold'  : '');
-  document.getElementById('btnPlace').className = 'btn' + (p==='place' ? ' active-green' : '');
+  document.getElementById('btnWin').className    = 'btn' + (p==='win'    ? ' active-gold'  : '');
+  document.getElementById('btnPlace').className  = 'btn' + (p==='place'  ? ' active-green' : '');
+  document.getElementById('btnJiriki').className = 'btn' + (p==='jiriki' ? ' active-gold'  : '');
+  // モードに応じてAIソートキーを初期化
+  if (p === 'place') aiSortKey = 'place';
+  else aiSortKey = 'ability';  // 地力も勝率(p_ability)ベース
+  aiSortDesc = true;
   renderAll();
 }
 
@@ -629,7 +635,9 @@ function setActive(raceId) {
 }
 
 function matchProfile(r) {
-  return profile === 'win' ? r.profile === '穴馬派' : r.profile === '安定派';
+  // 地力モードは推奨馬券セクション自体を出さないが、念のため単勝側を返す
+  if (profile === 'place') return r.profile === '安定派';
+  return r.profile === '穴馬派';
 }
 
 function getSurfLabel(s) {
@@ -678,8 +686,8 @@ function buildPanel(race) {
 
     ${race.skip ? `<div class="skip-notice"><span>—</span>馬券見送り推奨。馬の能力評価のみ表示します。</div>` : ''}
 
-    <!-- 推奨馬券（券種選択も折りたたみ対象） -->
-    ${!race.skip ? `
+    <!-- 推奨馬券（券種選択も折りたたみ対象。地力モードでは非表示） -->
+    ${!race.skip && profile !== 'jiriki' ? `
     <div class="collapse-header${recoCollapsed?' collapsed':''}" onclick="toggleReco(this)">
       <span class="collapse-icon">▼</span>
       <span class="section-label" style="margin:0;border:none">推奨馬券</span>
@@ -818,7 +826,8 @@ function setSortAI(raceId, key) {
 }
 
 function buildHorseTable(race, sortKey) {
-  const isPlace = profile === 'place';
+  const isPlace  = profile === 'place';
+  const isJiriki = profile === 'jiriki';  // 地力モード：オッズ無視
   // AI分析は専用のソートキー（勝率/複勝率/各パラメータ）
   const horses  = applyAISort(race.horses||[], aiSortKey, aiSortDesc, isPlace);
 
@@ -883,9 +892,9 @@ function buildHorseTable(race, sortKey) {
       </td>
       <td style="font-size:10px;color:var(--text2)">${h.jockey ? h.jockey.slice(0,4) : ''}</td>
       <td><span style="background:var(--bg4);border-radius:3px;padding:1px 5px;font-size:10px">${kyaku}</span></td>
-      <td class="mono" style="font-size:11px;color:var(--orange)">${odds!=null?odds.toFixed(1):'—'}</td>
+      ${isJiriki ? '' : `<td class="mono" style="font-size:11px;color:var(--orange)">${odds!=null?odds.toFixed(1):'—'}</td>`}
       <td class="mono" style="font-size:11px">${prob!=null?prob.toFixed(1)+'%':'—'}</td>
-      <td class="mono ${evCls}" style="font-size:11px">${ev!=null?ev.toFixed(2):'—'}</td>
+      ${isJiriki ? '' : `<td class="mono ${evCls}" style="font-size:11px">${ev!=null?ev.toFixed(2):'—'}</td>`}
       ${rk(rSpd)}${rk(rJk)}${rk(rTr)}${rk(rRecent)}${rk(rBlood)}${rk(rWaku)}${rk(rAgari)}${rk(rBaba)}
     </tr>`;
   }).join('');
@@ -898,9 +907,9 @@ function buildHorseTable(race, sortKey) {
     <thead><tr>
       <th style="text-align:left">馬</th>
       <th>騎手</th><th>脚質</th>
-      ${sb('odds','オッズ')}
-      ${sb(isPlace?'place':'ability', isPlace?'複勝率':'勝率')}
-      ${sb('ev','EV')}
+      ${isJiriki ? '' : sb('odds','オッズ')}
+      ${sb(isPlace?'place':'ability', isJiriki?'地力勝率':(isPlace?'複勝率':'勝率'))}
+      ${isJiriki ? '' : sb('ev','EV')}
       ${sb('sp','速度','SP指数')}
       ${sb('jockey','騎手','勝率')}
       ${sb('trainer','調教','師勝率')}
