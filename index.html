@@ -434,41 +434,22 @@
     border: 1px solid rgba(144,96,240,0.3);
   }
 
-  /* ── 展開予想図（隊列図） ── */
-  .formation-box {
-    background: var(--bg2); border: 1px solid var(--border2);
-    border-radius: 10px; padding: 14px; margin-bottom: 20px;
-    overflow-x: auto;
-  }
-  .formation-label { font-size: 9px; font-weight: 700; letter-spacing: 0.15em; color: var(--text3); margin-bottom: 12px; }
-  .formation-track { display: flex; align-items: stretch; gap: 0; min-width: 500px; position: relative; }
-  .formation-group {
-    flex: 1; padding: 8px 6px; border-right: 1px dashed var(--border2);
-    display: flex; flex-direction: column; gap: 4px;
-  }
-  .formation-group:last-child { border-right: none; }
-  .formation-group-label {
-    font-size: 10px; font-weight: 700; text-align: center; margin-bottom: 6px;
-    padding-bottom: 4px; border-bottom: 1px solid var(--border);
-  }
-  .fg-nige { color: var(--red); }
-  .fg-senko { color: var(--orange); }
-  .fg-sashi { color: var(--blue); }
-  .fg-oikomi { color: var(--purple); }
-  .formation-horse {
-    display: flex; align-items: center; gap: 5px;
-    background: var(--bg3); border-radius: 5px; padding: 4px 6px;
-    font-size: 11px;
-  }
-  .formation-umaban {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 18px; height: 18px; border-radius: 50%; font-size: 10px; font-weight: 700;
-    flex-shrink: 0;
-  }
-  .formation-arrow {
-    position: absolute; bottom: -6px; left: 10px; right: 10px;
-    font-size: 9px; color: var(--text3); text-align: center;
-  }
+  
+
+  /* ── 展開予想（位置取り） ── */
+  .formation-box { background: var(--bg2); border: 1px solid var(--border2); border-radius: 10px; padding: 14px; margin-bottom: 0; }
+  .fm-pace { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-left: 3px solid; border-radius: 4px; background: var(--bg3); margin-bottom: 14px; }
+  .fm-pace-tag { font-size: 11px; font-weight: 900; color: #fff; padding: 2px 10px; border-radius: 4px; flex-shrink: 0; }
+  .fm-pace-desc { font-size: 11px; color: var(--text2); line-height: 1.5; }
+  .fm-phase { margin-bottom: 12px; }
+  .fm-phase-head { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .fm-phase-sub { font-size: 9px; color: var(--text3); margin-left: 8px; font-weight: 400; }
+  .fm-phase-body { display: flex; align-items: center; gap: 8px; }
+  .fm-pos { font-size: 9px; color: var(--text3); flex-shrink: 0; }
+  .fm-horses { display: flex; gap: 4px; flex-wrap: wrap; flex: 1; padding: 6px 8px; background: var(--bg3); border-radius: 6px; }
+  .fm-chip { display: inline-flex; align-items: center; gap: 3px; font-size: 10px; color: var(--text2); background: var(--bg4); padding: 2px 6px 2px 2px; border-radius: 10px; }
+  .fm-num { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; font-size: 9px; font-weight: 700; }
+  .fm-korner { margin-top: 10px; padding: 10px; background: rgba(200,168,74,0.06); border: 1px solid rgba(200,168,74,0.2); border-radius: 6px; font-size: 11px; color: var(--text); line-height: 1.6; }
   @media (max-width: 600px) {
     .sidebar { width: 150px; }
     .reco-grid { grid-template-columns: 1fr; }
@@ -529,6 +510,7 @@ let horseCommentCache = {};
 let currentSort = 'ability'; // 'ability' | 'sp' | 'agari'
 let viewMode = 'ai'; // 'data' | 'ai'
 let recoCollapsed = true;  // デフォルト非表示
+let formationCollapsed = true;  // 展開予想もデフォルト非表示
 let dataSortKey = 'umaban';   // 馬データ：デフォルト馬番順
 let dataSortDesc = false;
 let aiSortKey = 'ability';    // AI分析：デフォルト勝率順
@@ -725,7 +707,13 @@ function buildPanel(race) {
 
     ${race.skip ? `<div class="skip-notice"><span>—</span>馬券見送り推奨。馬の能力評価のみ表示します。</div>` : ''}
 
-    ${buildFormation(race)}
+    <div class="collapse-header${formationCollapsed?' collapsed':''}" onclick="toggleFormation(this)">
+      <span class="collapse-icon">▼</span>
+      <span class="section-label" style="margin:0;border:none">展開予想</span>
+    </div>
+    <div class="collapse-body${formationCollapsed?' hidden':''}" style="max-height:2000px;margin-bottom:20px">
+      ${buildFormation(race)}
+    </div>
 
     <!-- 推奨馬券（券種選択も折りたたみ対象。地力モードでは非表示） -->
     ${!race.skip && profile !== 'jiriki' ? `
@@ -990,6 +978,13 @@ function toggleReco(headerEl) {
   if (body) body.classList.toggle('hidden', recoCollapsed);
 }
 
+function toggleFormation(headerEl) {
+  formationCollapsed = !formationCollapsed;
+  headerEl.classList.toggle('collapsed', formationCollapsed);
+  const body = headerEl.nextElementSibling;
+  if (body) body.classList.toggle('hidden', formationCollapsed);
+}
+
 function sortByColumn(raceId, key) {
   if (dataSortKey === key) {
     dataSortDesc = !dataSortDesc;
@@ -1112,45 +1107,78 @@ function sortHorses(race, sortKey) {
 
 
 
-// ── 展開予想図（隊列図） ──────────────────────────────────
+// ── 展開予想（位置取り・ペース脚色） ────────────────────────
 function buildFormation(race) {
-  const groups = { 0:[], 1:[], 2:[], 3:[] }; // 逃げ/先行/差し/追込
-  (race.horses||[]).forEach(h => {
+  const horses = race.horses || [];
+  const groups = { 0:[], 1:[], 2:[], 3:[] };
+  horses.forEach(h => {
     const k = h.kyakushitsu_code;
-    if (groups[k]) groups[k].push(h);
-    else groups[1].push(h);
+    (groups[k] !== undefined ? groups[k] : groups[1]).push(h);
   });
+  Object.keys(groups).forEach(k => groups[k].sort((a,b)=>(b.p_ability||0)-(a.p_ability||0)));
 
-  const wakuColor = w => {
-    const colors = ['','#f0f0f0','#333','#c4302b','#1864c8','#c8a020','#2a8c4a','#d4691e','#c850a0'];
-    return colors[w] || '#555';
-  };
-  const wakuText = w => (w===1||w===5) ? '#111' : '#fff';
+  const nige=groups[0].length, senko=groups[1].length, sashi=groups[2].length, oikomi=groups[3].length;
+  const total = Math.max(horses.length,1);
+  const frontRatio = (nige+senko)/total;
 
-  const renderGroup = (label, cls, horses) => {
-    const items = horses
-      .sort((a,b) => (b.p_ability||0)-(a.p_ability||0))
-      .map(h => `<div class="formation-horse">
-        <span class="formation-umaban" style="background:${wakuColor(h.waku)};color:${wakuText(h.waku)}">${h.umaban}</span>
-        <span style="color:var(--text)">${h.horse_name.slice(0,6)}</span>
-      </div>`).join('');
-    return `<div class="formation-group">
-      <div class="formation-group-label ${cls}">${label}<br><span style="font-size:9px;color:var(--text3)">${horses.length}頭</span></div>
-      ${items || '<div style="font-size:10px;color:var(--text3);text-align:center">—</div>'}
+  // ペース判定
+  let pace, paceColor, paceDesc, korner4;
+  if (nige>=2 || frontRatio>=0.55) {
+    pace='ハイペース'; paceColor='var(--red)';
+    paceDesc=`逃げ${nige}・先行${senko}頭と前が多く、先行争いが激化。前半から速い流れに。`;
+    korner4='前崩れ→差し・追込が台頭。最終コーナーで先行勢は脚が上がり、後方待機馬が一気に詰める展開。';
+  } else if (nige===0 && senko<=2) {
+    pace='スローペース'; paceColor='var(--blue)';
+    paceDesc=`明確な逃げ馬不在でペースが上がらず、団子状態のまま中盤へ。`;
+    korner4='瞬発力勝負。最終コーナーで好位の馬が余力を残し、直線で抜け出す。後方は届きにくい。';
+  } else {
+    pace='平均ペース'; paceColor='var(--gold)';
+    paceDesc=`隊列が落ち着き、淀みのない流れ。`;
+    korner4='地力勝負。最終コーナーで各馬の力が問われ、コース取りと脚質の総合力が決め手。';
+  }
+
+  const wakuColor = w => ['','#f0f0f0','#333','#c4302b','#1864c8','#c8a020','#2a8c4a','#d4691e','#c850a0'][w]||'#555';
+  const wakuTextC = w => (w===1||w===5)?'#111':'#fff';
+  const chip = h => `<span class="fm-chip" title="${h.horse_name}">
+      <span class="fm-num" style="background:${wakuColor(h.waku)};color:${wakuTextC(h.waku)}">${h.umaban}</span>${h.horse_name.slice(0,5)}</span>`;
+
+  // 位置取り3段階（スタート/中盤/最終直線）
+  // ハイペースなら最終直線で差し・追込が前に出る
+  const startOrder = [...groups[0], ...groups[1], ...groups[2], ...groups[3]];
+  let finalOrder;
+  if (pace==='ハイペース') {
+    // 差し・追込が前、先行勢は後退
+    finalOrder = [...groups[2], ...groups[3], ...groups[1], ...groups[0]];
+  } else if (pace==='スローペース') {
+    // 先行勢がそのまま残る
+    finalOrder = [...groups[0], ...groups[1], ...groups[2], ...groups[3]];
+  } else {
+    finalOrder = [...groups[1], ...groups[0], ...groups[2], ...groups[3]];
+  }
+
+  const phase = (label, sublabel, horsesArr) => `
+    <div class="fm-phase">
+      <div class="fm-phase-head">${label}<span class="fm-phase-sub">${sublabel}</span></div>
+      <div class="fm-phase-body">
+        <span class="fm-pos">前</span>
+        <div class="fm-horses">${horsesArr.map(chip).join('')}</div>
+        <span class="fm-pos">後</span>
+      </div>
     </div>`;
-  };
 
   return `<div class="formation-box">
-    <div class="formation-label">展開予想図（脚質別の隊列イメージ）</div>
-    <div class="formation-track">
-      ${renderGroup('逃げ','fg-nige',groups[0])}
-      ${renderGroup('先行','fg-senko',groups[1])}
-      ${renderGroup('差し','fg-sashi',groups[2])}
-      ${renderGroup('追込','fg-oikomi',groups[3])}
-      <div class="formation-arrow">← ゴール　　　スタート →</div>
+    <div class="fm-pace" style="border-color:${paceColor}">
+      <span class="fm-pace-tag" style="background:${paceColor}">${pace}</span>
+      <span class="fm-pace-desc">${paceDesc}</span>
     </div>
+    ${phase('スタート〜1コーナー','先行争い',startOrder)}
+    ${phase('向正面〜3コーナー','隊列確定',startOrder)}
+    ${phase('最終コーナー〜直線','ここで勝負が決まる',finalOrder)}
+    <div class="fm-korner">🏁 ${korner4}</div>
   </div>`;
 }
+
+
 
 // ── 危険な人気馬・消し候補の判定 ────────────────────────────
 function calcDangerFlags(race) {
@@ -1168,44 +1196,7 @@ function calcDangerFlags(race) {
 
     
 // ── 展開予想図（隊列図） ──────────────────────────────────
-function buildFormation(race) {
-  const groups = { 0:[], 1:[], 2:[], 3:[] }; // 逃げ/先行/差し/追込
-  (race.horses||[]).forEach(h => {
-    const k = h.kyakushitsu_code;
-    if (groups[k]) groups[k].push(h);
-    else groups[1].push(h);
-  });
 
-  const wakuColor = w => {
-    const colors = ['','#f0f0f0','#333','#c4302b','#1864c8','#c8a020','#2a8c4a','#d4691e','#c850a0'];
-    return colors[w] || '#555';
-  };
-  const wakuText = w => (w===1||w===5) ? '#111' : '#fff';
-
-  const renderGroup = (label, cls, horses) => {
-    const items = horses
-      .sort((a,b) => (b.p_ability||0)-(a.p_ability||0))
-      .map(h => `<div class="formation-horse">
-        <span class="formation-umaban" style="background:${wakuColor(h.waku)};color:${wakuText(h.waku)}">${h.umaban}</span>
-        <span style="color:var(--text)">${h.horse_name.slice(0,6)}</span>
-      </div>`).join('');
-    return `<div class="formation-group">
-      <div class="formation-group-label ${cls}">${label}<br><span style="font-size:9px;color:var(--text3)">${horses.length}頭</span></div>
-      ${items || '<div style="font-size:10px;color:var(--text3);text-align:center">—</div>'}
-    </div>`;
-  };
-
-  return `<div class="formation-box">
-    <div class="formation-label">展開予想図（脚質別の隊列イメージ）</div>
-    <div class="formation-track">
-      ${renderGroup('逃げ','fg-nige',groups[0])}
-      ${renderGroup('先行','fg-senko',groups[1])}
-      ${renderGroup('差し','fg-sashi',groups[2])}
-      ${renderGroup('追込','fg-oikomi',groups[3])}
-      <div class="formation-arrow">← ゴール　　　スタート →</div>
-    </div>
-  </div>`;
-}
 
 // ── 危険な人気馬 ──
     if (isPopular) {
@@ -1441,6 +1432,37 @@ function openModal(raceId, horseName) {
   }
 
   document.getElementById('modalOverlay').classList.add('open');
+
+  // ── 反対モードの概要を追加表示 ──
+  // 馬柱モード時 → AI分析の概要（ランク） / AI分析モード時 → 馬柱概要（過去走）
+  const crossDiv = document.createElement('div');
+  crossDiv.className = 'modal-param-section';
+  if (viewMode === 'data') {
+    // 馬柱を見てる → AI分析概要を出す
+    const ranks = calcParamRanks(horse, race.horses || []);
+    const rankHtml = Object.entries(ranks).map(([l,r]) =>
+      `<div class="param-item"><div class="param-label">${l}</div><div class="param-rank rank-${r.toLowerCase()}">${r}</div></div>`).join('');
+    crossDiv.innerHTML = `<div class="section-label" style="margin-top:14px">AI分析の概要</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:8px">
+        AI勝率 <strong style="color:var(--gold)">${horse.p_ability?.toFixed(1)}%</strong> ·
+        複勝率 <strong style="color:var(--green)">${horse.p_place?.toFixed(1)}%</strong> ·
+        EV <strong>${horse.ev_tansho?.toFixed(2)??'—'}</strong></div>
+      <div class="param-grid">${rankHtml}</div>`;
+  } else {
+    // AI分析を見てる → 馬柱概要（過去3走）を出す
+    const past = (horse.past_races||[]).slice(0,3).map(p => {
+      const ch = p.chakujun===1?'chaku-1':p.chakujun===2?'chaku-2':p.chakujun===3?'chaku-3':'chaku-x';
+      return `<div style="display:flex;gap:8px;font-size:11px;padding:5px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text3);min-width:80px">${p.date||''} ${p.place||''}</span>
+        <span>${p.surface||''}${p.distance||''}</span>
+        <span class="sb-past-chaku ${ch}" style="font-size:13px">${p.chakujun||'—'}着</span>
+        <span style="color:var(--text2)">${p.time||''} 上${p.agari||'—'}</span>
+      </div>`;
+    }).join('') || '<div style="color:var(--text3);font-size:11px">過去走データなし</div>';
+    crossDiv.innerHTML = `<div class="section-label" style="margin-top:14px">馬柱（直近3走）</div>${past}
+      <div style="font-size:11px;color:var(--text2);margin-top:6px">調教: ${horse.training_comment||'データなし'}</div>`;
+  }
+  document.getElementById('modalComment').after(crossDiv);
 }
 
 function closeModal(e) {
