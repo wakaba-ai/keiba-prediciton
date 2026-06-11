@@ -364,10 +364,11 @@
   /* ── AIモードランク表 ── */
   .rank-table { width: 100%; border-collapse: collapse; font-size: 12px; }
   .rank-table th {
-    padding: 7px 6px; font-size: 9px; font-weight: 700; color: var(--text3);
+    padding: 7px 6px; font-size: 9px; font-weight: 700; color: var(--green);
     border-bottom: 1px solid var(--border); text-align: center; white-space: nowrap;
   }
-  .rank-table th .weight { color: var(--green); font-size: 8px; display: block; }
+  .rank-table th .weight { color: var(--green); font-size: 8px; display: block; opacity: 0.7; }
+  .rank-table th.sorted-active, .rank-table th.sorted-active .weight { color: var(--gold) !important; opacity: 1; }
   .rank-table td {
     padding: 8px 6px; border-bottom: 1px solid var(--border);
     text-align: center; cursor: pointer;
@@ -441,6 +442,22 @@
   .fm-pace { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-left: 3px solid; border-radius: 4px; background: var(--bg3); margin-bottom: 14px; }
   .fm-pace-tag { font-size: 11px; font-weight: 900; color: #fff; padding: 2px 10px; border-radius: 4px; flex-shrink: 0; }
   .fm-pace-desc { font-size: 11px; color: var(--text2); line-height: 1.5; }
+  .fm-turn { font-size: 10px; color: var(--text3); border: 1px solid var(--border2); padding: 1px 8px; border-radius: 4px; margin-left: auto; }
+  .fm-phase-btns { display: flex; gap: 6px; margin-bottom: 12px; }
+  .fm-pbtn { flex: 1; padding: 6px 4px; font-size: 11px; font-weight: 700; cursor: pointer; border: 1px solid var(--border2); background: transparent; color: var(--text2); border-radius: 6px; font-family: 'Noto Sans JP', sans-serif; transition: all 0.15s; }
+  .fm-pbtn.active { border-color: var(--gold); color: var(--gold); background: rgba(200,168,74,0.1); }
+  .fm-goal-arrow { font-size: 10px; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+  .fm-field { display: flex; gap: 0; background: linear-gradient(90deg, rgba(74,173,120,0.04), transparent); border-radius: 8px; padding: 4px; overflow-x: auto; }
+  .fm-col { flex: 1; min-width: 68px; padding: 6px 4px; border-right: 1px dashed var(--border); }
+  .fm-col:last-child { border-right: none; }
+  .fm-col-label { font-size: 9px; color: var(--text3); text-align: center; margin-bottom: 8px; font-weight: 700; }
+  .fm-col-horses { display: flex; flex-direction: column; gap: 5px; }
+  .fm-field-horse { display: flex; align-items: center; gap: 4px; }
+  .fm-num { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+  .fm-hname { font-size: 10px; color: var(--text2); white-space: nowrap; }
+  .fm-stamina { flex: 1; height: 3px; background: var(--border2); border-radius: 2px; min-width: 18px; }
+  .fm-stamina-fill { height: 100%; border-radius: 2px; }
+  .fm-legend { font-size: 9px; color: var(--text3); margin-top: 10px; }
   .fm-phase { margin-bottom: 12px; }
   .fm-phase-head { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
   .fm-phase-sub { font-size: 9px; color: var(--text3); margin-left: 8px; font-weight: 400; }
@@ -949,7 +966,18 @@ function buildHorseTable(race, sortKey) {
       ${sb('baba','馬場','適性')}
     </tr></thead>
     <tbody>${rows}</tbody>
-  </table>`;
+  </table>
+  <details style="margin-top:10px;font-size:11px;color:var(--text3)">
+    <summary style="cursor:pointer;color:var(--text2)">📖 項目の見方</summary>
+    <div style="padding:8px 4px;line-height:1.8">
+      <div><strong>マイニング</strong>：JRA-VANのAI予想指数。過去データから算出された各馬の能力推定値（高いほど好評価）。</div>
+      <div><strong>速度(SP指数)</strong>：過去走のタイムを馬場・距離で標準化した独自スピード指数。</div>
+      <div><strong>枠順バイアス</strong>：このコース（場所×距離）で内/中/外枠がどれだけ有利か、過去40万走の連対率から算出。馬自身でなくコース傾向を表す。</div>
+      <div><strong>調教(追切)</strong>：坂路・ウッドの最新追い切り終い1Fタイムを評価。</div>
+      <div><strong>血統(距離適性)</strong>：その馬の父（種牡馬）の、この距離帯での産駒複勝率。</div>
+      <div><strong>ランクS〜D</strong>：全てこのレース内での相対評価。「—」はデータ不足/全馬同値で比較不能。</div>
+    </div>
+  </details>`;
 }
 
 
@@ -1058,14 +1086,15 @@ function buildDataTable(race) {
       <td><span class="horse-mark ${m.cls}">${m.mark}</span></td>
       <td class="name-cell">
         <div class="sb-horse-name">${h.horse_name}</div>
-        <div class="sb-sub">${h.jockey||''}(${h.kinryo||''})</div>
+        <div class="sb-sub">${h.sex||''}${h.age||''} ${h.jockey||''}(${h.kinryo||''})</div>
         <div class="sb-sub">${h.sire||''}${h.bms?'×'+h.bms:''}</div>
         <div class="sb-sub">${h.trainer||''}</div>
       </td>
-      <td>${bajuTxt}</td>
+      <td style="font-size:10px" title="前走時の馬体重（参考値）">${bajuTxt}</td>
       <td style="color:var(--orange)">${h.tansho_odds!=null?h.tansho_odds.toFixed(1):'—'}</td>
       <td class="${aiCls}" style="font-weight:900">${h.p_ability!=null?h.p_ability.toFixed(1):'—'}</td>
       <td>${h.mining!=null?h.mining:'—'}</td>
+      <td style="font-size:10px">${trainingRaw(h)}</td>
       <td>${h.prev_speed_index!=null?h.prev_speed_index.toFixed(0):'—'}</td>
       <td>${h.agari_rank_avg!=null?h.agari_rank_avg.toFixed(1):'—'}</td>
       <td>${h.rest_weeks!=null?h.rest_weeks+'W':'—'}</td>
@@ -1076,11 +1105,12 @@ function buildDataTable(race) {
   return `<table class="shinbun-table">
     <thead><tr>
       <th>枠</th>${sortable('umaban','馬番')}<th>印</th>
-      <th>馬名/騎手/血統</th>
-      ${sortable('baju','馬体重')}
+      <th>馬名/性齢/騎手/血統</th>
+      ${sortable('baju','馬体重<br><span style="font-size:8px;opacity:.6">前走参考</span>')}
       ${sortable('odds','オッズ')}
       ${sortable('ability','AI勝率')}
       ${sortable('mining','マイニング')}
+      <th>調教<br><span style="font-size:8px;opacity:.6">終い</span></th>
       ${sortable('sp','SP指数')}
       ${sortable('agari','上がり')}
       ${sortable('rest','間隔')}
@@ -1088,6 +1118,18 @@ function buildDataTable(race) {
     </tr></thead>
     <tbody>${rows}</tbody>
   </table>`;
+}
+
+// 調教の生データ（終いタイム）を表示
+function trainingRaw(h) {
+  if (h.training_comment) {
+    // コメントから時計部分を抜き出して簡潔に
+    const c = h.training_comment;
+    const m = c.match(/(坂路|ウッド)終い([\d.]+)秒/);
+    if (m) return `${m[1].slice(0,1)}${m[2]}`;
+  }
+  if (h.training_score != null) return `${h.training_score.toFixed(0)}点`;
+  return '—';
 }
 
 
@@ -1107,76 +1149,124 @@ function sortHorses(race, sortKey) {
 
 
 
-// ── 展開予想（位置取り・ペース脚色） ────────────────────────
+// ── 展開予想（局面ボタン切替・横向き・実コース向き） ────────
+const RIGHT_TURN = ['中山','阪神','京都','札幌','函館','福島','小倉']; // 右回り
+const LEFT_TURN  = ['東京','中京','新潟']; // 左回り
+
 function buildFormation(race) {
   const horses = race.horses || [];
   const groups = { 0:[], 1:[], 2:[], 3:[] };
-  horses.forEach(h => {
-    const k = h.kyakushitsu_code;
-    (groups[k] !== undefined ? groups[k] : groups[1]).push(h);
-  });
+  horses.forEach(h => { const k=h.kyakushitsu_code; (groups[k]!==undefined?groups[k]:groups[1]).push(h); });
   Object.keys(groups).forEach(k => groups[k].sort((a,b)=>(b.p_ability||0)-(a.p_ability||0)));
 
   const nige=groups[0].length, senko=groups[1].length, sashi=groups[2].length, oikomi=groups[3].length;
-  const total = Math.max(horses.length,1);
-  const frontRatio = (nige+senko)/total;
+  const total=Math.max(horses.length,1);
+  const frontRatio=(nige+senko)/total;
 
-  // ペース判定
-  let pace, paceColor, paceDesc, korner4;
+  let pace, paceColor, paceDesc;
   if (nige>=2 || frontRatio>=0.55) {
     pace='ハイペース'; paceColor='var(--red)';
-    paceDesc=`逃げ${nige}・先行${senko}頭と前が多く、先行争いが激化。前半から速い流れに。`;
-    korner4='前崩れ→差し・追込が台頭。最終コーナーで先行勢は脚が上がり、後方待機馬が一気に詰める展開。';
+    paceDesc='前が多く先行争い激化。差し・追込有利の流れ。';
   } else if (nige===0 && senko<=2) {
     pace='スローペース'; paceColor='var(--blue)';
-    paceDesc=`明確な逃げ馬不在でペースが上がらず、団子状態のまま中盤へ。`;
-    korner4='瞬発力勝負。最終コーナーで好位の馬が余力を残し、直線で抜け出す。後方は届きにくい。';
+    paceDesc='逃げ不在でペース上がらず。前残り・瞬発力勝負。';
   } else {
     pace='平均ペース'; paceColor='var(--gold)';
-    paceDesc=`隊列が落ち着き、淀みのない流れ。`;
-    korner4='地力勝負。最終コーナーで各馬の力が問われ、コース取りと脚質の総合力が決め手。';
+    paceDesc='淀みない流れ。地力とコース取りが鍵。';
   }
 
-  const wakuColor = w => ['','#f0f0f0','#333','#c4302b','#1864c8','#c8a020','#2a8c4a','#d4691e','#c850a0'][w]||'#555';
-  const wakuTextC = w => (w===1||w===5)?'#111':'#fff';
-  const chip = h => `<span class="fm-chip" title="${h.horse_name}">
-      <span class="fm-num" style="background:${wakuColor(h.waku)};color:${wakuTextC(h.waku)}">${h.umaban}</span>${h.horse_name.slice(0,5)}</span>`;
+  const isLeft = LEFT_TURN.includes(race.place);
+  const turnLabel = isLeft ? '左回り（反時計）' : '右回り（時計）';
 
-  // 位置取り3段階（スタート/中盤/最終直線）
-  // ハイペースなら最終直線で差し・追込が前に出る
+  // 局面ごとの隊列を計算（前→後の順、配列の先頭が先頭集団）
   const startOrder = [...groups[0], ...groups[1], ...groups[2], ...groups[3]];
+  const midOrder   = startOrder;
   let finalOrder;
-  if (pace==='ハイペース') {
-    // 差し・追込が前、先行勢は後退
-    finalOrder = [...groups[2], ...groups[3], ...groups[1], ...groups[0]];
-  } else if (pace==='スローペース') {
-    // 先行勢がそのまま残る
-    finalOrder = [...groups[0], ...groups[1], ...groups[2], ...groups[3]];
-  } else {
-    finalOrder = [...groups[1], ...groups[0], ...groups[2], ...groups[3]];
+  if (pace==='ハイペース')      finalOrder=[...groups[2],...groups[3],...groups[1],...groups[0]];
+  else if (pace==='スローペース') finalOrder=[...groups[0],...groups[1],...groups[2],...groups[3]];
+  else                          finalOrder=[...groups[1],...groups[0],...groups[2],...groups[3]];
+
+  // 脚の溜まり（最終直線での伸び代）= 後方脚質ほど溜まってる × ハイペースで増幅
+  const stamina = h => {
+    let base = {0:20,1:40,2:75,3:90}[h.kyakushitsu_code] ?? 50;
+    if (pace==='ハイペース' && h.kyakushitsu_code>=2) base=Math.min(100,base+15);
+    if (pace==='スローペース' && h.kyakushitsu_code<=1) base=Math.min(100,base+15);
+    return base;
+  };
+
+  const wakuColor=w=>['','#f0f0f0','#333','#c4302b','#1864c8','#c8a020','#2a8c4a','#d4691e','#c850a0'][w]||'#555';
+  const wakuTextC=w=>(w===1||w===5)?'#111':'#fff';
+
+  // 横向き隊列を描画（左回り=ゴール左、右回り=ゴール右）
+  function renderField(order, showStamina) {
+    // 前後をグループ化（先頭集団/好位/中団/後方）
+    const n = order.length;
+    const segs = [
+      { label:'先頭', horses: order.slice(0, Math.ceil(n*0.2)) },
+      { label:'好位', horses: order.slice(Math.ceil(n*0.2), Math.ceil(n*0.45)) },
+      { label:'中団', horses: order.slice(Math.ceil(n*0.45), Math.ceil(n*0.72)) },
+      { label:'後方', horses: order.slice(Math.ceil(n*0.72)) },
+    ];
+    let cols = segs.map(seg => `
+      <div class="fm-col">
+        <div class="fm-col-label">${seg.label}</div>
+        <div class="fm-col-horses">
+          ${seg.horses.map(h=>{
+            const st = showStamina ? stamina(h) : null;
+            const stBar = st!==null ? `<div class="fm-stamina"><div class="fm-stamina-fill" style="width:${st}%;background:${st>=75?'var(--green)':st>=45?'var(--gold)':'var(--text3)'}"></div></div>` : '';
+            return `<div class="fm-field-horse">
+              <span class="fm-num" style="background:${wakuColor(h.waku)};color:${wakuTextC(h.waku)}">${h.umaban}</span>
+              <span class="fm-hname">${h.horse_name.slice(0,5)}</span>
+              ${stBar}
+            </div>`;
+          }).join('')}
+        </div>
+      </div>`).join('');
+    // 右回りは隊列を反転（ゴールが右）
+    const arrow = isLeft
+      ? '<div class="fm-goal-arrow">◀ ゴール</div>'
+      : '<div class="fm-goal-arrow" style="text-align:right">ゴール ▶</div>';
+    const colsArr = isLeft ? cols : `<div style="display:flex;flex-direction:row-reverse;flex:1;gap:0">${cols}</div>`;
+    return `${arrow}<div class="fm-field">${isLeft?cols:colsArr}</div>`;
   }
 
-  const phase = (label, sublabel, horsesArr) => `
-    <div class="fm-phase">
-      <div class="fm-phase-head">${label}<span class="fm-phase-sub">${sublabel}</span></div>
-      <div class="fm-phase-body">
-        <span class="fm-pos">前</span>
-        <div class="fm-horses">${horsesArr.map(chip).join('')}</div>
-        <span class="fm-pos">後</span>
-      </div>
-    </div>`;
+  const phases = {
+    start: renderField(startOrder, false),
+    mid:   renderField(midOrder, false),
+    final: renderField(finalOrder, true),
+  };
 
   return `<div class="formation-box">
     <div class="fm-pace" style="border-color:${paceColor}">
       <span class="fm-pace-tag" style="background:${paceColor}">${pace}</span>
       <span class="fm-pace-desc">${paceDesc}</span>
+      <span class="fm-turn">${turnLabel}</span>
     </div>
-    ${phase('スタート〜1コーナー','先行争い',startOrder)}
-    ${phase('向正面〜3コーナー','隊列確定',startOrder)}
-    ${phase('最終コーナー〜直線','ここで勝負が決まる',finalOrder)}
-    <div class="fm-korner">🏁 ${korner4}</div>
+    <div class="fm-phase-btns">
+      <button class="fm-pbtn active" data-ph="start" onclick="switchPhase('${race.race_id}','start',this)">スタート〜1角</button>
+      <button class="fm-pbtn" data-ph="mid" onclick="switchPhase('${race.race_id}','mid',this)">向正面〜3角</button>
+      <button class="fm-pbtn" data-ph="final" onclick="switchPhase('${race.race_id}','final',this)">最終直線</button>
+    </div>
+    <div id="fm-field-${race.race_id}" class="fm-field-wrap" 
+         data-start='${encodeURIComponent(phases.start)}'
+         data-mid='${encodeURIComponent(phases.mid)}'
+         data-final='${encodeURIComponent(phases.final)}'>
+      ${phases.start}
+    </div>
+    <div class="fm-legend">脚ゲージ：最終直線での伸び代（緑=溜まり十分 / 金=平均 / 灰=苦しい）</div>
   </div>`;
 }
+
+function switchPhase(raceId, phase, btn) {
+  document.querySelectorAll(`#fm-field-${raceId}`).forEach(()=>{});
+  const wrap = document.getElementById(`fm-field-${raceId}`);
+  if (!wrap) return;
+  wrap.innerHTML = decodeURIComponent(wrap.dataset[phase]);
+  // ボタンactive切替
+  btn.parentElement.querySelectorAll('.fm-pbtn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
 
 
 
@@ -1220,19 +1310,22 @@ function calcDangerFlags(race) {
     if ((h.age || 0) >= 7) killReasons.push('高齢');
 
     // ── 穴要素（注目ポジティブ要素）──
-    const upsetFactors = [];
-    if (h.jockey_changed) upsetFactors.push('乗替');
-    if (h.blinker_first)  upsetFactors.push('初B');
-    if ((h.dist_diff || 0) <= -200) upsetFactors.push('短縮');
-    if ((h.dist_diff || 0) >= 200)  upsetFactors.push('延長');
-    // 人気薄（6番人気以下）でAI評価が高い
+    // テーブルのバッジは「妙味」のみ（紫が多すぎて見づらいため厳選）
+    // 乗替/初B/短縮/延長はモーダル詳細でのみ表示
+    const upsetDetail = [];
+    if (h.jockey_changed) upsetDetail.push('乗替');
+    if (h.blinker_first)  upsetDetail.push('初ブリンカー');
+    if ((h.dist_diff || 0) <= -200) upsetDetail.push('距離短縮');
+    if ((h.dist_diff || 0) >= 200)  upsetDetail.push('距離延長');
     const ninki = ninkiRank[h.horse_name] || 99;
-    if (ninki >= 6 && (h.p_ability || 0) >= 8) upsetFactors.push('妙味');
+    const upsetBadge = [];
+    if (ninki >= 6 && (h.p_ability || 0) >= 8) upsetBadge.push('妙味');
 
     flags[h.horse_name] = {
       danger: reasons,        // 危険な人気馬の理由
       kill: killReasons,      // 消し候補の理由
-      upset: upsetFactors,    // 穴要素
+      upset: upsetBadge,      // テーブル表示用（妙味のみ）
+      upsetDetail: upsetDetail, // モーダル詳細用
       isPopular: isPopular,
     };
   });
@@ -1273,35 +1366,37 @@ function calcHorseMarks(horses) {
 
 // ── パラメータランク計算（レース内相対）─────────────────
 function calcParamRanks(horse, horses) {
-  function rank(val, arr) {
-    const sorted = [...arr].filter(v => v != null && !isNaN(v)).sort((a,b) => b-a);
-    if (sorted.length === 0) return 'C';
-    const idx = sorted.findIndex(v => v <= val);
-    const pct = idx < 0 ? 1.0 : idx / sorted.length;
-    if (pct <= 0.10) return 'A';
-    if (pct <= 0.30) return 'B';
-    if (pct <= 0.60) return 'C';
-    if (pct <= 0.80) return 'D';
-    return 'E';
+  // AI分析テーブルのrankOfと完全に同じロジック・同じ項目に統一
+  function rankOf(val, arr, reverse) {
+    const valid = arr.filter(v => v != null && !isNaN(v));
+    if (valid.length < 2 || val == null || isNaN(val)) return '—';
+    if (new Set(valid).size === 1) return '—';
+    const below = valid.filter(v => reverse ? v > val : v < val).length;
+    const pct = below / valid.length;
+    if (pct >= 0.85) return 'S';
+    if (pct >= 0.65) return 'A';
+    if (pct >= 0.40) return 'B';
+    if (pct >= 0.20) return 'C';
+    return 'D';
   }
-
-  const allSpd    = horses.map(h => h.prev_speed_index);
-  const allWinR   = horses.map(h => h.p_ability);
-  const allEv     = horses.map(h => h.ev_tansho);
-  const allJockey = horses.map(h => h.jockey_win_rate || 0);
-  const allCourse = horses.map(h => h.course_place_rate || 0);
-
-  // 休養適性: 5-8週が最良、極端に短い/長いはD
-  const rest = horse.rest_weeks || 4;
-  const restRank = (rest >= 3 && rest <= 10) ? 'B' : (rest >= 2 && rest <= 12) ? 'C' : 'D';
+  const arrSpd   = horses.map(h => h.prev_speed_index);
+  const arrJk    = horses.map(h => h.jockey_win_rate);
+  const arrTr    = horses.map(h => h.training_score);
+  const arrRecent= horses.map(h => h.win_rate_last3);
+  const arrBlood = horses.map(h => h.blood_stamina_score);
+  const arrWaku  = horses.map(h => h.waku_win_rate);
+  const arrAgari = horses.map(h => h.agari_rank_avg);
+  const arrBaba  = horses.map(h => h.baba_place_rate);
 
   return {
-    'SP指数':   rank(horse.prev_speed_index, allSpd),
-    'AI勝率':   rank(horse.p_ability, allWinR),
-    '期待値':   rank(horse.ev_tansho || 0, allEv),
-    '騎手':     rank(horse.jockey_win_rate || 0, allJockey),
-    'コース':   rank(horse.course_place_rate || 0, allCourse),
-    'ローテ':   restRank,
+    '速度(SP指数)': rankOf(horse.prev_speed_index, arrSpd),
+    '騎手勝率':     rankOf(horse.jockey_win_rate, arrJk),
+    '調教':         rankOf(horse.training_score, arrTr),
+    '近走3走':      rankOf(horse.win_rate_last3, arrRecent),
+    '血統距離適性': rankOf(horse.blood_stamina_score, arrBlood),
+    '枠順バイアス': rankOf(horse.waku_win_rate, arrWaku),
+    '上がり順位':   rankOf(horse.agari_rank_avg, arrAgari, true),
+    '馬場適性':     rankOf(horse.baba_place_rate, arrBaba),
   };
 }
 
@@ -1346,7 +1441,7 @@ function openModal(raceId, horseName) {
   if (existing) existing.remove();
 
   document.getElementById('modalHorseName').textContent = horseName;
-  document.getElementById('modalJockey').textContent    = horse.jockey || '';
+  document.getElementById('modalJockey').textContent    = `${horse.sex||''}${horse.age||''}歳 ${horse.jockey || ''}`;
   document.getElementById('modalComment').innerHTML =
     `<div class="modal-comment-loading"><div class="spin"></div>&nbsp;AI分析中...</div>`;
 
@@ -1431,25 +1526,16 @@ function openModal(raceId, horseName) {
       </div>`;
   }
 
+  // ── 反対モードの概要 ──
   document.getElementById('modalOverlay').classList.add('open');
-
-  // ── 反対モードの概要を追加表示 ──
-  // 馬柱モード時 → AI分析の概要（ランク） / AI分析モード時 → 馬柱概要（過去走）
-  const crossDiv = document.createElement('div');
-  crossDiv.className = 'modal-param-section';
-  if (viewMode === 'data') {
-    // 馬柱を見てる → AI分析概要を出す
-    const ranks = calcParamRanks(horse, race.horses || []);
-    const rankHtml = Object.entries(ranks).map(([l,r]) =>
-      `<div class="param-item"><div class="param-label">${l}</div><div class="param-rank rank-${r.toLowerCase()}">${r}</div></div>`).join('');
-    crossDiv.innerHTML = `<div class="section-label" style="margin-top:14px">AI分析の概要</div>
-      <div style="font-size:12px;color:var(--text2);margin-bottom:8px">
-        AI勝率 <strong style="color:var(--gold)">${horse.p_ability?.toFixed(1)}%</strong> ·
-        複勝率 <strong style="color:var(--green)">${horse.p_place?.toFixed(1)}%</strong> ·
-        EV <strong>${horse.ev_tansho?.toFixed(2)??'—'}</strong></div>
-      <div class="param-grid">${rankHtml}</div>`;
-  } else {
-    // AI分析を見てる → 馬柱概要（過去3走）を出す
+  // パラメータランク(paramDiv)は常に表示済み。
+  // AI分析モード時のみ、追加で馬柱（過去走）概要を出す。
+  // 馬柱モード時はparamDivがAI分析の中身なので追加不要。
+  const existingCross = document.querySelector('.modal-cross-section');
+  if (existingCross) existingCross.remove();
+  if (viewMode !== 'data') {
+    const crossDiv = document.createElement('div');
+    crossDiv.className = 'modal-cross-section';
     const past = (horse.past_races||[]).slice(0,3).map(p => {
       const ch = p.chakujun===1?'chaku-1':p.chakujun===2?'chaku-2':p.chakujun===3?'chaku-3':'chaku-x';
       return `<div style="display:flex;gap:8px;font-size:11px;padding:5px 0;border-bottom:1px solid var(--border)">
@@ -1461,8 +1547,8 @@ function openModal(raceId, horseName) {
     }).join('') || '<div style="color:var(--text3);font-size:11px">過去走データなし</div>';
     crossDiv.innerHTML = `<div class="section-label" style="margin-top:14px">馬柱（直近3走）</div>${past}
       <div style="font-size:11px;color:var(--text2);margin-top:6px">調教: ${horse.training_comment||'データなし'}</div>`;
+    document.getElementById('modalComment').after(crossDiv);
   }
-  document.getElementById('modalComment').after(crossDiv);
 }
 
 function closeModal(e) {
