@@ -393,12 +393,12 @@
   /* ── 折りたたみセクション ── */
   .collapse-header {
     display: flex; align-items: center; gap: 8px; cursor: pointer;
-    padding: 8px 0; user-select: none;
+    padding: 6px 0; user-select: none;
   }
   .collapse-icon { font-size: 10px; color: var(--text2); transition: transform 0.2s; }
   .collapse-header.collapsed .collapse-icon { transform: rotate(-90deg); }
   .collapse-body { overflow: hidden; transition: max-height 0.3s ease; }
-  .collapse-body.hidden { max-height: 0 !important; }
+  .collapse-body.hidden { max-height: 0 !important; margin: 0 !important; }
 
   /* ── ソート可能ヘッダー ── */
   .sortable { cursor: pointer; user-select: none; position: relative; }
@@ -440,6 +440,10 @@
     background: rgba(144,96,240,0.15); color: var(--purple);
     border: 1px solid rgba(144,96,240,0.3);
   }
+  .tag-myomi   { display:inline-block; font-size:9px; font-weight:700; padding:1px 5px; border-radius:3px; margin-left:3px; background:rgba(144,96,240,0.15); color:var(--purple); border:1px solid rgba(144,96,240,0.3); }
+  .tag-jockey  { display:inline-block; font-size:9px; font-weight:700; padding:1px 5px; border-radius:3px; margin-left:3px; background:rgba(72,152,248,0.15); color:var(--blue); border:1px solid rgba(72,152,248,0.3); }
+  .tag-blinker { display:inline-block; font-size:9px; font-weight:700; padding:1px 5px; border-radius:3px; margin-left:3px; background:rgba(74,173,120,0.15); color:var(--green); border:1px solid rgba(74,173,120,0.3); }
+  .tag-dist    { display:inline-block; font-size:9px; font-weight:700; padding:1px 5px; border-radius:3px; margin-left:3px; background:rgba(240,120,48,0.15); color:var(--orange); border:1px solid rgba(240,120,48,0.3); }
 
   
 
@@ -1046,10 +1050,10 @@ function buildHorseTable(race, sortKey) {
 
     const rk = r => `<td><span class="rank-cell rk-${r==='—'?'none':r.toLowerCase()}">${r}</span></td>`;
 
-    const df = dangerFlags[h.horse_name] || { danger:[], kill:[], upset:[] };
+    const df = dangerFlags[h.horse_name] || { danger:[], kill:[], tags:[] };
     const dangerBadge = df.danger.length ? `<span class="danger-flag">危険</span>` : '';
     const killBadge   = df.kill.length ? `<span class="kill-flag">消</span>` : '';
-    const upsetBadges = (df.upset||[]).map(u => `<span class="upset-flag">${u}</span>`).join('');
+    const upsetBadges = (df.tags||[]).map(t => `<span class="${t.c}">${t.t}</span>`).join('');
     return `<tr onclick="openModal('${race.race_id}','${h.horse_name}')">
       <td style="text-align:left;white-space:nowrap">
         <span class="horse-mark ${m.cls}" style="margin-right:4px">${m.mark}</span>
@@ -1218,14 +1222,14 @@ function buildAICards(race) {
 
   return sortBar + `<div class="mcard-list">${horses.map(h=>{
     const m=marks[h.horse_name]||{mark:'－',cls:'mark-none'};
-    const df=dangerFlags[h.horse_name]||{danger:[],kill:[],upset:[]};
+    const df=dangerFlags[h.horse_name]||{danger:[],kill:[],tags:[]};
     const prob=isPlace?h.p_place:h.p_ability;
     const ev=isPlace?h.ev_fukusho:h.ev_tansho;
     const odds=isPlace?h.fukusho_odds:h.tansho_odds;
     const kyaku=['逃','先','差','追'][h.kyakushitsu_code]||'先';
     const badges=[...(df.danger.length?['<span class="danger-flag">危険</span>']:[]),
                   ...(df.kill.length?['<span class="kill-flag">消</span>']:[]),
-                  ...(df.upset||[]).map(u=>`<span class="upset-flag">${u}</span>`)].join('');
+                  ...(df.tags||[]).map(t=>`<span class="${t.c}">${t.t}</span>`)].join('');
     const rk=(label,val,a,rev)=>{const r=rankOf(val,a,rev);return `<div class="mcard-rk"><span>${label}</span><span class="rank-cell rk-${r==='—'?'none':r.toLowerCase()}">${r}</span></div>`;};
     return `<div class="mcard" onclick="openModal('${race.race_id}','${h.horse_name}')">
       <div class="mcard-head">
@@ -1541,21 +1545,21 @@ function calcDangerFlags(race) {
 
     // ── 穴要素（注目ポジティブ要素）──
     // テーブルのバッジは「妙味」のみ（紫が多すぎて見づらいため厳選）
-    // 乗替/初B/短縮/延長はモーダル詳細でのみ表示
-    const upsetDetail = [];
-    if (h.jockey_changed) upsetDetail.push('乗替');
-    if (h.blinker_first)  upsetDetail.push('初ブリンカー');
-    if ((h.dist_diff || 0) <= -200) upsetDetail.push('距離短縮');
-    if ((h.dist_diff || 0) >= 200)  upsetDetail.push('距離延長');
+    // 穴要素タグ（タイプ別に色分け）
+    const tags = [];
     const ninki = ninkiRank[h.horse_name] || 99;
-    const upsetBadge = [];
-    if (ninki >= 6 && (h.p_ability || 0) >= 8) upsetBadge.push('妙味');
+    if (ninki >= 6 && (h.p_ability || 0) >= 8) tags.push({t:'妙味', c:'tag-myomi'});
+    if (h.jockey_changed) tags.push({t:'乗替', c:'tag-jockey'});
+    if (h.blinker_first)  tags.push({t:'初B', c:'tag-blinker'});
+    if ((h.dist_diff || 0) <= -200) tags.push({t:'短縮', c:'tag-dist'});
+    if ((h.dist_diff || 0) >= 200)  tags.push({t:'延長', c:'tag-dist'});
 
     flags[h.horse_name] = {
       danger: reasons,        // 危険な人気馬の理由
       kill: killReasons,      // 消し候補の理由
-      upset: upsetBadge,      // テーブル表示用（妙味のみ）
-      upsetDetail: upsetDetail, // モーダル詳細用
+      tags: tags,             // 穴要素タグ（色分け）
+      upset: tags.map(x=>x.t),    // 後方互換
+      upsetDetail: tags.map(x=>x.t),
       isPopular: isPopular,
     };
   });
