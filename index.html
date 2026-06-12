@@ -397,7 +397,7 @@
   }
   .collapse-icon { font-size: 10px; color: var(--text2); transition: transform 0.2s; }
   .collapse-header.collapsed .collapse-icon { transform: rotate(-90deg); }
-  .collapse-body { overflow: hidden; transition: max-height 0.3s ease; }
+  .collapse-body { overflow: hidden; transition: max-height 0.3s ease; max-height: 4000px; }
   .collapse-body.hidden { max-height: 0 !important; margin: 0 !important; }
 
   /* ── ソート可能ヘッダー ── */
@@ -853,7 +853,7 @@ function buildPanel(race) {
       <span class="collapse-icon">▼</span>
       <span class="section-label" style="margin:0;border:none">展開予想</span>
     </div>
-    <div class="collapse-body${formationCollapsed?' hidden':''}" style="max-height:2000px;margin-bottom:20px">
+    <div class="collapse-body${formationCollapsed?' hidden':''}" style="margin-bottom:20px">
       ${buildFormation(race)}
     </div>
 
@@ -863,7 +863,7 @@ function buildPanel(race) {
       <span class="collapse-icon">▼</span>
       <span class="section-label" style="margin:0;border:none">推奨馬券</span>
     </div>
-    <div class="collapse-body${recoCollapsed?' hidden':''}" style="max-height:2000px">
+    <div class="collapse-body${recoCollapsed?' hidden':''}">
       <div class="bet-selector">
         ${['単勝','複勝','馬連','馬単','ワイド','三連複','三連単'].map(bt =>
           `<button class="bet-type-btn${(betFilter===null||betFilter===bt)?' active':''}" data-bt="${bt}" onclick="toggleBetType('${bt}')">${bt}</button>`
