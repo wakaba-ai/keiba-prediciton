@@ -467,8 +467,104 @@
   .fm-chip { display: inline-flex; align-items: center; gap: 3px; font-size: 10px; color: var(--text2); background: var(--bg4); padding: 2px 6px 2px 2px; border-radius: 10px; }
   .fm-num { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; font-size: 9px; font-weight: 700; }
   .fm-korner { margin-top: 10px; padding: 10px; background: rgba(200,168,74,0.06); border: 1px solid rgba(200,168,74,0.2); border-radius: 6px; font-size: 11px; color: var(--text); line-height: 1.6; }
-  @media (max-width: 600px) {
-    .sidebar { width: 150px; }
+  /* ── ハンバーガー（PCでは非表示） ── */
+  .hamburger {
+    display: none; background: transparent; border: none; color: var(--text);
+    font-size: 22px; cursor: pointer; padding: 0 12px 0 0; line-height: 1;
+  }
+  .drawer-backdrop {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+    z-index: 90;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger { display: block; }
+    .header { padding: 0 10px; gap: 6px; flex-wrap: nowrap; }
+    .logo { font-size: 13px; letter-spacing: 0.05em; }
+    .header-date { display: none; }
+    .header-right { gap: 4px; }
+    .btn { padding: 5px 8px !important; font-size: 10px !important; }
+    .btn-refresh { padding: 5px 8px; font-size: 11px; }
+
+    /* サイドバーをドロアー化 */
+    .layout { display: block; height: auto; }
+    .sidebar {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: 78%; max-width: 300px; z-index: 100;
+      background: var(--bg); border-right: 1px solid var(--border);
+      transform: translateX(-100%); transition: transform 0.25s ease;
+      padding-top: 50px;
+    }
+    .sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,0.4); }
+    .drawer-backdrop.open { display: block; }
+    .venue-bar { padding: 10px; }
+    .venue-btn { padding: 6px 12px; font-size: 12px; }
+    .race-item { padding: 12px 14px; }
+
+    .content { padding: 12px 10px 60px; }
+
+    /* レースヘッダー */
+    .race-title { font-size: 16px; }
+
+    /* AI分析テーブル：横スクロール＋馬名列固定 */
+    .rank-table { font-size: 11px; }
+    .rank-table th, .rank-table td { padding: 7px 4px; }
+    .rank-table th:first-child, .rank-table td:first-child {
+      position: sticky; left: 0; z-index: 2;
+      background: var(--bg); box-shadow: 2px 0 4px rgba(0,0,0,0.3);
+    }
+    .rank-table th:first-child { background: var(--bg2); }
+    .horse-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* 馬柱：横スクロール＋馬名固定 */
+    .shinbun-table th:nth-child(4), .shinbun-table td.name-cell {
+      position: sticky; left: 0; z-index: 2; background: var(--bg);
+      box-shadow: 2px 0 4px rgba(0,0,0,0.3);
+    }
+
+    /* 推奨カード1列 */
+    .reco-grid { grid-template-columns: 1fr; }
+
+    /* モーダル全画面寄り */
+    .modal { width: 94vw; max-height: 88vh; }
+    .modal-stats-grid, .param-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* 展開予想 */
+    .fm-field { min-width: 0; }
+    .fm-col { min-width: 60px; }
+
+    /* モード切替ボタンを縦に詰めない */
+    .view-mode-bar { flex-wrap: wrap; }
+
+    /* ── モバイル：馬カード ── */
+    .msort-bar { display: flex; gap: 5px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 8px; -webkit-overflow-scrolling: touch; }
+    .msort-label { font-size: 10px; color: var(--text3); align-self: center; flex-shrink: 0; }
+    .msort-btn { flex-shrink: 0; padding: 5px 10px; font-size: 11px; font-weight: 700; border: 1px solid var(--border2); background: transparent; color: var(--text2); border-radius: 14px; font-family: 'Noto Sans JP', sans-serif; }
+    .msort-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(200,168,74,0.1); }
+    .mcard-list { display: flex; flex-direction: column; gap: 8px; }
+    .mcard { background: var(--bg2); border: 1px solid var(--border2); border-radius: 10px; padding: 11px 12px; cursor: pointer; }
+    .mcard:active { background: var(--bg3); }
+    .mcard-head { display: flex; align-items: center; gap: 8px; }
+    .mcard-num { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; font-size: 11px; font-weight: 700; color: #fff; background: #555; flex-shrink: 0; }
+    .waku-bg-1 { background:#f0f0f0;color:#111 !important; } .waku-bg-2 { background:#333; } .waku-bg-3 { background:#c4302b; } .waku-bg-4 { background:#1864c8; }
+    .waku-bg-5 { background:#c8a020;color:#111 !important; } .waku-bg-6 { background:#2a8c4a; } .waku-bg-7 { background:#d4691e; } .waku-bg-8 { background:#c850a0; }
+    .mcard-name { font-size: 15px; font-weight: 700; color: #fff; flex: 1; }
+    .mcard-kyaku { font-size: 11px; background: var(--bg4); padding: 2px 8px; border-radius: 4px; color: var(--text2); }
+    .mcard-sub { font-size: 11px; color: var(--text2); margin-top: 6px; line-height: 1.6; }
+    .mcard-stats { display: flex; gap: 14px; margin-top: 8px; }
+    .mcard-stat { display: flex; flex-direction: column; }
+    .mcard-stat b { font-size: 16px; font-family: 'JetBrains Mono', monospace; }
+    .mcard-stat span { font-size: 9px; color: var(--text3); }
+    .mcard-ranks { display: grid; grid-template-columns: repeat(8, 1fr); gap: 3px; margin-top: 10px; }
+    .mcard-rk { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .mcard-rk span:first-child { font-size: 9px; color: var(--text3); }
+    .mcard-rk .rank-cell { font-size: 13px; font-weight: 900; font-family: 'JetBrains Mono', monospace; }
+    .mcard-pastlist { margin-top: 8px; display: flex; flex-direction: column; gap: 3px; }
+    .mcard-past { display: flex; gap: 8px; font-size: 10px; align-items: center; }
+    .mcard-past .sb-past-chaku { font-size: 12px; font-weight: 900; }
+  }
+
+  @media (max-width: 768px) {
     .reco-grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -476,6 +572,7 @@
 <body>
 
 <header class="header">
+  <button class="hamburger" id="hamburger" onclick="toggleDrawer()" aria-label="メニュー">☰</button>
   <div class="logo">HARA AI KEIBA</div>
   <div class="header-date" id="headerDate">—</div>
   <div class="header-right">
@@ -489,7 +586,8 @@
 </header>
 
 <div class="layout">
-  <nav class="sidebar">
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="closeDrawer()"></div>
+  <nav class="sidebar" id="sidebar">
     <div class="venue-bar" id="venueBar"></div>
     <div class="race-list" id="raceList"></div>
   </nav>
@@ -758,7 +856,7 @@ function buildPanel(race) {
       </div>
       <div style="font-size:10px;color:var(--text3)">項目名タップでソート</div>
     </div>
-    <div class="horse-table-wrap" id="horseTable_${race.race_id}">${viewMode==='data' ? buildDataTable(race) : buildHorseTable(race, currentSort)}</div>
+    <div class="horse-table-wrap" id="horseTable_${race.race_id}">${renderHorseSection(race)}</div>
   `;
 }
 
@@ -868,7 +966,7 @@ function setSortAI(raceId, key) {
   }
   const race = allData.races.find(r => r.race_id === raceId);
   const el = document.getElementById(`horseTable_${raceId}`);
-  if (race && el) el.innerHTML = buildHorseTable(race);
+  if (race && el) el.innerHTML = renderHorseSection(race);
 }
 
 function buildHorseTable(race, sortKey) {
@@ -1023,7 +1121,7 @@ function sortByColumn(raceId, key) {
   const race = allData.races.find(r => r.race_id === raceId);
   const el = document.getElementById(`horseTable_${raceId}`);
   if (race && el) {
-    el.innerHTML = viewMode==='data' ? buildDataTable(race) : buildHorseTable(race, currentSort);
+    el.innerHTML = renderHorseSection(race);
   }
 }
 
@@ -1048,6 +1146,115 @@ function applySortKey(horses, key, desc) {
     if (vb==null) return -1;
     return desc ? vb-va : va-vb;
   });
+}
+
+
+// ── モバイル判定 ──────────────────────────────────────────
+function isMobile() { return window.innerWidth <= 768; }
+
+// モバイル用ソートバー
+function buildMobileSortBar(race, items, mode) {
+  const activeKey = mode==='ai' ? aiSortKey : dataSortKey;
+  const desc = mode==='ai' ? aiSortDesc : dataSortDesc;
+  const btns = items.map(([key,label]) => {
+    const on = activeKey===key;
+    const arrow = on ? (desc?' ▼':' ▲') : '';
+    return `<button class="msort-btn${on?' active':''}" onclick="event.stopPropagation();handleMobileSort('${race.race_id}','${key}','${mode}')">${label}${arrow}</button>`;
+  }).join('');
+  return `<div class="msort-bar"><span class="msort-label">並替</span>${btns}</div>`;
+}
+function handleMobileSort(raceId, key, mode) {
+  if (mode==='ai') setSortAI(raceId, key);
+  else sortByColumn(raceId, key);
+}
+
+
+// AI分析 or 馬柱の出し分け（モバイルはカード、PCはテーブル）
+function renderHorseSection(race) {
+  if (isMobile()) {
+    return viewMode==='data' ? buildDataCards(race) : buildAICards(race);
+  }
+  return viewMode==='data' ? buildDataTable(race) : buildHorseTable(race, currentSort);
+}
+
+// ── AI分析カード（モバイル） ────────────────────────────────
+function buildAICards(race) {
+  const isPlace=profile==='place', isJiriki=profile==='jiriki';
+  const horses = applyAISort(race.horses||[], aiSortKey, aiSortDesc, isPlace);
+  const marks = calcHorseMarks(race.horses||[]);
+  const dangerFlags = calcDangerFlags(race);
+  const hs = race.horses||[];
+  const arr = k => hs.map(h=>h[k]);
+  function rankOf(val, a, rev){const v=a.filter(x=>x!=null&&!isNaN(x));if(v.length<2||val==null||isNaN(val))return '—';if(new Set(v).size===1)return '—';const b=v.filter(x=>rev?x>val:x<val).length;const p=b/v.length;return p>=0.85?'S':p>=0.65?'A':p>=0.4?'B':p>=0.2?'C':'D';}
+  const A={spd:arr('prev_speed_index'),jk:arr('jockey_win_rate'),tr:arr('training_score'),rc:arr('win_rate_last3'),bl:arr('blood_stamina_score'),wk:arr('waku_win_rate'),ag:arr('agari_rank_avg'),bb:arr('baba_place_rate')};
+
+  const sortBar = buildMobileSortBar(race, [
+    ['ability', profile==='place'?'複勝率':'勝率'], ['odds','オッズ'], ['ev','EV'],
+    ['sp','SP指数'], ['jockey','騎手'], ['trainer','調教'], ['agari','上がり']
+  ], 'ai');
+
+  return sortBar + `<div class="mcard-list">${horses.map(h=>{
+    const m=marks[h.horse_name]||{mark:'－',cls:'mark-none'};
+    const df=dangerFlags[h.horse_name]||{danger:[],kill:[],upset:[]};
+    const prob=isPlace?h.p_place:h.p_ability;
+    const ev=isPlace?h.ev_fukusho:h.ev_tansho;
+    const odds=isPlace?h.fukusho_odds:h.tansho_odds;
+    const kyaku=['逃','先','差','追'][h.kyakushitsu_code]||'先';
+    const badges=[...(df.danger.length?['<span class="danger-flag">危険</span>']:[]),
+                  ...(df.kill.length?['<span class="kill-flag">消</span>']:[]),
+                  ...(df.upset||[]).map(u=>`<span class="upset-flag">${u}</span>`)].join('');
+    const rk=(label,val,a,rev)=>{const r=rankOf(val,a,rev);return `<div class="mcard-rk"><span>${label}</span><span class="rank-cell rk-${r==='—'?'none':r.toLowerCase()}">${r}</span></div>`;};
+    return `<div class="mcard" onclick="openModal('${race.race_id}','${h.horse_name}')">
+      <div class="mcard-head">
+        <span class="horse-mark ${m.cls}">${m.mark}</span>
+        <span class="mcard-num waku-bg-${h.waku||0}">${h.umaban}</span>
+        <span class="mcard-name">${h.horse_name}</span>
+        <span class="mcard-kyaku">${kyaku}</span>
+      </div>
+      <div class="mcard-sub">${h.jockey||''} ${badges}</div>
+      <div class="mcard-stats">
+        ${isJiriki?'':`<div class="mcard-stat"><b style="color:var(--orange)">${odds!=null?odds.toFixed(1):'—'}</b><span>オッズ</span></div>`}
+        <div class="mcard-stat"><b style="color:var(--gold)">${prob!=null?prob.toFixed(1)+'%':'—'}</b><span>${isJiriki?'地力':isPlace?'複勝':'勝率'}</span></div>
+        ${isJiriki?'':`<div class="mcard-stat"><b>${ev!=null?ev.toFixed(2):'—'}</b><span>EV</span></div>`}
+      </div>
+      <div class="mcard-ranks">
+        ${rk('速',h.prev_speed_index,A.spd)}${rk('騎',h.jockey_win_rate,A.jk)}${rk('調',h.training_score,A.tr)}${rk('近',h.win_rate_last3,A.rc)}
+        ${rk('血',h.blood_stamina_score,A.bl)}${rk('枠',h.waku_win_rate,A.wk)}${rk('上',h.agari_rank_avg,A.ag,true)}${rk('馬',h.baba_place_rate,A.bb)}
+      </div>
+    </div>`;
+  }).join('')}</div>`;
+}
+
+// ── 馬柱カード（モバイル） ──────────────────────────────────
+function buildDataCards(race) {
+  const horses = applySortKey(race.horses||[], dataSortKey, dataSortDesc);
+  const marks = calcHorseMarks(race.horses||[]);
+  const sortBar = buildMobileSortBar(race, [
+    ['umaban','馬番'], ['ability','AI勝率'], ['mining','マイニング'], ['sp','SP指数'], ['agari','上がり']
+  ], 'data');
+  return sortBar + `<div class="mcard-list">${horses.map(h=>{
+    const m=marks[h.horse_name]||{mark:'－',cls:'mark-none'};
+    const baju=h.baju?`${h.baju}(${(h.baju_diff>0?'+':'')+(h.baju_diff||0)})`:'—';
+    const past=(h.past_races||[]).slice(0,3).map(p=>{
+      const ch=p.chakujun===1?'chaku-1':p.chakujun===2?'chaku-2':p.chakujun===3?'chaku-3':'chaku-x';
+      return `<div class="mcard-past">
+        <span style="color:var(--text3)">${p.date||''} ${p.place||''}</span>
+        <span>${p.surface||''}${p.distance||''}</span>
+        <span class="sb-past-chaku ${ch}">${p.chakujun||'—'}着</span>
+        <span style="color:var(--text2)">上${p.agari||'—'}</span></div>`;
+    }).join('')||'<div style="color:var(--text3);font-size:10px">過去走なし</div>';
+    return `<div class="mcard" onclick="openModal('${race.race_id}','${h.horse_name}')">
+      <div class="mcard-head">
+        <span class="horse-mark ${m.cls}">${m.mark}</span>
+        <span class="mcard-num waku-bg-${h.waku||0}">${h.umaban}</span>
+        <span class="mcard-name">${h.horse_name}</span>
+      </div>
+      <div class="mcard-sub">${h.sex||''}${h.age||''} ${h.jockey||''}(${h.kinryo||''}) / ${h.sire||''}${h.bms?'×'+h.bms:''}</div>
+      <div class="mcard-sub">馬体重 ${baju}(参考) · AI勝率 <b style="color:var(--gold)">${h.p_ability!=null?h.p_ability.toFixed(1)+'%':'—'}</b> · マイニング ${h.mining??'—'}</div>
+      <div class="mcard-sub">調教: ${h.training_comment||'データなし'}</div>
+      <div class="mcard-pastlist">${past}</div>
+    </div>`;
+  }).join('')}</div>`;
 }
 
 function buildDataTable(race) {
@@ -1557,6 +1764,20 @@ function closeModal(e) {
 function closeModalDirect() {
   document.getElementById('modalOverlay').classList.remove('open');
 }
+
+
+// 画面リサイズでテーブル⇔カードを切替
+let _resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(_resizeTimer);
+  _resizeTimer = setTimeout(() => {
+    if (activeRaceId) {
+      const race = allData?.races?.find(r => r.race_id === activeRaceId);
+      const el = document.getElementById(`horseTable_${activeRaceId}`);
+      if (race && el) el.innerHTML = renderHorseSection(race);
+    }
+  }, 200);
+});
 
 // ── パネル表示時にコメントをロード ────────────────────────
 const observer = new MutationObserver(mutations => {
