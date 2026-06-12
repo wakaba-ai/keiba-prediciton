@@ -134,7 +134,13 @@
     font-size: 14px; font-weight: 700; color: #fff; line-height: 1.6;
     margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
   }
-  .comment-detail { font-size: 13px; color: var(--text); line-height: 1.9; }
+  .comment-detail { font-size: 13px; color: var(--text); line-height: 1.9; margin-bottom: 10px; }
+  .comment-header { display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; }
+  .comment-toggle { font-size: 11px; color: var(--text2); transition: transform 0.2s; }
+  .comment-body { margin-top: 10px; max-height: 4000px; overflow: hidden; transition: max-height 0.3s ease; }
+  .comment-body.collapsed { max-height: 0; margin-top: 0; }
+  .comment-sec-head { font-size: 11px; font-weight: 700; color: var(--gold); margin: 12px 0 5px; letter-spacing: 0.05em; }
+  .comment-sec-head:first-child { margin-top: 0; }
   .comment-loading { color: var(--text2); font-size: 12px; display: flex; align-items: center; gap: 8px; }
   @keyframes spin { to { transform: rotate(360deg); } }
   .spin { display: inline-block; width: 12px; height: 12px; border: 2px solid var(--border2); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; }
@@ -620,7 +626,8 @@ let allData = null;
 let activeRaceId = null;
 let profile = 'win';
 let activeVenue = 'ALL';
-let activeBetTypes = new Set(['単勝','複勝','馬連','馬単','ワイド','三連複']);
+let activeBetTypes = new Set(['単勝','複勝','馬連','馬単','ワイド','三連複','三連単']);
+let betFilter = null;  // null=全表示、券種名=その券種だけ
 let horseCommentCache = {};
 let currentSort = 'ability'; // 'ability' | 'sp' | 'agari'
 let viewMode = 'ai'; // 'data' | 'ai'
@@ -695,10 +702,11 @@ function setProfile(p) {
 }
 
 function toggleBetType(bt) {
-  if (activeBetTypes.has(bt)) { if (activeBetTypes.size > 1) activeBetTypes.delete(bt); }
-  else activeBetTypes.add(bt);
+  // 単一選択フィルタ：押した券種だけ表示、同じものを再度押すと全表示
+  if (betFilter === bt) betFilter = null;  // 解除→全表示
+  else betFilter = bt;
   document.querySelectorAll('.bet-type-btn').forEach(b => {
-    b.classList.toggle('active', activeBetTypes.has(b.dataset.bt));
+    b.classList.toggle('active', betFilter === null || betFilter === b.dataset.bt);
   });
   renderRecoSection();
 }
@@ -756,8 +764,23 @@ function renderPanels() {
   ).join('');
 }
 
+// ── サイドバー（ドロアー）開閉 ──────────────────────────────
+function toggleDrawer() {
+  const sb = document.getElementById('sidebar');
+  const bd = document.getElementById('drawerBackdrop');
+  const isOpen = sb.classList.toggle('open');
+  if (bd) bd.classList.toggle('open', isOpen);
+}
+function closeDrawer() {
+  const sb = document.getElementById('sidebar');
+  const bd = document.getElementById('drawerBackdrop');
+  if (sb) sb.classList.remove('open');
+  if (bd) bd.classList.remove('open');
+}
+
 function setActive(raceId) {
   activeRaceId = raceId;
+  if (isMobile()) closeDrawer();  // モバイルはレース選択でドロアーを閉じる
   document.querySelectorAll('.race-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.race-item').forEach(el => {
     el.classList.toggle('active', el.onclick?.toString().includes(raceId));
@@ -838,8 +861,8 @@ function buildPanel(race) {
     </div>
     <div class="collapse-body${recoCollapsed?' hidden':''}" style="max-height:2000px">
       <div class="bet-selector">
-        ${['単勝','複勝','馬連','馬単','ワイド','三連複'].map(bt =>
-          `<button class="bet-type-btn${activeBetTypes.has(bt)?' active':''}" data-bt="${bt}" onclick="toggleBetType('${bt}')">${bt}</button>`
+        ${['単勝','複勝','馬連','馬単','ワイド','三連複','三連単'].map(bt =>
+          `<button class="bet-type-btn${(betFilter===null||betFilter===bt)?' active':''}" data-bt="${bt}" onclick="toggleBetType('${bt}')">${bt}</button>`
         ).join('')}
       </div>
       <div class="reco-grid" id="reco_${race.race_id}">
@@ -882,7 +905,7 @@ function renderRecoSection() {
 
 function buildRecoCards(race) {
   const recos = (race.recommendations || [])
-    .filter(r => matchProfile(r) && activeBetTypes.has(r.bet_type))
+    .filter(r => matchProfile(r) && (betFilter === null || r.bet_type === betFilter))
     .sort((a,b) => (b.ev||0)-(a.ev||0));
 
   if (!recos.length) return `<div style="color:var(--text3);font-size:12px;padding:8px">
@@ -1620,21 +1643,44 @@ async function loadRaceComment(race) {
 }
 
 function renderComment(el, text) {
-  const lines = text.split('\n').filter(l => l.trim());
-  let summary = '', detail = '';
-  let inDetail = false;
-  for (const line of lines) {
-    if (line.includes('【詳細') || line.includes('詳細分析')) { inDetail = true; continue; }
-    if (line.includes('【要約') || line.includes('要約'))  { inDetail = false; continue; }
-    if (inDetail) detail += line + '\n';
-    else summary += line + ' ';
+  // 【見出し】ごとにセクション分割して全文表示
+  const sections = [];
+  let cur = { head: '', body: '' };
+  text.split('\n').forEach(line => {
+    const m = line.match(/^[\s　]*【(.+?)】/);
+    if (m) {
+      if (cur.head || cur.body) sections.push(cur);
+      cur = { head: m[1], body: line.replace(/^[\s　]*【.+?】/, '').trim() };
+    } else if (line.trim()) {
+      cur.body += (cur.body ? '\n' : '') + line.trim();
+    }
+  });
+  if (cur.head || cur.body) sections.push(cur);
+
+  let inner;
+  if (sections.length === 0 || (sections.length === 1 && !sections[0].head)) {
+    inner = `<div class="comment-detail">${text.trim().replace(/\n/g,'<br>')}</div>`;
+  } else {
+    inner = sections.map(s => `
+      ${s.head ? `<div class="comment-sec-head">${s.head}</div>` : ''}
+      <div class="comment-detail">${s.body.replace(/\n/g,'<br>')}</div>
+    `).join('');
   }
-  if (!summary && !detail) { summary = text.slice(0, 80); detail = text.slice(80); }
+
   el.innerHTML = `
-    <div class="comment-label">AI レース総評</div>
-    ${summary ? `<div class="comment-summary">${summary.trim()}</div>` : ''}
-    ${detail  ? `<div class="comment-detail">${detail.trim()}</div>`  : ''}
+    <div class="comment-header" onclick="toggleComment(this)">
+      <span class="comment-label">AI レース総評</span>
+      <span class="comment-toggle">▼</span>
+    </div>
+    <div class="comment-body">${inner}</div>
   `;
+}
+
+function toggleComment(headerEl) {
+  const body = headerEl.nextElementSibling;
+  const tog = headerEl.querySelector('.comment-toggle');
+  const hidden = body.classList.toggle('collapsed');
+  if (tog) tog.style.transform = hidden ? 'rotate(-90deg)' : '';
 }
 
 // ── 馬詳細モーダル ──────────────────────────────────────────
