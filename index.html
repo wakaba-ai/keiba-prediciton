@@ -1036,7 +1036,7 @@ function buildHorseTable(race, sortKey) {
     const ev    = isPlace ? h.ev_fukusho : h.ev_tansho;
     const odds  = isPlace ? h.fukusho_odds : h.tansho_odds;
     const m     = marks[h.horse_name] || { mark:'－', cls:'mark-none' };
-    const kyaku = KYAKU_LABEL[h.kyakushitsu_code] || '先';
+    const kyaku = KYAKU_LABEL[h.prev_kyakushitsu ?? h.kyakushitsu_code] || '先';
     const evCls = ev==null?'ev-b':ev>=1.2?'ev-g':ev>=1.05?'ev-k':'ev-b';
 
     const rSpd   = rankOf(h.prev_speed_index, arrSpd);
@@ -1226,7 +1226,7 @@ function buildAICards(race) {
     const prob=isPlace?h.p_place:h.p_ability;
     const ev=isPlace?h.ev_fukusho:h.ev_tansho;
     const odds=isPlace?h.fukusho_odds:h.tansho_odds;
-    const kyaku=['逃','先','差','追'][h.kyakushitsu_code]||'先';
+    const kyaku=['逃','先','差','追'][h.prev_kyakushitsu ?? h.kyakushitsu_code]||'先';
     const badges=[...(df.danger.length?['<span class="danger-flag">危険</span>']:[]),
                   ...(df.kill.length?['<span class="kill-flag">消</span>']:[]),
                   ...(df.tags||[]).map(t=>`<span class="${t.c}">${t.t}</span>`)].join('');
@@ -1390,7 +1390,7 @@ const LEFT_TURN  = ['東京','中京','新潟']; // 左回り
 function buildFormation(race) {
   const horses = race.horses || [];
   const groups = { 0:[], 1:[], 2:[], 3:[] };
-  horses.forEach(h => { const k=h.kyakushitsu_code; (groups[k]!==undefined?groups[k]:groups[1]).push(h); });
+  horses.forEach(h => { const k=(h.prev_kyakushitsu ?? h.kyakushitsu_code); (groups[k]!==undefined?groups[k]:groups[1]).push(h); });
   Object.keys(groups).forEach(k => groups[k].sort((a,b)=>(b.p_ability||0)-(a.p_ability||0)));
 
   const nige=groups[0].length, senko=groups[1].length, sashi=groups[2].length, oikomi=groups[3].length;
@@ -1422,9 +1422,9 @@ function buildFormation(race) {
 
   // 脚の溜まり（最終直線での伸び代）= 後方脚質ほど溜まってる × ハイペースで増幅
   const stamina = h => {
-    let base = {0:20,1:40,2:75,3:90}[h.kyakushitsu_code] ?? 50;
-    if (pace==='ハイペース' && h.kyakushitsu_code>=2) base=Math.min(100,base+15);
-    if (pace==='スローペース' && h.kyakushitsu_code<=1) base=Math.min(100,base+15);
+    let base = {0:20,1:40,2:75,3:90}[(h.prev_kyakushitsu ?? h.kyakushitsu_code)] ?? 50;
+    if (pace==='ハイペース' && (h.prev_kyakushitsu ?? h.kyakushitsu_code)>=2) base=Math.min(100,base+15);
+    if (pace==='スローペース' && (h.prev_kyakushitsu ?? h.kyakushitsu_code)<=1) base=Math.min(100,base+15);
     return base;
   };
 
@@ -1765,7 +1765,7 @@ function openModal(raceId, horseName) {
   } else {
     // コメントなし → パラメータ情報を表示
     const kyakuLabel = ['逃げ','先行','差し','追込'];
-    const kyaku = kyakuLabel[horse.kyakushitsu_code] || '先行';
+    const kyaku = kyakuLabel[horse.prev_kyakushitsu ?? horse.kyakushitsu_code] || '先行';
     const spd   = horse.prev_speed_index != null ? horse.prev_speed_index.toFixed(1) : '—';
     const prev  = horse.prev_chakujun != null ? horse.prev_chakujun+'着' : '—';
     const rest  = horse.rest_weeks != null ? horse.rest_weeks+'週' : '—';
