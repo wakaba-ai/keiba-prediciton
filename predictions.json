@@ -1,6 +1,6 @@
 {
   "date": "20260614",
-  "generated_at": "2026-06-19T11:32:00.325512",
+  "generated_at": "2026-06-19T23:21:23.297043",
   "ev_threshold": 1.05,
   "total_races": 36,
   "races": [
@@ -1198,7 +1198,7 @@
           "ev_tansho": 0.83,
           "ev_fukusho": 0.788,
           "ev_tansho_anomaly": false,
-          "reason": "評価の決め手: 前走の着順、前走馬体重、prev_atama。",
+          "reason": "評価の決め手: 前走の着順、前走馬体重、前走の頭数。",
           "n_career": 7,
           "past_races": [
             {
@@ -1609,8 +1609,8 @@
           "hit_rate": 2.2,
           "odds": 108.6,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.33
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -1622,8 +1622,8 @@
           "hit_rate": 4.4,
           "odds": 50.0,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.6
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -1648,8 +1648,8 @@
           "hit_rate": 5.1,
           "odds": 56.75,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.86
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -1661,8 +1661,8 @@
           "hit_rate": 7.6,
           "odds": 35.0,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.23
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -1674,8 +1674,8 @@
           "hit_rate": 17.5,
           "odds": 11.8,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 2.46
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -1928,7 +1928,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:34.908125"
+      "updated_at": "2026-06-19T23:20:58.497598"
     },
     {
       "race_id": "20260614_函館_10",
@@ -3709,8 +3709,8 @@
           "hit_rate": 2.0,
           "odds": 91.6,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.22
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -3722,8 +3722,8 @@
           "hit_rate": 1.9,
           "odds": 78.4,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.16
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -3761,8 +3761,8 @@
           "hit_rate": 6.1,
           "odds": 22.55,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.43
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -4015,7 +4015,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:35.728147"
+      "updated_at": "2026-06-19T23:20:59.318967"
     },
     {
       "race_id": "20260614_函館_11",
@@ -6363,8 +6363,8 @@
           "hit_rate": 2.6,
           "odds": 97.6,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.41
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -6389,8 +6389,8 @@
           "hit_rate": 1.8,
           "odds": 85.4,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.16
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -6402,8 +6402,8 @@
           "hit_rate": 11.2,
           "odds": 23.85,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.83
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -6415,8 +6415,8 @@
           "hit_rate": 16.7,
           "odds": 12.1,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 2.3
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -6428,8 +6428,8 @@
           "hit_rate": 8.2,
           "odds": 19.1,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.78
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -6682,7 +6682,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:36.606140"
+      "updated_at": "2026-06-19T23:21:00.190976"
     },
     {
       "race_id": "20260614_函館_12",
@@ -8060,8 +8060,8 @@
           "hit_rate": 1.7,
           "odds": 113.5,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.19
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -8073,8 +8073,8 @@
           "hit_rate": 2.3,
           "odds": 80.7,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.27
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -8086,8 +8086,8 @@
           "hit_rate": 3.9,
           "odds": 31.1,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.17
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -8099,8 +8099,8 @@
           "hit_rate": 12.6,
           "odds": 17.4,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.81
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -8112,8 +8112,8 @@
           "hit_rate": 16.4,
           "odds": 9.75,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.72
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -8125,8 +8125,8 @@
           "hit_rate": 9.2,
           "odds": 13.75,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.52
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -8379,7 +8379,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:37.413831"
+      "updated_at": "2026-06-19T23:21:00.981180"
     },
     {
       "race_id": "20260614_函館_2",
@@ -9762,8 +9762,8 @@
           "hit_rate": 2.1,
           "odds": 114.1,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.3
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -9775,8 +9775,8 @@
           "hit_rate": 0.8,
           "odds": 251.8,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.1
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -9801,8 +9801,8 @@
           "hit_rate": 10.2,
           "odds": 17.15,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.16
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -9814,8 +9814,8 @@
           "hit_rate": 4.5,
           "odds": 36.65,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.46
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -9827,8 +9827,8 @@
           "hit_rate": 10.4,
           "odds": 14.75,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.96
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -10081,7 +10081,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:38.189781"
+      "updated_at": "2026-06-19T23:21:01.788982"
     },
     {
       "race_id": "20260614_函館_3",
@@ -11342,8 +11342,8 @@
           "hit_rate": 4.1,
           "odds": 43.9,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.46
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -11355,8 +11355,8 @@
           "hit_rate": 1.1,
           "odds": 139.4,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.1
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -11368,8 +11368,8 @@
           "hit_rate": 16.1,
           "odds": 14.600000000000001,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 2.47
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -11381,8 +11381,8 @@
           "hit_rate": 17.8,
           "odds": 12.05,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 2.58
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -11648,7 +11648,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:39.213697"
+      "updated_at": "2026-06-19T23:21:02.550016"
     },
     {
       "race_id": "20260614_函館_4",
@@ -13596,8 +13596,8 @@
           "hit_rate": 0.9,
           "odds": 309.0,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.15
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -13609,8 +13609,8 @@
           "hit_rate": 0.7,
           "odds": 267.5,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.08
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -13635,8 +13635,8 @@
           "hit_rate": 4.8,
           "odds": 48.15,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.7
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -13915,7 +13915,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:40.007949"
+      "updated_at": "2026-06-19T23:21:03.351205"
     },
     {
       "race_id": "20260614_函館_5",
@@ -14285,7 +14285,7 @@
         }
       ],
       "recommendations": [],
-      "updated_at": "2026-06-19T11:31:40.053665"
+      "updated_at": "2026-06-19T23:21:03.392320"
     },
     {
       "race_id": "20260614_函館_6",
@@ -16272,8 +16272,8 @@
           "hit_rate": 0.8,
           "odds": 338.1,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.13
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -16285,8 +16285,8 @@
           "hit_rate": 1.2,
           "odds": 185.8,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.18
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -16324,8 +16324,8 @@
           "hit_rate": 7.5,
           "odds": 33.2,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.16
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -16337,8 +16337,8 @@
           "hit_rate": 3.6,
           "odds": 65.9,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.52
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -16591,7 +16591,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:40.839396"
+      "updated_at": "2026-06-19T23:21:04.193037"
     },
     {
       "race_id": "20260614_函館_7",
@@ -18391,8 +18391,8 @@
           "hit_rate": 13.8,
           "odds": 11.65,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.43
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -18404,8 +18404,8 @@
           "hit_rate": 18.8,
           "odds": 6.65,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.11
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -18658,7 +18658,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:41.627179"
+      "updated_at": "2026-06-19T23:21:04.964831"
     },
     {
       "race_id": "20260614_函館_8",
@@ -20551,8 +20551,8 @@
           "hit_rate": 2.0,
           "odds": 104.9,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.26
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -20564,8 +20564,8 @@
           "hit_rate": 2.1,
           "odds": 88.2,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.24
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -20590,8 +20590,8 @@
           "hit_rate": 14.7,
           "odds": 18.45,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 2.45
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -20603,8 +20603,8 @@
           "hit_rate": 9.9,
           "odds": 19.25,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.25
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -20616,8 +20616,8 @@
           "hit_rate": 12.2,
           "odds": 15.3,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.51
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -20870,7 +20870,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:42.411575"
+      "updated_at": "2026-06-19T23:21:05.745264"
     },
     {
       "race_id": "20260614_函館_9",
@@ -22268,8 +22268,8 @@
           "hit_rate": 4.0,
           "odds": 69.1,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.66
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -22281,8 +22281,8 @@
           "hit_rate": 1.2,
           "odds": 163.4,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.16
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -22307,8 +22307,8 @@
           "hit_rate": 6.5,
           "odds": 30.75,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.83
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -22333,8 +22333,8 @@
           "hit_rate": 15.7,
           "odds": 9.4,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.41
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -22587,7 +22587,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:43.161136"
+      "updated_at": "2026-06-19T23:21:06.511552"
     },
     {
       "race_id": "20260614_東京_1",
@@ -24187,8 +24187,8 @@
           "hit_rate": 1.7,
           "odds": 99.8,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.17
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -24213,8 +24213,8 @@
           "hit_rate": 2.5,
           "odds": 51.3,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.13
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -24226,8 +24226,8 @@
           "hit_rate": 3.7,
           "odds": 72.35,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.59
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -24239,8 +24239,8 @@
           "hit_rate": 16.7,
           "odds": 14.15,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 2.59
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -24252,8 +24252,8 @@
           "hit_rate": 7.7,
           "odds": 28.200000000000003,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.09
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -24506,7 +24506,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:43.962326"
+      "updated_at": "2026-06-19T23:21:07.295554"
     },
     {
       "race_id": "20260614_東京_10",
@@ -26564,8 +26564,8 @@
           "hit_rate": 1.3,
           "odds": 223.5,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.2
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -26590,8 +26590,8 @@
           "hit_rate": 4.2,
           "odds": 58.7,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.63
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -26603,8 +26603,8 @@
           "hit_rate": 19.6,
           "odds": 10.55,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 2.81
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -26616,8 +26616,8 @@
           "hit_rate": 16.1,
           "odds": 11.55,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 2.05
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -26629,8 +26629,8 @@
           "hit_rate": 4.9,
           "odds": 37.4,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.56
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -26883,7 +26883,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:44.759659"
+      "updated_at": "2026-06-19T23:21:08.071875"
     },
     {
       "race_id": "20260614_東京_11",
@@ -28954,8 +28954,8 @@
           "hit_rate": 2.0,
           "odds": 80.7,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.19
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -28980,8 +28980,8 @@
           "hit_rate": 14.9,
           "odds": 10.35,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.46
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -28993,8 +28993,8 @@
           "hit_rate": 8.8,
           "odds": 13.65,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.41
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -29260,7 +29260,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:45.538650"
+      "updated_at": "2026-06-19T23:21:08.840405"
     },
     {
       "race_id": "20260614_東京_12",
@@ -30988,8 +30988,8 @@
           "hit_rate": 4.6,
           "odds": 62.6,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.76
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -31001,8 +31001,8 @@
           "hit_rate": 3.9,
           "odds": 53.9,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.53
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -31027,8 +31027,8 @@
           "hit_rate": 16.3,
           "odds": 17.049999999999997,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 2.77
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -31040,8 +31040,8 @@
           "hit_rate": 3.4,
           "odds": 50.949999999999996,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.37
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -31307,7 +31307,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:46.300008"
+      "updated_at": "2026-06-19T23:21:09.585588"
     },
     {
       "race_id": "20260614_東京_2",
@@ -33268,8 +33268,8 @@
           "hit_rate": 1.3,
           "odds": 222.2,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.21
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -33281,8 +33281,8 @@
           "hit_rate": 2.7,
           "odds": 97.5,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.43
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -33320,8 +33320,8 @@
           "hit_rate": 6.2,
           "odds": 38.7,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.92
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -33574,7 +33574,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:47.107478"
+      "updated_at": "2026-06-19T23:21:10.370384"
     },
     {
       "race_id": "20260614_東京_3",
@@ -35805,8 +35805,8 @@
           "hit_rate": 1.6,
           "odds": 89.6,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.13
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -35818,8 +35818,8 @@
           "hit_rate": 3.1,
           "odds": 46.0,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.23
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -35831,8 +35831,8 @@
           "hit_rate": 8.3,
           "odds": 14.85,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.41
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -35844,8 +35844,8 @@
           "hit_rate": 14.0,
           "odds": 7.8500000000000005,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.37
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -36111,7 +36111,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:47.925799"
+      "updated_at": "2026-06-19T23:21:11.456000"
     },
     {
       "race_id": "20260614_東京_4",
@@ -36745,7 +36745,7 @@
         }
       ],
       "recommendations": [],
-      "updated_at": "2026-06-19T11:31:48.053503"
+      "updated_at": "2026-06-19T23:21:11.564940"
     },
     {
       "race_id": "20260614_東京_5",
@@ -37115,7 +37115,7 @@
         }
       ],
       "recommendations": [],
-      "updated_at": "2026-06-19T11:31:48.124352"
+      "updated_at": "2026-06-19T23:21:11.627521"
     },
     {
       "race_id": "20260614_東京_6",
@@ -39456,8 +39456,8 @@
           "hit_rate": 1.0,
           "odds": 172.2,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.1
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -39495,8 +39495,8 @@
           "hit_rate": 9.8,
           "odds": 11.8,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.36
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -39508,8 +39508,8 @@
           "hit_rate": 8.1,
           "odds": 13.6,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.2
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -39762,7 +39762,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:49.119515"
+      "updated_at": "2026-06-19T23:21:12.466161"
     },
     {
       "race_id": "20260614_東京_7",
@@ -40903,8 +40903,8 @@
           "hit_rate": 1.7,
           "odds": 111.7,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.21
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -41209,7 +41209,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:49.923545"
+      "updated_at": "2026-06-19T23:21:13.208316"
     },
     {
       "race_id": "20260614_東京_8",
@@ -43437,8 +43437,8 @@
           "hit_rate": 3.1,
           "odds": 86.2,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.49
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -43450,8 +43450,8 @@
           "hit_rate": 2.0,
           "odds": 119.2,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.29
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -43463,8 +43463,8 @@
           "hit_rate": 1.9,
           "odds": 113.7,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.25
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -43476,8 +43476,8 @@
           "hit_rate": 4.3,
           "odds": 69.0,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.71
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -43489,8 +43489,8 @@
           "hit_rate": 5.6,
           "odds": 39.2,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.79
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -43502,8 +43502,8 @@
           "hit_rate": 12.1,
           "odds": 18.25,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.75
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -43756,7 +43756,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:50.783612"
+      "updated_at": "2026-06-19T23:21:14.051565"
     },
     {
       "race_id": "20260614_東京_9",
@@ -45405,8 +45405,8 @@
           "hit_rate": 0.9,
           "odds": 242.0,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.12
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -45698,7 +45698,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:51.555732"
+      "updated_at": "2026-06-19T23:21:14.834104"
     },
     {
       "race_id": "20260614_阪神_1",
@@ -47446,8 +47446,8 @@
           "hit_rate": 1.0,
           "odds": 268.3,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.16
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -47459,8 +47459,8 @@
           "hit_rate": 1.1,
           "odds": 226.4,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.17
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -47472,8 +47472,8 @@
           "hit_rate": 1.3,
           "odds": 155.1,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.17
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -47485,8 +47485,8 @@
           "hit_rate": 7.3,
           "odds": 35.1,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.14
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -47498,8 +47498,8 @@
           "hit_rate": 4.5,
           "odds": 42.4,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.55
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -47511,8 +47511,8 @@
           "hit_rate": 4.1,
           "odds": 40.45,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.42
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -47765,7 +47765,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:52.360071"
+      "updated_at": "2026-06-19T23:21:15.620176"
     },
     {
       "race_id": "20260614_阪神_10",
@@ -49849,8 +49849,8 @@
           "hit_rate": 2.5,
           "odds": 72.5,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.28
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -49875,8 +49875,8 @@
           "hit_rate": 14.5,
           "odds": 13.35,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.89
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -50142,7 +50142,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:53.156127"
+      "updated_at": "2026-06-19T23:21:16.387942"
     },
     {
       "race_id": "20260614_阪神_11",
@@ -52780,8 +52780,8 @@
           "hit_rate": 1.3,
           "odds": 229.4,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.21
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -52793,8 +52793,8 @@
           "hit_rate": 2.8,
           "odds": 84.0,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.42
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -52806,8 +52806,8 @@
           "hit_rate": 2.3,
           "odds": 58.8,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.16
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -52819,8 +52819,8 @@
           "hit_rate": 5.5,
           "odds": 41.55,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.79
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -52832,8 +52832,8 @@
           "hit_rate": 15.6,
           "odds": 14.1,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 2.3
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -52845,8 +52845,8 @@
           "hit_rate": 5.6,
           "odds": 38.95,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.78
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -53099,7 +53099,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:53.978155"
+      "updated_at": "2026-06-19T23:21:17.172683"
     },
     {
       "race_id": "20260614_阪神_12",
@@ -55447,8 +55447,8 @@
           "hit_rate": 1.0,
           "odds": 279.4,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.15
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -55460,8 +55460,8 @@
           "hit_rate": 1.4,
           "odds": 156.1,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.2
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -55486,8 +55486,8 @@
           "hit_rate": 15.4,
           "odds": 18.55,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 2.64
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -55499,8 +55499,8 @@
           "hit_rate": 9.2,
           "odds": 22.3,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.24
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -55512,8 +55512,8 @@
           "hit_rate": 4.5,
           "odds": 44.1,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.56
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -55766,7 +55766,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:54.781696"
+      "updated_at": "2026-06-19T23:21:17.945675"
     },
     {
       "race_id": "20260614_阪神_2",
@@ -57511,8 +57511,8 @@
           "hit_rate": 2.9,
           "odds": 93.1,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.46
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -57524,8 +57524,8 @@
           "hit_rate": 3.5,
           "odds": 77.5,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.55
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -57537,8 +57537,8 @@
           "hit_rate": 2.2,
           "odds": 106.6,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.31
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -57550,8 +57550,8 @@
           "hit_rate": 6.6,
           "odds": 40.25,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.05
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -57563,8 +57563,8 @@
           "hit_rate": 3.7,
           "odds": 53.55,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.46
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -57576,8 +57576,8 @@
           "hit_rate": 11.2,
           "odds": 16.1,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.32
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -57830,7 +57830,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:55.573983"
+      "updated_at": "2026-06-19T23:21:18.721189"
     },
     {
       "race_id": "20260614_阪神_3",
@@ -59677,8 +59677,8 @@
           "hit_rate": 0.8,
           "odds": 322.7,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.12
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -59690,8 +59690,8 @@
           "hit_rate": 1.7,
           "odds": 151.1,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.25
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -59716,8 +59716,8 @@
           "hit_rate": 3.8,
           "odds": 60.0,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.54
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -59729,8 +59729,8 @@
           "hit_rate": 2.5,
           "odds": 82.05,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.31
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -59742,8 +59742,8 @@
           "hit_rate": 8.0,
           "odds": 24.049999999999997,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.01
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -59996,7 +59996,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:56.385105"
+      "updated_at": "2026-06-19T23:21:19.494874"
     },
     {
       "race_id": "20260614_阪神_4",
@@ -61889,8 +61889,8 @@
           "hit_rate": 2.5,
           "odds": 114.4,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.42
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -61902,8 +61902,8 @@
           "hit_rate": 1.6,
           "odds": 170.8,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.25
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -61928,8 +61928,8 @@
           "hit_rate": 11.2,
           "odds": 21.2,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.7
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -61941,8 +61941,8 @@
           "hit_rate": 3.5,
           "odds": 63.25,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.5
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -61954,8 +61954,8 @@
           "hit_rate": 8.1,
           "odds": 27.549999999999997,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.15
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -62208,7 +62208,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:57.187956"
+      "updated_at": "2026-06-19T23:21:20.272188"
     },
     {
       "race_id": "20260614_阪神_5",
@@ -62578,7 +62578,7 @@
         }
       ],
       "recommendations": [],
-      "updated_at": "2026-06-19T11:31:57.232498"
+      "updated_at": "2026-06-19T23:21:20.313543"
     },
     {
       "race_id": "20260614_阪神_6",
@@ -64806,8 +64806,8 @@
           "hit_rate": 2.6,
           "odds": 109.3,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.42
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -64819,8 +64819,8 @@
           "hit_rate": 1.4,
           "odds": 166.1,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.2
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -64832,8 +64832,8 @@
           "hit_rate": 4.9,
           "odds": 29.3,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.39
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -64845,8 +64845,8 @@
           "hit_rate": 3.6,
           "odds": 80.45,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.6
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -64858,8 +64858,8 @@
           "hit_rate": 3.5,
           "odds": 67.65,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.51
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -64871,8 +64871,8 @@
           "hit_rate": 5.8,
           "odds": 30.45,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.64
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -65125,7 +65125,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:58.035886"
+      "updated_at": "2026-06-19T23:21:21.066680"
     },
     {
       "race_id": "20260614_阪神_7",
@@ -66548,8 +66548,8 @@
           "hit_rate": 4.9,
           "odds": 40.6,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.62
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -66574,8 +66574,8 @@
           "hit_rate": 1.2,
           "odds": 120.7,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.11
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -66587,8 +66587,8 @@
           "hit_rate": 6.4,
           "odds": 23.4,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.56
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -66867,7 +66867,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:58.800883"
+      "updated_at": "2026-06-19T23:21:21.798432"
     },
     {
       "race_id": "20260614_阪神_8",
@@ -68160,8 +68160,8 @@
           "hit_rate": 1.3,
           "odds": 224.4,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.21
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -68186,8 +68186,8 @@
           "hit_rate": 1.3,
           "odds": 120.2,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.13
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -68225,8 +68225,8 @@
           "hit_rate": 8.6,
           "odds": 17.0,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 0.72
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "馬連",
@@ -68479,7 +68479,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:31:59.534477"
+      "updated_at": "2026-06-19T23:21:22.534067"
     },
     {
       "race_id": "20260614_阪神_9",
@@ -70537,8 +70537,8 @@
           "hit_rate": 3.3,
           "odds": 48.4,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.31
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -70550,8 +70550,8 @@
           "hit_rate": 4.5,
           "odds": 31.0,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.32
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "単勝",
@@ -70563,8 +70563,8 @@
           "hit_rate": 2.8,
           "odds": 44.7,
           "profile": "穴馬派",
-          "recommended": true,
-          "kelly_stake_pct": 0.15
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -70576,8 +70576,8 @@
           "hit_rate": 12.6,
           "odds": 12.95,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.32
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -70589,8 +70589,8 @@
           "hit_rate": 14.4,
           "odds": 10.35,
           "profile": "安定派",
-          "recommended": true,
-          "kelly_stake_pct": 1.32
+          "recommended": false,
+          "kelly_stake_pct": 0.0
         },
         {
           "bet_type": "複勝",
@@ -70856,7 +70856,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-19T11:32:00.324553"
+      "updated_at": "2026-06-19T23:21:23.295972"
     }
   ]
 }

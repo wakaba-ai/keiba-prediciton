@@ -47,6 +47,12 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
 .modesw button{flex:1;padding:8px;border:none;background:none;color:var(--dim);font-weight:700;
   font-size:13px;border-radius:7px;cursor:pointer;font-family:var(--sans)}
 .modesw button.on{background:var(--turf);color:#06150d}
+/* ソートバー */
+.sortbar{display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}
+.sortbar::-webkit-scrollbar{display:none}
+.sortchip{flex:0 0 auto;padding:6px 12px;border-radius:99px;border:1px solid var(--line);
+  background:var(--surface);color:var(--dim);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap}
+.sortchip.on{background:var(--surface2);border-color:var(--turf);color:var(--turf)}
 /* 馬柱（競馬新聞スタイル：1走を縦積みブロック、横スクロール）*/
 .umaba-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .uma-row{display:flex;background:var(--surface);border:1px solid var(--line);
@@ -74,6 +80,18 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
 .rankcell .rk{font-family:var(--mono);font-size:16px;font-weight:800;line-height:1}
 .rankcell .rl{font-size:9px;color:var(--faint);margin-top:3px;letter-spacing:.02em}
 .rk.S{color:var(--s)}.rk.A{color:var(--a)}.rk.B{color:var(--b)}.rk.C{color:var(--c)}.rk.D{color:var(--d)}
+/* 展開図 */
+.pace-track{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:10px}
+.pace-pred{font-size:12.5px;color:var(--text);margin-bottom:12px;line-height:1.6}
+.pace-pred b{color:var(--gold)}
+.pace-lanes{display:flex;gap:6px}
+.lane{flex:1;background:var(--surface2);border-radius:9px;padding:8px 6px;min-height:60px}
+.lane-h{font-size:10px;font-weight:800;color:var(--dim);text-align:center;margin-bottom:7px;letter-spacing:.04em}
+.lane-horses{display:flex;flex-direction:column;gap:4px;align-items:center}
+.lane-uma{display:flex;align-items:center;gap:4px;width:100%}
+.lane-uma .umaban{width:20px;height:20px;font-size:11px}
+.lane-uma .nm{font-size:10.5px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lane-arrow{text-align:center;color:var(--faint);font-size:10px;margin:8px 0 2px}
 .section-pad{padding:14px 0}
 .rcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:11px;cursor:pointer;transition:border-color .15s,transform .1s}
 .rcard:active{transform:scale(.992)}
@@ -176,7 +194,18 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
       </div>
       <div id="evalMode">
         <div class="sec-lbl">全馬評価</div>
+        <div class="sortbar" id="sortbar">
+          <button class="sortchip on" data-s="ability">能力順</button>
+          <button class="sortchip" data-s="p_place">複勝順</button>
+          <button class="sortchip" data-s="speed">スピード順</button>
+          <button class="sortchip" data-s="agari">上がり順</button>
+          <button class="sortchip" data-s="blood">血統順</button>
+          <button class="sortchip" data-s="training">調教順</button>
+          <button class="sortchip" data-s="ev">妙味(EV)順</button>
+        </div>
         <div id="horseList"></div>
+        <div class="sec-lbl">想定隊形（展開）</div>
+        <div id="paceBox"></div>
         <div class="sec-lbl gold">買い目</div>
         <div id="betBlock"></div>
       </div>
@@ -258,14 +287,15 @@ function renderDetail(){
   const r=curRace;
   document.getElementById('detTitle').textContent=`${r.race_no}R ${r.grade||''}`;
   document.getElementById('detSub').textContent=`${r.place} ${r.surface}${r.distance}m · ${r.atama}頭 · ${r.baba||'良'} · 発走${r.start_time||'—'}`;
-  const horses=[...r.horses].sort((a,b)=>b.p_ability-a.p_ability);
+  const horses=sortHorses([...r.horses]);
   const ranks=computeRanks(horses);
-  const RANK_LABELS={speed:'スピード',jockey:'騎手',trainer:'厩舎',blood:'血統',course:'コース'};
+  const RANK_LABELS={speed:'スピード',agari:'上がり',jockey:'騎手',trainer:'厩舎',blood:'血統',waku:'枠順',training:'調教',mining:'指数'};
   document.getElementById('horseList').innerHTML=horses.map((h,i)=>{
     const g=confGrade(h.p_ability);
     const divG=(h.divergence!=null&&h.divergence>0);
     const evGood=(h.ev_tansho!=null&&h.ev_tansho>=1.05&&!h.ev_tansho_anomaly);
     const reason=h.reason?`<div class="hc-reason"><span class="tag">AI評価の根拠</span>${h.reason}</div>`:'';
+    const training=h.training_comment?`<div class="hc-reason"><span class="tag" style="color:var(--gold)">調教</span>${h.training_comment}</div>`:'';
     const kyaku=['逃','先','差','追'][h.prev_kyakushitsu];
     const stats=[h.prev_chakujun!=null?`前走<b>${h.prev_chakujun}着</b>`:'',h.prev_speed_index!=null?`SP<b>${h.prev_speed_index.toFixed(0)}</b>`:'',h.rest_weeks!=null?`<b>${h.rest_weeks}</b>週`:'',h.jockey?`${h.jockey}`:'',kyaku?`脚質<b>${kyaku}</b>`:''].filter(Boolean).map(s=>`<span class="stat">${s}</span>`).join('');
     const evbox=(h.tansho_odds!=null)?`<div class="hc-ev"><div class="evbox"><div class="k">単勝オッズ</div><div class="v">${h.tansho_odds.toFixed(1)}</div></div><div class="evbox ${evGood?'good':''}"><div class="k">単勝EV</div><div class="v">${h.ev_tansho!=null?h.ev_tansho.toFixed(2):'—'}</div></div><div class="evbox"><div class="k">市場乖離</div><div class="v" style="color:${divG?'var(--turf)':'var(--dim)'}">${h.divergence!=null?(h.divergence>0?'+':'')+(h.divergence*100).toFixed(0):'—'}</div></div></div>`:'';
@@ -274,7 +304,7 @@ function renderDetail(){
       const gg=rk[key]||'—';
       return `<div class="rankcell"><div class="rk ${gg}">${gg}</div><div class="rl">${RANK_LABELS[key]}</div></div>`;
     }).join('')}</div>`;
-    return `<div class="hcard"><div class="hcard-top"><div class="hc-rank">${i+1}</div><div class="umaban ${wc(h.waku)}">${h.umaban}</div><div class="hc-main"><div class="hc-name">${h.horse_name||'—'} <span class="conf ${g}" style="display:inline-flex;vertical-align:middle">${g}</span></div><div class="hc-info">${h.sex||''}${h.age||''} · 斤量${h.kinryo||'—'} · ${h.sire||''}</div></div><div class="dual"><div class="ring">${ringSVG(h.p_ability,35,'var(--turf)')}<div class="val" style="color:var(--turf)">${pct(h.p_ability)}</div><div class="lbl">能力</div></div><div class="ring">${ringSVG(h.p_place,100,'var(--gold)')}<div class="val" style="color:var(--gold)">${pct(h.p_place)}</div><div class="lbl">複勝</div></div></div></div>${reason}${rankbar}${stats?`<div class="hc-stats">${stats}</div>`:''}${evbox}</div>`;
+    return `<div class="hcard"><div class="hcard-top"><div class="hc-rank">${i+1}</div><div class="umaban ${wc(h.waku)}">${h.umaban}</div><div class="hc-main"><div class="hc-name">${h.horse_name||'—'} <span class="conf ${g}" style="display:inline-flex;vertical-align:middle">${g}</span></div><div class="hc-info">${h.sex||''}${h.age||''} · 斤量${h.kinryo||'—'} · ${h.sire||''}</div></div><div class="dual"><div class="ring">${ringSVG(h.p_ability,35,'var(--turf)')}<div class="val" style="color:var(--turf)">${pct(h.p_ability)}</div><div class="lbl">能力</div></div><div class="ring">${ringSVG(h.p_place,100,'var(--gold)')}<div class="val" style="color:var(--gold)">${pct(h.p_place)}</div><div class="lbl">複勝</div></div></div></div>${reason}${training}${rankbar}${stats?`<div class="hc-stats">${stats}</div>`:''}${evbox}</div>`;
   }).join('');
   const bb=document.getElementById('betBlock');
   if(r.skip||!r.recommendations?.length){
@@ -293,6 +323,8 @@ function renderDetail(){
   }
   // 馬柱を描画
   renderUmabashira(horses);
+  // 展開図を描画
+  renderPace([...r.horses]);
   // 詳細を開いたら評価モードに戻す
   setMode('eval');
 
@@ -315,11 +347,11 @@ function renderUmabashira(horses){
       const cls=p.chakujun===1?'c1':(p.chakujun<=3?'c23':'');
       const t=p.time?`${p.time.slice(0,1)}:${p.time.slice(1,3)}.${p.time.slice(3)}`:'';
       cols+=`<div class="pcol">
-        <div class="pc-date">${(p.date||'').replace(/\s/g,'')}</div>
+        <div class="pc-date">${(p.date||'').replace(/\s/g,'')} ${p.grade||''}</div>
         <div class="pc-race">${p.place||''}${p.surface||''}${p.distance||''}</div>
         <div class="pc-chaku ${cls}">${p.chakujun||'?'}<span style="font-size:9px;color:var(--faint)">/${p.atama||'?'}</span></div>
         <div class="pc-det">${p.ninki||'?'}人 ${p.baba||''}</div>
-        <div class="pc-det">${t} 上${p.agari||'?'}</div>
+        <div class="pc-det">${t} 上${p.agari||'?'}(${p.agari_rank||'?'})</div>
         <div class="pc-det">SP${p.speed_index?p.speed_index.toFixed(0):'?'} ${p.kyaku||''}</div>
         <div class="pc-jk">${p.jockey||''} ${p.baju||'?'}</div>
       </div>`;
@@ -338,22 +370,25 @@ function renderUmabashira(horses){
 
 // 項目別ランク付け（レース内の相対順位でS〜D）
 function computeRanks(horses){
-  // 各指標で、レース内の順位→等級
+  // value関数: 大きいほど良い向きに揃える（上がり/マイニング順位は小さいほど良いので反転）
   const metrics={
     speed:h=>h.prev_speed_index ?? h.avg_speed_index ?? null,
+    agari:h=>h.agari_rank_avg!=null ? -h.agari_rank_avg : null,  // 順位は小さいほど良い→反転
     jockey:h=>h.jockey_win_rate ?? null,
     trainer:h=>h.trainer_win_rate ?? null,
     blood:h=>h.blood_stamina_score ?? null,
-    course:h=>h.course_place_rate ?? null,
+    waku:h=>h.waku_win_rate ?? null,
+    training:h=>h.training_score ?? null,
+    mining:h=>h.mining ?? null,
   };
-  const ranks={};  // umaban -> {speed:'A',...}
+  const ranks={};
   horses.forEach(h=>ranks[h.umaban]={});
   Object.keys(metrics).forEach(key=>{
     const vals=horses.map(h=>({u:h.umaban,v:metrics[key](h)})).filter(x=>x.v!=null);
     vals.sort((a,b)=>b.v-a.v);
     const n=vals.length;
     vals.forEach((x,i)=>{
-      const pctile=n>1?i/(n-1):0;  // 0=最上位
+      const pctile=n>1?i/(n-1):0;
       let g;
       if(pctile<=0.1) g='S'; else if(pctile<=0.3) g='A';
       else if(pctile<=0.6) g='B'; else if(pctile<=0.85) g='C'; else g='D';
@@ -363,11 +398,54 @@ function computeRanks(horses){
   return ranks;
 }
 
+// 展開図（脚質で隊形を可視化）
+function renderPace(horses){
+  // prev_kyakushitsu: 0=逃 1=先 2=差 3=追
+  const lanes=[[],[],[],[]];
+  horses.forEach(h=>{
+    let k=h.prev_kyakushitsu; if(k==null||k<0||k>3) k=2;
+    lanes[k].push(h);
+  });
+  const names=['逃げ','先行','差し','追込'];
+  // ペース予測: 逃げ+先行の頭数で判定
+  const front=lanes[0].length+lanes[1].length, total=horses.length;
+  const nige=lanes[0].length;
+  let pace,note;
+  if(nige>=3){ pace='ハイペース濃厚'; note='前が崩れ、差し・追込が浮上しやすい'; }
+  else if(nige===0){ pace='スローペース濃厚'; note='前残り・先行有利の展開'; }
+  else if(front/total>=0.5){ pace='やや前傾'; note='先行勢が多く、流れる可能性'; }
+  else{ pace='平均ペース'; note='展開の偏りは小さい'; }
+  const lanesHtml=lanes.map((arr,i)=>{
+    const hs=arr.sort((a,b)=>b.p_ability-a.p_ability).map(h=>
+      `<div class="lane-uma"><span class="umaban ${wc(h.waku)}">${h.umaban}</span><span class="nm">${h.horse_name||''}</span></div>`
+    ).join('')||'<div style="color:var(--faint);font-size:10px">—</div>';
+    return `<div class="lane"><div class="lane-h">${names[i]} ${arr.length}</div><div class="lane-horses">${hs}</div></div>`;
+  }).join('');
+  document.getElementById('paceBox').innerHTML=`<div class="pace-track">
+    <div class="pace-pred">想定ペース: <b>${pace}</b> — ${note}</div>
+    <div class="lane-arrow">← ゴールで前　│　後方 →</div>
+    <div class="pace-lanes">${lanesHtml}</div>
+  </div>`;
+}
+
 function setMode(m){
   document.getElementById('evalMode').style.display=(m==='eval')?'block':'none';
   document.getElementById('umaMode').style.display=(m==='uma')?'block':'none';
   document.getElementById('modeEval').classList.toggle('on',m==='eval');
   document.getElementById('modeUma').classList.toggle('on',m==='uma');
+}
+
+let curSort='ability';
+function sortHorses(arr){
+  const key={
+    ability:h=>h.p_ability, p_place:h=>h.p_place,
+    speed:h=>h.prev_speed_index??h.avg_speed_index??-1,
+    agari:h=>h.agari_rank_avg!=null?-h.agari_rank_avg:-99,
+    blood:h=>h.blood_stamina_score??-1,
+    training:h=>h.training_score??-1,
+    ev:h=>(h.ev_tansho!=null&&!h.ev_tansho_anomaly)?h.ev_tansho:-1,
+  }[curSort]||(h=>h.p_ability);
+  return arr.sort((a,b)=>key(b)-key(a));
 }
 function showView(v){
   document.getElementById('list').style.display=(v==='list')?'block':'none';
@@ -378,6 +456,13 @@ document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
   document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
   c.classList.add('on'); curFilter=c.dataset.f; renderList();
 }));
+// ソートチップ
+document.addEventListener('click',e=>{
+  const sc=e.target.closest('.sortchip'); if(!sc) return;
+  document.querySelectorAll('.sortchip').forEach(x=>x.classList.remove('on'));
+  sc.classList.add('on'); curSort=sc.dataset.s;
+  if(curRace) renderDetail();
+});
 load();
 </script>
 </body>
