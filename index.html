@@ -47,21 +47,33 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
 .modesw button{flex:1;padding:8px;border:none;background:none;color:var(--dim);font-weight:700;
   font-size:13px;border-radius:7px;cursor:pointer;font-family:var(--sans)}
 .modesw button.on{background:var(--turf);color:#06150d}
-/* 馬柱テーブル */
-.umaba-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:10px}
-.umaba{border-collapse:collapse;width:100%;font-size:11.5px;font-family:var(--mono);min-width:560px}
-.umaba th{background:var(--surface2);color:var(--dim);font-weight:700;padding:7px 6px;text-align:center;
-  position:sticky;left:0;font-size:10px;white-space:nowrap}
-.umaba td{padding:7px 6px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
-.umaba .horse-cell{text-align:left;position:sticky;left:0;background:var(--surface);z-index:2;min-width:120px}
-.umaba .hn{font-family:var(--sans);font-weight:700;font-size:12.5px;display:flex;align-items:center;gap:6px}
-.umaba tr:hover td{background:var(--surface2)}
-.umaba .past{color:var(--dim)}
-.umaba .chaku1{color:var(--gold);font-weight:800}
-.umaba .chaku23{color:var(--turf);font-weight:700}
-.pr-cell{line-height:1.4}
-.pr-cell .top{font-weight:700;color:var(--text)}
-.pr-cell .bot{font-size:10px;color:var(--faint)}
+/* 馬柱（競馬新聞スタイル：1走を縦積みブロック、横スクロール）*/
+.umaba-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.uma-row{display:flex;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r);margin-bottom:9px;overflow:hidden;min-width:min-content}
+.uma-fixed{flex-shrink:0;width:108px;padding:10px;background:var(--surface);position:sticky;left:0;z-index:2;
+  border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.uma-fixed .nmline{display:flex;align-items:center;gap:5px}
+.uma-fixed .hn{font-weight:700;font-size:12.5px;line-height:1.25}
+.uma-fixed .meta{font-size:10px;color:var(--dim);font-family:var(--mono)}
+.uma-fixed .abil{font-family:var(--mono);font-size:11px;color:var(--turf);font-weight:700}
+.uma-past{display:flex}
+.pcol{flex:0 0 96px;padding:8px 7px;border-right:1px solid var(--line);font-family:var(--mono);font-size:10.5px;line-height:1.5}
+.pcol:last-child{border-right:none}
+.pcol .pc-date{color:var(--faint);font-size:9.5px}
+.pcol .pc-race{color:var(--dim);font-size:9.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pcol .pc-chaku{font-size:15px;font-weight:800;margin:1px 0}
+.pcol .pc-chaku.c1{color:var(--gold)}.pcol .pc-chaku.c23{color:var(--turf)}
+.pcol .pc-det{color:var(--dim);font-size:9.5px}
+.pcol .pc-jk{color:var(--faint);font-size:9.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pcol.empty-col{display:flex;align-items:center;justify-content:center;color:var(--faint)}
+
+/* 項目別ランク付け */
+.rankbar{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.rankcell{flex:1;min-width:54px;text-align:center;background:var(--surface2);border-radius:8px;padding:6px 4px}
+.rankcell .rk{font-family:var(--mono);font-size:16px;font-weight:800;line-height:1}
+.rankcell .rl{font-size:9px;color:var(--faint);margin-top:3px;letter-spacing:.02em}
+.rk.S{color:var(--s)}.rk.A{color:var(--a)}.rk.B{color:var(--b)}.rk.C{color:var(--c)}.rk.D{color:var(--d)}
 .section-pad{padding:14px 0}
 .rcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:11px;cursor:pointer;transition:border-color .15s,transform .1s}
 .rcard:active{transform:scale(.992)}
@@ -247,6 +259,8 @@ function renderDetail(){
   document.getElementById('detTitle').textContent=`${r.race_no}R ${r.grade||''}`;
   document.getElementById('detSub').textContent=`${r.place} ${r.surface}${r.distance}m · ${r.atama}頭 · ${r.baba||'良'} · 発走${r.start_time||'—'}`;
   const horses=[...r.horses].sort((a,b)=>b.p_ability-a.p_ability);
+  const ranks=computeRanks(horses);
+  const RANK_LABELS={speed:'スピード',jockey:'騎手',trainer:'厩舎',blood:'血統',course:'コース'};
   document.getElementById('horseList').innerHTML=horses.map((h,i)=>{
     const g=confGrade(h.p_ability);
     const divG=(h.divergence!=null&&h.divergence>0);
@@ -255,7 +269,12 @@ function renderDetail(){
     const kyaku=['逃','先','差','追'][h.prev_kyakushitsu];
     const stats=[h.prev_chakujun!=null?`前走<b>${h.prev_chakujun}着</b>`:'',h.prev_speed_index!=null?`SP<b>${h.prev_speed_index.toFixed(0)}</b>`:'',h.rest_weeks!=null?`<b>${h.rest_weeks}</b>週`:'',h.jockey?`${h.jockey}`:'',kyaku?`脚質<b>${kyaku}</b>`:''].filter(Boolean).map(s=>`<span class="stat">${s}</span>`).join('');
     const evbox=(h.tansho_odds!=null)?`<div class="hc-ev"><div class="evbox"><div class="k">単勝オッズ</div><div class="v">${h.tansho_odds.toFixed(1)}</div></div><div class="evbox ${evGood?'good':''}"><div class="k">単勝EV</div><div class="v">${h.ev_tansho!=null?h.ev_tansho.toFixed(2):'—'}</div></div><div class="evbox"><div class="k">市場乖離</div><div class="v" style="color:${divG?'var(--turf)':'var(--dim)'}">${h.divergence!=null?(h.divergence>0?'+':'')+(h.divergence*100).toFixed(0):'—'}</div></div></div>`:'';
-    return `<div class="hcard"><div class="hcard-top"><div class="hc-rank">${i+1}</div><div class="umaban ${wc(h.waku)}">${h.umaban}</div><div class="hc-main"><div class="hc-name">${h.horse_name||'—'} <span class="conf ${g}" style="display:inline-flex;vertical-align:middle">${g}</span></div><div class="hc-info">${h.sex||''}${h.age||''} · 斤量${h.kinryo||'—'} · ${h.sire||''}</div></div><div class="dual"><div class="ring">${ringSVG(h.p_ability,35,'var(--turf)')}<div class="val" style="color:var(--turf)">${pct(h.p_ability)}</div><div class="lbl">能力</div></div><div class="ring">${ringSVG(h.p_place,100,'var(--gold)')}<div class="val" style="color:var(--gold)">${pct(h.p_place)}</div><div class="lbl">複勝</div></div></div></div>${reason}${stats?`<div class="hc-stats">${stats}</div>`:''}${evbox}</div>`;
+    const rk=ranks[h.umaban]||{};
+    const rankbar=`<div class="rankbar">${Object.keys(RANK_LABELS).map(key=>{
+      const gg=rk[key]||'—';
+      return `<div class="rankcell"><div class="rk ${gg}">${gg}</div><div class="rl">${RANK_LABELS[key]}</div></div>`;
+    }).join('')}</div>`;
+    return `<div class="hcard"><div class="hcard-top"><div class="hc-rank">${i+1}</div><div class="umaban ${wc(h.waku)}">${h.umaban}</div><div class="hc-main"><div class="hc-name">${h.horse_name||'—'} <span class="conf ${g}" style="display:inline-flex;vertical-align:middle">${g}</span></div><div class="hc-info">${h.sex||''}${h.age||''} · 斤量${h.kinryo||'—'} · ${h.sire||''}</div></div><div class="dual"><div class="ring">${ringSVG(h.p_ability,35,'var(--turf)')}<div class="val" style="color:var(--turf)">${pct(h.p_ability)}</div><div class="lbl">能力</div></div><div class="ring">${ringSVG(h.p_place,100,'var(--gold)')}<div class="val" style="color:var(--gold)">${pct(h.p_place)}</div><div class="lbl">複勝</div></div></div></div>${reason}${rankbar}${stats?`<div class="hc-stats">${stats}</div>`:''}${evbox}</div>`;
   }).join('');
   const bb=document.getElementById('betBlock');
   if(r.skip||!r.recommendations?.length){
@@ -283,32 +302,65 @@ function renderDetail(){
   document.getElementById('nextR').onclick=()=>{ if(vIdx<sameVenue.length-1) openRace(sameVenue[vIdx+1].race_id); };
 }
 
-// 馬柱（過去走を表形式で）
+// 馬柱（競馬新聞スタイル：1走を縦積みブロックで横並び）
 function renderUmabashira(horses){
-  const maxPast=Math.max(1,...horses.map(h=>(h.past_races||[]).length));
-  const nShow=Math.min(maxPast,5);  // 最大5走分
-  let head='<tr><th class="horse-cell" style="left:0">馬</th>';
-  for(let i=0;i<nShow;i++) head+=`<th>${i+1}走前</th>`;
-  head+='</tr>';
-  const rows=horses.map(h=>{
+  const nShow=5;
+  document.getElementById('umabaBox').innerHTML=horses.map(h=>{
     const g=confGrade(h.p_ability);
-    let cells='';
     const pr=h.past_races||[];
+    let cols='';
     for(let i=0;i<nShow;i++){
       const p=pr[i];
-      if(!p){ cells+='<td class="past">—</td>'; continue; }
-      const cls=p.chakujun===1?'chaku1':(p.chakujun<=3?'chaku23':'');
-      cells+=`<td class="pr-cell">
-        <div class="top"><span class="${cls}">${p.chakujun||'?'}着</span>/${p.atama||'?'}</div>
-        <div class="bot">${p.place||''}${p.surface||''}${p.distance||''} ${p.baba||''}</div>
-        <div class="bot">${p.ninki||'?'}人 上${p.agari||'?'} SP${p.speed_index?p.speed_index.toFixed(0):'?'}</div>
-      </td>`;
+      if(!p){ cols+='<div class="pcol empty-col">—</div>'; continue; }
+      const cls=p.chakujun===1?'c1':(p.chakujun<=3?'c23':'');
+      const t=p.time?`${p.time.slice(0,1)}:${p.time.slice(1,3)}.${p.time.slice(3)}`:'';
+      cols+=`<div class="pcol">
+        <div class="pc-date">${(p.date||'').replace(/\s/g,'')}</div>
+        <div class="pc-race">${p.place||''}${p.surface||''}${p.distance||''}</div>
+        <div class="pc-chaku ${cls}">${p.chakujun||'?'}<span style="font-size:9px;color:var(--faint)">/${p.atama||'?'}</span></div>
+        <div class="pc-det">${p.ninki||'?'}人 ${p.baba||''}</div>
+        <div class="pc-det">${t} 上${p.agari||'?'}</div>
+        <div class="pc-det">SP${p.speed_index?p.speed_index.toFixed(0):'?'} ${p.kyaku||''}</div>
+        <div class="pc-jk">${p.jockey||''} ${p.baju||'?'}</div>
+      </div>`;
     }
-    return `<tr><td class="horse-cell">
-      <div class="hn"><span class="umaban ${wc(h.waku)}">${h.umaban}</span>
-      <span>${h.horse_name||'—'}</span><span class="conf ${g}">${g}</span></div></td>${cells}</tr>`;
+    return `<div class="uma-row">
+      <div class="uma-fixed">
+        <div class="nmline"><span class="umaban ${wc(h.waku)}">${h.umaban}</span><span class="conf ${g}">${g}</span></div>
+        <div class="hn">${h.horse_name||'—'}</div>
+        <div class="meta">${h.sex||''}${h.age||''} 斤${h.kinryo||'?'}</div>
+        <div class="abil">能力${pct(h.p_ability)} 複${pct(h.p_place)}</div>
+      </div>
+      <div class="uma-past">${cols}</div>
+    </div>`;
   }).join('');
-  document.getElementById('umabaBox').innerHTML=`<table class="umaba"><thead>${head}</thead><tbody>${rows}</tbody></table>`;
+}
+
+// 項目別ランク付け（レース内の相対順位でS〜D）
+function computeRanks(horses){
+  // 各指標で、レース内の順位→等級
+  const metrics={
+    speed:h=>h.prev_speed_index ?? h.avg_speed_index ?? null,
+    jockey:h=>h.jockey_win_rate ?? null,
+    trainer:h=>h.trainer_win_rate ?? null,
+    blood:h=>h.blood_stamina_score ?? null,
+    course:h=>h.course_place_rate ?? null,
+  };
+  const ranks={};  // umaban -> {speed:'A',...}
+  horses.forEach(h=>ranks[h.umaban]={});
+  Object.keys(metrics).forEach(key=>{
+    const vals=horses.map(h=>({u:h.umaban,v:metrics[key](h)})).filter(x=>x.v!=null);
+    vals.sort((a,b)=>b.v-a.v);
+    const n=vals.length;
+    vals.forEach((x,i)=>{
+      const pctile=n>1?i/(n-1):0;  // 0=最上位
+      let g;
+      if(pctile<=0.1) g='S'; else if(pctile<=0.3) g='A';
+      else if(pctile<=0.6) g='B'; else if(pctile<=0.85) g='C'; else g='D';
+      ranks[x.u][key]=g;
+    });
+  });
+  return ranks;
 }
 
 function setMode(m){
