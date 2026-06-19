@@ -1,6 +1,6 @@
 {
   "date": "20260614",
-  "generated_at": "2026-06-18T10:17:45.161099",
+  "generated_at": "2026-06-19T11:32:00.325512",
   "ev_threshold": 1.05,
   "total_races": 36,
   "races": [
@@ -38,6 +38,7 @@
           "ev_tansho": 4.238,
           "ev_fukusho": 3.458,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -102,6 +103,7 @@
           "ev_tansho": 0.203,
           "ev_fukusho": 0.324,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -206,6 +208,7 @@
           "ev_tansho": 0.378,
           "ev_fukusho": 0.478,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -310,6 +313,7 @@
           "ev_tansho": 9.114,
           "ev_fukusho": 4.257,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -394,6 +398,7 @@
           "ev_tansho": 1.263,
           "ev_fukusho": 1.235,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -538,6 +543,7 @@
           "ev_tansho": 0.888,
           "ev_fukusho": 0.798,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 近5走の複勝率、騎手の複勝率、出走数。",
           "n_career": 4,
           "past_races": [
             {
@@ -662,6 +668,7 @@
           "ev_tansho": 1.229,
           "ev_fukusho": 0.986,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -726,6 +733,7 @@
           "ev_tansho": 2.18,
           "ev_fukusho": 2.063,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -810,6 +818,7 @@
           "ev_tansho": 0.933,
           "ev_fukusho": 0.731,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -894,6 +903,7 @@
           "ev_tansho": 0.961,
           "ev_fukusho": 0.841,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、クラス、前走の着差。",
           "n_career": 4,
           "past_races": [
             {
@@ -1018,6 +1028,7 @@
           "ev_tansho": 6.14,
           "ev_fukusho": 2.922,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -1082,6 +1093,7 @@
           "ev_tansho": 2.403,
           "ev_fukusho": 1.857,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -1186,6 +1198,7 @@
           "ev_tansho": 0.83,
           "ev_fukusho": 0.788,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、前走馬体重、prev_atama。",
           "n_career": 7,
           "past_races": [
             {
@@ -1330,6 +1343,7 @@
           "ev_tansho": 0.677,
           "ev_fukusho": 0.762,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -1414,6 +1428,7 @@
           "ev_tansho": 1.076,
           "ev_fukusho": 1.094,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -1558,6 +1573,7 @@
           "ev_tansho": 4.144,
           "ev_fukusho": 2.675,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.08,
@@ -1912,7 +1928,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:22.367664"
+      "updated_at": "2026-06-19T11:31:34.908125"
     },
     {
       "race_id": "20260614_函館_10",
@@ -1948,6 +1964,7 @@
           "ev_tansho": 1.803,
           "ev_fukusho": 1.371,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 33,
           "past_races": [
             {
@@ -2092,6 +2109,7 @@
           "ev_tansho": 2.36,
           "ev_fukusho": 1.555,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 12,
           "past_races": [
             {
@@ -2236,6 +2254,7 @@
           "ev_tansho": 0.869,
           "ev_fukusho": 0.716,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 17,
           "past_races": [
             {
@@ -2380,6 +2399,7 @@
           "ev_tansho": 0.891,
           "ev_fukusho": 0.843,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、近5走の複勝率。",
           "n_career": 9,
           "past_races": [
             {
@@ -2524,6 +2544,7 @@
           "ev_tansho": 0.666,
           "ev_fukusho": 0.712,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 9,
           "past_races": [
             {
@@ -2668,6 +2689,7 @@
           "ev_tansho": 0.243,
           "ev_fukusho": 0.453,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 10,
           "past_races": [
             {
@@ -2812,6 +2834,7 @@
           "ev_tansho": 1.494,
           "ev_fukusho": 0.938,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 17,
           "past_races": [
             {
@@ -2956,6 +2979,7 @@
           "ev_tansho": 0.56,
           "ev_fukusho": 0.701,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、前走の着差、騎手の複勝率。",
           "n_career": 17,
           "past_races": [
             {
@@ -3100,6 +3124,7 @@
           "ev_tansho": 1.269,
           "ev_fukusho": 1.404,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 13,
           "past_races": [
             {
@@ -3244,6 +3269,7 @@
           "ev_tansho": 0.819,
           "ev_fukusho": 0.772,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、近5走の複勝率。",
           "n_career": 9,
           "past_races": [
             {
@@ -3388,6 +3414,7 @@
           "ev_tansho": 1.154,
           "ev_fukusho": 1.175,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 15,
           "past_races": [
             {
@@ -3532,6 +3559,7 @@
           "ev_tansho": 0.672,
           "ev_fukusho": 0.779,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 29,
           "past_races": [
             {
@@ -3987,7 +4015,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:23.040202"
+      "updated_at": "2026-06-19T11:31:35.728147"
     },
     {
       "race_id": "20260614_函館_11",
@@ -4023,6 +4051,7 @@
           "ev_tansho": 0.638,
           "ev_fukusho": 0.64,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近5走の複勝率、前走の着差。",
           "n_career": 15,
           "past_races": [
             {
@@ -4167,6 +4196,7 @@
           "ev_tansho": 0.446,
           "ev_fukusho": 0.578,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -4311,6 +4341,7 @@
           "ev_tansho": 1.541,
           "ev_fukusho": 1.218,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 15,
           "past_races": [
             {
@@ -4455,6 +4486,7 @@
           "ev_tansho": 0.466,
           "ev_fukusho": 0.494,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 20,
           "past_races": [
             {
@@ -4599,6 +4631,7 @@
           "ev_tansho": 0.487,
           "ev_fukusho": 0.544,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 25,
           "past_races": [
             {
@@ -4743,6 +4776,7 @@
           "ev_tansho": 1.031,
           "ev_fukusho": 0.902,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 13,
           "past_races": [
             {
@@ -4887,6 +4921,7 @@
           "ev_tansho": 0.708,
           "ev_fukusho": 0.624,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 平均スピード指数、相手のレベル、近5走の複勝率。",
           "n_career": 15,
           "past_races": [
             {
@@ -5031,6 +5066,7 @@
           "ev_tansho": 1.457,
           "ev_fukusho": 1.159,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 26,
           "past_races": [
             {
@@ -5175,6 +5211,7 @@
           "ev_tansho": 0.777,
           "ev_fukusho": 0.981,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 15,
           "past_races": [
             {
@@ -5319,6 +5356,7 @@
           "ev_tansho": 2.577,
           "ev_fukusho": 1.565,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 19,
           "past_races": [
             {
@@ -5463,6 +5501,7 @@
           "ev_tansho": 4.852,
           "ev_fukusho": 2.674,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 20,
           "past_races": [
             {
@@ -5607,6 +5646,7 @@
           "ev_tansho": 7.78,
           "ev_fukusho": 4.439,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -5751,6 +5791,7 @@
           "ev_tansho": 0.852,
           "ev_fukusho": 0.815,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 21,
           "past_races": [
             {
@@ -5895,6 +5936,7 @@
           "ev_tansho": 1.057,
           "ev_fukusho": 0.929,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、平均スピード指数、騎手の複勝率。",
           "n_career": 13,
           "past_races": [
             {
@@ -6039,6 +6081,7 @@
           "ev_tansho": 0.577,
           "ev_fukusho": 0.582,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 10,
           "past_races": [
             {
@@ -6183,6 +6226,7 @@
           "ev_tansho": 2.407,
           "ev_fukusho": 2.02,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 26,
           "past_races": [
             {
@@ -6638,7 +6682,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:23.801584"
+      "updated_at": "2026-06-19T11:31:36.606140"
     },
     {
       "race_id": "20260614_函館_12",
@@ -6674,6 +6718,7 @@
           "ev_tansho": 1.208,
           "ev_fukusho": 1.601,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 10,
           "past_races": [
             {
@@ -6818,6 +6863,7 @@
           "ev_tansho": 0.885,
           "ev_fukusho": 0.736,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着差、前走の着順、頭数。",
           "n_career": 6,
           "past_races": [
             {
@@ -6962,6 +7008,7 @@
           "ev_tansho": 1.875,
           "ev_fukusho": 1.265,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 32,
           "past_races": [
             {
@@ -7106,6 +7153,7 @@
           "ev_tansho": 0.635,
           "ev_fukusho": 0.86,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 13,
           "past_races": [
             {
@@ -7250,6 +7298,7 @@
           "ev_tansho": 0.535,
           "ev_fukusho": 0.595,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -7394,6 +7443,7 @@
           "ev_tansho": 0.652,
           "ev_fukusho": 0.83,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -7478,6 +7528,7 @@
           "ev_tansho": 0.497,
           "ev_fukusho": 0.692,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -7622,6 +7673,7 @@
           "ev_tansho": 1.014,
           "ev_fukusho": 0.888,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 頭数、前走の着順、前走の着差。",
           "n_career": 3,
           "past_races": [
             {
@@ -7726,6 +7778,7 @@
           "ev_tansho": 1.849,
           "ev_fukusho": 2.184,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -7870,6 +7923,7 @@
           "ev_tansho": 0.984,
           "ev_fukusho": 0.951,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 頭数、近5走の複勝率、平均スピード指数。",
           "n_career": 12,
           "past_races": [
             {
@@ -8325,7 +8379,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:24.495728"
+      "updated_at": "2026-06-19T11:31:37.413831"
     },
     {
       "race_id": "20260614_函館_2",
@@ -8361,6 +8415,7 @@
           "ev_tansho": 2.37,
           "ev_fukusho": 1.752,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 10,
           "past_races": [
             {
@@ -8505,6 +8560,7 @@
           "ev_tansho": 3.278,
           "ev_fukusho": 1.527,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -8649,6 +8705,7 @@
           "ev_tansho": 0.473,
           "ev_fukusho": 0.753,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -8773,6 +8830,7 @@
           "ev_tansho": 1.215,
           "ev_fukusho": 1.033,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -8917,6 +8975,7 @@
           "ev_tansho": 0.656,
           "ev_fukusho": 0.714,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、平均スピード指数、クラス。",
           "n_career": 4,
           "past_races": [
             {
@@ -9041,6 +9100,7 @@
           "ev_tansho": 2.024,
           "ev_fukusho": 1.658,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -9125,6 +9185,7 @@
           "ev_tansho": 1.185,
           "ev_fukusho": 0.955,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -9229,6 +9290,7 @@
           "ev_tansho": 1.201,
           "ev_fukusho": 1.15,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、頭数。",
           "n_career": 4,
           "past_races": [
             {
@@ -9353,6 +9415,7 @@
           "ev_tansho": 1.018,
           "ev_fukusho": 1.125,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -9457,6 +9520,7 @@
           "ev_tansho": 0.867,
           "ev_fukusho": 0.698,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、クラス、近3走の複勝率。",
           "n_career": 5,
           "past_races": [
             {
@@ -9601,6 +9665,7 @@
           "ev_tansho": 0.347,
           "ev_fukusho": 0.499,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -10016,7 +10081,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:25.206083"
+      "updated_at": "2026-06-19T11:31:38.189781"
     },
     {
       "race_id": "20260614_函館_3",
@@ -10052,6 +10117,7 @@
           "ev_tansho": 0.736,
           "ev_fukusho": 0.598,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -10136,6 +10202,7 @@
           "ev_tansho": 6.02,
           "ev_fukusho": 3.821,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -10220,6 +10287,7 @@
           "ev_tansho": 3.487,
           "ev_fukusho": 2.346,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -10304,6 +10372,7 @@
           "ev_tansho": 1.789,
           "ev_fukusho": 1.371,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -10408,6 +10477,7 @@
           "ev_tansho": 0.869,
           "ev_fukusho": 0.586,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -10512,6 +10582,7 @@
           "ev_tansho": 3.31,
           "ev_fukusho": 2.139,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -10636,6 +10707,7 @@
           "ev_tansho": 0.722,
           "ev_fukusho": 0.735,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、クラス、前走馬体重。",
           "n_career": 2,
           "past_races": [
             {
@@ -10720,6 +10792,7 @@
           "ev_tansho": 0.928,
           "ev_fukusho": 0.769,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、クラス、前走との距離差。",
           "n_career": 7,
           "past_races": [
             {
@@ -10864,6 +10937,7 @@
           "ev_tansho": 0.488,
           "ev_fukusho": 0.628,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、クラス、近3走の複勝率。",
           "n_career": 8,
           "past_races": [
             {
@@ -11008,6 +11082,7 @@
           "ev_tansho": 0.724,
           "ev_fukusho": 0.765,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -11092,6 +11167,7 @@
           "ev_tansho": 1.834,
           "ev_fukusho": 1.223,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -11176,6 +11252,7 @@
           "ev_tansho": 1.527,
           "ev_fukusho": 1.243,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -11571,7 +11648,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:25.908259"
+      "updated_at": "2026-06-19T11:31:39.213697"
     },
     {
       "race_id": "20260614_函館_4",
@@ -11607,6 +11684,7 @@
           "ev_tansho": 0.44,
           "ev_fukusho": 0.583,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、平均スピード指数。",
           "n_career": 5,
           "past_races": [
             {
@@ -11751,6 +11829,7 @@
           "ev_tansho": 1.708,
           "ev_fukusho": 1.582,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -11855,6 +11934,7 @@
           "ev_tansho": 0.969,
           "ev_fukusho": 0.705,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -11999,6 +12079,7 @@
           "ev_tansho": 2.866,
           "ev_fukusho": 2.317,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -12103,6 +12184,7 @@
           "ev_tansho": 0.577,
           "ev_fukusho": 0.774,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -12247,6 +12329,7 @@
           "ev_tansho": 0.743,
           "ev_fukusho": 0.996,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -12351,6 +12434,7 @@
           "ev_tansho": 1.515,
           "ev_fukusho": 1.284,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -12435,6 +12519,7 @@
           "ev_tansho": 1.786,
           "ev_fukusho": 1.412,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -12539,6 +12624,7 @@
           "ev_tansho": 0.325,
           "ev_fukusho": 0.374,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -12603,6 +12689,7 @@
           "ev_tansho": 1.118,
           "ev_fukusho": 0.745,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、騎手の複勝率、近3走の複勝率。",
           "n_career": 7,
           "past_races": [
             {
@@ -12747,6 +12834,7 @@
           "ev_tansho": 4.385,
           "ev_fukusho": 3.14,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -12891,6 +12979,7 @@
           "ev_tansho": 0.512,
           "ev_fukusho": 0.641,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、上がり順位、平均スピード指数。",
           "n_career": 6,
           "past_races": [
             {
@@ -13035,6 +13124,7 @@
           "ev_tansho": 1.43,
           "ev_fukusho": 0.853,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -13159,6 +13249,7 @@
           "ev_tansho": 4.339,
           "ev_fukusho": 3.489,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -13243,6 +13334,7 @@
           "ev_tansho": 1.811,
           "ev_fukusho": 1.142,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 11,
           "past_races": [
             {
@@ -13387,6 +13479,7 @@
           "ev_tansho": 1.702,
           "ev_fukusho": 0.981,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -13822,7 +13915,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:26.752150"
+      "updated_at": "2026-06-19T11:31:40.007949"
     },
     {
       "race_id": "20260614_函館_5",
@@ -13858,6 +13951,7 @@
           "ev_tansho": 1.418,
           "ev_fukusho": 1.363,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.08,
@@ -13901,6 +13995,7 @@
           "ev_tansho": 0.116,
           "ev_fukusho": 0.256,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.0,
@@ -13944,6 +14039,7 @@
           "ev_tansho": 0.811,
           "ev_fukusho": 0.637,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.03,
@@ -13987,6 +14083,7 @@
           "ev_tansho": 1.848,
           "ev_fukusho": 1.989,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.031,
@@ -14030,6 +14127,7 @@
           "ev_tansho": 0.24,
           "ev_fukusho": 0.398,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.049,
@@ -14073,6 +14171,7 @@
           "ev_tansho": 0.699,
           "ev_fukusho": 0.859,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 頭数、騎手の複勝率、前走の着差。",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.0,
@@ -14116,6 +14215,7 @@
           "ev_tansho": 9.717,
           "ev_fukusho": 4.007,
           "ev_tansho_anomaly": true,
+          "reason": "評価の決め手: 頭数、前走の着差、クラス。",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.087,
@@ -14159,6 +14259,7 @@
           "ev_tansho": 1.014,
           "ev_fukusho": 0.758,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 頭数、騎手の複勝率、前走の着差。",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.08,
@@ -14184,7 +14285,7 @@
         }
       ],
       "recommendations": [],
-      "updated_at": "2026-06-18T10:17:26.804962"
+      "updated_at": "2026-06-19T11:31:40.053665"
     },
     {
       "race_id": "20260614_函館_6",
@@ -14220,6 +14321,7 @@
           "ev_tansho": 1.618,
           "ev_fukusho": 1.366,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -14364,6 +14466,7 @@
           "ev_tansho": 0.288,
           "ev_fukusho": 0.445,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、上がり順位、近3走の複勝率。",
           "n_career": 4,
           "past_races": [
             {
@@ -14488,6 +14591,7 @@
           "ev_tansho": 4.974,
           "ev_fukusho": 2.778,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -14632,6 +14736,7 @@
           "ev_tansho": 0.288,
           "ev_fukusho": 0.41,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -14756,6 +14861,7 @@
           "ev_tansho": 1.823,
           "ev_fukusho": 1.048,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -14900,6 +15006,7 @@
           "ev_tansho": 1.664,
           "ev_fukusho": 0.975,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -14984,6 +15091,7 @@
           "ev_tansho": 1.831,
           "ev_fukusho": 1.706,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -15108,6 +15216,7 @@
           "ev_tansho": 1.09,
           "ev_fukusho": 0.694,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、血統の距離適性。",
           "n_career": 1,
           "past_races": [
             {
@@ -15172,6 +15281,7 @@
           "ev_tansho": 4.526,
           "ev_fukusho": 2.071,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -15316,6 +15426,7 @@
           "ev_tansho": 2.712,
           "ev_fukusho": 2.348,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -15400,6 +15511,7 @@
           "ev_tansho": 1.149,
           "ev_fukusho": 0.758,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -15544,6 +15656,7 @@
           "ev_tansho": 2.304,
           "ev_fukusho": 2.495,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -15688,6 +15801,7 @@
           "ev_tansho": -0.102,
           "ev_fukusho": -0.318,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -15832,6 +15946,7 @@
           "ev_tansho": 2.166,
           "ev_fukusho": 1.071,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、クラス。",
           "n_career": 8,
           "past_races": [
             {
@@ -15976,6 +16091,7 @@
           "ev_tansho": 1.551,
           "ev_fukusho": 1.012,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -16120,6 +16236,7 @@
           "ev_tansho": 1.146,
           "ev_fukusho": 1.013,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.066,
@@ -16474,7 +16591,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:27.527734"
+      "updated_at": "2026-06-19T11:31:40.839396"
     },
     {
       "race_id": "20260614_函館_7",
@@ -16510,6 +16627,7 @@
           "ev_tansho": 1.411,
           "ev_fukusho": 1.149,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -16654,6 +16772,7 @@
           "ev_tansho": 0.483,
           "ev_fukusho": 0.585,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -16778,6 +16897,7 @@
           "ev_tansho": 0.701,
           "ev_fukusho": 0.77,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、平均スピード指数。",
           "n_career": 18,
           "past_races": [
             {
@@ -16922,6 +17042,7 @@
           "ev_tansho": 3.549,
           "ev_fukusho": 1.608,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 11,
           "past_races": [
             {
@@ -17066,6 +17187,7 @@
           "ev_tansho": 6.645,
           "ev_fukusho": 6.115,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 14,
           "past_races": [
             {
@@ -17210,6 +17332,7 @@
           "ev_tansho": 0.889,
           "ev_fukusho": 0.696,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 26,
           "past_races": [
             {
@@ -17354,6 +17477,7 @@
           "ev_tansho": 0.374,
           "ev_fukusho": 0.518,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 25,
           "past_races": [
             {
@@ -17498,6 +17622,7 @@
           "ev_tansho": 0.379,
           "ev_fukusho": 0.423,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -17642,6 +17767,7 @@
           "ev_tansho": 0.742,
           "ev_fukusho": 0.772,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、平均スピード指数、出走数。",
           "n_career": 5,
           "past_races": [
             {
@@ -17786,6 +17912,7 @@
           "ev_tansho": 1.563,
           "ev_fukusho": 1.251,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -17930,6 +18057,7 @@
           "ev_tansho": 2.768,
           "ev_fukusho": 1.718,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 13,
           "past_races": [
             {
@@ -18074,6 +18202,7 @@
           "ev_tansho": 1.001,
           "ev_fukusho": 0.782,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着差、騎手の複勝率、距離。",
           "n_career": 7,
           "past_races": [
             {
@@ -18529,7 +18658,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:28.202908"
+      "updated_at": "2026-06-19T11:31:41.627179"
     },
     {
       "race_id": "20260614_函館_8",
@@ -18565,6 +18694,7 @@
           "ev_tansho": 1.345,
           "ev_fukusho": 0.945,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -18709,6 +18839,7 @@
           "ev_tansho": 0.484,
           "ev_fukusho": 0.532,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 14,
           "past_races": [
             {
@@ -18853,6 +18984,7 @@
           "ev_tansho": 1.131,
           "ev_fukusho": 0.723,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 近3走の複勝率、近5走の複勝率、騎手の複勝率。",
           "n_career": 7,
           "past_races": [
             {
@@ -18997,6 +19129,7 @@
           "ev_tansho": 1.819,
           "ev_fukusho": 0.928,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 18,
           "past_races": [
             {
@@ -19141,6 +19274,7 @@
           "ev_tansho": 2.062,
           "ev_fukusho": 1.914,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 20,
           "past_races": [
             {
@@ -19285,6 +19419,7 @@
           "ev_tansho": 0.76,
           "ev_fukusho": 0.627,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 11,
           "past_races": [
             {
@@ -19429,6 +19564,7 @@
           "ev_tansho": 3.623,
           "ev_fukusho": 1.862,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 20,
           "past_races": [
             {
@@ -19573,6 +19709,7 @@
           "ev_tansho": 0.912,
           "ev_fukusho": 0.799,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 22,
           "past_races": [
             {
@@ -19717,6 +19854,7 @@
           "ev_tansho": 1.832,
           "ev_fukusho": 2.711,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 14,
           "past_races": [
             {
@@ -19861,6 +19999,7 @@
           "ev_tansho": 0.43,
           "ev_fukusho": 0.615,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 9,
           "past_races": [
             {
@@ -20005,6 +20144,7 @@
           "ev_tansho": 0.982,
           "ev_fukusho": 0.868,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、平均スピード指数、前走の着差。",
           "n_career": 8,
           "past_races": [
             {
@@ -20149,6 +20289,7 @@
           "ev_tansho": 0.944,
           "ev_fukusho": 1.264,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 16,
           "past_races": [
             {
@@ -20293,6 +20434,7 @@
           "ev_tansho": 0.597,
           "ev_fukusho": 0.763,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 近3走の複勝率、近5走の複勝率、平均スピード指数。",
           "n_career": 4,
           "past_races": [
             {
@@ -20728,7 +20870,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:28.900626"
+      "updated_at": "2026-06-19T11:31:42.411575"
     },
     {
       "race_id": "20260614_函館_9",
@@ -20764,6 +20906,7 @@
           "ev_tansho": 1.363,
           "ev_fukusho": 1.49,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -20908,6 +21051,7 @@
           "ev_tansho": 3.087,
           "ev_fukusho": 1.987,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 29,
           "past_races": [
             {
@@ -21052,6 +21196,7 @@
           "ev_tansho": 0.888,
           "ev_fukusho": 0.929,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 13,
           "past_races": [
             {
@@ -21196,6 +21341,7 @@
           "ev_tansho": 0.969,
           "ev_fukusho": 0.752,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、頭数、近3走の複勝率。",
           "n_career": 5,
           "past_races": [
             {
@@ -21340,6 +21486,7 @@
           "ev_tansho": 0.465,
           "ev_fukusho": 0.674,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 頭数、前走の着順、上がり順位。",
           "n_career": 1,
           "past_races": [
             {
@@ -21404,6 +21551,7 @@
           "ev_tansho": 0.986,
           "ev_fukusho": 0.971,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 10,
           "past_races": [
             {
@@ -21548,6 +21696,7 @@
           "ev_tansho": 0.686,
           "ev_fukusho": 0.809,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 9,
           "past_races": [
             {
@@ -21692,6 +21841,7 @@
           "ev_tansho": 2.794,
           "ev_fukusho": 1.473,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 12,
           "past_races": [
             {
@@ -21836,6 +21986,7 @@
           "ev_tansho": 2.024,
           "ev_fukusho": 0.841,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 44,
           "past_races": [
             {
@@ -21980,6 +22131,7 @@
           "ev_tansho": 1.103,
           "ev_fukusho": 0.862,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 頭数、平均スピード指数、近5走の複勝率。",
           "n_career": 6,
           "past_races": [
             {
@@ -22435,7 +22587,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:29.569334"
+      "updated_at": "2026-06-19T11:31:43.161136"
     },
     {
       "race_id": "20260614_東京_1",
@@ -22471,6 +22623,7 @@
           "ev_tansho": 0.811,
           "ev_fukusho": 0.881,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -22555,6 +22708,7 @@
           "ev_tansho": 6.882,
           "ev_fukusho": 3.365,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.08,
@@ -22598,6 +22752,7 @@
           "ev_tansho": 1.482,
           "ev_fukusho": 1.15,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、前走の着差、クラス。",
           "n_career": 5,
           "past_races": [
             {
@@ -22742,6 +22897,7 @@
           "ev_tansho": 5.11,
           "ev_fukusho": 2.681,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -22886,6 +23042,7 @@
           "ev_tansho": 0.752,
           "ev_fukusho": 0.83,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -23030,6 +23187,7 @@
           "ev_tansho": 5.138,
           "ev_fukusho": 3.404,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -23094,6 +23252,7 @@
           "ev_tansho": 0.246,
           "ev_fukusho": 0.329,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -23218,6 +23377,7 @@
           "ev_tansho": 1.164,
           "ev_fukusho": 1.134,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -23342,6 +23502,7 @@
           "ev_tansho": 4.603,
           "ev_fukusho": 2.182,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.066,
@@ -23385,6 +23546,7 @@
           "ev_tansho": 3.599,
           "ev_fukusho": 2.361,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -23529,6 +23691,7 @@
           "ev_tansho": 0.744,
           "ev_fukusho": 0.864,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 近5走の複勝率、騎手の複勝率、近3走の複勝率。",
           "n_career": 5,
           "past_races": [
             {
@@ -23673,6 +23836,7 @@
           "ev_tansho": 5.144,
           "ev_fukusho": 3.22,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -23757,6 +23921,7 @@
           "ev_tansho": 1.26,
           "ev_fukusho": 1.233,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -23841,6 +24006,7 @@
           "ev_tansho": 1.673,
           "ev_fukusho": 1.463,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.0,
@@ -23884,6 +24050,7 @@
           "ev_tansho": 0.522,
           "ev_fukusho": 0.66,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、平均スピード指数。",
           "n_career": 6,
           "past_races": [
             {
@@ -24339,7 +24506,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:30.256518"
+      "updated_at": "2026-06-19T11:31:43.962326"
     },
     {
       "race_id": "20260614_東京_10",
@@ -24375,6 +24542,7 @@
           "ev_tansho": 0.503,
           "ev_fukusho": 0.586,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、上がり順位、近3走の複勝率。",
           "n_career": 10,
           "past_races": [
             {
@@ -24519,6 +24687,7 @@
           "ev_tansho": 0.547,
           "ev_fukusho": 0.578,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 16,
           "past_races": [
             {
@@ -24663,6 +24832,7 @@
           "ev_tansho": 1.641,
           "ev_fukusho": 1.271,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 9,
           "past_races": [
             {
@@ -24807,6 +24977,7 @@
           "ev_tansho": 1.953,
           "ev_fukusho": 1.548,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 9,
           "past_races": [
             {
@@ -24951,6 +25122,7 @@
           "ev_tansho": 0.673,
           "ev_fukusho": 0.613,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 21,
           "past_races": [
             {
@@ -25095,6 +25267,7 @@
           "ev_tansho": 0.545,
           "ev_fukusho": 0.558,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 31,
           "past_races": [
             {
@@ -25239,6 +25412,7 @@
           "ev_tansho": 1.143,
           "ev_fukusho": 0.982,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 25,
           "past_races": [
             {
@@ -25383,6 +25557,7 @@
           "ev_tansho": 1.359,
           "ev_fukusho": 1.164,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、上がり順位、平均スピード指数。",
           "n_career": 6,
           "past_races": [
             {
@@ -25527,6 +25702,7 @@
           "ev_tansho": 2.443,
           "ev_fukusho": 1.865,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 17,
           "past_races": [
             {
@@ -25671,6 +25847,7 @@
           "ev_tansho": 2.573,
           "ev_fukusho": 2.073,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 9,
           "past_races": [
             {
@@ -25815,6 +25992,7 @@
           "ev_tansho": 1.35,
           "ev_fukusho": 1.059,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 9,
           "past_races": [
             {
@@ -25959,6 +26137,7 @@
           "ev_tansho": 0.483,
           "ev_fukusho": 0.583,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、平均スピード指数。",
           "n_career": 9,
           "past_races": [
             {
@@ -26103,6 +26282,7 @@
           "ev_tansho": 0.822,
           "ev_fukusho": 1.011,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 15,
           "past_races": [
             {
@@ -26247,6 +26427,7 @@
           "ev_tansho": 2.8,
           "ev_fukusho": 1.815,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 31,
           "past_races": [
             {
@@ -26702,7 +26883,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:30.949246"
+      "updated_at": "2026-06-19T11:31:44.759659"
     },
     {
       "race_id": "20260614_東京_11",
@@ -26738,6 +26919,7 @@
           "ev_tansho": 0.578,
           "ev_fukusho": 0.608,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 31,
           "past_races": [
             {
@@ -26882,6 +27064,7 @@
           "ev_tansho": 2.429,
           "ev_fukusho": 1.545,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 23,
           "past_races": [
             {
@@ -27026,6 +27209,7 @@
           "ev_tansho": 1.594,
           "ev_fukusho": 1.205,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 40,
           "past_races": [
             {
@@ -27170,6 +27354,7 @@
           "ev_tansho": 0.881,
           "ev_fukusho": 0.664,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 14,
           "past_races": [
             {
@@ -27314,6 +27499,7 @@
           "ev_tansho": 0.261,
           "ev_fukusho": 0.322,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 22,
           "past_races": [
             {
@@ -27458,6 +27644,7 @@
           "ev_tansho": 0.935,
           "ev_fukusho": 0.922,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 19,
           "past_races": [
             {
@@ -27602,6 +27789,7 @@
           "ev_tansho": 1.475,
           "ev_fukusho": 1.071,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、平均スピード指数、近5走の複勝率。",
           "n_career": 8,
           "past_races": [
             {
@@ -27746,6 +27934,7 @@
           "ev_tansho": 0.834,
           "ev_fukusho": 0.788,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、上がり順位、近3走の複勝率。",
           "n_career": 12,
           "past_races": [
             {
@@ -27890,6 +28079,7 @@
           "ev_tansho": 0.547,
           "ev_fukusho": 0.541,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 51,
           "past_races": [
             {
@@ -28034,6 +28224,7 @@
           "ev_tansho": 0.543,
           "ev_fukusho": 0.604,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 16,
           "past_races": [
             {
@@ -28178,6 +28369,7 @@
           "ev_tansho": 0.494,
           "ev_fukusho": 0.618,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、近走スピード指数。",
           "n_career": 14,
           "past_races": [
             {
@@ -28322,6 +28514,7 @@
           "ev_tansho": 0.992,
           "ev_fukusho": 0.967,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 24,
           "past_races": [
             {
@@ -28466,6 +28659,7 @@
           "ev_tansho": 0.79,
           "ev_fukusho": 0.857,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 23,
           "past_races": [
             {
@@ -28610,6 +28804,7 @@
           "ev_tansho": -0.232,
           "ev_fukusho": -0.704,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 11,
           "past_races": [
             {
@@ -29065,7 +29260,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:31.660745"
+      "updated_at": "2026-06-19T11:31:45.538650"
     },
     {
       "race_id": "20260614_東京_12",
@@ -29101,6 +29296,7 @@
           "ev_tansho": 3.706,
           "ev_fukusho": 2.781,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -29245,6 +29441,7 @@
           "ev_tansho": 2.115,
           "ev_fukusho": 1.282,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 15,
           "past_races": [
             {
@@ -29389,6 +29586,7 @@
           "ev_tansho": 0.533,
           "ev_fukusho": 0.658,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 11,
           "past_races": [
             {
@@ -29533,6 +29731,7 @@
           "ev_tansho": 3.388,
           "ev_fukusho": 1.745,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 49,
           "past_races": [
             {
@@ -29677,6 +29876,7 @@
           "ev_tansho": 0.785,
           "ev_fukusho": 0.685,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 近3走の複勝率、頭数、平均スピード指数。",
           "n_career": 11,
           "past_races": [
             {
@@ -29821,6 +30021,7 @@
           "ev_tansho": 2.871,
           "ev_fukusho": 1.373,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 18,
           "past_races": [
             {
@@ -29965,6 +30166,7 @@
           "ev_tansho": 1.661,
           "ev_fukusho": 1.362,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 9,
           "past_races": [
             {
@@ -30109,6 +30311,7 @@
           "ev_tansho": 3.423,
           "ev_fukusho": 1.415,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 19,
           "past_races": [
             {
@@ -30253,6 +30456,7 @@
           "ev_tansho": 1.333,
           "ev_fukusho": 1.051,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 32,
           "past_races": [
             {
@@ -30397,6 +30601,7 @@
           "ev_tansho": 1.446,
           "ev_fukusho": 0.918,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、上がり順位、近5走の複勝率。",
           "n_career": 9,
           "past_races": [
             {
@@ -30541,6 +30746,7 @@
           "ev_tansho": 0.393,
           "ev_fukusho": 0.521,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、出走数、平均スピード指数。",
           "n_career": 3,
           "past_races": [
             {
@@ -30645,6 +30851,7 @@
           "ev_tansho": 0.787,
           "ev_fukusho": 0.766,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 27,
           "past_races": [
             {
@@ -31100,7 +31307,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:32.346447"
+      "updated_at": "2026-06-19T11:31:46.300008"
     },
     {
       "race_id": "20260614_東京_2",
@@ -31136,6 +31343,7 @@
           "ev_tansho": 6.638,
           "ev_fukusho": 11.086,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -31200,6 +31408,7 @@
           "ev_tansho": 0.52,
           "ev_fukusho": 0.637,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -31324,6 +31533,7 @@
           "ev_tansho": 5.205,
           "ev_fukusho": 5.971,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -31408,6 +31618,7 @@
           "ev_tansho": 2.075,
           "ev_fukusho": 2.515,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、クラス、厩舎の勝率。",
           "n_career": 5,
           "past_races": [
             {
@@ -31552,6 +31763,7 @@
           "ev_tansho": 1.46,
           "ev_fukusho": 2.803,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -31656,6 +31868,7 @@
           "ev_tansho": 1.859,
           "ev_fukusho": 2.245,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -31800,6 +32013,7 @@
           "ev_tansho": 3.316,
           "ev_fukusho": 3.806,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -31924,6 +32138,7 @@
           "ev_tansho": 0.447,
           "ev_fukusho": 0.735,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、クラス、近3走の複勝率。",
           "n_career": 7,
           "past_races": [
             {
@@ -32068,6 +32283,7 @@
           "ev_tansho": 1.732,
           "ev_fukusho": 2.384,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -32212,6 +32428,7 @@
           "ev_tansho": 2.831,
           "ev_fukusho": 3.77,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -32336,6 +32553,7 @@
           "ev_tansho": 2.866,
           "ev_fukusho": 3.069,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -32440,6 +32658,7 @@
           "ev_tansho": 0.532,
           "ev_fukusho": 1.248,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -32564,6 +32783,7 @@
           "ev_tansho": 4.891,
           "ev_fukusho": 5.954,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -32708,6 +32928,7 @@
           "ev_tansho": 4.314,
           "ev_fukusho": 4.791,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -32792,6 +33013,7 @@
           "ev_tansho": 1.244,
           "ev_fukusho": 1.56,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、平均スピード指数、クラス。",
           "n_career": 7,
           "past_races": [
             {
@@ -32936,6 +33158,7 @@
           "ev_tansho": 2.675,
           "ev_fukusho": 4.024,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -33351,7 +33574,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:33.050936"
+      "updated_at": "2026-06-19T11:31:47.107478"
     },
     {
       "race_id": "20260614_東京_3",
@@ -33387,6 +33610,7 @@
           "ev_tansho": 1.576,
           "ev_fukusho": 0.903,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、クラス、平均スピード指数。",
           "n_career": 2,
           "past_races": [
             {
@@ -33471,6 +33695,7 @@
           "ev_tansho": 1.38,
           "ev_fukusho": 0.824,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -33615,6 +33840,7 @@
           "ev_tansho": 0.468,
           "ev_fukusho": 0.529,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、クラス。",
           "n_career": 8,
           "past_races": [
             {
@@ -33759,6 +33985,7 @@
           "ev_tansho": 0.71,
           "ev_fukusho": 0.753,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -33863,6 +34090,7 @@
           "ev_tansho": 1.098,
           "ev_fukusho": 1.057,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -33927,6 +34155,7 @@
           "ev_tansho": 3.403,
           "ev_fukusho": 5.072,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -34011,6 +34240,7 @@
           "ev_tansho": 1.1,
           "ev_fukusho": 0.997,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -34115,6 +34345,7 @@
           "ev_tansho": 1.347,
           "ev_fukusho": 1.074,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -34259,6 +34490,7 @@
           "ev_tansho": 0.508,
           "ev_fukusho": 0.596,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、平均スピード指数。",
           "n_career": 6,
           "past_races": [
             {
@@ -34403,6 +34635,7 @@
           "ev_tansho": 0.594,
           "ev_fukusho": 0.807,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -34547,6 +34780,7 @@
           "ev_tansho": 0.674,
           "ev_fukusho": 0.705,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -34651,6 +34885,7 @@
           "ev_tansho": 0.583,
           "ev_fukusho": 0.59,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -34775,6 +35010,7 @@
           "ev_tansho": -0.212,
           "ev_fukusho": -0.776,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -34919,6 +35155,7 @@
           "ev_tansho": 1.422,
           "ev_fukusho": 1.103,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -35063,6 +35300,7 @@
           "ev_tansho": 1.304,
           "ev_fukusho": 0.804,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -35207,6 +35445,7 @@
           "ev_tansho": 0.509,
           "ev_fukusho": 0.583,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -35331,6 +35570,7 @@
           "ev_tansho": 4.009,
           "ev_fukusho": 3.051,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -35415,6 +35655,7 @@
           "ev_tansho": 1.445,
           "ev_fukusho": 1.227,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -35870,7 +36111,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:33.772578"
+      "updated_at": "2026-06-19T11:31:47.925799"
     },
     {
       "race_id": "20260614_東京_4",
@@ -35906,6 +36147,7 @@
           "ev_tansho": 0.545,
           "ev_fukusho": 0.512,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.016,
@@ -35949,6 +36191,7 @@
           "ev_tansho": 4.715,
           "ev_fukusho": 3.137,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.051,
@@ -35992,6 +36235,7 @@
           "ev_tansho": 5.401,
           "ev_fukusho": 2.982,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.08,
@@ -36035,6 +36279,7 @@
           "ev_tansho": 0.809,
           "ev_fukusho": 0.681,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 騎手の複勝率、騎手の勝率、クラス。",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.114,
@@ -36078,6 +36323,7 @@
           "ev_tansho": 0.566,
           "ev_fukusho": 0.502,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.051,
@@ -36121,6 +36367,7 @@
           "ev_tansho": 0.832,
           "ev_fukusho": 0.62,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.05,
@@ -36164,6 +36411,7 @@
           "ev_tansho": 4.128,
           "ev_fukusho": 2.341,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.085,
@@ -36207,6 +36455,7 @@
           "ev_tansho": 1.169,
           "ev_fukusho": 0.737,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 血統の距離適性、クラス、前走の着差。",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.05,
@@ -36250,6 +36499,7 @@
           "ev_tansho": 0.541,
           "ev_fukusho": 0.582,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.039,
@@ -36293,6 +36543,7 @@
           "ev_tansho": 2.268,
           "ev_fukusho": 1.325,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.05,
@@ -36336,6 +36587,7 @@
           "ev_tansho": 13.516,
           "ev_fukusho": 6.553,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.018,
@@ -36379,6 +36631,7 @@
           "ev_tansho": 1.121,
           "ev_fukusho": 0.728,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.03,
@@ -36422,6 +36675,7 @@
           "ev_tansho": 4.34,
           "ev_fukusho": 2.288,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.021,
@@ -36465,6 +36719,7 @@
           "ev_tansho": 0.246,
           "ev_fukusho": 0.432,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 厩舎の複勝率、クラス、厩舎の勝率。",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.072,
@@ -36490,7 +36745,7 @@
         }
       ],
       "recommendations": [],
-      "updated_at": "2026-06-18T10:17:33.853645"
+      "updated_at": "2026-06-19T11:31:48.053503"
     },
     {
       "race_id": "20260614_東京_5",
@@ -36526,6 +36781,7 @@
           "ev_tansho": 0.562,
           "ev_fukusho": 0.702,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 頭数、前走の着差、クラス。",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.072,
@@ -36569,6 +36825,7 @@
           "ev_tansho": 9.418,
           "ev_fukusho": 3.631,
           "ev_tansho_anomaly": true,
+          "reason": "評価の決め手: 頭数、血統の距離適性、前走の着差。",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.058,
@@ -36612,6 +36869,7 @@
           "ev_tansho": 0.477,
           "ev_fukusho": 0.596,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 頭数、前走の着差、クラス。",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.074,
@@ -36655,6 +36913,7 @@
           "ev_tansho": 1.065,
           "ev_fukusho": 0.788,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.012,
@@ -36698,6 +36957,7 @@
           "ev_tansho": 1.161,
           "ev_fukusho": 1.138,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.038,
@@ -36741,6 +37001,7 @@
           "ev_tansho": 0.546,
           "ev_fukusho": 0.647,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.08,
@@ -36784,6 +37045,7 @@
           "ev_tansho": 3.057,
           "ev_fukusho": 2.002,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.015,
@@ -36827,6 +37089,7 @@
           "ev_tansho": 0.859,
           "ev_fukusho": 0.663,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.05,
@@ -36852,7 +37115,7 @@
         }
       ],
       "recommendations": [],
-      "updated_at": "2026-06-18T10:17:33.900594"
+      "updated_at": "2026-06-19T11:31:48.124352"
     },
     {
       "race_id": "20260614_東京_6",
@@ -36888,6 +37151,7 @@
           "ev_tansho": 0.432,
           "ev_fukusho": 0.613,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -37032,6 +37296,7 @@
           "ev_tansho": 1.188,
           "ev_fukusho": 1.099,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 16,
           "past_races": [
             {
@@ -37176,6 +37441,7 @@
           "ev_tansho": 0.356,
           "ev_fukusho": 0.358,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -37300,6 +37566,7 @@
           "ev_tansho": 1.072,
           "ev_fukusho": 0.808,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 29,
           "past_races": [
             {
@@ -37444,6 +37711,7 @@
           "ev_tansho": 0.367,
           "ev_fukusho": 0.449,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -37588,6 +37856,7 @@
           "ev_tansho": 1.376,
           "ev_fukusho": 1.157,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 25,
           "past_races": [
             {
@@ -37732,6 +38001,7 @@
           "ev_tansho": 1.712,
           "ev_fukusho": 1.045,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 14,
           "past_races": [
             {
@@ -37876,6 +38146,7 @@
           "ev_tansho": 0.624,
           "ev_fukusho": 0.742,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -38020,6 +38291,7 @@
           "ev_tansho": 1.125,
           "ev_fukusho": 0.943,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 17,
           "past_races": [
             {
@@ -38164,6 +38436,7 @@
           "ev_tansho": 0.378,
           "ev_fukusho": 0.491,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、上がり順位、近5走の複勝率。",
           "n_career": 6,
           "past_races": [
             {
@@ -38308,6 +38581,7 @@
           "ev_tansho": -0.434,
           "ev_fukusho": -1.151,
           "ev_tansho_anomaly": true,
+          "reason": "評価の決め手: 前走の着順、上がり順位、近3走の複勝率。",
           "n_career": 19,
           "past_races": [
             {
@@ -38452,6 +38726,7 @@
           "ev_tansho": 0.703,
           "ev_fukusho": 0.665,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 10,
           "past_races": [
             {
@@ -38596,6 +38871,7 @@
           "ev_tansho": 1.416,
           "ev_fukusho": 1.052,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、通算複勝率。",
           "n_career": 7,
           "past_races": [
             {
@@ -38740,6 +39016,7 @@
           "ev_tansho": 0.917,
           "ev_fukusho": 0.719,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -38884,6 +39161,7 @@
           "ev_tansho": 0.815,
           "ev_fukusho": 0.718,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -39028,6 +39306,7 @@
           "ev_tansho": 2.698,
           "ev_fukusho": 1.533,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 21,
           "past_races": [
             {
@@ -39483,7 +39762,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:34.623470"
+      "updated_at": "2026-06-19T11:31:49.119515"
     },
     {
       "race_id": "20260614_東京_7",
@@ -39519,6 +39798,7 @@
           "ev_tansho": 0.774,
           "ev_fukusho": 1.297,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 24,
           "past_races": [
             {
@@ -39663,6 +39943,7 @@
           "ev_tansho": 1.817,
           "ev_fukusho": 2.081,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 15,
           "past_races": [
             {
@@ -39807,6 +40088,7 @@
           "ev_tansho": 1.035,
           "ev_fukusho": 1.554,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、頭数、上がり順位。",
           "n_career": 3,
           "past_races": [
             {
@@ -39911,6 +40193,7 @@
           "ev_tansho": 1.458,
           "ev_fukusho": 1.653,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 頭数、平均スピード指数、近5走の複勝率。",
           "n_career": 4,
           "past_races": [
             {
@@ -40035,6 +40318,7 @@
           "ev_tansho": 1.942,
           "ev_fukusho": 4.798,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 13,
           "past_races": [
             {
@@ -40179,6 +40463,7 @@
           "ev_tansho": 2.893,
           "ev_fukusho": 4.994,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -40323,6 +40608,7 @@
           "ev_tansho": 0.854,
           "ev_fukusho": 1.789,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 20,
           "past_races": [
             {
@@ -40467,6 +40753,7 @@
           "ev_tansho": 0.405,
           "ev_fukusho": 0.6,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、頭数、近5走の複勝率。",
           "n_career": 5,
           "past_races": [
             {
@@ -40922,7 +41209,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:35.276484"
+      "updated_at": "2026-06-19T11:31:49.923545"
     },
     {
       "race_id": "20260614_東京_8",
@@ -40958,6 +41245,7 @@
           "ev_tansho": 5.85,
           "ev_fukusho": 2.206,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -41102,6 +41390,7 @@
           "ev_tansho": 1.597,
           "ev_fukusho": 0.797,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 9,
           "past_races": [
             {
@@ -41246,6 +41535,7 @@
           "ev_tansho": 3.594,
           "ev_fukusho": 1.864,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 16,
           "past_races": [
             {
@@ -41390,6 +41680,7 @@
           "ev_tansho": 0.616,
           "ev_fukusho": 0.685,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、平均スピード指数。",
           "n_career": 14,
           "past_races": [
             {
@@ -41534,6 +41825,7 @@
           "ev_tansho": 3.664,
           "ev_fukusho": 2.937,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 13,
           "past_races": [
             {
@@ -41678,6 +41970,7 @@
           "ev_tansho": 2.01,
           "ev_fukusho": 1.077,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 16,
           "past_races": [
             {
@@ -41822,6 +42115,7 @@
           "ev_tansho": 2.685,
           "ev_fukusho": 1.275,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 22,
           "past_races": [
             {
@@ -41966,6 +42260,7 @@
           "ev_tansho": 1.171,
           "ev_fukusho": 0.775,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 25,
           "past_races": [
             {
@@ -42110,6 +42405,7 @@
           "ev_tansho": 5.042,
           "ev_fukusho": 3.553,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 26,
           "past_races": [
             {
@@ -42254,6 +42550,7 @@
           "ev_tansho": 3.731,
           "ev_fukusho": 2.209,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -42398,6 +42695,7 @@
           "ev_tansho": 0.464,
           "ev_fukusho": 0.568,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -42482,6 +42780,7 @@
           "ev_tansho": 1.258,
           "ev_fukusho": 1.074,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 15,
           "past_races": [
             {
@@ -42626,6 +42925,7 @@
           "ev_tansho": 2.121,
           "ev_fukusho": 0.988,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 11,
           "past_races": [
             {
@@ -42770,6 +43070,7 @@
           "ev_tansho": 2.385,
           "ev_fukusho": 0.624,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 10,
           "past_races": [
             {
@@ -42914,6 +43215,7 @@
           "ev_tansho": 0.3,
           "ev_fukusho": 0.5,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、上がり順位、平均スピード指数。",
           "n_career": 2,
           "past_races": [
             {
@@ -42998,6 +43300,7 @@
           "ev_tansho": 1.343,
           "ev_fukusho": 0.957,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、上がり順位。",
           "n_career": 12,
           "past_races": [
             {
@@ -43453,7 +43756,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:36.057443"
+      "updated_at": "2026-06-19T11:31:50.783612"
     },
     {
       "race_id": "20260614_東京_9",
@@ -43489,6 +43792,7 @@
           "ev_tansho": 0.875,
           "ev_fukusho": 0.754,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、平均スピード指数。",
           "n_career": 8,
           "past_races": [
             {
@@ -43633,6 +43937,7 @@
           "ev_tansho": 2.16,
           "ev_fukusho": 3.352,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 29,
           "past_races": [
             {
@@ -43777,6 +44082,7 @@
           "ev_tansho": 1.81,
           "ev_fukusho": 1.159,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 35,
           "past_races": [
             {
@@ -43921,6 +44227,7 @@
           "ev_tansho": 0.373,
           "ev_fukusho": 0.559,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、上がり順位、近3走の複勝率。",
           "n_career": 7,
           "past_races": [
             {
@@ -44065,6 +44372,7 @@
           "ev_tansho": 1.362,
           "ev_fukusho": 1.194,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 32,
           "past_races": [
             {
@@ -44209,6 +44517,7 @@
           "ev_tansho": 0.999,
           "ev_fukusho": 0.691,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 16,
           "past_races": [
             {
@@ -44353,6 +44662,7 @@
           "ev_tansho": 2.459,
           "ev_fukusho": 1.511,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 9,
           "past_races": [
             {
@@ -44497,6 +44807,7 @@
           "ev_tansho": 1.935,
           "ev_fukusho": 1.511,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -44641,6 +44952,7 @@
           "ev_tansho": 2.549,
           "ev_fukusho": 1.511,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 15,
           "past_races": [
             {
@@ -44785,6 +45097,7 @@
           "ev_tansho": 0.88,
           "ev_fukusho": 0.813,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 13,
           "past_races": [
             {
@@ -44929,6 +45242,7 @@
           "ev_tansho": 0.838,
           "ev_fukusho": 0.858,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 平均スピード指数、頭数、近5走の複勝率。",
           "n_career": 6,
           "past_races": [
             {
@@ -45384,7 +45698,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:36.722393"
+      "updated_at": "2026-06-19T11:31:51.555732"
     },
     {
       "race_id": "20260614_阪神_1",
@@ -45420,6 +45734,7 @@
           "ev_tansho": 0.562,
           "ev_fukusho": 0.579,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -45504,6 +45819,7 @@
           "ev_tansho": 0.546,
           "ev_fukusho": 0.775,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -45648,6 +45964,7 @@
           "ev_tansho": 0.707,
           "ev_fukusho": 0.908,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -45792,6 +46109,7 @@
           "ev_tansho": 3.217,
           "ev_fukusho": 2.558,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -45916,6 +46234,7 @@
           "ev_tansho": 0.959,
           "ev_fukusho": 0.766,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、騎手の複勝率、クラス。",
           "n_career": 5,
           "past_races": [
             {
@@ -46060,6 +46379,7 @@
           "ev_tansho": 2.021,
           "ev_fukusho": 1.513,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -46164,6 +46484,7 @@
           "ev_tansho": 2.555,
           "ev_fukusho": 1.661,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -46268,6 +46589,7 @@
           "ev_tansho": 1.472,
           "ev_fukusho": 1.15,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、クラス、前走の着差。",
           "n_career": 2,
           "past_races": [
             {
@@ -46352,6 +46674,7 @@
           "ev_tansho": 2.677,
           "ev_fukusho": 1.905,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -46416,6 +46739,7 @@
           "ev_tansho": 0.959,
           "ev_fukusho": 0.761,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -46500,6 +46824,7 @@
           "ev_tansho": 0.524,
           "ev_fukusho": 0.636,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -46604,6 +46929,7 @@
           "ev_tansho": 3.646,
           "ev_fukusho": 1.611,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -46668,6 +46994,7 @@
           "ev_tansho": 0.509,
           "ev_fukusho": 0.621,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、騎手の複勝率、騎手の勝率。",
           "n_career": 6,
           "past_races": [
             {
@@ -46812,6 +47139,7 @@
           "ev_tansho": 1.593,
           "ev_fukusho": 1.339,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -46936,6 +47264,7 @@
           "ev_tansho": 1.431,
           "ev_fukusho": 0.953,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -47040,6 +47369,7 @@
           "ev_tansho": 0.848,
           "ev_fukusho": 0.911,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -47435,7 +47765,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:37.511713"
+      "updated_at": "2026-06-19T11:31:52.360071"
     },
     {
       "race_id": "20260614_阪神_10",
@@ -47471,6 +47801,7 @@
           "ev_tansho": 2.132,
           "ev_fukusho": 1.858,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -47615,6 +47946,7 @@
           "ev_tansho": 0.823,
           "ev_fukusho": 0.768,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 10,
           "past_races": [
             {
@@ -47759,6 +48091,7 @@
           "ev_tansho": 1.063,
           "ev_fukusho": 0.596,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 騎手の複勝率、前走の着順、騎手の勝率。",
           "n_career": 21,
           "past_races": [
             {
@@ -47903,6 +48236,7 @@
           "ev_tansho": 0.811,
           "ev_fukusho": 0.678,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 20,
           "past_races": [
             {
@@ -48047,6 +48381,7 @@
           "ev_tansho": 0.773,
           "ev_fukusho": 0.668,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 22,
           "past_races": [
             {
@@ -48191,6 +48526,7 @@
           "ev_tansho": 0.889,
           "ev_fukusho": 0.83,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 13,
           "past_races": [
             {
@@ -48335,6 +48671,7 @@
           "ev_tansho": 0.694,
           "ev_fukusho": 0.778,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 14,
           "past_races": [
             {
@@ -48479,6 +48816,7 @@
           "ev_tansho": 0.496,
           "ev_fukusho": 0.683,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 騎手の複勝率、騎手の勝率、前走の着差。",
           "n_career": 15,
           "past_races": [
             {
@@ -48623,6 +48961,7 @@
           "ev_tansho": 1.788,
           "ev_fukusho": 1.934,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 10,
           "past_races": [
             {
@@ -48767,6 +49106,7 @@
           "ev_tansho": 0.399,
           "ev_fukusho": 0.516,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、騎手の複勝率、近3走の複勝率。",
           "n_career": 27,
           "past_races": [
             {
@@ -48911,6 +49251,7 @@
           "ev_tansho": 2.481,
           "ev_fukusho": 1.934,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 14,
           "past_races": [
             {
@@ -49055,6 +49396,7 @@
           "ev_tansho": 0.97,
           "ev_fukusho": 0.691,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 26,
           "past_races": [
             {
@@ -49199,6 +49541,7 @@
           "ev_tansho": 4.534,
           "ev_fukusho": 1.682,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 30,
           "past_races": [
             {
@@ -49343,6 +49686,7 @@
           "ev_tansho": 1.405,
           "ev_fukusho": 1.304,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 16,
           "past_races": [
             {
@@ -49798,7 +50142,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:38.276924"
+      "updated_at": "2026-06-19T11:31:53.156127"
     },
     {
       "race_id": "20260614_阪神_11",
@@ -49834,6 +50178,7 @@
           "ev_tansho": 0.716,
           "ev_fukusho": 0.695,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 14,
           "past_races": [
             {
@@ -49978,6 +50323,7 @@
           "ev_tansho": 1.089,
           "ev_fukusho": 1.131,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 騎手の複勝率、前走の着順、騎手の勝率。",
           "n_career": 10,
           "past_races": [
             {
@@ -50122,6 +50468,7 @@
           "ev_tansho": 3.579,
           "ev_fukusho": 2.19,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -50266,6 +50613,7 @@
           "ev_tansho": 4.206,
           "ev_fukusho": 1.946,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -50410,6 +50758,7 @@
           "ev_tansho": 0.45,
           "ev_fukusho": 0.538,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、平均スピード指数、最高スピード指数。",
           "n_career": 10,
           "past_races": [
             {
@@ -50554,6 +50903,7 @@
           "ev_tansho": 0.432,
           "ev_fukusho": 0.374,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 12,
           "past_races": [
             {
@@ -50698,6 +51048,7 @@
           "ev_tansho": 6.113,
           "ev_fukusho": 3.205,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 16,
           "past_races": [
             {
@@ -50842,6 +51193,7 @@
           "ev_tansho": 1.366,
           "ev_fukusho": 0.817,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 29,
           "past_races": [
             {
@@ -50986,6 +51338,7 @@
           "ev_tansho": 1.01,
           "ev_fukusho": 0.5,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 20,
           "past_races": [
             {
@@ -51130,6 +51483,7 @@
           "ev_tansho": 4.711,
           "ev_fukusho": 2.069,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 19,
           "past_races": [
             {
@@ -51274,6 +51628,7 @@
           "ev_tansho": 3.828,
           "ev_fukusho": 1.51,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 16,
           "past_races": [
             {
@@ -51418,6 +51773,7 @@
           "ev_tansho": 3.716,
           "ev_fukusho": 2.205,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 24,
           "past_races": [
             {
@@ -51562,6 +51918,7 @@
           "ev_tansho": 2.391,
           "ev_fukusho": 1.458,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 29,
           "past_races": [
             {
@@ -51706,6 +52063,7 @@
           "ev_tansho": 5.002,
           "ev_fukusho": 3.398,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 11,
           "past_races": [
             {
@@ -51850,6 +52208,7 @@
           "ev_tansho": 0.663,
           "ev_fukusho": 0.631,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 14,
           "past_races": [
             {
@@ -51994,6 +52353,7 @@
           "ev_tansho": 0.177,
           "ev_fukusho": 0.259,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 16,
           "past_races": [
             {
@@ -52138,6 +52498,7 @@
           "ev_tansho": 1.095,
           "ev_fukusho": 0.828,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 騎手の複勝率、前走の着順、騎手の勝率。",
           "n_career": 12,
           "past_races": [
             {
@@ -52282,6 +52643,7 @@
           "ev_tansho": 2.899,
           "ev_fukusho": 2.275,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 39,
           "past_races": [
             {
@@ -52737,7 +53099,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:39.112689"
+      "updated_at": "2026-06-19T11:31:53.978155"
     },
     {
       "race_id": "20260614_阪神_12",
@@ -52773,6 +53135,7 @@
           "ev_tansho": 0.592,
           "ev_fukusho": 0.606,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近5走の複勝率、平均スピード指数。",
           "n_career": 9,
           "past_races": [
             {
@@ -52917,6 +53280,7 @@
           "ev_tansho": 0.349,
           "ev_fukusho": 0.354,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 22,
           "past_races": [
             {
@@ -53061,6 +53425,7 @@
           "ev_tansho": 2.695,
           "ev_fukusho": 1.964,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 24,
           "past_races": [
             {
@@ -53205,6 +53570,7 @@
           "ev_tansho": 5.606,
           "ev_fukusho": 2.059,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 17,
           "past_races": [
             {
@@ -53349,6 +53715,7 @@
           "ev_tansho": 0.606,
           "ev_fukusho": 0.76,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 17,
           "past_races": [
             {
@@ -53493,6 +53860,7 @@
           "ev_tansho": 2.256,
           "ev_fukusho": 1.614,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 20,
           "past_races": [
             {
@@ -53637,6 +54005,7 @@
           "ev_tansho": 1.704,
           "ev_fukusho": 1.313,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 19,
           "past_races": [
             {
@@ -53781,6 +54150,7 @@
           "ev_tansho": 4.753,
           "ev_fukusho": 2.85,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 9,
           "past_races": [
             {
@@ -53925,6 +54295,7 @@
           "ev_tansho": 1.014,
           "ev_fukusho": 0.761,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 22,
           "past_races": [
             {
@@ -54069,6 +54440,7 @@
           "ev_tansho": 0.781,
           "ev_fukusho": 0.754,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 15,
           "past_races": [
             {
@@ -54213,6 +54585,7 @@
           "ev_tansho": 1.484,
           "ev_fukusho": 1.093,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 15,
           "past_races": [
             {
@@ -54357,6 +54730,7 @@
           "ev_tansho": 0.807,
           "ev_fukusho": 0.822,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、近走スピード指数。",
           "n_career": 19,
           "past_races": [
             {
@@ -54501,6 +54875,7 @@
           "ev_tansho": 1.77,
           "ev_fukusho": 1.205,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 9,
           "past_races": [
             {
@@ -54645,6 +55020,7 @@
           "ev_tansho": -0.035,
           "ev_fukusho": -0.189,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 34,
           "past_races": [
             {
@@ -54789,6 +55165,7 @@
           "ev_tansho": 0.594,
           "ev_fukusho": 0.702,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、騎手の複勝率、騎手の勝率。",
           "n_career": 10,
           "past_races": [
             {
@@ -54933,6 +55310,7 @@
           "ev_tansho": 0.76,
           "ev_fukusho": 0.523,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 13,
           "past_races": [
             {
@@ -55388,7 +55766,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:40.122889"
+      "updated_at": "2026-06-19T11:31:54.781696"
     },
     {
       "race_id": "20260614_阪神_2",
@@ -55424,6 +55802,7 @@
           "ev_tansho": 1.276,
           "ev_fukusho": 1.007,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -55548,6 +55927,7 @@
           "ev_tansho": 4.26,
           "ev_fukusho": 1.799,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.08,
@@ -55591,6 +55971,7 @@
           "ev_tansho": 2.696,
           "ev_fukusho": 1.352,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -55735,6 +56116,7 @@
           "ev_tansho": 0.866,
           "ev_fukusho": 0.805,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、騎手の複勝率、近3走の複勝率。",
           "n_career": 3,
           "past_races": [
             {
@@ -55839,6 +56221,7 @@
           "ev_tansho": 3.51,
           "ev_fukusho": 3.437,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.009,
@@ -55882,6 +56265,7 @@
           "ev_tansho": 0.857,
           "ev_fukusho": 1.039,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -56006,6 +56390,7 @@
           "ev_tansho": 5.563,
           "ev_fukusho": 3.999,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -56150,6 +56535,7 @@
           "ev_tansho": 0.545,
           "ev_fukusho": 0.46,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -56294,6 +56680,7 @@
           "ev_tansho": 2.307,
           "ev_fukusho": 0.88,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -56398,6 +56785,7 @@
           "ev_tansho": 0.742,
           "ev_fukusho": 0.575,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -56542,6 +56930,7 @@
           "ev_tansho": 2.711,
           "ev_fukusho": 1.514,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -56626,6 +57015,7 @@
           "ev_tansho": 2.055,
           "ev_fukusho": 1.185,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 9,
           "past_races": [
             {
@@ -56770,6 +57160,7 @@
           "ev_tansho": 0.616,
           "ev_fukusho": 0.763,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、クラス。",
           "n_career": 3,
           "past_races": [
             {
@@ -56874,6 +57265,7 @@
           "ev_tansho": 5.275,
           "ev_fukusho": 2.65,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.08,
@@ -56917,6 +57309,7 @@
           "ev_tansho": 3.644,
           "ev_fukusho": 1.969,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -56981,6 +57374,7 @@
           "ev_tansho": 0.357,
           "ev_fukusho": 0.543,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、前走の着差、クラス。",
           "n_career": 8,
           "past_races": [
             {
@@ -57436,7 +57830,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:40.929667"
+      "updated_at": "2026-06-19T11:31:55.573983"
     },
     {
       "race_id": "20260614_阪神_3",
@@ -57472,6 +57866,7 @@
           "ev_tansho": 0.399,
           "ev_fukusho": 0.476,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、上がり順位、近3走の複勝率。",
           "n_career": 1,
           "past_races": [
             {
@@ -57536,6 +57931,7 @@
           "ev_tansho": 2.546,
           "ev_fukusho": 1.358,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -57680,6 +58076,7 @@
           "ev_tansho": 2.017,
           "ev_fukusho": 1.368,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -57824,6 +58221,7 @@
           "ev_tansho": 1.536,
           "ev_fukusho": 1.116,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -57968,6 +58366,7 @@
           "ev_tansho": 6.157,
           "ev_fukusho": 4.88,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 13,
           "past_races": [
             {
@@ -58112,6 +58511,7 @@
           "ev_tansho": 4.548,
           "ev_fukusho": 2.273,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -58196,6 +58596,7 @@
           "ev_tansho": 1.308,
           "ev_fukusho": 0.936,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -58320,6 +58721,7 @@
           "ev_tansho": 1.863,
           "ev_fukusho": 1.932,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -58444,6 +58846,7 @@
           "ev_tansho": 1.989,
           "ev_fukusho": 2.018,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -58508,6 +58911,7 @@
           "ev_tansho": 3.32,
           "ev_fukusho": 1.636,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -58612,6 +59016,7 @@
           "ev_tansho": 2.494,
           "ev_fukusho": 0.78,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -58756,6 +59161,7 @@
           "ev_tansho": 0.474,
           "ev_fukusho": 0.628,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 10,
           "past_races": [
             {
@@ -58900,6 +59306,7 @@
           "ev_tansho": 3.082,
           "ev_fukusho": 1.511,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -59044,6 +59451,7 @@
           "ev_tansho": 0.903,
           "ev_fukusho": 0.978,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、平均スピード指数、クラス。",
           "n_career": 3,
           "past_races": [
             {
@@ -59148,6 +59556,7 @@
           "ev_tansho": 0.288,
           "ev_fukusho": 0.258,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.058,
@@ -59191,6 +59600,7 @@
           "ev_tansho": 0.903,
           "ev_fukusho": 0.766,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、上がり順位、クラス。",
           "n_career": 2,
           "past_races": [
             {
@@ -59586,7 +59996,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:41.650160"
+      "updated_at": "2026-06-19T11:31:56.385105"
     },
     {
       "race_id": "20260614_阪神_4",
@@ -59622,6 +60032,7 @@
           "ev_tansho": 1.364,
           "ev_fukusho": 0.819,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -59746,6 +60157,7 @@
           "ev_tansho": 3.064,
           "ev_fukusho": 2.236,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -59890,6 +60302,7 @@
           "ev_tansho": 2.897,
           "ev_fukusho": 1.773,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -60034,6 +60447,7 @@
           "ev_tansho": 2.397,
           "ev_fukusho": 1.372,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -60178,6 +60592,7 @@
           "ev_tansho": 1.123,
           "ev_fukusho": 0.763,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 騎手の複勝率、騎手の勝率、近5走の複勝率。",
           "n_career": 4,
           "past_races": [
             {
@@ -60302,6 +60717,7 @@
           "ev_tansho": 0.398,
           "ev_fukusho": 0.675,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、上がり順位、クラス。",
           "n_career": 3,
           "past_races": [
             {
@@ -60406,6 +60822,7 @@
           "ev_tansho": 4.381,
           "ev_fukusho": 2.226,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -60470,6 +60887,7 @@
           "ev_tansho": 0.562,
           "ev_fukusho": 0.545,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -60534,6 +60952,7 @@
           "ev_tansho": 1.52,
           "ev_fukusho": 0.928,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -60638,6 +61057,7 @@
           "ev_tansho": 3.033,
           "ev_fukusho": 1.613,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -60742,6 +61162,7 @@
           "ev_tansho": 2.011,
           "ev_fukusho": 1.266,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -60886,6 +61307,7 @@
           "ev_tansho": 4.236,
           "ev_fukusho": 2.373,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -60970,6 +61392,7 @@
           "ev_tansho": 1.319,
           "ev_fukusho": 0.772,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -61054,6 +61477,7 @@
           "ev_tansho": 2.696,
           "ev_fukusho": 1.541,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 7,
           "past_races": [
             {
@@ -61198,6 +61622,7 @@
           "ev_tansho": 0.581,
           "ev_fukusho": 0.602,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、騎手の複勝率、近3走の複勝率。",
           "n_career": 6,
           "past_races": [
             {
@@ -61342,6 +61767,7 @@
           "ev_tansho": 3.544,
           "ev_fukusho": 1.483,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -61406,6 +61832,7 @@
           "ev_tansho": 3.861,
           "ev_fukusho": 1.747,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 1,
           "past_races": [
             {
@@ -61781,7 +62208,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:42.362908"
+      "updated_at": "2026-06-19T11:31:57.187956"
     },
     {
       "race_id": "20260614_阪神_5",
@@ -61817,6 +62244,7 @@
           "ev_tansho": 6.665,
           "ev_fukusho": 7.147,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.112,
@@ -61860,6 +62288,7 @@
           "ev_tansho": 3.168,
           "ev_fukusho": 3.604,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.109,
@@ -61903,6 +62332,7 @@
           "ev_tansho": 2.472,
           "ev_fukusho": 2.61,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.044,
@@ -61946,6 +62376,7 @@
           "ev_tansho": 0.279,
           "ev_fukusho": 0.511,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 騎手の複勝率、頭数、騎手の勝率。",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.288,
@@ -61989,6 +62420,7 @@
           "ev_tansho": 2.267,
           "ev_fukusho": 2.12,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.117,
@@ -62032,6 +62464,7 @@
           "ev_tansho": 1.235,
           "ev_fukusho": 1.379,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.09,
@@ -62075,6 +62508,7 @@
           "ev_tansho": 0.596,
           "ev_fukusho": 0.955,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 頭数、騎手の複勝率、騎手の勝率。",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.122,
@@ -62118,6 +62552,7 @@
           "ev_tansho": 1.2,
           "ev_fukusho": 1.427,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 騎手の複勝率、頭数、騎手の勝率。",
           "n_career": 0,
           "past_races": [],
           "jockey_win_rate": 0.253,
@@ -62143,7 +62578,7 @@
         }
       ],
       "recommendations": [],
-      "updated_at": "2026-06-18T10:17:42.413830"
+      "updated_at": "2026-06-19T11:31:57.232498"
     },
     {
       "race_id": "20260614_阪神_6",
@@ -62179,6 +62614,7 @@
           "ev_tansho": 0.318,
           "ev_fukusho": 0.573,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -62283,6 +62719,7 @@
           "ev_tansho": 2.318,
           "ev_fukusho": 1.758,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 28,
           "past_races": [
             {
@@ -62427,6 +62864,7 @@
           "ev_tansho": 2.83,
           "ev_fukusho": 1.691,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 14,
           "past_races": [
             {
@@ -62571,6 +63009,7 @@
           "ev_tansho": 4.11,
           "ev_fukusho": 2.906,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 14,
           "past_races": [
             {
@@ -62715,6 +63154,7 @@
           "ev_tansho": 6.219,
           "ev_fukusho": 3.116,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 11,
           "past_races": [
             {
@@ -62859,6 +63299,7 @@
           "ev_tansho": 0.968,
           "ev_fukusho": 0.781,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 26,
           "past_races": [
             {
@@ -63003,6 +63444,7 @@
           "ev_tansho": 0.763,
           "ev_fukusho": 0.729,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 27,
           "past_races": [
             {
@@ -63147,6 +63589,7 @@
           "ev_tansho": 0.459,
           "ev_fukusho": 0.907,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 20,
           "past_races": [
             {
@@ -63291,6 +63734,7 @@
           "ev_tansho": 0.55,
           "ev_fukusho": 0.933,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -63435,6 +63879,7 @@
           "ev_tansho": 3.359,
           "ev_fukusho": 2.364,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 12,
           "past_races": [
             {
@@ -63579,6 +64024,7 @@
           "ev_tansho": 0.463,
           "ev_fukusho": 0.45,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、近3走の複勝率、騎手の複勝率。",
           "n_career": 3,
           "past_races": [
             {
@@ -63683,6 +64129,7 @@
           "ev_tansho": 1.362,
           "ev_fukusho": 0.878,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、騎手の複勝率、近3走の複勝率。",
           "n_career": 7,
           "past_races": [
             {
@@ -63827,6 +64274,7 @@
           "ev_tansho": 1.445,
           "ev_fukusho": 1.224,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -63971,6 +64419,7 @@
           "ev_tansho": 1.138,
           "ev_fukusho": 1.08,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 5,
           "past_races": [
             {
@@ -64115,6 +64564,7 @@
           "ev_tansho": 1.074,
           "ev_fukusho": 0.909,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 平均スピード指数、出走数、前走馬体重。",
           "n_career": 3,
           "past_races": [
             {
@@ -64219,6 +64669,7 @@
           "ev_tansho": 0.99,
           "ev_fukusho": 0.645,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -64674,7 +65125,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:43.135074"
+      "updated_at": "2026-06-19T11:31:58.035886"
     },
     {
       "race_id": "20260614_阪神_7",
@@ -64710,6 +65161,7 @@
           "ev_tansho": 1.984,
           "ev_fukusho": 1.313,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 10,
           "past_races": [
             {
@@ -64854,6 +65306,7 @@
           "ev_tansho": 0.493,
           "ev_fukusho": 0.616,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、頭数、近3走の複勝率。",
           "n_career": 3,
           "past_races": [
             {
@@ -64958,6 +65411,7 @@
           "ev_tansho": 1.844,
           "ev_fukusho": 1.181,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 2,
           "past_races": [
             {
@@ -65042,6 +65496,7 @@
           "ev_tansho": 3.301,
           "ev_fukusho": 1.029,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 3,
           "past_races": [
             {
@@ -65146,6 +65601,7 @@
           "ev_tansho": 3.278,
           "ev_fukusho": 1.504,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 8,
           "past_races": [
             {
@@ -65290,6 +65746,7 @@
           "ev_tansho": 0.898,
           "ev_fukusho": 0.942,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 6,
           "past_races": [
             {
@@ -65434,6 +65891,7 @@
           "ev_tansho": 0.498,
           "ev_fukusho": 0.637,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 騎手の複勝率、前走の着順、上がり順位。",
           "n_career": 3,
           "past_races": [
             {
@@ -65538,6 +65996,7 @@
           "ev_tansho": 1.484,
           "ev_fukusho": 0.961,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 4,
           "past_races": [
             {
@@ -65662,6 +66121,7 @@
           "ev_tansho": 0.746,
           "ev_fukusho": 0.758,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 騎手の複勝率、近5走の複勝率、頭数。",
           "n_career": 5,
           "past_races": [
             {
@@ -65806,6 +66266,7 @@
           "ev_tansho": 0.672,
           "ev_fukusho": 0.549,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 15,
           "past_races": [
             {
@@ -65950,6 +66411,7 @@
           "ev_tansho": 1.508,
           "ev_fukusho": 1.159,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 16,
           "past_races": [
             {
@@ -66405,7 +66867,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:43.797772"
+      "updated_at": "2026-06-19T11:31:58.800883"
     },
     {
       "race_id": "20260614_阪神_8",
@@ -66441,6 +66903,7 @@
           "ev_tansho": 0.922,
           "ev_fukusho": 1.081,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 頭数、前走の着順、近3走の複勝率。",
           "n_career": 18,
           "past_races": [
             {
@@ -66585,6 +67048,7 @@
           "ev_tansho": 1.415,
           "ev_fukusho": 1.347,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 18,
           "past_races": [
             {
@@ -66729,6 +67193,7 @@
           "ev_tansho": 2.833,
           "ev_fukusho": 3.995,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 20,
           "past_races": [
             {
@@ -66873,6 +67338,7 @@
           "ev_tansho": 1.597,
           "ev_fukusho": 1.463,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 29,
           "past_races": [
             {
@@ -67017,6 +67483,7 @@
           "ev_tansho": 0.477,
           "ev_fukusho": 0.599,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、頭数、前走の着差。",
           "n_career": 3,
           "past_races": [
             {
@@ -67121,6 +67588,7 @@
           "ev_tansho": 1.3,
           "ev_fukusho": 1.316,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 10,
           "past_races": [
             {
@@ -67265,6 +67733,7 @@
           "ev_tansho": 1.214,
           "ev_fukusho": 1.707,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 14,
           "past_races": [
             {
@@ -67409,6 +67878,7 @@
           "ev_tansho": 0.946,
           "ev_fukusho": 1.04,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、頭数、上がり順位。",
           "n_career": 14,
           "past_races": [
             {
@@ -67553,6 +68023,7 @@
           "ev_tansho": 1.872,
           "ev_fukusho": 2.034,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 12,
           "past_races": [
             {
@@ -68008,7 +68479,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:44.458556"
+      "updated_at": "2026-06-19T11:31:59.534477"
     },
     {
       "race_id": "20260614_阪神_9",
@@ -68044,6 +68515,7 @@
           "ev_tansho": 1.385,
           "ev_fukusho": 1.411,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 12,
           "past_races": [
             {
@@ -68188,6 +68660,7 @@
           "ev_tansho": 1.593,
           "ev_fukusho": 1.633,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 22,
           "past_races": [
             {
@@ -68332,6 +68805,7 @@
           "ev_tansho": -0.186,
           "ev_fukusho": -0.785,
           "ev_tansho_anomaly": true,
+          "reason": "評価の決め手: 前走の着順、前走の着差、上がり順位。",
           "n_career": 22,
           "past_races": [
             {
@@ -68476,6 +68950,7 @@
           "ev_tansho": 0.514,
           "ev_fukusho": 0.484,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 27,
           "past_races": [
             {
@@ -68620,6 +69095,7 @@
           "ev_tansho": 1.223,
           "ev_fukusho": 0.82,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 12,
           "past_races": [
             {
@@ -68764,6 +69240,7 @@
           "ev_tansho": 0.341,
           "ev_fukusho": 0.282,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 33,
           "past_races": [
             {
@@ -68908,6 +69385,7 @@
           "ev_tansho": 0.293,
           "ev_fukusho": 0.606,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、平均スピード指数、近走スピード指数。",
           "n_career": 20,
           "past_races": [
             {
@@ -69052,6 +69530,7 @@
           "ev_tansho": 3.094,
           "ev_fukusho": 1.493,
           "ev_tansho_anomaly": true,
+          "reason": "",
           "n_career": 19,
           "past_races": [
             {
@@ -69196,6 +69675,7 @@
           "ev_tansho": 0.847,
           "ev_fukusho": 0.92,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 11,
           "past_races": [
             {
@@ -69340,6 +69820,7 @@
           "ev_tansho": 0.638,
           "ev_fukusho": 0.448,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 31,
           "past_races": [
             {
@@ -69484,6 +69965,7 @@
           "ev_tansho": 0.489,
           "ev_fukusho": 0.518,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 17,
           "past_races": [
             {
@@ -69628,6 +70110,7 @@
           "ev_tansho": 1.262,
           "ev_fukusho": 0.826,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 30,
           "past_races": [
             {
@@ -69772,6 +70255,7 @@
           "ev_tansho": 0.674,
           "ev_fukusho": 0.728,
           "ev_tansho_anomaly": false,
+          "reason": "",
           "n_career": 18,
           "past_races": [
             {
@@ -69916,6 +70400,7 @@
           "ev_tansho": 1.004,
           "ev_fukusho": 0.813,
           "ev_tansho_anomaly": false,
+          "reason": "評価の決め手: 前走の着順、前走の着差、平均スピード指数。",
           "n_career": 9,
           "past_races": [
             {
@@ -70371,7 +70856,7 @@
           "note": "1着軸→2,3着流し"
         }
       ],
-      "updated_at": "2026-06-18T10:17:45.159705"
+      "updated_at": "2026-06-19T11:32:00.324553"
     }
   ]
 }
