@@ -63,6 +63,7 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
 .uma-fixed .hn{font-weight:700;font-size:12.5px;line-height:1.25}
 .uma-fixed .meta{font-size:10px;color:var(--dim);font-family:var(--mono)}
 .uma-fixed .abil{font-family:var(--mono);font-size:11px;color:var(--turf);font-weight:700}
+.uma-fixed .sire{font-size:9.5px;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
 .uma-past{display:flex}
 .pcol{flex:0 0 96px;padding:8px 7px;border-right:1px solid var(--line);font-family:var(--mono);font-size:10.5px;line-height:1.5}
 .pcol:last-child{border-right:none}
@@ -118,7 +119,9 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
 .t3rate b{color:var(--turf)}
 .w1{background:#fff;color:#000}.w2{background:#2b2b2b;color:#fff}.w3{background:#E5534B;color:#fff}.w4{background:#3B82F6;color:#fff}.w5{background:#E8B84B;color:#000}.w6{background:#1FA463;color:#fff}.w7{background:#F2683C;color:#fff}.w8{background:#EC6CB9;color:#fff}
 #detail{display:none}
-.det-head{display:flex;align-items:center;gap:10px;padding:14px 0 6px}
+.det-head{display:flex;align-items:center;gap:10px;padding:11px 14px;position:sticky;top:49px;z-index:38;
+  background:rgba(14,17,22,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+  margin:0 -14px}
 .backbtn{background:var(--surface);border:1px solid var(--line);color:var(--text);border-radius:9px;padding:7px 13px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--sans);flex-shrink:0}
 .det-title{font-weight:800;font-size:17px}
 .det-sub{font-family:var(--mono);font-size:11.5px;color:var(--dim);margin-top:1px}
@@ -201,6 +204,8 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
           <button class="sortchip" data-s="agari">上がり順</button>
           <button class="sortchip" data-s="blood">血統順</button>
           <button class="sortchip" data-s="training">調教順</button>
+          <button class="sortchip" data-s="waku">枠順</button>
+          <button class="sortchip" data-s="kyaku">脚質順</button>
           <button class="sortchip" data-s="ev">妙味(EV)順</button>
         </div>
         <div id="horseList"></div>
@@ -304,7 +309,7 @@ function renderDetail(){
       const gg=rk[key]||'—';
       return `<div class="rankcell"><div class="rk ${gg}">${gg}</div><div class="rl">${RANK_LABELS[key]}</div></div>`;
     }).join('')}</div>`;
-    return `<div class="hcard"><div class="hcard-top"><div class="hc-rank">${i+1}</div><div class="umaban ${wc(h.waku)}">${h.umaban}</div><div class="hc-main"><div class="hc-name">${h.horse_name||'—'} <span class="conf ${g}" style="display:inline-flex;vertical-align:middle">${g}</span></div><div class="hc-info">${h.sex||''}${h.age||''} · 斤量${h.kinryo||'—'} · ${h.sire||''}</div></div><div class="dual"><div class="ring">${ringSVG(h.p_ability,35,'var(--turf)')}<div class="val" style="color:var(--turf)">${pct(h.p_ability)}</div><div class="lbl">能力</div></div><div class="ring">${ringSVG(h.p_place,100,'var(--gold)')}<div class="val" style="color:var(--gold)">${pct(h.p_place)}</div><div class="lbl">複勝</div></div></div></div>${reason}${training}${rankbar}${stats?`<div class="hc-stats">${stats}</div>`:''}${evbox}</div>`;
+    return `<div class="hcard"><div class="hcard-top"><div class="hc-rank">${i+1}</div><div class="umaban ${wc(h.waku)}">${h.umaban}</div><div class="hc-main"><div class="hc-name">${h.horse_name||'—'} <span class="conf ${g}" style="display:inline-flex;vertical-align:middle">${g}</span></div><div class="hc-info">${h.sex||''}${h.age||''} · 斤量${h.kinryo||'—'} · ${h.sire||''}</div></div><div class="dual"><div class="ring">${ringSVG(h.p_ability,35,'var(--turf)')}<div class="val" style="color:var(--turf)">${pct(h.p_ability)}</div><div class="lbl">能力</div></div><div class="ring">${ringSVG(h.p_place,100,'var(--gold)')}<div class="val" style="color:var(--gold)">${pct(h.p_place)}</div><div class="lbl">複勝率</div></div></div></div>${reason}${training}${rankbar}${stats?`<div class="hc-stats">${stats}</div>`:''}${evbox}</div>`;
   }).join('');
   const bb=document.getElementById('betBlock');
   if(r.skip||!r.recommendations?.length){
@@ -334,10 +339,11 @@ function renderDetail(){
   document.getElementById('nextR').onclick=()=>{ if(vIdx<sameVenue.length-1) openRace(sameVenue[vIdx+1].race_id); };
 }
 
-// 馬柱（競馬新聞スタイル：1走を縦積みブロックで横並び）
+// 馬柱（競馬新聞スタイル：1走を縦積みブロックで横並び。馬番順）
 function renderUmabashira(horses){
   const nShow=5;
-  document.getElementById('umabaBox').innerHTML=horses.map(h=>{
+  const sorted=[...horses].sort((a,b)=>a.umaban-b.umaban);  // 馬番順
+  document.getElementById('umabaBox').innerHTML=sorted.map(h=>{
     const g=confGrade(h.p_ability);
     const pr=h.past_races||[];
     let cols='';
@@ -361,7 +367,8 @@ function renderUmabashira(horses){
         <div class="nmline"><span class="umaban ${wc(h.waku)}">${h.umaban}</span><span class="conf ${g}">${g}</span></div>
         <div class="hn">${h.horse_name||'—'}</div>
         <div class="meta">${h.sex||''}${h.age||''} 斤${h.kinryo||'?'}</div>
-        <div class="abil">能力${pct(h.p_ability)} 複${pct(h.p_place)}</div>
+        <div class="abil">能力${pct(h.p_ability)} 複勝${pct(h.p_place)}</div>
+        <div class="sire">${h.sire||''}</div>
       </div>
       <div class="uma-past">${cols}</div>
     </div>`;
@@ -443,6 +450,8 @@ function sortHorses(arr){
     agari:h=>h.agari_rank_avg!=null?-h.agari_rank_avg:-99,
     blood:h=>h.blood_stamina_score??-1,
     training:h=>h.training_score??-1,
+    waku:h=>-(h.umaban??99),   // 枠順=馬番昇順（小さい馬番が上）
+    kyaku:h=>-(h.prev_kyakushitsu??9),  // 脚質順（逃げ0が上→差し追込が下）
     ev:h=>(h.ev_tansho!=null&&!h.ev_tansho_anomaly)?h.ev_tansho:-1,
   }[curSort]||(h=>h.p_ability);
   return arr.sort((a,b)=>key(b)-key(a));
