@@ -34,6 +34,34 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
 .filterbar::-webkit-scrollbar{display:none}
 .chip{flex:0 0 auto;padding:7px 13px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--dim);font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap}
 .chip.on{background:var(--turf);border-color:var(--turf);color:#06150d}
+/* レース番号クイックボタン */
+.rnav{display:flex;gap:6px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none}
+.rnav::-webkit-scrollbar{display:none}
+.rnav-btn{flex:0 0 auto;width:34px;height:34px;border-radius:8px;border:1px solid var(--line);
+  background:var(--surface);color:var(--dim);font-family:var(--mono);font-weight:800;font-size:13px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative}
+.rnav-btn.hot{border-color:rgba(242,104,60,.4)}
+.rnav-btn.hot::after{content:"";position:absolute;top:3px;right:3px;width:5px;height:5px;border-radius:50%;background:var(--ev)}
+/* 表示モード切替(評価/馬柱) */
+.modesw{display:flex;gap:0;background:var(--surface2);border-radius:9px;padding:3px;margin:16px 0 4px}
+.modesw button{flex:1;padding:8px;border:none;background:none;color:var(--dim);font-weight:700;
+  font-size:13px;border-radius:7px;cursor:pointer;font-family:var(--sans)}
+.modesw button.on{background:var(--turf);color:#06150d}
+/* 馬柱テーブル */
+.umaba-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:10px}
+.umaba{border-collapse:collapse;width:100%;font-size:11.5px;font-family:var(--mono);min-width:560px}
+.umaba th{background:var(--surface2);color:var(--dim);font-weight:700;padding:7px 6px;text-align:center;
+  position:sticky;left:0;font-size:10px;white-space:nowrap}
+.umaba td{padding:7px 6px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+.umaba .horse-cell{text-align:left;position:sticky;left:0;background:var(--surface);z-index:2;min-width:120px}
+.umaba .hn{font-family:var(--sans);font-weight:700;font-size:12.5px;display:flex;align-items:center;gap:6px}
+.umaba tr:hover td{background:var(--surface2)}
+.umaba .past{color:var(--dim)}
+.umaba .chaku1{color:var(--gold);font-weight:800}
+.umaba .chaku23{color:var(--turf);font-weight:700}
+.pr-cell{line-height:1.4}
+.pr-cell .top{font-weight:700;color:var(--text)}
+.pr-cell .bot{font-size:10px;color:var(--faint)}
 .section-pad{padding:14px 0}
 .rcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:11px;cursor:pointer;transition:border-color .15s,transform .1s}
 .rcard:active{transform:scale(.992)}
@@ -113,6 +141,7 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
 
 <div class="wrap">
   <div id="list">
+    <div class="rnav" id="rnav"></div>
     <div class="filterbar">
       <button class="chip on" data-f="all">すべて</button>
       <button class="chip" data-f="hot">激熱のみ</button>
@@ -129,10 +158,20 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
       <div class="det-nav"><button class="navb" id="prevR">←</button><button class="navb" id="nextR">→</button></div>
     </div>
     <div class="section-pad">
-      <div class="sec-lbl">全馬評価</div>
-      <div id="horseList"></div>
-      <div class="sec-lbl gold">買い目</div>
-      <div id="betBlock"></div>
+      <div class="modesw">
+        <button id="modeEval" class="on" onclick="setMode('eval')">評価</button>
+        <button id="modeUma" onclick="setMode('uma')">馬柱</button>
+      </div>
+      <div id="evalMode">
+        <div class="sec-lbl">全馬評価</div>
+        <div id="horseList"></div>
+        <div class="sec-lbl gold">買い目</div>
+        <div id="betBlock"></div>
+      </div>
+      <div id="umaMode" style="display:none">
+        <div class="sec-lbl">馬柱（過去走）</div>
+        <div class="umaba-wrap" id="umabaBox"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -167,7 +206,14 @@ function renderVenues(){
 }
 function renderList(){
   const box=document.getElementById('raceList');
-  let races=DATA.races.filter(r=>r.place===curVenue).filter(r=>{
+  let venueRaces=DATA.races.filter(r=>r.place===curVenue)
+    .sort((a,b)=>a.race_no-b.race_no);  // レース番号を数値順に
+  // レース番号クイックナビ
+  document.getElementById('rnav').innerHTML=venueRaces.map(r=>{
+    const hot=r.recommendations?.some(x=>x.recommended);
+    return `<button class="rnav-btn ${hot?'hot':''}" onclick="openRace('${r.race_id}')">${r.race_no}</button>`;
+  }).join('');
+  let races=venueRaces.filter(r=>{
     if(curFilter==='all') return true;
     if(curFilter==='hot') return r.recommendations?.some(x=>x.recommended);
     if(curFilter==='active') return r.recommendations?.length>0 && !r.skip;
@@ -226,10 +272,50 @@ function renderDetail(){
       return `<div class="bet-type-grp"><div class="bet-type-lbl">${t}</div>${rows}</div>`;
     }).join('');
   }
-  const sameVenue=DATA.races.filter(x=>x.place===r.place);
+  // 馬柱を描画
+  renderUmabashira(horses);
+  // 詳細を開いたら評価モードに戻す
+  setMode('eval');
+
+  const sameVenue=DATA.races.filter(x=>x.place===r.place).sort((a,b)=>a.race_no-b.race_no);
   const vIdx=sameVenue.findIndex(x=>x.race_id===r.race_id);
   document.getElementById('prevR').onclick=()=>{ if(vIdx>0) openRace(sameVenue[vIdx-1].race_id); };
   document.getElementById('nextR').onclick=()=>{ if(vIdx<sameVenue.length-1) openRace(sameVenue[vIdx+1].race_id); };
+}
+
+// 馬柱（過去走を表形式で）
+function renderUmabashira(horses){
+  const maxPast=Math.max(1,...horses.map(h=>(h.past_races||[]).length));
+  const nShow=Math.min(maxPast,5);  // 最大5走分
+  let head='<tr><th class="horse-cell" style="left:0">馬</th>';
+  for(let i=0;i<nShow;i++) head+=`<th>${i+1}走前</th>`;
+  head+='</tr>';
+  const rows=horses.map(h=>{
+    const g=confGrade(h.p_ability);
+    let cells='';
+    const pr=h.past_races||[];
+    for(let i=0;i<nShow;i++){
+      const p=pr[i];
+      if(!p){ cells+='<td class="past">—</td>'; continue; }
+      const cls=p.chakujun===1?'chaku1':(p.chakujun<=3?'chaku23':'');
+      cells+=`<td class="pr-cell">
+        <div class="top"><span class="${cls}">${p.chakujun||'?'}着</span>/${p.atama||'?'}</div>
+        <div class="bot">${p.place||''}${p.surface||''}${p.distance||''} ${p.baba||''}</div>
+        <div class="bot">${p.ninki||'?'}人 上${p.agari||'?'} SP${p.speed_index?p.speed_index.toFixed(0):'?'}</div>
+      </td>`;
+    }
+    return `<tr><td class="horse-cell">
+      <div class="hn"><span class="umaban ${wc(h.waku)}">${h.umaban}</span>
+      <span>${h.horse_name||'—'}</span><span class="conf ${g}">${g}</span></div></td>${cells}</tr>`;
+  }).join('');
+  document.getElementById('umabaBox').innerHTML=`<table class="umaba"><thead>${head}</thead><tbody>${rows}</tbody></table>`;
+}
+
+function setMode(m){
+  document.getElementById('evalMode').style.display=(m==='eval')?'block':'none';
+  document.getElementById('umaMode').style.display=(m==='uma')?'block':'none';
+  document.getElementById('modeEval').classList.toggle('on',m==='eval');
+  document.getElementById('modeUma').classList.toggle('on',m==='uma');
 }
 function showView(v){
   document.getElementById('list').style.display=(v==='list')?'block':'none';
