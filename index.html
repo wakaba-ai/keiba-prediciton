@@ -90,14 +90,25 @@ body.land-mode .wrap{max-width:100%;padding:0 10px}
 .sortchip2{flex:0 0 auto;padding:5px 11px;border-radius:99px;border:1px solid var(--line);
   background:var(--surface);color:var(--dim);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap}
 .sortchip2.on{background:var(--surface2);border-color:var(--turf);color:var(--turf)}
-.fulltable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.ftable{border-collapse:collapse;width:100%;font-size:12px;min-width:1100px}
+.fulltable-wrap{overflow:auto;-webkit-overflow-scrolling:touch;max-height:calc(100vh - 180px);border:1px solid var(--line);border-radius:10px}
+.ftable{border-collapse:separate;border-spacing:0;width:100%;font-size:12px;min-width:1200px}
 .ftable th{background:var(--surface2);color:var(--dim);font-weight:700;font-size:11px;
-  padding:7px 5px;text-align:center;white-space:nowrap;cursor:pointer;user-select:none}
+  padding:7px 5px;text-align:center;white-space:nowrap;cursor:pointer;user-select:none;
+  position:sticky;top:0;z-index:5;border-bottom:1px solid var(--line)}
 .ftable th:hover{color:var(--turf)}
 .ftable th.sorted{color:var(--turf)}
 .ftable th .arr{font-size:9px;margin-left:1px}
-.ftable td{padding:4px 5px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap;vertical-align:middle}
+.ftable td{padding:4px 5px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap;vertical-align:middle;background:var(--bg)}
+.ftable tr:hover td{background:var(--surface2)}
+/* 左3列を横スクロール時に固定（馬番/馬名/騎手） */
+.ftable th:nth-child(1),.ftable td:nth-child(1){position:sticky;left:0;z-index:4;min-width:42px}
+.ftable th:nth-child(2),.ftable td:nth-child(2){position:sticky;left:42px;z-index:4;min-width:120px}
+.ftable th:nth-child(3),.ftable td:nth-child(3){position:sticky;left:162px;z-index:4;min-width:74px;
+  box-shadow:2px 0 4px rgba(0,0,0,.3)}
+.ftable th:nth-child(1),.ftable th:nth-child(2),.ftable th:nth-child(3){z-index:6}
+.ftable td:nth-child(1),.ftable td:nth-child(2),.ftable td:nth-child(3){background:var(--surface)}
+.ftable tr:hover td:nth-child(-n+3){background:var(--surface2)}
+.ft-tr{font-family:var(--mono);font-size:11px;color:var(--gold);font-weight:700}
 .ftable tr:hover td{background:var(--surface2)}
 .ft-name{text-align:left;font-weight:700;font-size:13px;overflow:hidden;
   text-overflow:ellipsis;white-space:nowrap}
@@ -262,7 +273,7 @@ body.land-mode .wrap{max-width:100%;padding:0 10px}
           <button class="sortchip" data-s="agari">上がり順</button>
           <button class="sortchip" data-s="blood">血統順</button>
           <button class="sortchip" data-s="training">調教順</button>
-          <button class="sortchip" data-s="waku">枠順</button>
+          <button class="sortchip" data-s="waku">有利順</button>
           <button class="sortchip" data-s="kyaku">脚質順</button>
           <button class="sortchip" data-s="mining">M指数順</button>
           <button class="sortchip" data-s="ev">妙味(EV)順</button>
@@ -287,6 +298,17 @@ let DATA=null, curRace=null, curVenue=null, curFilter='all';
 function confGrade(p){ if(p>=30)return'S';if(p>=20)return'A';if(p>=12)return'B';if(p>=6)return'C';return'D'; }
 function wc(w){ return 'w'+(w||1); }
 function pct(v){ return (v==null)?'—':v.toFixed(0); }
+
+// 調教コメントから坂路・ウッドの終いタイムを抽出
+function extractTraining(h){
+  const c=h.training_comment||'';
+  const saka=(c.match(/坂路終い([\d.]+)秒/)||[])[1];
+  const wood=(c.match(/ウッド終い([\d.]+)秒/)||[])[1];
+  const parts=[];
+  if(saka) parts.push(`坂${saka}`);
+  if(wood) parts.push(`W${wood}`);
+  return parts.length?parts.join(' '):(h.training_score!=null?`${h.training_score.toFixed(0)}点`:'—');
+}
 
 // 特殊マーク判定（鉄板・消し・乗替・コース替・ブリンカー）
 function getMarks(h){
@@ -432,9 +454,9 @@ function renderFullTable(horses){
   const arrow=k=> curSort2===k ? `<span class="arr">${curSort2Dir===1?'▲':'▼'}</span>` : '';
   const th=(k,label)=>`<th data-s="${k}" class="${curSort2===k?'sorted':''}">${label}${arrow(k)}</th>`;
   const head=`<tr>
-    <th>印</th>${th('name','馬名')}<th>騎手</th>${th('odds','オッズ')}${th('ability','単勝')}${th('p_place','複勝')}
+    ${th('umaban','馬番')}${th('name','馬名')}<th>騎手</th>${th('odds','オッズ')}${th('ability','単勝')}${th('p_place','複勝')}
     ${RK.map(k=>th(k,RKL[k])).join('')}
-    <th>マーク</th><th>前走</th><th>2走前</th><th>3走前</th><th>4走前</th><th>5走前</th></tr>`;
+    <th>調教ﾀｲﾑ</th><th>マーク</th><th>前走</th><th>2走前</th><th>3走前</th><th>4走前</th><th>5走前</th></tr>`;
   const rows=sorted.map(h=>{
     const g=confGrade(h.p_ability);
     const rk=ranks[h.umaban]||{};
@@ -454,6 +476,7 @@ function renderFullTable(horses){
       <td class="ft-ab">${pct(h.p_ability)}</td>
       <td class="ft-pl">${pct(h.p_place)}</td>
       ${RK.map(k=>`<td class="ft-rk rk ${rk[k]||'D'}">${rk[k]||'—'}</td>`).join('')}
+      <td class="ft-tr">${extractTraining(h)}</td>
       <td><div class="ft-mk">${marks||'—'}</div></td>
       ${pcell(0)}${pcell(1)}${pcell(2)}${pcell(3)}${pcell(4)}
     </tr>`;
@@ -474,7 +497,8 @@ function sortBy(arr,sk){
     training:h=>h.training_score??-1,
     mining:h=>h.mining??-1,
     odds:h=>h.tansho_odds!=null?-h.tansho_odds:-9999,
-    waku:h=>-(h.umaban??99),
+    umaban:h=>-(h.umaban??99),           // 馬番順（小さい順）
+    waku:h=>h.waku_win_rate??-1,          // 有利順（枠の勝率が高い順）
     kyaku:h=>-(h.prev_kyakushitsu??9),
     ev:h=>(h.ev_tansho!=null&&!h.ev_tansho_anomaly)?h.ev_tansho:-1,
   }[sk]||(h=>h.p_ability);
