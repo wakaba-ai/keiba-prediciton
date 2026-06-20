@@ -86,25 +86,31 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
 @media (orientation:landscape){ .land-hint{display:none} }
 
 /* 横画面 全頭比較テーブル（PC運用） */
+body.land-mode .wrap{max-width:100%;padding:0 10px}
 .sortchip2{flex:0 0 auto;padding:5px 11px;border-radius:99px;border:1px solid var(--line);
   background:var(--surface);color:var(--dim);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap}
 .sortchip2.on{background:var(--surface2);border-color:var(--turf);color:var(--turf)}
 .fulltable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.ftable{border-collapse:collapse;width:100%;font-size:12px}
-.ftable th{background:var(--surface2);color:var(--dim);font-weight:700;font-size:10.5px;
-  padding:7px 5px;text-align:center;white-space:nowrap;position:sticky;top:0;z-index:3}
-.ftable td{padding:6px 5px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap;vertical-align:middle}
+.ftable{border-collapse:collapse;width:100%;font-size:12px;min-width:1100px}
+.ftable th{background:var(--surface2);color:var(--dim);font-weight:700;font-size:11px;
+  padding:7px 5px;text-align:center;white-space:nowrap;position:sticky;top:48px;z-index:3;cursor:pointer;user-select:none}
+.ftable th:hover{color:var(--turf)}
+.ftable th.sorted{color:var(--turf)}
+.ftable th .arr{font-size:9px;margin-left:1px}
+.ftable td{padding:4px 5px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap;vertical-align:middle}
 .ftable tr:hover td{background:var(--surface2)}
-.ft-name{text-align:left;font-weight:700;font-size:12.5px;max-width:130px;overflow:hidden;
+.ft-name{text-align:left;font-weight:700;font-size:13px;overflow:hidden;
   text-overflow:ellipsis;white-space:nowrap}
-.ft-name .sire-s{font-size:9.5px;color:var(--faint);font-weight:400;display:block}
+.ft-name .sire-s{font-size:10px;color:var(--faint);font-weight:400;display:block}
 .ft-num{font-family:var(--mono);font-weight:800}
-.ft-ab{font-family:var(--mono);font-weight:800;color:var(--turf)}
-.ft-pl{font-family:var(--mono);font-weight:800;color:var(--gold)}
-.ft-rk{font-family:var(--mono);font-weight:800;font-size:12px}
+.ft-ab{font-family:var(--mono);font-weight:800;color:var(--turf);font-size:14px}
+.ft-pl{font-family:var(--mono);font-weight:800;color:var(--gold);font-size:14px}
+.ft-jk{text-align:left;font-size:11.5px;color:var(--text)}
+.ft-od{font-family:var(--mono);font-weight:700;font-size:12.5px;color:var(--text)}
+.ft-rk{font-family:var(--mono);font-weight:800;font-size:13px}
 .ft-mk{display:flex;gap:2px;justify-content:center;flex-wrap:wrap}
 .ft-mk .mk-badge{font-size:8.5px;padding:1px 4px}
-.ft-past{font-family:var(--mono);font-size:10px;color:var(--dim);text-align:left;line-height:1.35}
+.ft-past{font-family:var(--mono);font-size:10.5px;color:var(--dim);text-align:left;line-height:1.4}
 .ft-past .c1{color:var(--gold);font-weight:800}.ft-past .c23{color:var(--turf);font-weight:700}
 .ftable .conf{display:inline-flex}
 .uma-past{display:flex}
@@ -268,18 +274,6 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
         <div id="betBlock"></div>
       </div>
       <div id="umaMode" style="display:none">
-        <div class="sortbar" id="sortbar2">
-          <span style="color:var(--dim);font-size:11px;font-weight:700;align-self:center;margin-right:4px">並替:</span>
-          <button class="sortchip2 on" data-s="ability">能力</button>
-          <button class="sortchip2" data-s="p_place">複勝</button>
-          <button class="sortchip2" data-s="speed">スピード</button>
-          <button class="sortchip2" data-s="agari">上がり</button>
-          <button class="sortchip2" data-s="blood">血統</button>
-          <button class="sortchip2" data-s="training">調教</button>
-          <button class="sortchip2" data-s="mining">M指数</button>
-          <button class="sortchip2" data-s="waku">馬番</button>
-          <button class="sortchip2" data-s="ev">妙味EV</button>
-        </div>
         <div class="fulltable-wrap" id="fullTableBox"></div>
       </div>
     </div>
@@ -422,16 +416,19 @@ function renderDetail(){
 }
 
 // 横画面：全頭比較テーブル（PC運用・ランク/マーク/過去走を1行に）
-let curSort2='ability';
+let curSort2='ability', curSort2Dir=-1;  // dir: -1=降順, 1=昇順
 function renderFullTable(horses){
   const sorted=sortBy([...horses],curSort2);
+  if(curSort2Dir===1) sorted.reverse();
   const ranks=computeRanks(horses);
   const RK=['speed','agari','jockey','trainer','blood','waku','training','mining'];
   const RKL={speed:'速',agari:'上',jockey:'騎',trainer:'厩',blood:'血',waku:'枠',training:'調',mining:'指'};
+  const arrow=k=> curSort2===k ? `<span class="arr">${curSort2Dir===1?'▲':'▼'}</span>` : '';
+  const th=(k,label)=>`<th data-s="${k}" class="${curSort2===k?'sorted':''}">${label}${arrow(k)}</th>`;
   const head=`<tr>
-    <th>印</th><th>馬名</th><th>能力</th><th>複勝</th>
-    ${RK.map(k=>`<th>${RKL[k]}</th>`).join('')}
-    <th>マーク</th><th>前走</th><th>2走前</th><th>3走前</th></tr>`;
+    <th>印</th>${th('name','馬名')}<th>騎手</th>${th('odds','オッズ')}${th('ability','能力')}${th('p_place','複勝')}
+    ${RK.map(k=>th(k,RKL[k])).join('')}
+    <th>マーク</th><th>前走</th><th>2走前</th><th>3走前</th><th>4走前</th><th>5走前</th></tr>`;
   const rows=sorted.map(h=>{
     const g=confGrade(h.p_ability);
     const rk=ranks[h.umaban]||{};
@@ -442,14 +439,17 @@ function renderFullTable(horses){
       const cls=p.chakujun===1?'c1':(p.chakujun<=3?'c23':'');
       return `<td class="ft-past"><span class="${cls}">${p.chakujun||'?'}</span>/${p.atama||'?'} ${p.place||''}${p.surface||''}${p.distance||''}<br>${p.ninki||'?'}人 上${p.agari||'?'} SP${p.speed_index?p.speed_index.toFixed(0):'?'}</td>`;
     };
+    const odds=h.tansho_odds!=null?h.tansho_odds.toFixed(1):'—';
     return `<tr>
       <td><span class="umaban ${wc(h.waku)}">${h.umaban}</span> <span class="conf ${g}">${g}</span></td>
       <td class="ft-name">${h.horse_name||'—'}<span class="sire-s">${h.sire||''}</span></td>
+      <td class="ft-jk">${h.jockey||'—'}<span class="sire-s">${h.kinryo||''}</span></td>
+      <td class="ft-od">${odds}</td>
       <td class="ft-ab">${pct(h.p_ability)}</td>
       <td class="ft-pl">${pct(h.p_place)}</td>
       ${RK.map(k=>`<td class="ft-rk rk ${rk[k]||'D'}">${rk[k]||'—'}</td>`).join('')}
       <td><div class="ft-mk">${marks||'—'}</div></td>
-      ${pcell(0)}${pcell(1)}${pcell(2)}
+      ${pcell(0)}${pcell(1)}${pcell(2)}${pcell(3)}${pcell(4)}
     </tr>`;
   }).join('');
   document.getElementById('fullTableBox').innerHTML=`<table class="ftable"><thead>${head}</thead><tbody>${rows}</tbody></table>`;
@@ -459,15 +459,21 @@ function renderFullTable(horses){
 function sortBy(arr,sk){
   const key={
     ability:h=>h.p_ability, p_place:h=>h.p_place,
+    name:h=>h.horse_name||'',
     speed:h=>h.prev_speed_index??h.avg_speed_index??-1,
     agari:h=>h.agari_rank_avg!=null?-h.agari_rank_avg:-99,
+    jockey:h=>h.jockey_win_rate??-1,
+    trainer:h=>h.trainer_win_rate??-1,
     blood:h=>h.blood_stamina_score??-1,
     training:h=>h.training_score??-1,
     mining:h=>h.mining??-1,
+    odds:h=>h.tansho_odds!=null?-h.tansho_odds:-9999,
     waku:h=>-(h.umaban??99),
     kyaku:h=>-(h.prev_kyakushitsu??9),
     ev:h=>(h.ev_tansho!=null&&!h.ev_tansho_anomaly)?h.ev_tansho:-1,
   }[sk]||(h=>h.p_ability);
+  // 馬名は文字列ソート（昇順を基本に）
+  if(sk==='name') return arr.sort((a,b)=>String(key(a)).localeCompare(String(key(b)),'ja'));
   return arr.sort((a,b)=>key(b)-key(a));
 }
 
@@ -536,6 +542,7 @@ function setMode(m){
   document.getElementById('umaMode').style.display=(m==='uma')?'block':'none';
   document.getElementById('modeEval').classList.toggle('on',m==='eval');
   document.getElementById('modeUma').classList.toggle('on',m==='uma');
+  document.body.classList.toggle('land-mode',m==='uma');
 }
 
 let curSort='ability';
@@ -544,6 +551,7 @@ function showView(v){
   document.getElementById('list').style.display=(v==='list')?'block':'none';
   document.getElementById('detail').style.display=(v==='detail')?'block':'none';
   document.getElementById('venues').style.display=(v==='list')?'block':'none';
+  if(v==='list') document.body.classList.remove('land-mode');
 }
 document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
   document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
@@ -556,11 +564,12 @@ document.addEventListener('click',e=>{
   sc.classList.add('on'); curSort=sc.dataset.s;
   if(curRace) renderDetail();
 });
-// ソートチップ（横画面 全頭テーブル）
+// 横画面 全頭テーブル：列ヘッダクリックでソート（同じ列で昇順/降順トグル）
 document.addEventListener('click',e=>{
-  const sc=e.target.closest('.sortchip2'); if(!sc) return;
-  document.querySelectorAll('.sortchip2').forEach(x=>x.classList.remove('on'));
-  sc.classList.add('on'); curSort2=sc.dataset.s;
+  const th=e.target.closest('.ftable th[data-s]'); if(!th) return;
+  const s=th.dataset.s;
+  if(curSort2===s){ curSort2Dir=-curSort2Dir; }  // 同じ列→方向反転
+  else{ curSort2=s; curSort2Dir=-1; }            // 別の列→降順から
   if(curRace) renderFullTable([...curRace.horses]);
 });
 load();
