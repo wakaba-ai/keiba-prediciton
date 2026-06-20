@@ -64,6 +64,26 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
 .uma-fixed .meta{font-size:10px;color:var(--dim);font-family:var(--mono)}
 .uma-fixed .abil{font-family:var(--mono);font-size:11px;color:var(--turf);font-weight:700}
 .uma-fixed .sire{font-size:9.5px;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.uma-marks{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+.uma-ranks{display:none;flex-wrap:wrap;gap:2px;margin-top:5px}
+.mini-rk{font-size:9px;font-weight:800;padding:1px 3px;border-radius:4px;background:var(--surface2)}
+
+/* 横画面（landscape）= 競馬新聞紙面モード */
+@media (orientation:landscape) and (max-width:1100px){
+  .wrap{max-width:100%;padding:0 8px}
+  /* 横画面では馬柱の固定列を広げ、評価ランクも表示 */
+  #umaMode .uma-fixed{width:150px}
+  #umaMode .uma-ranks{display:flex}
+  #umaMode .uma-row{margin-bottom:6px}
+  #umaMode .pcol{flex:0 0 88px}
+  /* 横画面で馬柱を開いているとき、紙面ヒントを出す */
+  .land-hint{display:none}
+}
+/* 縦画面で馬柱を開いたら「横にするともっと見やすい」ヒント */
+.land-hint{display:flex;align-items:center;gap:8px;background:rgba(31,164,99,.1);
+  border:1px solid rgba(31,164,99,.3);border-radius:9px;padding:9px 12px;margin-bottom:10px;
+  font-size:12px;color:var(--turf)}
+@media (orientation:landscape){ .land-hint{display:none} }
 .uma-past{display:flex}
 .pcol{flex:0 0 96px;padding:8px 7px;border-right:1px solid var(--line);font-family:var(--mono);font-size:10.5px;line-height:1.5}
 .pcol:last-child{border-right:none}
@@ -117,6 +137,15 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
 .t3name{flex:1;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .t3rate{font-family:var(--mono);font-size:12px;color:var(--dim);flex-shrink:0}
 .t3rate b{color:var(--turf)}
+/* 特殊マーク */
+.marks{display:inline-flex;gap:3px;margin-left:4px;vertical-align:middle}
+.mk-badge{font-size:9px;font-weight:800;padding:1px 5px;border-radius:5px;white-space:nowrap}
+.mk-badge.tetsu{background:rgba(232,184,75,.18);color:var(--gold)}
+.mk-badge.keshi{background:rgba(229,83,75,.18);color:var(--danger)}
+.mk-badge.nori{background:rgba(59,130,246,.18);color:var(--b)}
+.mk-badge.course{background:rgba(31,164,99,.18);color:var(--turf)}
+.mk-badge.blink{background:rgba(236,108,185,.18);color:#EC6CB9}
+.marks-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
 .w1{background:#fff;color:#000}.w2{background:#2b2b2b;color:#fff}.w3{background:#E5534B;color:#fff}.w4{background:#3B82F6;color:#fff}.w5{background:#E8B84B;color:#000}.w6{background:#1FA463;color:#fff}.w7{background:#F2683C;color:#fff}.w8{background:#EC6CB9;color:#fff}
 #detail{display:none}
 .det-head{display:flex;align-items:center;gap:10px;padding:11px 14px;position:sticky;top:49px;z-index:38;
@@ -206,6 +235,7 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
           <button class="sortchip" data-s="training">調教順</button>
           <button class="sortchip" data-s="waku">枠順</button>
           <button class="sortchip" data-s="kyaku">脚質順</button>
+          <button class="sortchip" data-s="mining">M指数順</button>
           <button class="sortchip" data-s="ev">妙味(EV)順</button>
         </div>
         <div id="horseList"></div>
@@ -215,6 +245,7 @@ header{position:sticky;top:0;z-index:40;background:rgba(14,17,22,.88);backdrop-f
         <div id="betBlock"></div>
       </div>
       <div id="umaMode" style="display:none">
+        <div class="land-hint">📱 スマホを横にすると、競馬新聞の紙面のように全馬を見渡せます</div>
         <div class="sec-lbl">馬柱（過去走）</div>
         <div class="umaba-wrap" id="umabaBox"></div>
       </div>
@@ -229,6 +260,23 @@ let DATA=null, curRace=null, curVenue=null, curFilter='all';
 function confGrade(p){ if(p>=30)return'S';if(p>=20)return'A';if(p>=12)return'B';if(p>=6)return'C';return'D'; }
 function wc(w){ return 'w'+(w||1); }
 function pct(v){ return (v==null)?'—':v.toFixed(0); }
+
+// 特殊マーク判定（鉄板・消し・乗替・コース替・ブリンカー）
+function getMarks(h){
+  const marks=[];
+  // 🔥鉄板: 能力突出かつ複勝率高い（堅い軸）
+  if(h.p_ability>=20 && h.p_place>=50) marks.push({m:'🔥',t:'鉄板',c:'tetsu'});
+  // 💣消し: 人気(低オッズ)なのにAI低評価（市場が過大評価）
+  if(h.tansho_odds!=null && h.tansho_odds<=10 && h.divergence!=null && h.divergence<=-0.05)
+    marks.push({m:'💣',t:'消し',c:'keshi'});
+  // 🔄乗替: 騎手が前走から変更
+  if(h.jockey_changed===1) marks.push({m:'🔄',t:'乗替',c:'nori'});
+  // 🔀コース替: 芝⇄ダートの変更
+  if(h.surface_changed===1) marks.push({m:'🔀',t:'コース替',c:'course'});
+  // 👁ブリンカー: 着用/変更（STEP2出力にblinkerがあれば）
+  if(h.blinker===1 || h.blinker_changed===1) marks.push({m:'👁',t:'B変更',c:'blink'});
+  return marks;
+}
 
 async function load(){
   try{ DATA=await (await fetch('predictions.json')).json(); }
@@ -273,7 +321,8 @@ function renderList(){
     const top3=[...r.horses].sort((a,b)=>b.p_ability-a.p_ability).slice(0,3);
     const hasHot=r.recommendations?.some(x=>x.recommended);
     const t3=top3.map(h=>{const g=confGrade(h.p_ability);
-      return `<div class="t3row"><div class="conf ${g}">${g}</div><div class="umaban ${wc(h.waku)}">${h.umaban}</div><div class="t3name">${h.horse_name||'—'}</div><div class="t3rate"><b>${pct(h.p_ability)}</b>/${pct(h.p_place)}</div></div>`;
+      const mk=getMarks(h).map(x=>`<span class="mk-badge ${x.c}">${x.t}</span>`).join('');
+      return `<div class="t3row"><div class="conf ${g}">${g}</div><div class="umaban ${wc(h.waku)}">${h.umaban}</div><div class="t3name">${h.horse_name||'—'}${mk?`<span class="marks">${mk}</span>`:''}</div><div class="t3rate"><b>${pct(h.p_ability)}</b>/${pct(h.p_place)}</div></div>`;
     }).join('');
     const badges=[];
     if(hasHot) badges.push('<span class="bdg hot">◎ 激熱</span>');
@@ -309,7 +358,7 @@ function renderDetail(){
       const gg=rk[key]||'—';
       return `<div class="rankcell"><div class="rk ${gg}">${gg}</div><div class="rl">${RANK_LABELS[key]}</div></div>`;
     }).join('')}</div>`;
-    return `<div class="hcard"><div class="hcard-top"><div class="hc-rank">${i+1}</div><div class="umaban ${wc(h.waku)}">${h.umaban}</div><div class="hc-main"><div class="hc-name">${h.horse_name||'—'} <span class="conf ${g}" style="display:inline-flex;vertical-align:middle">${g}</span></div><div class="hc-info">${h.sex||''}${h.age||''} · 斤量${h.kinryo||'—'} · ${h.sire||''}</div></div><div class="dual"><div class="ring">${ringSVG(h.p_ability,35,'var(--turf)')}<div class="val" style="color:var(--turf)">${pct(h.p_ability)}</div><div class="lbl">能力</div></div><div class="ring">${ringSVG(h.p_place,100,'var(--gold)')}<div class="val" style="color:var(--gold)">${pct(h.p_place)}</div><div class="lbl">複勝率</div></div></div></div>${reason}${training}${rankbar}${stats?`<div class="hc-stats">${stats}</div>`:''}${evbox}</div>`;
+    return `<div class="hcard"><div class="hcard-top"><div class="hc-rank">${i+1}</div><div class="umaban ${wc(h.waku)}">${h.umaban}</div><div class="hc-main"><div class="hc-name">${h.horse_name||'—'} <span class="conf ${g}" style="display:inline-flex;vertical-align:middle">${g}</span></div><div class="hc-info">${h.sex||''}${h.age||''} · 斤量${h.kinryo||'—'} · ${h.sire||''}</div></div><div class="dual"><div class="ring">${ringSVG(h.p_ability,35,'var(--turf)')}<div class="val" style="color:var(--turf)">${pct(h.p_ability)}</div><div class="lbl">能力</div></div><div class="ring">${ringSVG(h.p_place,100,'var(--gold)')}<div class="val" style="color:var(--gold)">${pct(h.p_place)}</div><div class="lbl">複勝率</div></div></div></div>${getMarks(h).length?`<div class="marks-row">${getMarks(h).map(x=>`<span class="mk-badge ${x.c}">${x.m} ${x.t}</span>`).join('')}</div>`:''}${reason}${training}${rankbar}${stats?`<div class="hc-stats">${stats}</div>`:''}${evbox}</div>`;
   }).join('');
   const bb=document.getElementById('betBlock');
   if(r.skip||!r.recommendations?.length){
@@ -340,12 +389,22 @@ function renderDetail(){
 }
 
 // 馬柱（競馬新聞スタイル：1走を縦積みブロックで横並び。馬番順）
+// 横画面では評価サマリ＋過去走の紙面レイアウトになる
 function renderUmabashira(horses){
   const nShow=5;
-  const sorted=[...horses].sort((a,b)=>a.umaban-b.umaban);  // 馬番順
+  const sorted=[...horses].sort((a,b)=>a.umaban-b.umaban);
+  const ranks=computeRanks(sorted);
+  const RL={speed:'速',agari:'上',jockey:'騎',blood:'血',training:'調',mining:'指'};
   document.getElementById('umabaBox').innerHTML=sorted.map(h=>{
     const g=confGrade(h.p_ability);
     const pr=h.past_races||[];
+    const rk=ranks[h.umaban]||{};
+    const marks=getMarks(h).map(x=>`<span class="mk-badge ${x.c}">${x.t}</span>`).join('');
+    // 評価サマリ（横画面で表示される追加列）
+    const miniRanks=Object.keys(RL).map(k=>{
+      const gg=rk[k]||'—';
+      return `<span class="mini-rk rk ${gg}" title="${RL[k]}">${RL[k]}${gg}</span>`;
+    }).join('');
     let cols='';
     for(let i=0;i<nShow;i++){
       const p=pr[i];
@@ -369,6 +428,8 @@ function renderUmabashira(horses){
         <div class="meta">${h.sex||''}${h.age||''} 斤${h.kinryo||'?'}</div>
         <div class="abil">能力${pct(h.p_ability)} 複勝${pct(h.p_place)}</div>
         <div class="sire">${h.sire||''}</div>
+        ${marks?`<div class="uma-marks">${marks}</div>`:''}
+        <div class="uma-ranks">${miniRanks}</div>
       </div>
       <div class="uma-past">${cols}</div>
     </div>`;
@@ -452,6 +513,7 @@ function sortHorses(arr){
     training:h=>h.training_score??-1,
     waku:h=>-(h.umaban??99),   // 枠順=馬番昇順（小さい馬番が上）
     kyaku:h=>-(h.prev_kyakushitsu??9),  // 脚質順（逃げ0が上→差し追込が下）
+    mining:h=>h.mining??-1,    // M指数順
     ev:h=>(h.ev_tansho!=null&&!h.ev_tansho_anomaly)?h.ev_tansho:-1,
   }[curSort]||(h=>h.p_ability);
   return arr.sort((a,b)=>key(b)-key(a));
