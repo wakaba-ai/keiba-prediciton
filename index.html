@@ -93,7 +93,7 @@ body.land-mode .wrap{max-width:100%;padding:0 10px}
 .fulltable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .ftable{border-collapse:collapse;width:100%;font-size:12px;min-width:1100px}
 .ftable th{background:var(--surface2);color:var(--dim);font-weight:700;font-size:11px;
-  padding:7px 5px;text-align:center;white-space:nowrap;position:sticky;top:48px;z-index:3;cursor:pointer;user-select:none}
+  padding:7px 5px;text-align:center;white-space:nowrap;cursor:pointer;user-select:none}
 .ftable th:hover{color:var(--turf)}
 .ftable th.sorted{color:var(--turf)}
 .ftable th .arr{font-size:9px;margin-left:1px}
@@ -256,7 +256,7 @@ body.land-mode .wrap{max-width:100%;padding:0 10px}
       <div id="evalMode">
         <div class="sec-lbl">全馬評価</div>
         <div class="sortbar" id="sortbar">
-          <button class="sortchip on" data-s="ability">能力順</button>
+          <button class="sortchip on" data-s="ability">単勝順</button>
           <button class="sortchip" data-s="p_place">複勝順</button>
           <button class="sortchip" data-s="speed">スピード順</button>
           <button class="sortchip" data-s="agari">上がり順</button>
@@ -293,14 +293,20 @@ function getMarks(h){
   const marks=[];
   // 🔥鉄板: 能力突出かつ複勝率高い（堅い軸）
   if(h.p_ability>=20 && h.p_place>=50) marks.push({m:'🔥',t:'鉄板',c:'tetsu'});
-  // 💣消し: 人気(低オッズ)なのにAI低評価（市場が過大評価）
-  if(h.tansho_odds!=null && h.tansho_odds<=10 && h.divergence!=null && h.divergence<=-0.05)
-    marks.push({m:'💣',t:'消し',c:'keshi'});
+  // 💣消し: マイナス要素が複数重なり「勝てない」と判断できる馬（3つ以上該当）
+  let neg=0;
+  if(h.p_ability!=null && h.p_ability<8) neg++;              // AI能力評価が低い
+  if(h.p_place!=null && h.p_place<25) neg++;                 // 複勝率も低い（3着内も厳しい）
+  if(h.prev_chakujun!=null && h.prev_chakujun>=10) neg++;    // 前走大敗（二桁着順）
+  if(h.agari_rank_avg!=null && h.agari_rank_avg>=10) neg++;  // 上がり遅い（決め手不足）
+  if(h.prev_speed_index!=null && h.prev_speed_index<45) neg++; // スピード指数が低い
+  if(h.rest_weeks!=null && h.rest_weeks>=26) neg++;          // 半年以上の長期休み明け
+  if(neg>=3) marks.push({m:'💣',t:'消し',c:'keshi'});
   // 🔄乗替: 騎手が前走から変更
   if(h.jockey_changed===1) marks.push({m:'🔄',t:'乗替',c:'nori'});
   // 🔀コース替: 芝⇄ダートの変更
   if(h.surface_changed===1) marks.push({m:'🔀',t:'コース替',c:'course'});
-  // 👁ブリンカー: 着用/変更（STEP2出力にblinkerがあれば）
+  // 👁ブリンカー: 着用/変更
   if(h.blinker===1 || h.blinker_changed===1) marks.push({m:'👁',t:'B変更',c:'blink'});
   return marks;
 }
@@ -385,7 +391,7 @@ function renderDetail(){
       const gg=rk[key]||'—';
       return `<div class="rankcell"><div class="rk ${gg}">${gg}</div><div class="rl">${RANK_LABELS[key]}</div></div>`;
     }).join('')}</div>`;
-    return `<div class="hcard"><div class="hcard-top"><div class="hc-rank">${i+1}</div><div class="umaban ${wc(h.waku)}">${h.umaban}</div><div class="hc-main"><div class="hc-name">${h.horse_name||'—'} <span class="conf ${g}" style="display:inline-flex;vertical-align:middle">${g}</span></div><div class="hc-info">${h.sex||''}${h.age||''} · 斤量${h.kinryo||'—'} · ${h.sire||''}</div></div><div class="dual"><div class="ring">${ringSVG(h.p_ability,35,'var(--turf)')}<div class="val" style="color:var(--turf)">${pct(h.p_ability)}</div><div class="lbl">能力</div></div><div class="ring">${ringSVG(h.p_place,100,'var(--gold)')}<div class="val" style="color:var(--gold)">${pct(h.p_place)}</div><div class="lbl">複勝率</div></div></div></div>${getMarks(h).length?`<div class="marks-row">${getMarks(h).map(x=>`<span class="mk-badge ${x.c}">${x.m} ${x.t}</span>`).join('')}</div>`:''}${reason}${training}${rankbar}${stats?`<div class="hc-stats">${stats}</div>`:''}${evbox}</div>`;
+    return `<div class="hcard"><div class="hcard-top"><div class="hc-rank">${i+1}</div><div class="umaban ${wc(h.waku)}">${h.umaban}</div><div class="hc-main"><div class="hc-name">${h.horse_name||'—'} <span class="conf ${g}" style="display:inline-flex;vertical-align:middle">${g}</span></div><div class="hc-info">${h.sex||''}${h.age||''} · 斤量${h.kinryo||'—'} · ${h.sire||''}</div></div><div class="dual"><div class="ring">${ringSVG(h.p_ability,35,'var(--turf)')}<div class="val" style="color:var(--turf)">${pct(h.p_ability)}</div><div class="lbl">単勝</div></div><div class="ring">${ringSVG(h.p_place,100,'var(--gold)')}<div class="val" style="color:var(--gold)">${pct(h.p_place)}</div><div class="lbl">複勝率</div></div></div></div>${getMarks(h).length?`<div class="marks-row">${getMarks(h).map(x=>`<span class="mk-badge ${x.c}">${x.m} ${x.t}</span>`).join('')}</div>`:''}${reason}${training}${rankbar}${stats?`<div class="hc-stats">${stats}</div>`:''}${evbox}</div>`;
   }).join('');
   const bb=document.getElementById('betBlock');
   if(r.skip||!r.recommendations?.length){
@@ -426,7 +432,7 @@ function renderFullTable(horses){
   const arrow=k=> curSort2===k ? `<span class="arr">${curSort2Dir===1?'▲':'▼'}</span>` : '';
   const th=(k,label)=>`<th data-s="${k}" class="${curSort2===k?'sorted':''}">${label}${arrow(k)}</th>`;
   const head=`<tr>
-    <th>印</th>${th('name','馬名')}<th>騎手</th>${th('odds','オッズ')}${th('ability','能力')}${th('p_place','複勝')}
+    <th>印</th>${th('name','馬名')}<th>騎手</th>${th('odds','オッズ')}${th('ability','単勝')}${th('p_place','複勝')}
     ${RK.map(k=>th(k,RKL[k])).join('')}
     <th>マーク</th><th>前走</th><th>2走前</th><th>3走前</th><th>4走前</th><th>5走前</th></tr>`;
   const rows=sorted.map(h=>{
@@ -441,7 +447,7 @@ function renderFullTable(horses){
     };
     const odds=h.tansho_odds!=null?h.tansho_odds.toFixed(1):'—';
     return `<tr>
-      <td><span class="umaban ${wc(h.waku)}">${h.umaban}</span> <span class="conf ${g}">${g}</span></td>
+      <td><span class="umaban ${wc(h.waku)}">${h.umaban}</span></td>
       <td class="ft-name">${h.horse_name||'—'}<span class="sire-s">${h.sire||''}</span></td>
       <td class="ft-jk">${h.jockey||'—'}<span class="sire-s">${h.kinryo||''}</span></td>
       <td class="ft-od">${odds}</td>
