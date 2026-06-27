@@ -3,598 +3,640 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hara AI Keiba</title>
+<title>Hara AI Keiba — Momo Style</title>
 <style>
-/* ─── TOKEN SYSTEM ─────────────────────────────────────── */
-:root{
-  --bg:       #080B10;
-  --panel:    #0F1419;
-  --card:     #141B24;
-  --border:   #1E2A38;
-  --border2:  #243041;
-  --turf:     #00C47A;
-  --turf-dim: rgba(0,196,122,.12);
-  --gold:     #F0B429;
-  --gold-dim: rgba(240,180,41,.12);
-  --red:      #E5534B;
-  --red-dim:  rgba(229,83,75,.12);
-  --blue:     #4D9EF7;
-  --blue-dim: rgba(77,158,247,.12);
-  --text:     #E8EFF8;
-  --dim:      #7A8BA0;
-  --faint:    #3D4F63;
-  --ev:       #FF7849;
-  --ev-dim:   rgba(255,120,73,.12);
-  --ss:       #A855F7;
-  --ss-dim:   rgba(168,85,247,.12);
+/* ─── DESIGN TOKENS ─────────────────────────────────────────
+   競馬の世界: 芝の緑、ダートの茶、勝負の赤
+   パレット: ダーク競馬場ナイター感覚
+──────────────────────────────────────────────────────────── */
+:root {
+  --bg:         #07090C;
+  --panel:      #0D1117;
+  --card:       #131A23;
+  --border:     #1C2733;
+  --border2:    #243041;
 
-  --r: 10px;
-  --mono: "SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace;
+  --turf:       #00D97E;   /* 芝の緑 */
+  --turf-dim:   rgba(0,217,126,.10);
+  --turf-glow:  rgba(0,217,126,.25);
+  --gold:       #F5C842;   /* 一着 */
+  --gold-dim:   rgba(245,200,66,.10);
+  --red:        #E84040;   /* 消し */
+  --red-dim:    rgba(232,64,64,.10);
+  --blue:       #4A9EFF;
+  --blue-dim:   rgba(74,158,255,.10);
+  --purple:     #A855F7;   /* SS */
+  --purple-dim: rgba(168,85,247,.10);
+  --orange:     #FF7A40;   /* 妙味 */
+  --orange-dim: rgba(255,122,64,.10);
+
+  --t1:  #EEF4FF;
+  --t2:  #8899BB;
+  --t3:  #4A5E78;
+  --t4:  #2A3A50;
+
+  --r:   8px;
+  --mono: "SF Mono","Fira Code",monospace;
   --sans: -apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{
-  background:var(--bg);color:var(--text);
-  font-family:var(--sans);font-size:13px;line-height:1.5;
-  -webkit-font-smoothing:antialiased;height:100%;overflow:hidden;
-}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
+  font-family:var(--sans);font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased}
 
-/* ─── LAYOUT: 3-PANE ───────────────────────────────────── */
-#app{display:grid;grid-template-columns:220px 1fr;grid-template-rows:48px 1fr;height:100vh;overflow:hidden}
-#topbar{grid-column:1/3;grid-row:1;display:flex;align-items:center;gap:0;border-bottom:1px solid var(--border);background:var(--panel);z-index:10;padding:0 16px;gap:12px}
-#sidebar{grid-column:1;grid-row:2;overflow-y:auto;border-right:1px solid var(--border);background:var(--panel);scrollbar-width:thin;scrollbar-color:var(--border) transparent}
-#main{grid-column:2;grid-row:2;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent;display:grid;grid-template-columns:1fr 360px;gap:0}
-#center{overflow-y:auto;padding:16px 20px;border-right:1px solid var(--border)}
-#right{overflow-y:auto;padding:16px;background:var(--panel)}
+/* ─── LAYOUT ─────────────────────────────────────────────── */
+#app{display:grid;grid-template-columns:200px 1fr 320px;grid-template-rows:46px 1fr;height:100vh}
+#topbar{grid-column:1/4;display:flex;align-items:center;gap:12px;
+  border-bottom:1px solid var(--border);background:var(--panel);padding:0 16px;z-index:10}
+#sidebar{grid-column:1;overflow-y:auto;border-right:1px solid var(--border);background:var(--panel)}
+#center{grid-column:2;overflow-y:auto;padding:14px 16px}
+#right{grid-column:3;overflow-y:auto;background:var(--panel);border-left:1px solid var(--border);padding:14px}
+::-webkit-scrollbar{width:3px;height:3px}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 
-/* ─── TOPBAR ───────────────────────────────────────────── */
-.logo{font-weight:800;font-size:15px;letter-spacing:-.02em;color:var(--text);display:flex;align-items:baseline;gap:6px}
-.logo-dot{color:var(--turf);font-size:18px;line-height:1}
-.logo-sub{color:var(--dim);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
-#headDate{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--dim)}
-#genTime{font-family:var(--mono);font-size:10px;color:var(--faint);margin-left:8px}
+/* ─── TOPBAR ─────────────────────────────────────────────── */
+.logo{font-weight:900;font-size:14px;letter-spacing:-.03em;color:var(--t1)}
+.logo em{color:var(--turf);font-style:normal}
+.logo-tag{font-size:9px;font-weight:700;color:var(--t3);letter-spacing:.12em;text-transform:uppercase;margin-left:4px}
+#headMeta{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--t3);display:flex;gap:10px}
 
-/* ─── VENUE TABS ───────────────────────────────────────── */
-.venue-tabs{display:flex;gap:0;padding:0 8px;border-bottom:1px solid var(--border)}
-.vtab{padding:9px 14px;font-size:12px;font-weight:700;color:var(--dim);background:none;border:none;cursor:pointer;position:relative;white-space:nowrap;font-family:var(--sans)}
+/* ─── VENUE TABS ─────────────────────────────────────────── */
+.vtabs{display:flex;gap:0;border-bottom:1px solid var(--border);flex-shrink:0}
+.vtab{padding:8px 13px;font-size:12px;font-weight:700;color:var(--t3);background:none;border:none;
+  cursor:pointer;position:relative;white-space:nowrap;font-family:var(--sans)}
 .vtab.on{color:var(--turf)}
-.vtab.on::after{content:"";position:absolute;bottom:-1px;left:10px;right:10px;height:2px;background:var(--turf);border-radius:1px}
-.vtab .cnt{font-size:9px;font-family:var(--mono);color:var(--faint);margin-left:3px}
+.vtab.on::after{content:"";position:absolute;bottom:-1px;left:8px;right:8px;height:2px;
+  background:var(--turf);border-radius:1px}
+.vtab-cnt{font-size:9px;color:var(--t4);margin-left:2px;font-family:var(--mono)}
 
-/* ─── RACE LIST IN SIDEBAR ─────────────────────────────── */
-.race-item{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--border);transition:background .1s;position:relative}
-.race-item:hover{background:var(--card)}
-.race-item.on{background:var(--turf-dim);border-left:3px solid var(--turf)}
-.race-item.on .ri-no{background:var(--turf);color:#022a14}
-.ri-no{width:28px;height:28px;border-radius:7px;background:var(--border);color:var(--dim);font-family:var(--mono);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+/* ─── RACE LIST ──────────────────────────────────────────── */
+.ri{display:flex;align-items:center;gap:8px;padding:9px 12px;cursor:pointer;
+  border-bottom:1px solid var(--border);transition:background .1s;position:relative}
+.ri:hover{background:var(--card)}
+.ri.on{background:var(--turf-dim);border-left:2px solid var(--turf)}
+.ri-no{width:26px;height:26px;border-radius:6px;background:var(--border);
+  color:var(--t2);font-family:var(--mono);font-weight:800;font-size:11px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ri.on .ri-no{background:var(--turf);color:#003320}
 .ri-body{flex:1;min-width:0}
-.ri-grade{font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ri-meta{font-size:10px;color:var(--dim);font-family:var(--mono);margin-top:1px}
-.ri-badges{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
-.ri-time{font-family:var(--mono);font-size:10px;color:var(--dim);flex-shrink:0}
+.ri-g{font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ri-m{font-size:10px;color:var(--t3);font-family:var(--mono)}
+.ri-bgs{display:flex;gap:3px;margin-top:3px;flex-wrap:wrap}
+.ri-t{font-family:var(--mono);font-size:10px;color:var(--t3);flex-shrink:0}
 
-/* ─── BADGES ───────────────────────────────────────────── */
-.badge{font-size:9px;font-weight:800;padding:2px 6px;border-radius:4px;white-space:nowrap}
-.badge.buy{background:var(--turf-dim);color:var(--turf);border:1px solid rgba(0,196,122,.3)}
-.badge.skip{background:var(--border);color:var(--dim)}
-.badge.hot{background:var(--ev-dim);color:var(--ev);border:1px solid rgba(255,120,73,.3)}
-.badge.ss{background:var(--ss-dim);color:var(--ss);border:1px solid rgba(168,85,247,.3)}
+/* ─── BADGES ─────────────────────────────────────────────── */
+.badge{font-size:8.5px;font-weight:800;padding:2px 5px;border-radius:3px;white-space:nowrap}
+.badge.buy{background:var(--turf-dim);color:var(--turf);border:1px solid rgba(0,217,126,.3)}
+.badge.skip{background:var(--border);color:var(--t3)}
+.badge.hot{background:var(--orange-dim);color:var(--orange);border:1px solid rgba(255,122,64,.3)}
+.badge.ss{background:var(--purple-dim);color:var(--purple);border:1px solid rgba(168,85,247,.3)}
+.badge.front{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(245,200,66,.3)}
 
-/* ─── CENTER: RACE HEADER ──────────────────────────────── */
-.race-header{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;margin-bottom:16px}
-.rh-top{display:flex;align-items:flex-start;gap:14px}
-.rh-no{width:44px;height:44px;border-radius:10px;background:var(--border2);color:var(--text);font-family:var(--mono);font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.rh-info{flex:1}
-.rh-grade{font-size:17px;font-weight:800;line-height:1.2}
-.rh-meta{font-size:11px;color:var(--dim);font-family:var(--mono);margin-top:3px}
-.rh-verdict{margin-top:12px;padding:10px 14px;background:var(--panel);border-radius:8px;border-left:3px solid var(--turf);font-size:12px;line-height:1.6;color:var(--dim)}
-.rh-verdict b{color:var(--text)}
-.rh-verdict .verdict-tag{font-size:10px;font-weight:800;color:var(--turf);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:4px}
-.rh-skip{margin-top:12px;padding:10px 14px;background:var(--red-dim);border-radius:8px;border-left:3px solid var(--red);font-size:12px;color:var(--dim)}
-.rh-skip b{color:var(--red)}
+/* ─── RACE HEADER ────────────────────────────────────────── */
+.rh{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:14px 16px;margin-bottom:14px}
+.rh-top{display:flex;align-items:flex-start;gap:12px}
+.rh-no{width:40px;height:40px;border-radius:8px;background:var(--border2);color:var(--t1);
+  font-family:var(--mono);font-weight:800;font-size:16px;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0}
+.rh-title{font-size:15px;font-weight:800;line-height:1.2}
+.rh-meta{font-size:10px;color:var(--t3);font-family:var(--mono);margin-top:3px}
 
-/* ─── CONFIDENCE BADGE ─────────────────────────────────── */
-.conf{width:22px;height:22px;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:800;font-size:11px;flex-shrink:0;vertical-align:middle}
-.conf.SS{background:var(--ss);color:#fff}
+/* 展開バナー */
+.verdict-bar{margin-top:12px;border-radius:6px;padding:10px 13px;font-size:12px;line-height:1.7}
+.verdict-bar.front{background:var(--gold-dim);border-left:3px solid var(--gold)}
+.verdict-bar.diff{background:var(--blue-dim);border-left:3px solid var(--blue)}
+.verdict-bar.mid{background:var(--turf-dim);border-left:3px solid var(--turf)}
+.verdict-bar.skip-b{background:var(--red-dim);border-left:3px solid var(--red)}
+.verdict-bar .vb-tag{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  display:block;margin-bottom:2px}
+.verdict-bar.front .vb-tag{color:var(--gold)}
+.verdict-bar.diff .vb-tag{color:var(--blue)}
+.verdict-bar.mid .vb-tag{color:var(--turf)}
+.verdict-bar.skip-b .vb-tag{color:var(--red)}
+.verdict-bar b{color:var(--t1)}
+.verdict-bar .vb-sub{color:var(--t2);font-size:11px}
+
+/* 買い/見送りバナー */
+.buy-bar{margin-top:8px;border-radius:6px;padding:8px 13px;font-size:12px}
+.buy-bar.yes{background:rgba(0,217,126,.06);border:1px solid rgba(0,217,126,.2)}
+.buy-bar.no{background:rgba(232,64,64,.06);border:1px solid rgba(232,64,64,.2)}
+.buy-bar.yes b{color:var(--turf)}
+.buy-bar.no b{color:var(--red)}
+
+/* ─── SORT CHIPS ─────────────────────────────────────────── */
+.sortbar{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
+.sch{padding:4px 10px;border-radius:99px;border:1px solid var(--border);
+  background:var(--card);color:var(--t3);font-size:10px;font-weight:600;
+  cursor:pointer;white-space:nowrap}
+.sch.on{background:var(--turf-dim);border-color:var(--turf);color:var(--turf)}
+
+/* ─── HORSE TABLE ─────────────────────────────────────────── */
+.ht-wrap{overflow:auto;border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px}
+.ht{border-collapse:separate;border-spacing:0;width:100%;min-width:860px;font-size:11.5px}
+.ht th{background:var(--panel);color:var(--t3);font-weight:700;font-size:9.5px;padding:6px 7px;
+  text-align:center;white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:3;
+  border-bottom:1px solid var(--border);letter-spacing:.04em}
+.ht th:hover,.ht th.sorted{color:var(--turf)}
+.ht td{padding:6px 7px;border-bottom:1px solid var(--border);text-align:center;
+  white-space:nowrap;vertical-align:middle}
+.ht tr:last-child td{border-bottom:none}
+.ht tr:hover td{background:rgba(255,255,255,.025)}
+/* 消し馬: 半透明 */
+.ht tr.keshi td{opacity:.35}
+.ht tr.keshi td:nth-child(1),.ht tr.keshi td:nth-child(2){opacity:.6}
+/* sticky */
+.ht th:nth-child(1),.ht td:nth-child(1){position:sticky;left:0;z-index:2;min-width:34px;background:var(--card)}
+.ht th:nth-child(2),.ht td:nth-child(2){position:sticky;left:34px;z-index:2;min-width:130px;background:var(--card)}
+.ht th:nth-child(3),.ht td:nth-child(3){position:sticky;left:164px;z-index:2;min-width:50px;
+  background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.5)}
+.ht tr:hover td:nth-child(-n+3){background:var(--border)}
+/* 脚質カラム: 逃げ/先行を強調 */
+.kyaku-0{color:var(--red);font-weight:800}     /* 逃げ */
+.kyaku-1{color:var(--gold);font-weight:800}    /* 先行 */
+.kyaku-2{color:var(--t2)}                       /* 中団 */
+.kyaku-3{color:var(--t4)}                       /* 追込 */
+/* 馬名セル */
+.ht-name{text-align:left;font-weight:800;font-size:12.5px}
+.ht-name .sub{display:block;font-size:9.5px;color:var(--t3);font-weight:400;margin-top:1px}
+.ht-name .ktags{display:flex;gap:3px;flex-wrap:wrap;margin-top:3px}
+.ktag{font-size:8px;font-weight:700;padding:1px 4px;border-radius:3px;
+  background:var(--red-dim);color:var(--red)}
+/* 数値セル */
+.num-ab{font-family:var(--mono);font-weight:800;font-size:14px;color:var(--turf)}
+.num-pl{font-family:var(--mono);font-weight:800;font-size:14px;color:var(--gold)}
+.num-od{font-family:var(--mono);font-weight:700}
+.num-ev{font-family:var(--mono);font-weight:800}
+.num-ev.good{color:var(--orange)}
+.num-my{font-family:var(--mono);font-weight:800}
+.num-my.high{color:var(--purple)}
+/* 自信度バッジ */
+.conf{width:24px;height:24px;border-radius:5px;display:inline-flex;align-items:center;
+  justify-content:center;font-family:var(--mono);font-weight:800;font-size:11px;flex-shrink:0}
+.conf.SS{background:var(--purple);color:#fff}
 .conf.S{background:var(--gold);color:#1a1200}
 .conf.A{background:var(--turf);color:#001a0e}
 .conf.B{background:var(--blue);color:#fff}
-.conf.C{background:var(--faint);color:var(--dim)}
-.conf.D{background:#1a2230;color:var(--faint)}
+.conf.C{background:var(--t4);color:var(--t2)}
+.conf.D{background:#0f1823;color:var(--t4)}
+/* 枠番カラー */
+.wb{width:22px;height:22px;border-radius:4px;display:inline-flex;align-items:center;
+  justify-content:center;font-family:var(--mono);font-weight:800;font-size:11px}
+.w1{background:#f0f0f0;color:#000}.w2{background:#222;color:#fff}.w3{background:#c0392b;color:#fff}
+.w4{background:#2980b9;color:#fff}.w5{background:#f39c12;color:#000}.w6{background:#27ae60;color:#fff}
+.w7{background:#e67e22;color:#fff}.w8{background:#e91e8c;color:#fff}
+/* 過去走セル */
+.past-cell{text-align:left;font-family:var(--mono);font-size:9.5px;color:var(--t3);min-width:70px}
+.pc1{color:var(--gold);font-weight:800}.pc23{color:var(--turf);font-weight:700}
 
-/* ─── HORSE TABLE ──────────────────────────────────────── */
-.htable-wrap{overflow:auto;border:1px solid var(--border);border-radius:var(--r);margin-bottom:16px}
-.htable{border-collapse:separate;border-spacing:0;width:100%;min-width:900px;font-size:11.5px}
-.htable th{background:var(--panel);color:var(--dim);font-weight:700;font-size:10px;padding:7px 8px;text-align:center;white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:3;border-bottom:1px solid var(--border);letter-spacing:.04em}
-.htable th:hover{color:var(--turf)}
-.htable th.sorted{color:var(--turf)}
-.htable td{padding:6px 8px;border-bottom:1px solid var(--border);text-align:center;white-space:nowrap;vertical-align:middle}
-.htable tr:last-child td{border-bottom:none}
-.htable tr:hover td{background:rgba(255,255,255,.02)}
-.htable tr.keshi td{opacity:.45}
-.htable tr.keshi td:first-child{opacity:1}
-/* sticky cols */
-.htable th:nth-child(1),.htable td:nth-child(1){position:sticky;left:0;z-index:2;min-width:38px;background:var(--card)}
-.htable th:nth-child(2),.htable td:nth-child(2){position:sticky;left:38px;z-index:2;min-width:130px;background:var(--card)}
-.htable th:nth-child(3),.htable td:nth-child(3){position:sticky;left:168px;z-index:2;min-width:56px;background:var(--card);box-shadow:2px 0 6px rgba(0,0,0,.4)}
-.htable tr:hover td:nth-child(-n+3){background:var(--border)}
-.ht-name{text-align:left;font-weight:700;font-size:12.5px}
-.ht-name .sire{display:block;font-size:9.5px;color:var(--faint);font-weight:400}
-.ht-name .keshi-tag{display:inline-flex;gap:3px;flex-wrap:wrap;margin-top:2px}
-.ht-num{font-family:var(--mono);font-weight:800}
-.ht-jk{text-align:left;font-size:11px}
-.ht-ab{font-family:var(--mono);font-weight:800;font-size:14px;color:var(--turf)}
-.ht-pl{font-family:var(--mono);font-weight:800;font-size:14px;color:var(--gold)}
-.ht-od{font-family:var(--mono);font-weight:700}
-.ht-ev{font-family:var(--mono);font-weight:800}
-.ht-ev.good{color:var(--ev)}
-.ht-rk{font-family:var(--mono);font-weight:800;font-size:12px}
-.rk-S{color:var(--turf)}.rk-A{color:var(--gold)}.rk-B{color:var(--blue)}.rk-C{color:var(--dim)}.rk-D{color:var(--faint)}
-.past-cell{text-align:left;font-family:var(--mono);font-size:10px;color:var(--dim);min-width:80px}
-.past-cell .c1{color:var(--gold);font-weight:800}.past-cell .c23{color:var(--turf);font-weight:700}
-
-/* ─── WAKU COLORS ──────────────────────────────────────── */
-.umaban{width:22px;height:22px;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:800;font-size:11px;flex-shrink:0;vertical-align:middle}
-.w1{background:#fff;color:#000}.w2{background:#2B2B2B;color:#fff}.w3{background:#D93737;color:#fff}
-.w4{background:#3B7FF5;color:#fff}.w5{background:#E8B84B;color:#000}.w6{background:#1FA463;color:#fff}
-.w7{background:#F2683C;color:#fff}.w8{background:#EC6CB9;color:#fff}
-
-/* ─── SORT BAR ─────────────────────────────────────────── */
-.sortbar{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
-.schip{padding:5px 10px;border-radius:99px;border:1px solid var(--border);background:var(--card);color:var(--dim);font-size:10.5px;font-weight:600;cursor:pointer;white-space:nowrap;font-family:var(--sans)}
-.schip.on{background:var(--turf-dim);border-color:var(--turf);color:var(--turf)}
-
-/* ─── RIGHT PANEL ──────────────────────────────────────── */
-.sec{margin-bottom:20px}
-.sec-label{font-size:10px;font-weight:800;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:7px}
-.sec-label::before{content:"";width:3px;height:11px;background:var(--turf);border-radius:2px;flex-shrink:0}
-.sec-label.gold::before{background:var(--gold)}
-.sec-label.purple::before{background:var(--ss)}
-.sec-label.red::before{background:var(--red)}
-
-/* honmei cards */
-.hm-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:12px;margin-bottom:8px}
-.hm-card.top{border-color:rgba(0,196,122,.3);background:rgba(0,196,122,.04)}
-.hm-top{display:flex;align-items:center;gap:9px;margin-bottom:8px}
-.hm-name{font-size:14px;font-weight:800;flex:1}
-.hm-probs{display:flex;gap:6px}
-.prob-pill{padding:4px 10px;border-radius:99px;font-family:var(--mono);font-weight:800;font-size:12px}
-.prob-pill.win{background:var(--turf-dim);color:var(--turf)}
-.prob-pill.place{background:var(--gold-dim);color:var(--gold)}
-.hm-reason{font-size:11px;color:var(--dim);line-height:1.6;padding:7px 9px;background:var(--panel);border-radius:7px}
-.hm-ev{display:flex;gap:5px;margin-top:7px}
-.ev-box{flex:1;text-align:center;padding:5px;border-radius:7px;background:var(--panel)}
-.ev-box.good{background:var(--ev-dim)}
-.ev-box .k{font-size:9px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase}
-.ev-box .v{font-family:var(--mono);font-weight:800;font-size:13px;margin-top:1px}
-.ev-box.good .v{color:var(--ev)}
-
-/* keshi list */
-.keshi-item{display:flex;align-items:flex-start;gap:8px;padding:8px;border-radius:8px;background:var(--card);margin-bottom:6px;border:1px solid var(--border)}
-.keshi-item .ki-horse{font-size:12px;font-weight:700;white-space:nowrap}
-.keshi-reasons{font-size:10px;color:var(--dim);line-height:1.6;margin-top:3px;display:flex;flex-wrap:wrap;gap:3px}
-.keshi-tag{background:var(--red-dim);color:var(--red);border-radius:4px;padding:1px 5px;font-size:9px;font-weight:700}
-
-/* bets */
-.bet-grp{margin-bottom:10px}
-.bet-type-label{font-size:10px;font-weight:800;color:var(--gold);letter-spacing:.06em;margin-bottom:5px}
-.bet-row{display:flex;align-items:center;gap:7px;padding:6px 9px;border-radius:7px;background:var(--card);margin-bottom:4px;border:1px solid transparent}
-.bet-row.rec{background:var(--ev-dim);border-color:rgba(255,120,73,.3)}
-.bet-combo{font-family:var(--mono);font-weight:700;flex:1;font-size:12px}
-.bet-hit{font-family:var(--mono);font-size:10px;color:var(--dim)}
-.bet-odds{font-family:var(--mono);font-size:10px;color:var(--dim)}
-.bet-ev{font-family:var(--mono);font-weight:800;font-size:11px;color:var(--dim)}
-.bet-ev.good{color:var(--ev)}
-.bet-conf{font-size:9px;font-weight:800}
-
-/* pace diagram */
-.pace-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:12px;margin-bottom:8px}
-.pace-summary{font-size:12px;color:var(--dim);line-height:1.6;margin-bottom:10px}
-.pace-summary b{color:var(--text)}
-.pace-lanes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.lane{background:var(--panel);border-radius:8px;padding:8px 6px}
-.lane-h{font-size:9px;font-weight:800;color:var(--dim);text-align:center;letter-spacing:.05em;margin-bottom:6px}
+/* ─── 展開図 ─────────────────────────────────────────────── */
+.pace-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:12px 14px;margin-bottom:14px}
+.pace-title{font-size:10px;font-weight:800;color:var(--t3);letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:10px}
+.pace-lanes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.lane{background:var(--panel);border-radius:6px;padding:8px}
+.lane-h{font-size:9px;font-weight:800;text-align:center;letter-spacing:.06em;margin-bottom:6px}
+.lane-h.L0{color:var(--red)}.lane-h.L1{color:var(--gold)}
+.lane-h.L2{color:var(--t2)}.lane-h.L3{color:var(--t3)}
+.lane-h .lc{font-size:8px;font-family:var(--mono);margin-left:2px}
 .lane-horse{display:flex;align-items:center;gap:5px;margin-bottom:4px}
-.lane-horse .nm{font-size:10.5px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lane-horse.keshi .nm{color:var(--faint);text-decoration:line-through}
+.lane-horse.keshi .lh-name{text-decoration:line-through;color:var(--t4)}
+.lh-name{font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* 逃げ・先行の馬は強調枠 */
+.lane-horse.front-flag .lh-name{color:var(--gold);font-weight:700}
 
-/* empty */
-.empty{text-align:center;padding:40px 16px;color:var(--faint)}
-.empty .ic{font-size:24px;margin-bottom:8px;opacity:.4}
-.empty p{font-size:12px}
+/* ─── RIGHT PANEL ────────────────────────────────────────── */
+.sec{margin-bottom:18px}
+.sec-h{font-size:9.5px;font-weight:800;color:var(--t3);letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.sec-h::before{content:"";width:3px;height:10px;border-radius:2px;flex-shrink:0}
+.sec-h.green::before{background:var(--turf)}
+.sec-h.gold::before{background:var(--gold)}
+.sec-h.red::before{background:var(--red)}
+.sec-h.purple::before{background:var(--purple)}
+.sec-h.orange::before{background:var(--orange)}
 
-/* scrollbar */
-::-webkit-scrollbar{width:4px;height:4px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+/* 本命カード */
+.hm-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:11px;margin-bottom:7px}
+.hm-card.top{border-color:rgba(0,217,126,.25);background:rgba(0,217,126,.03)}
+.hm-card.myomi{border-color:rgba(168,85,247,.25);background:rgba(168,85,247,.03)}
+.hm-top{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.hm-name{font-size:13.5px;font-weight:800;flex:1}
+.hm-kyaku{font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px}
+.kyaku-0.hm-kyaku{background:var(--red-dim);color:var(--red)}
+.kyaku-1.hm-kyaku{background:var(--gold-dim);color:var(--gold)}
+.kyaku-2.hm-kyaku{background:var(--border);color:var(--t2)}
+.kyaku-3.hm-kyaku{background:#0a1020;color:var(--t3)}
+.hm-probs{display:flex;gap:5px}
+.pp{padding:3px 8px;border-radius:99px;font-family:var(--mono);font-weight:800;font-size:11.5px}
+.pp.win{background:var(--turf-dim);color:var(--turf)}
+.pp.pla{background:var(--gold-dim);color:var(--gold)}
+.hm-reason{font-size:10.5px;color:var(--t2);line-height:1.6;padding:6px 8px;
+  background:var(--panel);border-radius:5px;margin-bottom:7px}
+.hm-stats{display:flex;gap:5px}
+.hm-stat{flex:1;text-align:center;padding:5px;border-radius:5px;background:var(--panel)}
+.hm-stat.good{background:var(--orange-dim)}
+.hm-stat .sk{font-size:8.5px;color:var(--t3);letter-spacing:.04em;text-transform:uppercase}
+.hm-stat .sv{font-family:var(--mono);font-weight:800;font-size:12px;margin-top:1px}
+.hm-stat.good .sv{color:var(--orange)}
 
-/* disclaimer */
-.disc{font-size:9.5px;color:var(--faint);padding:16px;text-align:center;line-height:1.7;border-top:1px solid var(--border)}
+/* 消し馬 */
+.ki{display:flex;align-items:flex-start;gap:7px;padding:7px;border-radius:6px;
+  background:var(--card);margin-bottom:5px;border:1px solid var(--border)}
+.ki-name{font-size:11.5px;font-weight:700}
+.ki-reasons{display:flex;flex-wrap:wrap;gap:3px;margin-top:3px}
+
+/* 買い目 */
+.bg{margin-bottom:9px}
+.bg-label{font-size:9.5px;font-weight:800;color:var(--gold);letter-spacing:.06em;margin-bottom:4px}
+.br{display:flex;align-items:center;gap:6px;padding:6px 8px;border-radius:6px;
+  background:var(--card);margin-bottom:3px;border:1px solid transparent}
+.br.rec{background:var(--orange-dim);border-color:rgba(255,122,64,.25)}
+.br-combo{font-family:var(--mono);font-weight:700;flex:1;font-size:12px}
+.br-hit{font-family:var(--mono);font-size:9.5px;color:var(--t3)}
+.br-od{font-family:var(--mono);font-size:9.5px;color:var(--t3)}
+.br-ev{font-family:var(--mono);font-weight:800;font-size:10.5px;color:var(--t3)}
+.br-ev.good{color:var(--orange)}
+.br-cr{font-size:9px;font-weight:800}
+
+/* 見送り */
+.empty{text-align:center;padding:24px;color:var(--t4)}
+.empty .ei{font-size:20px;margin-bottom:6px;opacity:.4}
+
+/* フッター */
+.disc{font-size:9px;color:var(--t4);padding:14px 16px;text-align:center;
+  line-height:1.8;border-top:1px solid var(--border);margin-top:8px}
 </style>
 </head>
 <body>
 <div id="app">
-  <!-- TOPBAR -->
-  <div id="topbar">
-    <div class="logo"><span class="logo-dot">●</span>Hara AI Keiba<span class="logo-sub">Momo Style</span></div>
-    <div id="headDate">—</div>
-    <div id="genTime"></div>
-  </div>
 
-  <!-- SIDEBAR -->
-  <div id="sidebar">
-    <div class="venue-tabs" id="venueTabsEl"></div>
-    <div id="raceListEl"></div>
-  </div>
-
-  <!-- MAIN: center + right -->
-  <div id="main">
-    <div id="center">
-      <div id="raceHeaderEl"></div>
-      <div class="sortbar" id="sortbarEl"></div>
-      <div class="htable-wrap"><table class="htable" id="htableEl"><thead id="hthead"></thead><tbody id="htbody"></tbody></table></div>
-      <div id="paceEl"></div>
-      <div class="disc">本サイトはAIによる予測情報です。馬券の購入は自己責任で。Momo Style = 展開×脚質×コース×オッズ歪みの4軸評価。</div>
-    </div>
-    <div id="right">
-      <div class="sec" id="verdictPanel"></div>
-      <div class="sec" id="honmeiPanel"></div>
-      <div class="sec" id="keshiPanel"></div>
-      <div class="sec" id="betPanel"></div>
-    </div>
+<!-- TOPBAR -->
+<div id="topbar">
+  <div class="logo"><em>●</em> Hara AI Keiba <span class="logo-tag">Momo Style v4</span></div>
+  <div id="headMeta">
+    <span id="headDate">—</span>
+    <span id="genTime"></span>
   </div>
 </div>
 
+<!-- SIDEBAR -->
+<div id="sidebar">
+  <div class="vtabs" id="vtabs"></div>
+  <div id="racelist"></div>
+</div>
+
+<!-- CENTER -->
+<div id="center">
+  <div id="raceHeader"></div>
+  <div class="sortbar" id="sortbar"></div>
+  <div class="ht-wrap"><table class="ht"><thead id="hthead"></thead><tbody id="htbody"></tbody></table></div>
+  <div id="paceDiv"></div>
+  <div class="disc">
+    Momo式分析: 場（展開）→ 馬（前残り適性）→ オッズ（妙味）の順番で評価。<br>
+    追い込み馬は小回り〜標準直線では基本消し。前走着順・着差は消し理由に使わない。<br>
+    当サイトはAI予測情報です。馬券の購入は自己責任で。
+  </div>
+</div>
+
+<!-- RIGHT -->
+<div id="right">
+  <div class="sec" id="rVerdict"></div>
+  <div class="sec" id="rHonmei"></div>
+  <div class="sec" id="rKeshi"></div>
+  <div class="sec" id="rBets"></div>
+</div>
+
+</div><!-- #app -->
+
 <script>
 'use strict';
-let DATA=null, curVenue=null, curRace=null, curSort='ability', curSortDir=-1;
-
-// ─── UTILS ─────────────────────────────────────────────────────
+let DATA=null, curVenue=null, curRace=null, curSort='conf', curDir=-1;
 const $ = id => document.getElementById(id);
 const pct = v => v==null?'—':Number(v).toFixed(0);
-const f1  = v => v==null?'—':Number(v).toFixed(1);
 const f2  = v => v==null?'—':Number(v).toFixed(2);
+const f3  = v => v==null?'—':Number(v).toFixed(3);
 
-function wc(w){ return 'w'+(w||1); }
+// 枠番カラー
+function wb(u, w){ return `<span class="wb w${w||1}">${u}</span>`; }
 
-function confColor(r){
-  return {SS:'var(--ss)',S:'var(--gold)',A:'var(--turf)',B:'var(--blue)',C:'var(--dim)',D:'var(--faint)'}[r]||'var(--faint)';
-}
+// 脚質ラベル
+const KYAKU_LABEL = {0:'逃',1:'先',2:'中',3:'追'};
+const KYAKU_CLS   = {0:'kyaku-0',1:'kyaku-1',2:'kyaku-2',3:'kyaku-3'};
+function kyakuHtml(k){ const l=KYAKU_LABEL[k]||'—',c=KYAKU_CLS[k]||''; return `<span class="${c}" style="font-family:var(--mono);font-weight:800;font-size:12px">${l}</span>`; }
 
-function confHtml(r){
-  return `<span class="conf ${r||'D'}">${r||'D'}</span>`;
-}
+// 自信度バッジ
+function confHtml(r){ return `<span class="conf ${r||'D'}">${r||'D'}</span>`; }
 
-function umabanHtml(u,w){
-  return `<span class="umaban ${wc(w)}">${u}</span>`;
-}
-
-// ─── MARKS (Momo式: is_keshi反映) ─────────────────────────────
-function getMarks(h){
-  const m=[];
-  if(h.is_keshi) m.push({e:'💣',t:'消し',c:'red'});
-  if(h.p_ability>=20 && h.p_place>=50) m.push({e:'🔥',t:'鉄板',c:'gold'});
-  if(h.jockey_changed===1) m.push({e:'🔄',t:'乗替',c:'blue'});
-  if(h.surface_changed===1) m.push({e:'🔀',t:'コース替',c:'turf'});
-  if(h.blinker===1) m.push({e:'👁',t:'B',c:'purple'});
-  return m;
-}
-
-// ─── TRAINING COMMENT EXTRACT ──────────────────────────────────
-function extractTraining(h){
-  const c=h.training_comment||'';
-  const saka=(c.match(/坂路終い([\d.]+)秒/)||[])[1];
-  const wood=(c.match(/ウッド終い([\d.]+)秒/)||[])[1];
-  const parts=[];
-  if(saka) parts.push(`坂${saka}`);
-  if(wood) parts.push(`W${wood}`);
-  return parts.length?parts.join(' '):(h.training_score!=null?`${h.training_score.toFixed(0)}pt`:'—');
-}
-
-// ─── COMPUTE INTRA-RACE RANKS ──────────────────────────────────
-function computeRanks(horses){
-  const metrics={
-    speed:h=>h.prev_speed_index??h.avg_speed_index??null,
-    agari:h=>h.agari_rank_avg!=null?-h.agari_rank_avg:null,
-    jockey:h=>h.jockey_win_rate??null,
-    trainer:h=>h.trainer_win_rate??null,
-    blood:h=>h.blood_stamina_score??null,
-    waku:h=>h.waku_win_rate??null,
-    training:h=>h.training_score??null,
-    mining:h=>h.mining??null,
-  };
-  const ranks={};
-  horses.forEach(h=>ranks[h.umaban]={});
-  Object.keys(metrics).forEach(key=>{
-    const vals=horses.map(h=>({u:h.umaban,v:metrics[key](h)})).filter(x=>x.v!=null).sort((a,b)=>b.v-a.v);
-    const n=vals.length;
-    vals.forEach((x,i)=>{
-      const p=n>1?i/(n-1):0;
-      ranks[x.u][key]=p<=.1?'S':p<=.3?'A':p<=.6?'B':p<=.85?'C':'D';
-    });
-  });
-  return ranks;
-}
-
-// ─── SORT ──────────────────────────────────────────────────────
-function sortHorses(arr){
-  const key={
-    ability:h=>h.p_ability??-1,
-    p_place:h=>h.p_place??-1,
-    odds:h=>h.tansho_odds!=null?-h.tansho_odds:-9999,
-    ev:h=>(h.ev_tansho!=null&&!h.ev_tansho_anomaly)?h.ev_tansho:-1,
-    umaban:h=>-(h.umaban??99),
-    speed:h=>h.prev_speed_index??h.avg_speed_index??-1,
-    agari:h=>h.agari_rank_avg!=null?-h.agari_rank_avg:-99,
-    training:h=>h.training_score??-1,
-    confidence:h=>{const m={SS:5,S:4,A:3,B:2,C:1,D:0};return m[h.confidence_rank??'D']??0;},
-    keshi:h=>h.is_keshi?-1:1,
-  }[curSort]||(h=>h.p_ability??-1);
-  const sorted=[...arr].sort((a,b)=>key(b)-key(a));
-  if(curSortDir===1) sorted.reverse();
-  return sorted;
-}
-
-// ─── PAST CELL ─────────────────────────────────────────────────
+// 過去走セル
 function pastCell(p){
   if(!p) return '<td class="past-cell">—</td>';
-  const cls=p.chakujun===1?'c1':(p.chakujun<=3?'c23':'');
-  return `<td class="past-cell"><span class="${cls}">${p.chakujun||'?'}</span>/${p.atama||'?'} ${p.place||''}${p.surface||''}${p.distance||''}<br>${p.ninki||'?'}人 上${p.agari!=null?p.agari.toFixed(1):'?'} SP${p.speed_index??'?'}</td>`;
+  const cls = p.chakujun===1?'pc1':(p.chakujun<=3?'pc23':'');
+  return `<td class="past-cell"><span class="${cls}">${p.chakujun||'?'}</span>/${p.atama||'?'} ${p.place||''}${p.surface||''}${p.distance||''}<br>${p.kyaku||'?'} 上${p.agari!=null?p.agari.toFixed(1):'?'}</td>`;
 }
 
-// ─── RENDER RACE LIST ──────────────────────────────────────────
+// 調教コメント
+function trainingVal(h){
+  const c=h.training_comment||'';
+  const s=(c.match(/坂路終い([\d.]+)/)||[])[1];
+  const w=(c.match(/ウッド終い([\d.]+)/)||[])[1];
+  const parts=[];
+  if(s) parts.push(`坂${s}`);
+  if(w) parts.push(`W${w}`);
+  return parts.length?parts.join(' '):(h.training_score!=null?`${Number(h.training_score).toFixed(0)}pt`:'—');
+}
+
+// ─── SORT ──────────────────────────────────────────────────
+const SORT_DEFS = [
+  {k:'conf',l:'自信度'},{k:'ability',l:'AI勝率'},{k:'place',l:'複勝率'},
+  {k:'myomi',l:'妙味'},{k:'ev',l:'EV'},{k:'odds',l:'オッズ'},
+  {k:'kyaku',l:'脚質'},{k:'umaban',l:'馬番'},
+];
+function sortKey(h){
+  const m={
+    conf:    ()=>h.confidence_score??-1,
+    ability: ()=>h.p_ability??-1,
+    place:   ()=>h.p_place??-1,
+    myomi:   ()=>h.myomi_score??-1,
+    ev:      ()=>(h.ev_tansho!=null&&!h.ev_tansho_anomaly)?h.ev_tansho:-1,
+    odds:    ()=>h.tansho_odds!=null?-h.tansho_odds:-9999,
+    kyaku:   ()=>-(h.kyaku_code??9),
+    umaban:  ()=>-(h.umaban??99),
+  };
+  return (m[curSort]||m.conf)();
+}
+function doSort(arr){ const s=[...arr].sort((a,b)=>sortKey(b)-sortKey(a)); return curDir===-1?s:s.reverse(); }
+
+// ─── RENDER RACE LIST ───────────────────────────────────────
 function renderSidebar(){
-  const races=DATA.races.filter(r=>r.place===curVenue).sort((a,b)=>a.race_no-b.race_no);
-  $('raceListEl').innerHTML=races.map(r=>{
-    const on=curRace&&curRace.race_id===r.race_id;
-    const badges=[];
-    if(r.buy_flag&&!r.skip) badges.push('<span class="badge buy">◎ 買い</span>');
-    else if(r.skip) badges.push('<span class="badge skip">見送り</span>');
-    const hasHot=r.recommendations?.some(x=>x.recommended);
-    if(hasHot) badges.push('<span class="badge hot">激熱</span>');
-    const topConf=r.honmei?.[0]?.confidence_rank;
-    if(topConf==='SS') badges.push('<span class="badge ss">SS</span>');
-    return `<div class="race-item ${on?'on':''}" onclick="selectRace('${r.race_id}')">
+  const races = DATA.races.filter(r=>r.place===curVenue).sort((a,b)=>a.race_no-b.race_no);
+  $('racelist').innerHTML = races.map(r=>{
+    const on = curRace&&curRace.race_id===r.race_id;
+    const bgs=[];
+    if(r.buy_flag&&!r.skip) bgs.push('<span class="badge buy">◎ 買い</span>');
+    else if(r.skip) bgs.push('<span class="badge skip">見送り</span>');
+    if(r.recommendations?.some(x=>x.recommended)) bgs.push('<span class="badge hot">激熱</span>');
+    if(r.honmei?.[0]?.confidence_rank==='SS') bgs.push('<span class="badge ss">SS</span>');
+    const rv=r.race_verdict||{};
+    if(rv.front_ok&&!r.skip) bgs.push('<span class="badge front">前残り</span>');
+    return `<div class="ri ${on?'on':''}" onclick="selectRace('${r.race_id}')">
       <div class="ri-no">${r.race_no}</div>
       <div class="ri-body">
-        <div class="ri-grade">${r.grade||'—'}</div>
-        <div class="ri-meta">${r.surface}${r.distance}m ${r.atama}頭 ${r.baba||'良'}</div>
-        ${badges.length?`<div class="ri-badges">${badges.join('')}</div>`:''}
+        <div class="ri-g">${r.grade||'—'}</div>
+        <div class="ri-m">${r.surface}${r.distance}m ${r.atama}頭 ${r.baba||'良'}</div>
+        ${bgs.length?`<div class="ri-bgs">${bgs.join('')}</div>`:''}
       </div>
-      <div class="ri-time">${r.start_time||'—'}</div>
+      <div class="ri-t">${r.start_time||'—'}</div>
     </div>`;
   }).join('');
 }
 
-// ─── RENDER RACE HEADER ────────────────────────────────────────
-function renderRaceHeader(r){
-  const rv=r.race_verdict||{};
-  const verdictHtml=rv.verdict?`
-    <div class="rh-verdict">
-      <span class="verdict-tag">展開読み</span>
+// ─── RENDER RACE HEADER ────────────────────────────────────
+function renderHeader(r){
+  const rv = r.race_verdict||{};
+  // 展開バナー種別
+  let vclass='mid', vtag='展開';
+  if(rv.front_ok && rv.pace_type!=='unclear'){vclass='front';vtag='前残り有利';}
+  else if(!rv.front_ok && rv.pace_type==='high'){vclass='diff';vtag='差し有利';}
+  else if(rv.pace_type==='unclear'){vclass='mid';vtag='展開不明';}
+
+  const verdictHtml = rv.verdict ? `
+    <div class="verdict-bar ${vclass}">
+      <span class="vb-tag">${vtag}</span>
       <b>${rv.pace_label||''}</b> · ${rv.course_label||''}<br>
-      → <b style="color:var(--turf)">${rv.verdict||''}</b>
-    </div>`:'';
-  const skipHtml=r.skip?`<div class="rh-skip"><b>見送り推奨</b> — ${r.skip_reason||'条件未満'}</div>`:'';
-  const buyHtml=r.buy_flag&&!r.skip?`
-    <div class="rh-verdict" style="border-left-color:var(--gold)">
-      <span class="verdict-tag" style="color:var(--gold)">買い推奨</span>
-      <b style="color:var(--gold)">${r.buy_reason||''}</b>
-    </div>`:
-    (!r.skip&&!r.buy_flag?`<div class="rh-verdict" style="border-left-color:var(--faint)"><span class="verdict-tag" style="color:var(--faint)">見送り推奨</span>${r.buy_reason||'高自信度馬なし'}</div>`:'');
-  $('raceHeaderEl').innerHTML=`
-    <div class="race-header">
+      <span class="vb-sub">→ ${rv.verdict||''}</span>
+    </div>` : '';
+
+  const buyHtml = r.buy_flag && !r.skip
+    ? `<div class="buy-bar yes"><b>◎ 買い推奨</b> — ${r.buy_reason||''}</div>`
+    : r.skip
+    ? `<div class="buy-bar no"><b>⚠ 見送り</b> — ${r.skip_reason||''}</div>`
+    : `<div class="buy-bar no"><b>— 見送り推奨</b> — ${r.buy_reason||''}</div>`;
+
+  $('raceHeader').innerHTML = `
+    <div class="rh">
       <div class="rh-top">
         <div class="rh-no">${r.race_no}R</div>
-        <div class="rh-info">
-          <div class="rh-grade">${r.grade||'—'}</div>
+        <div>
+          <div class="rh-title">${r.grade||'—'}</div>
           <div class="rh-meta">${r.place} ${r.surface}${r.distance}m · ${r.atama}頭 · ${r.baba||'良'} · 発走 ${r.start_time||'—'}</div>
         </div>
       </div>
-      ${verdictHtml}${buyHtml}${skipHtml}
+      ${verdictHtml}${buyHtml}
     </div>`;
 }
 
-// ─── RENDER HORSE TABLE ────────────────────────────────────────
+// ─── RENDER TABLE ───────────────────────────────────────────
 function renderTable(r){
-  const horses=sortHorses(r.horses);
-  const ranks=computeRanks(r.horses);
-  const RK=['speed','agari','jockey','trainer','blood','waku','training','mining'];
-  const RKL={speed:'速',agari:'上',jockey:'騎',trainer:'厩',blood:'血',waku:'枠',training:'調',mining:'指'};
+  const horses = doSort(r.horses);
 
-  const arr=(k,lbl)=>{
-    const sorted=curSort===k;
-    const arrow=sorted?(curSortDir===-1?'▼':'▲'):'';
-    return `<th data-s="${k}" class="${sorted?'sorted':''}">${lbl}${arrow?` <span style="font-size:8px">${arrow}</span>`:''}`;
+  const th = (k,l) => {
+    const on=curSort===k;
+    const arr=on?(curDir===-1?'▼':'▲'):'';
+    return `<th data-s="${k}" class="${on?'sorted':''}">${l}${arr?` <span style="font-size:8px">${arr}</span>`:''}`;
   };
-
-  $('hthead').innerHTML=`<tr>
-    ${arr('umaban','馬番')}${arr('ability','馬名/状態')}${arr('odds','騎手')}
-    ${arr('odds','オッズ')}${arr('ability','単勝%')}${arr('p_place','複勝%')}
-    ${arr('ev','EV')}${arr('confidence','自信度')}
-    ${RK.map(k=>arr(k,RKL[k])).join('')}
-    ${arr('training','調教')}<th>前走</th><th>2走</th><th>3走</th>
+  $('hthead').innerHTML = `<tr>
+    ${th('umaban','番')}${th('ability','馬名')}${th('kyaku','脚質')}
+    ${th('odds','オッズ')}${th('ability','単%')}${th('place','複%')}
+    ${th('ev','EV')}${th('myomi','妙味')}${th('conf','自信')}
+    <th>騎手</th><th>調教</th><th>前走</th><th>2走</th><th>3走</th>
   </tr>`;
 
-  $('htbody').innerHTML=horses.map(h=>{
-    const rk=ranks[h.umaban]||{};
-    const marks=getMarks(h);
-    const marksHtml=marks.map(m=>`<span style="font-size:9px;background:rgba(${m.c==='red'?'229,83,75':m.c==='gold'?'240,180,41':'0,196,122'},.15);color:${m.c==='red'?'var(--red)':m.c==='gold'?'var(--gold)':'var(--turf)'};border-radius:3px;padding:1px 4px;font-weight:800">${m.e}${m.t}</span>`).join(' ');
-    const evGood=h.ev_tansho!=null&&h.ev_tansho>=1.05&&!h.ev_tansho_anomaly;
-    const div=h.divergence!=null?(h.divergence>0?`<span style="color:var(--turf)">+${(h.divergence*100).toFixed(0)}</span>`:`<span style="color:var(--dim)">${(h.divergence*100).toFixed(0)}</span>`):'—';
-    const pr=h.past_races||[];
+  $('htbody').innerHTML = horses.map(h => {
+    const kc = h.kyaku_code??2;
+    const evGood = h.ev_tansho!=null&&h.ev_tansho>=1.05&&!h.ev_tansho_anomaly;
+    const myHigh = (h.myomi_score||0) >= 0.3;
+    const div = h.divergence!=null
+      ? (h.divergence>0
+          ? `<span style="color:var(--turf);font-size:9px">+${(h.divergence*100).toFixed(0)}</span>`
+          : `<span style="color:var(--t3);font-size:9px">${(h.divergence*100).toFixed(0)}</span>`)
+      : '';
+    const pr = h.past_races||[];
+
+    // 消し理由タグ
+    const ktags = (h.keshi_reasons||[]).map(r=>`<span class="ktag">${r}</span>`).join('');
+    // 特殊マーク
+    const marks=[];
+    if(h.is_keshi) marks.push('💣');
+    if(h.blinker) marks.push('👁B');
+    if(h.jockey_changed) marks.push('🔄');
+    if(h.surface_changed) marks.push('🔀');
+
     return `<tr class="${h.is_keshi?'keshi':''}">
-      <td class="ht-num">${umabanHtml(h.umaban,h.waku)}</td>
-      <td class="ht-name"><div style="font-weight:800;font-size:12.5px">${h.horse_name||'—'} ${marksHtml}</div>
-        <span class="sire">${h.sex||''}${h.age||''} ${h.sire||''}</span>
-        ${h.keshi_reasons?.length?`<div class="ht-name keshi-tag">${h.keshi_reasons.map(r=>`<span class="keshi-tag">${r}</span>`).join('')}</div>`:''}
+      <td>${wb(h.umaban,h.waku)}</td>
+      <td class="ht-name">
+        <div style="font-weight:800;font-size:12.5px">${h.horse_name} ${marks.join(' ')}</div>
+        <span class="sub">${h.sex||''}${h.age||''}歳 ${h.sire||''}</span>
+        ${ktags?`<div class="ktags">${ktags}</div>`:''}
       </td>
-      <td class="ht-jk">${h.jockey||'—'}<br><span style="color:var(--faint);font-size:9.5px">${h.kinryo||'—'}kg</span></td>
-      <td class="ht-od">${h.tansho_odds!=null?h.tansho_odds.toFixed(1):'—'}</td>
-      <td class="ht-ab">${pct(h.p_ability)}</td>
-      <td class="ht-pl">${pct(h.p_place)}</td>
-      <td class="ht-ev ${evGood?'good':''}">${h.ev_tansho!=null&&!h.ev_tansho_anomaly?h.ev_tansho.toFixed(2):'—'}<br><span style="font-size:9px;font-family:var(--mono)">${div}</span></td>
-      <td>${confHtml(h.confidence_rank)}<span style="font-size:9px;color:var(--dim);margin-left:3px">${h.confidence_score||0}</span></td>
-      ${RK.map(k=>`<td class="ht-rk rk-${rk[k]||'D'}">${rk[k]||'—'}</td>`).join('')}
-      <td style="font-family:var(--mono);font-size:10px;color:var(--gold)">${extractTraining(h)}</td>
+      <td>${kyakuHtml(kc)}</td>
+      <td class="num-od">${h.tansho_odds!=null?Number(h.tansho_odds).toFixed(1):'—'}</td>
+      <td class="num-ab">${pct(h.p_ability)}</td>
+      <td class="num-pl">${pct(h.p_place)}</td>
+      <td class="num-ev ${evGood?'good':''}">${h.ev_tansho!=null&&!h.ev_tansho_anomaly?Number(h.ev_tansho).toFixed(2):'—'}<br>${div}</td>
+      <td class="num-my ${myHigh?'high':''}">${((h.myomi_score||0)*100).toFixed(0)}</td>
+      <td>${confHtml(h.confidence_rank)}<br><span style="font-size:8.5px;color:var(--t3);font-family:var(--mono)">${h.confidence_score||0}</span></td>
+      <td style="text-align:left;font-size:11px">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
+      <td style="font-family:var(--mono);font-size:10px;color:var(--gold)">${trainingVal(h)}</td>
       ${pastCell(pr[0])}${pastCell(pr[1])}${pastCell(pr[2])}
     </tr>`;
   }).join('');
 
-  // sort header click
-  $('htableEl').querySelectorAll('th[data-s]').forEach(th=>{
-    th.onclick=()=>{
-      const s=th.dataset.s;
-      if(curSort===s) curSortDir=-curSortDir;
-      else{curSort=s;curSortDir=-1;}
-      highlightSortChip();
+  $('hthead').querySelectorAll('th[data-s]').forEach(th=>{
+    th.onclick = ()=>{
+      if(curSort===th.dataset.s) curDir=-curDir;
+      else{curSort=th.dataset.s;curDir=-1;}
+      $('sortbar').querySelectorAll('.sch').forEach(c=>c.classList.toggle('on',c.dataset.s===curSort));
       renderTable(curRace);
     };
   });
 }
 
-// ─── RENDER PACE DIAGRAM ────────────────────────────────────────
+// ─── RENDER PACE DIAGRAM ───────────────────────────────────
 function renderPace(r){
-  const rv=r.race_verdict||{};
-  const lanes=[[],[],[],[]];
-  r.horses.forEach(h=>{let k=h.prev_kyakushitsu;if(k==null||k<0||k>3)k=2;lanes[k].push(h);});
-  const lnames=['逃げ','先行','差し','追込'];
-  const lanesHtml=lanes.map((arr,i)=>{
-    const hs=arr.sort((a,b)=>b.p_ability-a.p_ability)
-      .map(h=>`<div class="lane-horse ${h.is_keshi?'keshi':''}">
-        ${umabanHtml(h.umaban,h.waku)}
-        <span class="nm">${h.horse_name||''}</span>
-      </div>`).join('')||`<div style="color:var(--faint);font-size:10px;text-align:center">—</div>`;
-    return `<div class="lane"><div class="lane-h">${lnames[i]} ${arr.length}</div>${hs}</div>`;
+  const rv = r.race_verdict||{};
+  const lanes = [[],[],[],[]];
+  r.horses.forEach(h=>{ const k=h.kyaku_code??2; lanes[Math.min(k,3)].push(h); });
+  const lnames=['逃げ','先行','中団','追込'];
+  const lcls=['L0','L1','L2','L3'];
+
+  const lanesHtml = lanes.map((arr,i)=>{
+    const horses = arr.sort((a,b)=>b.p_ability-a.p_ability)
+      .map(h=>{
+        const isFront = i<=1;
+        return `<div class="lane-horse ${h.is_keshi?'keshi':''} ${isFront?'front-flag':''}">
+          ${wb(h.umaban,h.waku)}
+          <span class="lh-name">${h.horse_name}</span>
+        </div>`;
+      }).join('') || `<div style="color:var(--t4);font-size:9.5px;text-align:center">—</div>`;
+    return `<div class="lane"><div class="lane-h ${lcls[i]}">${lnames[i]} <span class="lc">${arr.length}</span></div>${horses}</div>`;
   }).join('');
-  $('paceEl').innerHTML=`<div class="pace-card">
-    <div class="pace-summary">
-      想定: <b>${rv.pace_label||'—'}</b> · <b>${rv.course_label||'—'}</b><br>
-      <span style="color:var(--turf)">${rv.verdict||''}</span>
-      ${rv.keshi_count>0?`<span style="color:var(--red);margin-left:8px">💣消し ${rv.keshi_count}頭</span>`:''}
-    </div>
-    <div class="pace-lanes">${lanesHtml}</div>
-  </div>`;
+
+  $('paceDiv').innerHTML = `
+    <div class="pace-card">
+      <div class="pace-title">🏇 展開図 — ${rv.verdict||'—'}</div>
+      <div class="pace-lanes">${lanesHtml}</div>
+    </div>`;
 }
 
-// ─── RENDER RIGHT PANEL ─────────────────────────────────────────
+// ─── RENDER RIGHT PANEL ────────────────────────────────────
 function renderRight(r){
-  // 1. VERDICT (already in header, just show keshi count summary)
-  $('verdictPanel').innerHTML='';
+  // 展開サマリー（右パネルでは省略、ヘッダーに集約）
+  $('rVerdict').innerHTML='';
 
-  // 2. HONMEI
-  const honmei=r.honmei||[];
+  // 本命候補
+  const honmei = r.honmei||[];
   if(honmei.length){
-    $('honmeiPanel').innerHTML=`
-      <div class="sec-label${r.buy_flag?' gold':''}">${r.buy_flag?'◎ 本命候補':'参考：本命候補'}</div>
+    const isBuy = r.buy_flag && !r.skip;
+    $('rHonmei').innerHTML = `
+      <div class="sec-h ${isBuy?'green':'gold'}">${isBuy?'◎ 本命候補':'参考：本命候補'}</div>
       ${honmei.map((h,i)=>{
-        const evGood=h.ev_tansho!=null&&h.ev_tansho>=1.05;
-        return `<div class="hm-card ${i===0&&r.buy_flag?'top':''}">
+        const kc = [h.kyaku_label||'—'].map(l=>l==='逃げ'?0:l==='先行'?1:l==='中団'?2:3)[0];
+        const evGood = h.ev_tansho!=null&&h.ev_tansho>=1.05;
+        const myHigh = (h.myomi_score||0)>=0.3;
+        const cardCls = myHigh?'hm-card myomi':(i===0&&isBuy?'hm-card top':'hm-card');
+        return `<div class="${cardCls}">
           <div class="hm-top">
             ${confHtml(h.confidence_rank)}
-            ${umabanHtml(h.umaban,null)}
-            <div class="hm-name">${h.horse_name||'—'}</div>
+            ${wb(h.umaban,null)}
+            <div class="hm-name">${h.horse_name}</div>
+            <span class="hm-kyaku kyaku-${kc}">${h.kyaku_label||'—'}</span>
             <div class="hm-probs">
-              <span class="prob-pill win">${pct(h.p_ability)}%</span>
-              <span class="prob-pill place">${pct(h.p_place)}%</span>
+              <span class="pp win">${pct(h.p_ability)}%</span>
+              <span class="pp pla">${pct(h.p_place)}%</span>
             </div>
           </div>
           ${h.reason?`<div class="hm-reason">${h.reason}</div>`:''}
-          ${h.ev_tansho!=null?`<div class="hm-ev">
-            <div class="ev-box ${evGood?'good':''}"><div class="k">単勝EV</div><div class="v">${f2(h.ev_tansho)}</div></div>
-          </div>`:''}
+          <div class="hm-stats">
+            <div class="hm-stat ${evGood?'good':''}">
+              <div class="sk">EV</div><div class="sv">${h.ev_tansho!=null?Number(h.ev_tansho).toFixed(2):'—'}</div>
+            </div>
+            <div class="hm-stat ${myHigh?'good':''}">
+              <div class="sk">妙味</div><div class="sv">${((h.myomi_score||0)*100).toFixed(0)}</div>
+            </div>
+            <div class="hm-stat">
+              <div class="sk">オッズ</div>
+              <div class="sv">${h.tansho_odds!=null?Number(h.tansho_odds).toFixed(1)+'倍':'—'}</div>
+            </div>
+          </div>
         </div>`;
       }).join('')}`;
   } else {
-    $('honmeiPanel').innerHTML='';
+    $('rHonmei').innerHTML='';
   }
 
-  // 3. KESHI
-  const keshiHorses=r.horses.filter(h=>h.is_keshi);
-  if(keshiHorses.length){
-    $('keshiPanel').innerHTML=`
-      <div class="sec-label red">💣 消し馬 ${keshiHorses.length}頭</div>
-      ${keshiHorses.sort((a,b)=>b.keshi_reasons.length-a.keshi_reasons.length).map(h=>`
-        <div class="keshi-item">
-          <div>
-            ${umabanHtml(h.umaban,h.waku)}
-          </div>
+  // 消し馬
+  const keshi = r.horses.filter(h=>h.is_keshi);
+  if(keshi.length){
+    $('rKeshi').innerHTML = `
+      <div class="sec-h red">💣 消し馬 ${keshi.length}頭</div>
+      ${keshi.sort((a,b)=>(b.keshi_reasons?.length||0)-(a.keshi_reasons?.length||0)).map(h=>`
+        <div class="ki">
+          <div>${wb(h.umaban,h.waku)}</div>
           <div style="flex:1">
-            <div class="ki-horse">${h.horse_name||'—'}</div>
-            <div class="keshi-reasons">${(h.keshi_reasons||[]).map(r=>`<span class="keshi-tag">${r}</span>`).join('')}</div>
+            <div class="ki-name">${h.horse_name} ${kyakuHtml(h.kyaku_code??2)}</div>
+            <div class="ki-reasons">${(h.keshi_reasons||[]).map(r=>`<span class="ktag">${r}</span>`).join('')}</div>
           </div>
         </div>`).join('')}`;
   } else {
-    $('keshiPanel').innerHTML=`<div class="sec-label red" style="opacity:.4">消し馬なし</div>`;
+    $('rKeshi').innerHTML=`<div class="sec-h red" style="opacity:.4">消し馬なし</div>`;
   }
 
-  // 4. BETS
-  const recs=r.recommendations||[];
-  if(!r.skip&&recs.length&&r.buy_flag){
+  // 買い目
+  const recs = r.recommendations||[];
+  if(!r.skip && recs.length && r.buy_flag){
     const byType={};
     recs.forEach(rec=>{(byType[rec.bet_type]=byType[rec.bet_type]||[]).push(rec);});
     const order=['単勝','複勝','馬連','ワイド','三連複','三連単'];
-    $('betPanel').innerHTML=`
-      <div class="sec-label gold">◎ 買い目</div>
+    $('rBets').innerHTML = `
+      <div class="sec-h orange">◎ 買い目</div>
       ${order.filter(t=>byType[t]).map(t=>{
-        const rows=byType[t].slice(0,5).map(rec=>{
-          const eg=rec.ev!=null&&rec.ev>=1.05;
-          const sep=(t.startsWith('三連')||t==='馬連'||t==='ワイド')?'-':'';
-          return `<div class="bet-row ${rec.recommended?'rec':''}">
-            <span class="bet-combo">${rec.combination.join(sep)}</span>
-            <span class="bet-hit">${rec.hit_rate}%</span>
-            ${rec.odds!=null?`<span class="bet-odds">${Number(rec.odds).toFixed(1)}倍</span>`:''}
-            <span class="bet-ev ${eg?'good':''}">${rec.ev!=null?'EV'+Number(rec.ev).toFixed(2):'—'}</span>
-            ${rec.confidence_rank?`<span class="bet-conf" style="color:${confColor(rec.confidence_rank)}">${rec.confidence_rank}</span>`:''}
+        const rows = byType[t].slice(0,5).map(rec=>{
+          const eg = rec.ev!=null&&rec.ev>=1.05;
+          const sep = (t.startsWith('三連')||t==='馬連'||t==='ワイド')?'-':'';
+          return `<div class="br ${rec.recommended?'rec':''}">
+            <span class="br-combo">${rec.combination.join(sep)}</span>
+            <span class="br-hit">${rec.hit_rate}%</span>
+            ${rec.odds!=null?`<span class="br-od">${Number(rec.odds).toFixed(1)}倍</span>`:''}
+            <span class="br-ev ${eg?'good':''}">${rec.ev!=null?'EV'+Number(rec.ev).toFixed(2):'—'}</span>
+            ${rec.confidence_rank?`<span class="br-cr" style="color:var(${rec.confidence_rank==='SS'?'--purple':rec.confidence_rank==='S'?'--gold':rec.confidence_rank==='A'?'--turf':'--t3'})">${rec.confidence_rank}</span>`:''}
           </div>`;
         }).join('');
-        return `<div class="bet-grp"><div class="bet-type-label">${t}</div>${rows}</div>`;
+        return `<div class="bg"><div class="bg-label">${t}</div>${rows}</div>`;
       }).join('')}`;
-  } else if(!r.buy_flag&&!r.skip){
-    $('betPanel').innerHTML=`
-      <div class="sec-label" style="opacity:.5">買い目</div>
-      <div class="empty" style="padding:20px"><div class="ic">—</div><p>見送り推奨<br><span style="font-size:10px;color:var(--faint)">${r.buy_reason||''}</span></p></div>`;
+  } else if(!r.buy_flag && !r.skip){
+    $('rBets').innerHTML = `
+      <div class="sec-h orange" style="opacity:.4">買い目</div>
+      <div class="empty"><div class="ei">—</div><p>見送り推奨<br><span style="font-size:10px;color:var(--t4)">${r.buy_reason||''}</span></p></div>`;
   } else if(r.skip){
-    $('betPanel').innerHTML=`<div class="sec-label" style="opacity:.4">買い目</div><div class="empty" style="padding:16px"><div class="ic">⚠</div><p>見送りレース</p></div>`;
+    $('rBets').innerHTML=`<div class="sec-h orange" style="opacity:.4">買い目</div><div class="empty"><div class="ei">⚠</div><p>見送りレース</p></div>`;
   } else {
-    $('betPanel').innerHTML='';
+    $('rBets').innerHTML='';
   }
 }
 
-// ─── SORT CHIPS ─────────────────────────────────────────────────
-const SORT_DEFS=[
-  {k:'ability',l:'単勝順'},{k:'p_place',l:'複勝順'},{k:'confidence',l:'自信度順'},
-  {k:'ev',l:'EV順'},{k:'odds',l:'オッズ順'},{k:'keshi',l:'消し除外'},
-  {k:'speed',l:'スピード'},{k:'agari',l:'上がり'},{k:'training',l:'調教'},
-  {k:'umaban',l:'馬番順'},
-];
-
+// ─── SORT BAR ───────────────────────────────────────────────
 function renderSortBar(){
-  $('sortbarEl').innerHTML=SORT_DEFS.map(({k,l})=>
-    `<button class="schip ${curSort===k?'on':''}" data-s="${k}">${l}</button>`
+  $('sortbar').innerHTML = SORT_DEFS.map(({k,l})=>
+    `<button class="sch ${curSort===k?'on':''}" data-s="${k}">${l}</button>`
   ).join('');
-  $('sortbarEl').querySelectorAll('.schip').forEach(c=>{
+  $('sortbar').querySelectorAll('.sch').forEach(c=>{
     c.onclick=()=>{
-      if(curSort===c.dataset.s) curSortDir=-curSortDir;
-      else{curSort=c.dataset.s;curSortDir=-1;}
-      highlightSortChip();
+      if(curSort===c.dataset.s) curDir=-curDir;
+      else{curSort=c.dataset.s;curDir=-1;}
+      $('sortbar').querySelectorAll('.sch').forEach(b=>b.classList.toggle('on',b.dataset.s===curSort));
       renderTable(curRace);
     };
   });
 }
 
-function highlightSortChip(){
-  $('sortbarEl').querySelectorAll('.schip').forEach(c=>{
-    c.classList.toggle('on',c.dataset.s===curSort);
-  });
-}
-
-// ─── SELECT RACE ────────────────────────────────────────────────
+// ─── SELECT RACE ────────────────────────────────────────────
 function selectRace(rid){
-  curRace=DATA.races.find(r=>r.race_id===rid);
+  curRace = DATA.races.find(r=>r.race_id===rid);
   if(!curRace) return;
   renderSidebar();
-  renderRaceHeader(curRace);
+  renderHeader(curRace);
   renderSortBar();
   renderTable(curRace);
   renderPace(curRace);
@@ -603,13 +645,13 @@ function selectRace(rid){
   $('right').scrollTop=0;
 }
 
-// ─── VENUE TABS ─────────────────────────────────────────────────
+// ─── VENUE TABS ─────────────────────────────────────────────
 function renderVenueTabs(){
   const venues=[...new Set(DATA.races.map(r=>r.place))];
   if(!curVenue) curVenue=venues[0];
-  $('venueTabsEl').innerHTML=venues.map(v=>{
+  $('vtabs').innerHTML = venues.map(v=>{
     const n=DATA.races.filter(r=>r.place===v).length;
-    return `<button class="vtab ${v===curVenue?'on':''}" onclick="selectVenue('${v}')">${v}<span class="cnt">${n}R</span></button>`;
+    return `<button class="vtab ${v===curVenue?'on':''}" onclick="selectVenue('${v}')">${v}<span class="vtab-cnt">${n}</span></button>`;
   }).join('');
 }
 
@@ -617,18 +659,17 @@ function selectVenue(v){
   curVenue=v;
   renderVenueTabs();
   renderSidebar();
-  // auto-select first race in venue
   const first=DATA.races.filter(r=>r.place===v).sort((a,b)=>a.race_no-b.race_no)[0];
   if(first) selectRace(first.race_id);
 }
 
-// ─── LOAD ───────────────────────────────────────────────────────
+// ─── LOAD ───────────────────────────────────────────────────
 async function load(){
   try{
-    const res=await fetch('predictions.json');
-    DATA=await res.json();
-  } catch(e){
-    $('raceListEl').innerHTML='<div class="empty"><div class="ic">⚠</div><p>predictions.json を読み込めませんでした</p></div>';
+    const res = await fetch('predictions.json');
+    DATA = await res.json();
+  }catch(e){
+    $('racelist').innerHTML='<div class="empty"><div class="ei">⚠</div><p>predictions.json を読み込めませんでした</p></div>';
     return;
   }
   const d=DATA.date||'';
@@ -642,7 +683,6 @@ async function load(){
   const first=DATA.races.sort((a,b)=>a.race_no-b.race_no)[0];
   if(first) selectRace(first.race_id);
 }
-
 load();
 </script>
 </body>
