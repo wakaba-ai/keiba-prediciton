@@ -1,6 +1,6 @@
 {
   "date": "20260628",
-  "generated_at": "2026-06-27T07:00:17.669174",
+  "generated_at": "2026-06-27T07:56:53.854116",
   "ev_threshold": 1.05,
   "total_races": 36,
   "races": [
@@ -102,7 +102,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 16,
-          "confidence_rank": "D"
+          "confidence_rank": "D",
+          "fit_score": 6
         },
         {
           "umaban": 2,
@@ -186,7 +187,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 19
         },
         {
           "umaban": 3,
@@ -272,7 +274,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 22,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 20
         },
         {
           "umaban": 4,
@@ -356,7 +359,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 0
         },
         {
           "umaban": 5,
@@ -440,7 +444,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 37,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 6
         },
         {
           "umaban": 6,
@@ -526,7 +531,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 19,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 18
         },
         {
           "umaban": 7,
@@ -610,7 +616,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 18
         },
         {
           "umaban": 8,
@@ -696,7 +703,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 31,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 24
         }
       ],
       "recommendations": [],
@@ -729,6 +737,7 @@
           "tansho_odds": 5.0,
           "myomi_score": 0.001,
           "kyaku_label": "先行",
+          "fit_score": 19,
           "reason": "評価の決め手: 前走の着順、atama、騎手の複勝率。"
         },
         {
@@ -742,6 +751,7 @@
           "tansho_odds": 3.2,
           "myomi_score": 0.001,
           "kyaku_label": "中団",
+          "fit_score": 0,
           "reason": "評価の決め手: 前走の着順、atama、通算複勝率。"
         },
         {
@@ -755,10 +765,11 @@
           "tansho_odds": 4.8,
           "myomi_score": 0.0,
           "kyaku_label": "中団",
+          "fit_score": 6,
           "reason": "評価の決め手: 前走の着順、atama、近3走の複勝率。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:06.234015"
+      "updated_at": "2026-06-27T07:56:42.071347"
     },
     {
       "race_id": "20260628_函館_10",
@@ -936,7 +947,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 45,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 27
         },
         {
           "umaban": 2,
@@ -1100,7 +1112,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 47
         },
         {
           "umaban": 3,
@@ -1264,7 +1277,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 44
         },
         {
           "umaban": 4,
@@ -1428,7 +1442,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 45,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 28
         },
         {
           "umaban": 5,
@@ -1592,7 +1607,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 62,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 45
         },
         {
           "umaban": 6,
@@ -1758,7 +1774,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 29
         },
         {
           "umaban": 7,
@@ -1922,7 +1939,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 46,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 40
         },
         {
           "umaban": 8,
@@ -2086,7 +2104,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 46
         },
         {
           "umaban": 9,
@@ -2250,7 +2269,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 27
         },
         {
           "umaban": 10,
@@ -2414,7 +2434,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 14
         },
         {
           "umaban": 11,
@@ -2578,7 +2599,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 35,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 29
         }
       ],
       "recommendations": [],
@@ -2611,6 +2633,7 @@
           "tansho_odds": 12.0,
           "myomi_score": 0.008,
           "kyaku_label": "先行",
+          "fit_score": 45,
           "reason": ""
         },
         {
@@ -2624,6 +2647,7 @@
           "tansho_odds": 2.7,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 14,
           "reason": "評価の決め手: 前走の着順、近3走の複勝率、通算複勝率。"
         },
         {
@@ -2637,10 +2661,11 @@
           "tansho_odds": 46.8,
           "myomi_score": 0.002,
           "kyaku_label": "中団",
+          "fit_score": 47,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:06.288755"
+      "updated_at": "2026-06-27T07:56:42.129796"
     },
     {
       "race_id": "20260628_函館_11",
@@ -2670,12 +2695,12 @@
           "age": 4,
           "p_ability": 4.4,
           "p_place": 17.9,
-          "divergence": -0.005,
-          "myomi_score": 0.0,
-          "tansho_odds": 20.2,
-          "fukusho_odds": 5.5,
-          "ev_tansho": 0.898,
-          "ev_fukusho": 0.983,
+          "divergence": 0.003,
+          "myomi_score": 0.001,
+          "tansho_odds": 24.1,
+          "fukusho_odds": 6.65,
+          "ev_tansho": 1.072,
+          "ev_fukusho": 1.189,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -2817,8 +2842,9 @@
           "agari_rank1_rate": 0.154,
           "is_keshi": false,
           "keshi_reasons": [],
-          "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_score": 57,
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 2,
@@ -2834,12 +2860,12 @@
           "age": 4,
           "p_ability": 3.0,
           "p_place": 8.8,
-          "divergence": -0.115,
+          "divergence": -0.106,
           "myomi_score": 0.0,
-          "tansho_odds": 6.9,
-          "fukusho_odds": 2.85,
-          "ev_tansho": 0.204,
-          "ev_fukusho": 0.252,
+          "tansho_odds": 7.4,
+          "fukusho_odds": 3.35,
+          "ev_tansho": 0.219,
+          "ev_fukusho": 0.296,
           "ev_tansho_anomaly": false,
           "blinker": 1,
           "reason": "",
@@ -2984,7 +3010,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 30,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 26
         },
         {
           "umaban": 3,
@@ -3002,10 +3029,10 @@
           "p_place": 11.0,
           "divergence": -0.025,
           "myomi_score": 0.0,
-          "tansho_odds": 17.6,
-          "fukusho_odds": 5.65,
-          "ev_tansho": 0.568,
-          "ev_fukusho": 0.621,
+          "tansho_odds": 17.5,
+          "fukusho_odds": 6.2,
+          "ev_tansho": 0.565,
+          "ev_fukusho": 0.682,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -3148,7 +3175,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 52,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 48
         },
         {
           "umaban": 4,
@@ -3164,12 +3192,12 @@
           "age": 4,
           "p_ability": 12.4,
           "p_place": 31.8,
-          "divergence": 0.016,
-          "myomi_score": 0.003,
-          "tansho_odds": 9.3,
-          "fukusho_odds": 3.55,
-          "ev_tansho": 1.152,
-          "ev_fukusho": 1.128,
+          "divergence": 0.013,
+          "myomi_score": 0.002,
+          "tansho_odds": 9.0,
+          "fukusho_odds": 2.5999999999999996,
+          "ev_tansho": 1.115,
+          "ev_fukusho": 0.826,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "評価の決め手: 前走の着順、血統の距離適性、前走の着差。",
@@ -3312,7 +3340,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 32
         },
         {
           "umaban": 5,
@@ -3328,12 +3357,12 @@
           "age": 4,
           "p_ability": 16.3,
           "p_place": 35.7,
-          "divergence": -0.019,
+          "divergence": -0.016,
           "myomi_score": 0.0,
-          "tansho_odds": 5.5,
-          "fukusho_odds": 2.5,
-          "ev_tansho": 0.897,
-          "ev_fukusho": 0.893,
+          "tansho_odds": 5.6,
+          "fukusho_odds": 2.8,
+          "ev_tansho": 0.913,
+          "ev_fukusho": 1.0,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "評価の決め手: 前走の着順、最高スピード指数、騎手の複勝率。",
@@ -3476,7 +3505,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 56,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 32
         },
         {
           "umaban": 6,
@@ -3492,12 +3522,12 @@
           "age": 7,
           "p_ability": 1.5,
           "p_place": 8.2,
-          "divergence": -0.004,
+          "divergence": -0.06,
           "myomi_score": 0.0,
-          "tansho_odds": 52.7,
-          "fukusho_odds": 8.35,
-          "ev_tansho": 0.807,
-          "ev_fukusho": 0.686,
+          "tansho_odds": 13.2,
+          "fukusho_odds": 3.0999999999999996,
+          "ev_tansho": 0.202,
+          "ev_fukusho": 0.255,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -3642,7 +3672,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 44,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 42
         },
         {
           "umaban": 7,
@@ -3658,12 +3689,12 @@
           "age": 8,
           "p_ability": 2.6,
           "p_place": 15.9,
-          "divergence": 0.006,
-          "myomi_score": 0.005,
-          "tansho_odds": 49.1,
-          "fukusho_odds": 9.25,
-          "ev_tansho": 1.273,
-          "ev_fukusho": 1.475,
+          "divergence": 0.008,
+          "myomi_score": 0.008,
+          "tansho_odds": 55.5,
+          "fukusho_odds": 10.7,
+          "ev_tansho": 1.439,
+          "ev_fukusho": 1.706,
           "ev_tansho_anomaly": false,
           "blinker": 1,
           "reason": "",
@@ -3808,7 +3839,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 48
         },
         {
           "umaban": 8,
@@ -3824,12 +3856,12 @@
           "age": 7,
           "p_ability": 6.4,
           "p_place": 19.3,
-          "divergence": -0.09,
+          "divergence": -0.081,
           "myomi_score": 0.0,
-          "tansho_odds": 6.5,
-          "fukusho_odds": 3.05,
-          "ev_tansho": 0.414,
-          "ev_fukusho": 0.588,
+          "tansho_odds": 6.9,
+          "fukusho_odds": 3.35,
+          "ev_tansho": 0.439,
+          "ev_fukusho": 0.646,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -3972,7 +4004,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 39
         },
         {
           "umaban": 9,
@@ -3988,12 +4021,12 @@
           "age": 7,
           "p_ability": 1.2,
           "p_place": 4.7,
-          "divergence": -0.023,
+          "divergence": -0.02,
           "myomi_score": 0.0,
-          "tansho_odds": 28.7,
-          "fukusho_odds": 5.2,
-          "ev_tansho": 0.345,
-          "ev_fukusho": 0.244,
+          "tansho_odds": 30.9,
+          "fukusho_odds": 6.1,
+          "ev_tansho": 0.371,
+          "ev_fukusho": 0.287,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -4138,7 +4171,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 42
         },
         {
           "umaban": 10,
@@ -4154,12 +4188,12 @@
           "age": 4,
           "p_ability": 5.1,
           "p_place": 19.6,
-          "divergence": 0.004,
-          "myomi_score": 0.002,
-          "tansho_odds": 21.3,
-          "fukusho_odds": 4.65,
-          "ev_tansho": 1.096,
-          "ev_fukusho": 0.911,
+          "divergence": 0.007,
+          "myomi_score": 0.003,
+          "tansho_odds": 22.5,
+          "fukusho_odds": 5.199999999999999,
+          "ev_tansho": 1.157,
+          "ev_fukusho": 1.019,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -4304,7 +4338,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 36
         },
         {
           "umaban": 11,
@@ -4320,12 +4355,12 @@
           "age": 4,
           "p_ability": 13.6,
           "p_place": 31.2,
-          "divergence": 0.038,
-          "myomi_score": 0.008,
-          "tansho_odds": 10.2,
-          "fukusho_odds": 3.3,
-          "ev_tansho": 1.384,
-          "ev_fukusho": 1.028,
+          "divergence": 0.043,
+          "myomi_score": 0.009,
+          "tansho_odds": 10.8,
+          "fukusho_odds": 3.8,
+          "ev_tansho": 1.466,
+          "ev_fukusho": 1.184,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "評価の決め手: 騎手の複勝率、最高スピード指数、通算複勝率。",
@@ -4468,7 +4503,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 70,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         },
         {
           "umaban": 12,
@@ -4484,12 +4520,12 @@
           "age": 4,
           "p_ability": 12.0,
           "p_place": 27.8,
-          "divergence": 0.01,
-          "myomi_score": 0.002,
-          "tansho_odds": 9.1,
-          "fukusho_odds": 2.4000000000000004,
-          "ev_tansho": 1.094,
-          "ev_fukusho": 0.667,
+          "divergence": 0.016,
+          "myomi_score": 0.003,
+          "tansho_odds": 9.6,
+          "fukusho_odds": 2.8,
+          "ev_tansho": 1.155,
+          "ev_fukusho": 0.778,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -4632,7 +4668,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 58,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 40
         },
         {
           "umaban": 13,
@@ -4648,12 +4685,12 @@
           "age": 9,
           "p_ability": 1.9,
           "p_place": 13.8,
-          "divergence": -0.009,
+          "divergence": -0.005,
           "myomi_score": 0.0,
-          "tansho_odds": 36.1,
-          "fukusho_odds": 5.85,
-          "ev_tansho": 0.672,
-          "ev_fukusho": 0.809,
+          "tansho_odds": 42.8,
+          "fukusho_odds": 6.2,
+          "ev_tansho": 0.797,
+          "ev_fukusho": 0.857,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -4796,7 +4833,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 46
         },
         {
           "umaban": 14,
@@ -4815,9 +4853,9 @@
           "divergence": -0.014,
           "myomi_score": 0.0,
           "tansho_odds": 8.9,
-          "fukusho_odds": 2.95,
+          "fukusho_odds": 2.9000000000000004,
           "ev_tansho": 0.872,
-          "ev_fukusho": 0.858,
+          "ev_fukusho": 0.843,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -4960,7 +4998,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 36
         },
         {
           "umaban": 15,
@@ -4976,12 +5015,12 @@
           "age": 7,
           "p_ability": 6.6,
           "p_place": 25.2,
-          "divergence": -0.026,
+          "divergence": -0.017,
           "myomi_score": 0.0,
-          "tansho_odds": 10.9,
-          "fukusho_odds": 5.95,
-          "ev_tansho": 0.718,
-          "ev_fukusho": 1.501,
+          "tansho_odds": 12.0,
+          "fukusho_odds": 5.45,
+          "ev_tansho": 0.791,
+          "ev_fukusho": 1.375,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -5126,7 +5165,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 56,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 47
         }
       ],
       "recommendations": [
@@ -5136,29 +5176,14 @@
             11
           ],
           "points": 1,
-          "ev": 1.384,
+          "ev": 1.466,
           "hit_rate": 13.6,
-          "odds": 10.2,
-          "myomi_score": 0.008,
+          "odds": 10.8,
+          "myomi_score": 0.009,
           "profile": "穴馬派",
           "recommended": true,
           "confidence_rank": "S",
-          "kelly_stake_pct": 1.04
-        },
-        {
-          "bet_type": "単勝",
-          "combination": [
-            4
-          ],
-          "points": 1,
-          "ev": 1.152,
-          "hit_rate": 12.4,
-          "odds": 9.3,
-          "myomi_score": 0.003,
-          "profile": "穴馬派",
-          "recommended": true,
-          "confidence_rank": "A",
-          "kelly_stake_pct": 0.46
+          "kelly_stake_pct": 1.19
         },
         {
           "bet_type": "単勝",
@@ -5166,28 +5191,29 @@
             12
           ],
           "points": 1,
-          "ev": 1.094,
+          "ev": 1.155,
           "hit_rate": 12.0,
-          "odds": 9.1,
-          "myomi_score": 0.002,
+          "odds": 9.6,
+          "myomi_score": 0.003,
           "profile": "穴馬派",
           "recommended": true,
           "confidence_rank": "A",
-          "kelly_stake_pct": 0.29
+          "kelly_stake_pct": 0.45
         },
         {
-          "bet_type": "複勝",
+          "bet_type": "単勝",
           "combination": [
             4
           ],
           "points": 1,
-          "ev": 1.128,
-          "hit_rate": 31.8,
-          "odds": 3.55,
-          "myomi_score": 0.003,
-          "profile": "安定派",
+          "ev": 1.115,
+          "hit_rate": 12.4,
+          "odds": 9.0,
+          "myomi_score": 0.002,
+          "profile": "穴馬派",
           "recommended": true,
-          "kelly_stake_pct": 1.25
+          "confidence_rank": "A",
+          "kelly_stake_pct": 0.36
         },
         {
           "bet_type": "複勝",
@@ -5195,10 +5221,24 @@
             11
           ],
           "points": 1,
-          "ev": 1.028,
+          "ev": 1.184,
           "hit_rate": 31.2,
-          "odds": 3.3,
-          "myomi_score": 0.008,
+          "odds": 3.8,
+          "myomi_score": 0.009,
+          "profile": "安定派",
+          "recommended": true,
+          "kelly_stake_pct": 1.64
+        },
+        {
+          "bet_type": "複勝",
+          "combination": [
+            4
+          ],
+          "points": 1,
+          "ev": 0.826,
+          "hit_rate": 31.8,
+          "odds": 2.5999999999999996,
+          "myomi_score": 0.002,
           "profile": "安定派",
           "recommended": false,
           "kelly_stake_pct": 0.0
@@ -5209,10 +5249,10 @@
             12
           ],
           "points": 1,
-          "ev": 0.667,
+          "ev": 0.778,
           "hit_rate": 27.8,
-          "odds": 2.4000000000000004,
-          "myomi_score": 0.002,
+          "odds": 2.8,
+          "myomi_score": 0.003,
           "profile": "安定派",
           "recommended": false,
           "kelly_stake_pct": 0.0
@@ -5373,9 +5413,9 @@
             12
           ],
           "points": 1,
-          "ev": 0.302,
+          "ev": 0.306,
           "hit_rate": 0.45,
-          "odds": 66.6,
+          "odds": 67.4,
           "profile": "大穴",
           "recommended": false,
           "ev_anomaly": false,
@@ -5493,10 +5533,11 @@
           "confidence_score": 70,
           "p_ability": 13.6,
           "p_place": 31.2,
-          "ev_tansho": 1.384,
-          "tansho_odds": 10.2,
-          "myomi_score": 0.008,
+          "ev_tansho": 1.466,
+          "tansho_odds": 10.8,
+          "myomi_score": 0.009,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": "評価の決め手: 騎手の複勝率、最高スピード指数、通算複勝率。"
         },
         {
@@ -5506,27 +5547,29 @@
           "confidence_score": 58,
           "p_ability": 12.0,
           "p_place": 27.8,
-          "ev_tansho": 1.094,
-          "tansho_odds": 9.1,
-          "myomi_score": 0.002,
+          "ev_tansho": 1.155,
+          "tansho_odds": 9.6,
+          "myomi_score": 0.003,
           "kyaku_label": "先行",
+          "fit_score": 40,
           "reason": ""
         },
         {
-          "umaban": 5,
-          "horse_name": "イガッチ",
+          "umaban": 1,
+          "horse_name": "バルナバ",
           "confidence_rank": "A",
-          "confidence_score": 56,
-          "p_ability": 16.3,
-          "p_place": 35.7,
-          "ev_tansho": 0.897,
-          "tansho_odds": 5.5,
-          "myomi_score": 0.0,
+          "confidence_score": 57,
+          "p_ability": 4.4,
+          "p_place": 17.9,
+          "ev_tansho": 1.072,
+          "tansho_odds": 24.1,
+          "myomi_score": 0.001,
           "kyaku_label": "先行",
-          "reason": "評価の決め手: 前走の着順、最高スピード指数、騎手の複勝率。"
+          "fit_score": 50,
+          "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:06.894932"
+      "updated_at": "2026-06-27T07:56:42.713136"
     },
     {
       "race_id": "20260628_函館_12",
@@ -5706,7 +5749,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 52,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 45
         },
         {
           "umaban": 2,
@@ -5870,7 +5914,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 54,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 48
         },
         {
           "umaban": 3,
@@ -6034,7 +6079,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 40
         },
         {
           "umaban": 4,
@@ -6198,7 +6244,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 5,
@@ -6364,7 +6411,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 55,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 45
         },
         {
           "umaban": 6,
@@ -6528,7 +6576,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 70,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 48
         },
         {
           "umaban": 7,
@@ -6694,7 +6743,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 48
         },
         {
           "umaban": 8,
@@ -6861,7 +6911,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 35
         },
         {
           "umaban": 9,
@@ -7027,7 +7078,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 44,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 36
         },
         {
           "umaban": 10,
@@ -7191,7 +7243,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 56,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 41
         },
         {
           "umaban": 11,
@@ -7357,7 +7410,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 52,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 47
         },
         {
           "umaban": 12,
@@ -7521,7 +7575,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 44,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         },
         {
           "umaban": 13,
@@ -7685,7 +7740,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 29,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 28
         },
         {
           "umaban": 14,
@@ -7849,7 +7905,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 52,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 25
         }
       ],
       "recommendations": [
@@ -8178,6 +8235,7 @@
           "tansho_odds": 9.0,
           "myomi_score": 0.007,
           "kyaku_label": "先行",
+          "fit_score": 48,
           "reason": "評価の決め手: 前走の着順、最高スピード指数、近5走の複勝率。"
         },
         {
@@ -8191,6 +8249,7 @@
           "tansho_odds": 7.9,
           "myomi_score": 0.0,
           "kyaku_label": "逃げ",
+          "fit_score": 41,
           "reason": "評価の決め手: 前走の着順、前走の着差、chakusa_2ago。"
         },
         {
@@ -8204,10 +8263,11 @@
           "tansho_odds": 12.9,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 48,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:07.440746"
+      "updated_at": "2026-06-27T07:56:43.254149"
     },
     {
       "race_id": "20260628_函館_2",
@@ -8387,7 +8447,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 52,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 40
         },
         {
           "umaban": 2,
@@ -8533,7 +8594,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 37,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 29
         },
         {
           "umaban": 3,
@@ -8697,7 +8759,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 27
         },
         {
           "umaban": 4,
@@ -8841,7 +8904,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 35
         },
         {
           "umaban": 5,
@@ -8985,7 +9049,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 13
         },
         {
           "umaban": 6,
@@ -9149,7 +9214,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         },
         {
           "umaban": 7,
@@ -9315,7 +9381,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 46,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         },
         {
           "umaban": 8,
@@ -9481,7 +9548,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 45,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 41
         },
         {
           "umaban": 9,
@@ -9645,7 +9713,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 45
         },
         {
           "umaban": 10,
@@ -9749,7 +9818,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 78,
-          "confidence_rank": "SS"
+          "confidence_rank": "SS",
+          "fit_score": 50
         },
         {
           "umaban": 11,
@@ -9915,7 +9985,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 12,
@@ -10079,7 +10150,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 41
         },
         {
           "umaban": 13,
@@ -10203,7 +10275,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 45
         },
         {
           "umaban": 14,
@@ -10327,7 +10400,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         }
       ],
       "recommendations": [
@@ -10656,6 +10730,7 @@
           "tansho_odds": 9.5,
           "myomi_score": 0.013,
           "kyaku_label": "逃げ",
+          "fit_score": 50,
           "reason": "評価の決め手: prev_baju、騎手の複勝率、上がり最速の経験。"
         },
         {
@@ -10669,6 +10744,7 @@
           "tansho_odds": 2.7,
           "myomi_score": 0.0,
           "kyaku_label": "中団",
+          "fit_score": 13,
           "reason": "評価の決め手: 前走の着順、クラス、近3走の複勝率。"
         },
         {
@@ -10682,10 +10758,11 @@
           "tansho_odds": 20.9,
           "myomi_score": 0.008,
           "kyaku_label": "中団",
+          "fit_score": 41,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:07.958507"
+      "updated_at": "2026-06-27T07:56:43.818739"
     },
     {
       "race_id": "20260628_函館_3",
@@ -10865,7 +10942,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 37
         },
         {
           "umaban": 2,
@@ -11009,7 +11087,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         },
         {
           "umaban": 3,
@@ -11153,7 +11232,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 4,
@@ -11279,7 +11359,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 5,
@@ -11443,7 +11524,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 45
         },
         {
           "umaban": 6,
@@ -11607,7 +11689,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 36
         },
         {
           "umaban": 7,
@@ -11751,7 +11834,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 29
         },
         {
           "umaban": 8,
@@ -11875,7 +11959,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 54,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 23
         },
         {
           "umaban": 9,
@@ -12039,7 +12124,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 64,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 34
         },
         {
           "umaban": 10,
@@ -12203,7 +12289,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 46,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 33
         },
         {
           "umaban": 11,
@@ -12307,7 +12394,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 40
         },
         {
           "umaban": 12,
@@ -12471,7 +12559,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 46,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 33
         }
       ],
       "recommendations": [
@@ -12800,6 +12889,7 @@
           "tansho_odds": 5.4,
           "myomi_score": 0.002,
           "kyaku_label": "先行",
+          "fit_score": 34,
           "reason": "評価の決め手: 前走の着順、平均スピード指数、クラス。"
         },
         {
@@ -12813,6 +12903,7 @@
           "tansho_odds": 3.5,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 23,
           "reason": "評価の決め手: 前走の着順、クラス、前走の着差。"
         },
         {
@@ -12826,10 +12917,11 @@
           "tansho_odds": 2.5,
           "myomi_score": 0.0,
           "kyaku_label": "逃げ",
+          "fit_score": 29,
           "reason": "評価の決め手: 前走の着順、前走の着差、クラス。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:08.486971"
+      "updated_at": "2026-06-27T07:56:44.342941"
     },
     {
       "race_id": "20260628_函館_4",
@@ -13009,7 +13101,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 24,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 23
         },
         {
           "umaban": 2,
@@ -13175,7 +13268,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 33
         },
         {
           "umaban": 3,
@@ -13341,7 +13435,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 23
         },
         {
           "umaban": 4,
@@ -13465,7 +13560,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 26,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 23
         },
         {
           "umaban": 5,
@@ -13629,7 +13725,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 6,
@@ -13773,7 +13870,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 31,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 30
         },
         {
           "umaban": 7,
@@ -13859,7 +13957,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 25,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 22
         },
         {
           "umaban": 8,
@@ -14023,7 +14122,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 17,
-          "confidence_rank": "D"
+          "confidence_rank": "D",
+          "fit_score": 0
         },
         {
           "umaban": 9,
@@ -14149,7 +14249,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 19,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 17
         },
         {
           "umaban": 10,
@@ -14293,7 +14394,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 12
         },
         {
           "umaban": 11,
@@ -14457,7 +14559,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 22
         },
         {
           "umaban": 12,
@@ -14601,7 +14704,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 33
         },
         {
           "umaban": 13,
@@ -14725,7 +14829,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 28,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 13
         },
         {
           "umaban": 14,
@@ -14889,7 +14994,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 22
         },
         {
           "umaban": 15,
@@ -14993,7 +15099,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 25,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 24
         },
         {
           "umaban": 16,
@@ -15137,7 +15244,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         }
       ],
       "recommendations": [],
@@ -15170,6 +15278,7 @@
           "tansho_odds": 13.8,
           "myomi_score": 0.009,
           "kyaku_label": "中団",
+          "fit_score": 33,
           "reason": ""
         },
         {
@@ -15183,6 +15292,7 @@
           "tansho_odds": 7.2,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 22,
           "reason": "評価の決め手: 前走の着順、騎手の複勝率、クラス。"
         },
         {
@@ -15196,10 +15306,11 @@
           "tansho_odds": 3.6,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 12,
           "reason": "評価の決め手: 前走の着順、通算複勝率、近3走の複勝率。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:08.563856"
+      "updated_at": "2026-06-27T07:56:44.431285"
     },
     {
       "race_id": "20260628_函館_5",
@@ -15276,7 +15387,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 35,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 12
         },
         {
           "umaban": 2,
@@ -15339,7 +15451,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 2
         },
         {
           "umaban": 3,
@@ -15402,7 +15515,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 65,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 33
         },
         {
           "umaban": 4,
@@ -15465,7 +15579,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 17
         },
         {
           "umaban": 5,
@@ -15528,7 +15643,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 35,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 21
         },
         {
           "umaban": 6,
@@ -15591,7 +15707,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 46,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         }
       ],
       "recommendations": [],
@@ -15624,6 +15741,7 @@
           "tansho_odds": 8.4,
           "myomi_score": 0.016,
           "kyaku_label": "先行",
+          "fit_score": 33,
           "reason": "評価の決め手: atama、騎手の複勝率、前走の着差。"
         },
         {
@@ -15637,6 +15755,7 @@
           "tansho_odds": 13.3,
           "myomi_score": 0.005,
           "kyaku_label": "先行",
+          "fit_score": 32,
           "reason": ""
         },
         {
@@ -15650,10 +15769,11 @@
           "tansho_odds": 1.9,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 2,
           "reason": "評価の決め手: 騎手の複勝率、atama、騎手の勝率。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:08.589020"
+      "updated_at": "2026-06-27T07:56:44.456366"
     },
     {
       "race_id": "20260628_函館_6",
@@ -15833,7 +15953,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 49
         },
         {
           "umaban": 2,
@@ -15959,7 +16080,8 @@
             "逃げ×逃げ3頭で潰れ合い確定"
           ],
           "confidence_score": 52,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 47
         },
         {
           "umaban": 3,
@@ -16123,7 +16245,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         },
         {
           "umaban": 4,
@@ -16287,7 +16410,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         },
         {
           "umaban": 5,
@@ -16454,7 +16578,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 6,
@@ -16618,7 +16743,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 44,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 36
         },
         {
           "umaban": 7,
@@ -16722,7 +16848,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 61,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 8,
@@ -16886,7 +17013,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 41
         },
         {
           "umaban": 9,
@@ -17050,7 +17178,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 46,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 45
         },
         {
           "umaban": 10,
@@ -17214,7 +17343,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         },
         {
           "umaban": 11,
@@ -17300,7 +17430,8 @@
             "逃げ×逃げ3頭で潰れ合い確定"
           ],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 39
         },
         {
           "umaban": 12,
@@ -17444,7 +17575,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 56,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 49
         },
         {
           "umaban": 13,
@@ -17608,7 +17740,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 67,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         },
         {
           "umaban": 14,
@@ -17772,7 +17905,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 58,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 25
         },
         {
           "umaban": 15,
@@ -17936,7 +18070,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 65,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         },
         {
           "umaban": 16,
@@ -18100,7 +18235,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 56,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 48
         }
       ],
       "recommendations": [
@@ -18429,6 +18565,7 @@
           "tansho_odds": 19.6,
           "myomi_score": 0.019,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": "評価の決め手: クラス、前走との距離差、平均スピード指数。"
         },
         {
@@ -18442,6 +18579,7 @@
           "tansho_odds": 18.1,
           "myomi_score": 0.01,
           "kyaku_label": "中団",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -18455,10 +18593,11 @@
           "tansho_odds": 19.6,
           "myomi_score": 0.01,
           "kyaku_label": "中団",
+          "fit_score": 50,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:09.128315"
+      "updated_at": "2026-06-27T07:56:45.005967"
     },
     {
       "race_id": "20260628_函館_7",
@@ -18636,7 +18775,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         },
         {
           "umaban": 2,
@@ -18800,7 +18940,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 59,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 42
         },
         {
           "umaban": 3,
@@ -18946,7 +19087,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         },
         {
           "umaban": 4,
@@ -19110,7 +19252,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 60,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 38
         },
         {
           "umaban": 5,
@@ -19274,7 +19417,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 38,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 23
         },
         {
           "umaban": 6,
@@ -19440,7 +19584,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 69,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 47
         },
         {
           "umaban": 7,
@@ -19604,7 +19749,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 26
         },
         {
           "umaban": 8,
@@ -19768,7 +19914,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 60,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 40
         },
         {
           "umaban": 9,
@@ -19932,7 +20079,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 43
         },
         {
           "umaban": 10,
@@ -20096,7 +20244,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 67,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         }
       ],
       "recommendations": [
@@ -20425,6 +20574,7 @@
           "tansho_odds": 33.9,
           "myomi_score": 0.025,
           "kyaku_label": "逃げ",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -20438,6 +20588,7 @@
           "tansho_odds": 7.8,
           "myomi_score": 0.002,
           "kyaku_label": "先行",
+          "fit_score": 40,
           "reason": ""
         },
         {
@@ -20451,10 +20602,11 @@
           "tansho_odds": 7.2,
           "myomi_score": 0.002,
           "kyaku_label": "先行",
+          "fit_score": 38,
           "reason": "評価の決め手: atama、前走の着差、平均スピード指数。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:09.633300"
+      "updated_at": "2026-06-27T07:56:45.520241"
     },
     {
       "race_id": "20260628_函館_8",
@@ -20634,7 +20786,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 48
         },
         {
           "umaban": 2,
@@ -20798,7 +20951,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 52,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 46
         },
         {
           "umaban": 3,
@@ -20922,7 +21076,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 49,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 47
         },
         {
           "umaban": 4,
@@ -21086,7 +21241,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         },
         {
           "umaban": 5,
@@ -21250,7 +21406,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 65,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         },
         {
           "umaban": 6,
@@ -21394,7 +21551,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 57,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 44
         },
         {
           "umaban": 7,
@@ -21558,7 +21716,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 65,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         },
         {
           "umaban": 8,
@@ -21722,7 +21881,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 25
         },
         {
           "umaban": 9,
@@ -21886,7 +22046,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 31
         },
         {
           "umaban": 10,
@@ -22050,7 +22211,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 44
         },
         {
           "umaban": 11,
@@ -22194,7 +22356,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 55,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 12,
@@ -22358,7 +22521,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 52,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 26
         },
         {
           "umaban": 13,
@@ -22502,7 +22666,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 27
         }
       ],
       "recommendations": [
@@ -22831,6 +22996,7 @@
           "tansho_odds": 28.8,
           "myomi_score": 0.021,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -22844,6 +23010,7 @@
           "tansho_odds": 18.2,
           "myomi_score": 0.001,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -22857,10 +23024,11 @@
           "tansho_odds": 6.3,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 44,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:10.174240"
+      "updated_at": "2026-06-27T07:56:46.057653"
     },
     {
       "race_id": "20260628_函館_9",
@@ -23038,7 +23206,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 18
         },
         {
           "umaban": 2,
@@ -23202,7 +23371,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 65,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 48
         },
         {
           "umaban": 3,
@@ -23368,7 +23538,8 @@
             "逃げ×逃げ3頭で潰れ合い確定"
           ],
           "confidence_score": 57,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 38
         },
         {
           "umaban": 4,
@@ -23532,7 +23703,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 63,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 29
         },
         {
           "umaban": 5,
@@ -23699,7 +23871,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 57,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 39
         },
         {
           "umaban": 6,
@@ -23866,7 +24039,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 41
         },
         {
           "umaban": 7,
@@ -24030,7 +24204,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 36
         },
         {
           "umaban": 8,
@@ -24196,7 +24371,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 68,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         },
         {
           "umaban": 9,
@@ -24360,7 +24536,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 45
         },
         {
           "umaban": 10,
@@ -24524,7 +24701,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 55,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 49
         }
       ],
       "recommendations": [
@@ -24853,6 +25031,7 @@
           "tansho_odds": 8.6,
           "myomi_score": 0.001,
           "kyaku_label": "先行",
+          "fit_score": 48,
           "reason": ""
         },
         {
@@ -24866,6 +25045,7 @@
           "tansho_odds": 4.1,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 29,
           "reason": "評価の決め手: 前走の着順、atama、通算複勝率。"
         },
         {
@@ -24879,10 +25059,11 @@
           "tansho_odds": 66.7,
           "myomi_score": 0.028,
           "kyaku_label": "中団",
+          "fit_score": 49,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:10.700019"
+      "updated_at": "2026-06-27T07:56:46.552962"
     },
     {
       "race_id": "20260628_小倉_1",
@@ -25000,7 +25181,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         },
         {
           "umaban": 2,
@@ -25063,7 +25245,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 49,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 45
         },
         {
           "umaban": 3,
@@ -25187,7 +25370,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 47
         },
         {
           "umaban": 4,
@@ -25250,7 +25434,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 57,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 49
         },
         {
           "umaban": 5,
@@ -25354,7 +25539,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 12
         },
         {
           "umaban": 6,
@@ -25438,7 +25624,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 40
         },
         {
           "umaban": 7,
@@ -25542,7 +25729,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 35
         },
         {
           "umaban": 8,
@@ -25666,7 +25854,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 45,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 41
         },
         {
           "umaban": 9,
@@ -25830,7 +26019,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 5
         },
         {
           "umaban": 10,
@@ -25934,7 +26124,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         },
         {
           "umaban": 11,
@@ -26058,7 +26249,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 44,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 42
         },
         {
           "umaban": 12,
@@ -26182,7 +26374,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         },
         {
           "umaban": 13,
@@ -26326,7 +26519,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 44
         },
         {
           "umaban": 14,
@@ -26450,7 +26644,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 36
         },
         {
           "umaban": 15,
@@ -26574,7 +26769,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 16,
@@ -26740,7 +26936,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 48
         },
         {
           "umaban": 17,
@@ -26886,7 +27083,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 31
         },
         {
           "umaban": 18,
@@ -26992,7 +27190,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 32,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 31
         }
       ],
       "recommendations": [
@@ -27321,6 +27520,7 @@
           "tansho_odds": 44.4,
           "myomi_score": 0.029,
           "kyaku_label": "先行",
+          "fit_score": 49,
           "reason": ""
         },
         {
@@ -27334,6 +27534,7 @@
           "tansho_odds": 36.3,
           "myomi_score": 0.001,
           "kyaku_label": "逃げ",
+          "fit_score": 47,
           "reason": ""
         },
         {
@@ -27347,10 +27548,11 @@
           "tansho_odds": 22.2,
           "myomi_score": 0.004,
           "kyaku_label": "先行",
+          "fit_score": 44,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:11.219249"
+      "updated_at": "2026-06-27T07:56:47.110227"
     },
     {
       "race_id": "20260628_小倉_10",
@@ -27528,7 +27730,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 52,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 38
         },
         {
           "umaban": 2,
@@ -27695,7 +27898,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 29,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 28
         },
         {
           "umaban": 3,
@@ -27859,7 +28063,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 8
         },
         {
           "umaban": 4,
@@ -28023,7 +28228,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 41
         },
         {
           "umaban": 5,
@@ -28187,7 +28393,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 6,
@@ -28351,7 +28558,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 42
         },
         {
           "umaban": 7,
@@ -28515,7 +28723,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 49,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 29
         },
         {
           "umaban": 8,
@@ -28679,7 +28888,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         },
         {
           "umaban": 9,
@@ -28845,7 +29055,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         },
         {
           "umaban": 10,
@@ -29011,7 +29222,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 31,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 22
         },
         {
           "umaban": 11,
@@ -29175,7 +29387,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 29
         },
         {
           "umaban": 12,
@@ -29339,7 +29552,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 44
         },
         {
           "umaban": 13,
@@ -29503,7 +29717,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 37,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 21
         },
         {
           "umaban": 14,
@@ -29669,7 +29884,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 41
         },
         {
           "umaban": 15,
@@ -29833,7 +30049,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 48
         },
         {
           "umaban": 16,
@@ -29999,7 +30216,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 49
         }
       ],
       "recommendations": [
@@ -30328,6 +30546,7 @@
           "tansho_odds": 21.6,
           "myomi_score": 0.021,
           "kyaku_label": "中団",
+          "fit_score": 38,
           "reason": ""
         },
         {
@@ -30341,6 +30560,7 @@
           "tansho_odds": 9.8,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 41,
           "reason": ""
         },
         {
@@ -30354,10 +30574,11 @@
           "tansho_odds": 37.6,
           "myomi_score": 0.012,
           "kyaku_label": "先行",
+          "fit_score": 44,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:11.771940"
+      "updated_at": "2026-06-27T07:56:47.634506"
     },
     {
       "race_id": "20260628_小倉_11",
@@ -30535,7 +30756,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 35,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 28
         },
         {
           "umaban": 2,
@@ -30699,7 +30921,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 30,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 26
         },
         {
           "umaban": 3,
@@ -30865,7 +31088,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 37,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 26
         },
         {
           "umaban": 4,
@@ -31029,7 +31253,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 46,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 34
         },
         {
           "umaban": 5,
@@ -31195,7 +31420,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 38,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 6,
@@ -31359,7 +31585,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 52,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 5
         },
         {
           "umaban": 7,
@@ -31523,7 +31750,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 37
         },
         {
           "umaban": 8,
@@ -31687,7 +31915,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 35,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 0
         }
       ],
       "recommendations": [],
@@ -31720,6 +31949,7 @@
           "tansho_odds": 3.0,
           "myomi_score": 0.0,
           "kyaku_label": "逃げ",
+          "fit_score": 5,
           "reason": "評価の決め手: 前走の着順、atama、通算複勝率。"
         },
         {
@@ -31733,6 +31963,7 @@
           "tansho_odds": 15.5,
           "myomi_score": 0.009,
           "kyaku_label": "中団",
+          "fit_score": 37,
           "reason": "評価の決め手: atama、騎手の勝率、厩舎の複勝率。"
         },
         {
@@ -31746,10 +31977,11 @@
           "tansho_odds": 12.2,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 34,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:11.811820"
+      "updated_at": "2026-06-27T07:56:47.677784"
     },
     {
       "race_id": "20260628_小倉_12",
@@ -31887,7 +32119,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 52,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 38
         },
         {
           "umaban": 2,
@@ -32011,7 +32244,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 59,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 3,
@@ -32095,7 +32329,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 54,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 24
         },
         {
           "umaban": 4,
@@ -32259,7 +32494,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 45
         },
         {
           "umaban": 5,
@@ -32425,7 +32661,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 68,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         },
         {
           "umaban": 6,
@@ -32591,7 +32828,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 43
         },
         {
           "umaban": 7,
@@ -32755,7 +32993,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 60,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 45
         },
         {
           "umaban": 8,
@@ -32899,7 +33138,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 49,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 41
         },
         {
           "umaban": 9,
@@ -33063,7 +33303,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         },
         {
           "umaban": 10,
@@ -33187,7 +33428,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 43
         },
         {
           "umaban": 11,
@@ -33353,7 +33595,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         },
         {
           "umaban": 12,
@@ -33517,7 +33760,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 59,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 38
         },
         {
           "umaban": 13,
@@ -33681,7 +33925,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         },
         {
           "umaban": 14,
@@ -33845,7 +34090,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 49
         },
         {
           "umaban": 15,
@@ -34011,7 +34257,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 44,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 42
         },
         {
           "umaban": 16,
@@ -34175,7 +34422,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 65,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         }
       ],
       "recommendations": [
@@ -34504,6 +34752,7 @@
           "tansho_odds": 31.5,
           "myomi_score": 0.023,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -34517,6 +34766,7 @@
           "tansho_odds": 18.4,
           "myomi_score": 0.018,
           "kyaku_label": "中団",
+          "fit_score": 45,
           "reason": "評価の決め手: 前走の着順、血統の距離適性、前走の着差。"
         },
         {
@@ -34530,10 +34780,11 @@
           "tansho_odds": 27.9,
           "myomi_score": 0.004,
           "kyaku_label": "逃げ",
+          "fit_score": 50,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:12.361655"
+      "updated_at": "2026-06-27T07:56:48.216998"
     },
     {
       "race_id": "20260628_小倉_2",
@@ -34711,7 +34962,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 45,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 23
         },
         {
           "umaban": 2,
@@ -34875,7 +35127,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 42
         },
         {
           "umaban": 3,
@@ -35001,7 +35254,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 31
         },
         {
           "umaban": 4,
@@ -35107,7 +35361,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 31
         },
         {
           "umaban": 5,
@@ -35251,7 +35506,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 70,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 29
         },
         {
           "umaban": 6,
@@ -35395,7 +35651,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 44,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 41
         },
         {
           "umaban": 7,
@@ -35499,7 +35756,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 49,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 41
         },
         {
           "umaban": 8,
@@ -35583,7 +35841,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 23
         },
         {
           "umaban": 9,
@@ -35747,7 +36006,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 14
         },
         {
           "umaban": 10,
@@ -35871,7 +36131,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 11,
@@ -36017,7 +36278,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         },
         {
           "umaban": 12,
@@ -36161,7 +36423,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 68,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         },
         {
           "umaban": 13,
@@ -36287,7 +36550,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 27,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 25
         },
         {
           "umaban": 14,
@@ -36431,7 +36695,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         },
         {
           "umaban": 15,
@@ -36555,7 +36820,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 35,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 16,
@@ -36679,7 +36945,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 31
         }
       ],
       "recommendations": [
@@ -37008,6 +37275,7 @@
           "tansho_odds": 4.0,
           "myomi_score": 0.002,
           "kyaku_label": "先行",
+          "fit_score": 29,
           "reason": "評価の決め手: 前走の着順、騎手の複勝率、クラス。"
         },
         {
@@ -37021,6 +37289,7 @@
           "tansho_odds": 34.3,
           "myomi_score": 0.043,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -37034,10 +37303,11 @@
           "tansho_odds": 38.8,
           "myomi_score": 0.024,
           "kyaku_label": "中団",
+          "fit_score": 41,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:12.892357"
+      "updated_at": "2026-06-27T07:56:48.795763"
     },
     {
       "race_id": "20260628_小倉_3",
@@ -37215,7 +37485,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 45
         },
         {
           "umaban": 2,
@@ -37301,7 +37572,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         },
         {
           "umaban": 3,
@@ -37467,7 +37739,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 49,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 48
         },
         {
           "umaban": 4,
@@ -37631,7 +37904,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 57,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 21
         },
         {
           "umaban": 5,
@@ -37795,7 +38069,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 81,
-          "confidence_rank": "SS"
+          "confidence_rank": "SS",
+          "fit_score": 50
         },
         {
           "umaban": 6,
@@ -37921,7 +38196,8 @@
             "逃げ×逃げ3頭で潰れ合い確定"
           ],
           "confidence_score": 59,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 7,
@@ -38045,7 +38321,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 45
         },
         {
           "umaban": 8,
@@ -38209,7 +38486,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 62,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 43
         },
         {
           "umaban": 9,
@@ -38295,7 +38573,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 10,
@@ -38459,7 +38738,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 54,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 11,
@@ -38625,7 +38905,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 55,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 48
         },
         {
           "umaban": 12,
@@ -38789,7 +39070,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 46,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 45
         },
         {
           "umaban": 13,
@@ -38933,7 +39215,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 57,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 44
         },
         {
           "umaban": 14,
@@ -39077,7 +39360,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 46
         },
         {
           "umaban": 15,
@@ -39223,7 +39507,8 @@
             "逃げ×逃げ3頭で潰れ合い確定"
           ],
           "confidence_score": 57,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 44
         },
         {
           "umaban": 16,
@@ -39309,7 +39594,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 17,
@@ -39475,7 +39761,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 47
         },
         {
           "umaban": 18,
@@ -39639,7 +39926,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 54,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         }
       ],
       "recommendations": [
@@ -39968,6 +40256,7 @@
           "tansho_odds": 10.8,
           "myomi_score": 0.017,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": "評価の決め手: 近3走の複勝率、クラス、前走との距離差。"
         },
         {
@@ -39981,6 +40270,7 @@
           "tansho_odds": 11.1,
           "myomi_score": 0.009,
           "kyaku_label": "中団",
+          "fit_score": 43,
           "reason": "評価の決め手: 騎手の複勝率、前走の着差、平均スピード指数。"
         },
         {
@@ -39994,10 +40284,11 @@
           "tansho_odds": 8.5,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 44,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:13.451893"
+      "updated_at": "2026-06-27T07:56:49.397651"
     },
     {
       "race_id": "20260628_小倉_4",
@@ -40074,7 +40365,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         },
         {
           "umaban": 2,
@@ -40178,7 +40470,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 28
         },
         {
           "umaban": 3,
@@ -40322,7 +40615,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 32,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 30
         },
         {
           "umaban": 4,
@@ -40406,7 +40700,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 26,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 24
         },
         {
           "umaban": 5,
@@ -40570,7 +40865,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         },
         {
           "umaban": 6,
@@ -40734,7 +41030,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 0
         },
         {
           "umaban": 7,
@@ -40878,7 +41175,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 26,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 23
         },
         {
           "umaban": 8,
@@ -40982,7 +41280,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 27
         },
         {
           "umaban": 9,
@@ -41066,7 +41365,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 26,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 24
         },
         {
           "umaban": 10,
@@ -41210,7 +41510,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 26,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 4
         },
         {
           "umaban": 11,
@@ -41354,7 +41655,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 36
         },
         {
           "umaban": 12,
@@ -41518,7 +41820,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 33
         },
         {
           "umaban": 13,
@@ -41662,7 +41965,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 40
         },
         {
           "umaban": 14,
@@ -41828,7 +42132,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 36,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 24
         },
         {
           "umaban": 15,
@@ -41994,7 +42299,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 35,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 34
         },
         {
           "umaban": 16,
@@ -42057,7 +42363,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         }
       ],
       "recommendations": [],
@@ -42090,6 +42397,7 @@
           "tansho_odds": 19.9,
           "myomi_score": 0.015,
           "kyaku_label": "中団",
+          "fit_score": 40,
           "reason": "評価の決め手: 前走の着順、クラス、血統の距離適性。"
         },
         {
@@ -42103,6 +42411,7 @@
           "tansho_odds": 1.8,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 0,
           "reason": "評価の決め手: 前走の着順、騎手の複勝率、クラス。"
         },
         {
@@ -42116,10 +42425,11 @@
           "tansho_odds": 37.0,
           "myomi_score": 0.022,
           "kyaku_label": "中団",
+          "fit_score": 33,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:13.521876"
+      "updated_at": "2026-06-27T07:56:49.520002"
     },
     {
       "race_id": "20260628_小倉_5",
@@ -42196,7 +42506,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 7
         },
         {
           "umaban": 2,
@@ -42259,7 +42570,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 41
         },
         {
           "umaban": 3,
@@ -42322,7 +42634,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 35
         },
         {
           "umaban": 4,
@@ -42385,7 +42698,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 61,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 46
         },
         {
           "umaban": 5,
@@ -42448,7 +42762,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 40
         },
         {
           "umaban": 6,
@@ -42511,7 +42826,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 58,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 48
         },
         {
           "umaban": 7,
@@ -42574,7 +42890,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 35,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 22
         },
         {
           "umaban": 8,
@@ -42637,7 +42954,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 58,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 48
         },
         {
           "umaban": 9,
@@ -42700,7 +43018,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 59,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 47
         },
         {
           "umaban": 10,
@@ -42763,7 +43082,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 36,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 12
         }
       ],
       "recommendations": [],
@@ -42796,6 +43116,7 @@
           "tansho_odds": 38.0,
           "myomi_score": 0.059,
           "kyaku_label": "先行",
+          "fit_score": 46,
           "reason": "評価の決め手: atama、前走の着差、クラス。"
         },
         {
@@ -42809,6 +43130,7 @@
           "tansho_odds": 29.1,
           "myomi_score": 0.03,
           "kyaku_label": "先行",
+          "fit_score": 47,
           "reason": ""
         },
         {
@@ -42822,10 +43144,11 @@
           "tansho_odds": 61.2,
           "myomi_score": 0.054,
           "kyaku_label": "先行",
+          "fit_score": 48,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:13.562138"
+      "updated_at": "2026-06-27T07:56:49.571247"
     },
     {
       "race_id": "20260628_小倉_6",
@@ -42902,7 +43225,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 18
         },
         {
           "umaban": 2,
@@ -42965,7 +43289,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 35
         },
         {
           "umaban": 3,
@@ -43028,7 +43353,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 0
         },
         {
           "umaban": 4,
@@ -43091,7 +43417,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 37,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 29
         },
         {
           "umaban": 5,
@@ -43154,7 +43481,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 36
         },
         {
           "umaban": 6,
@@ -43217,7 +43545,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 35
         },
         {
           "umaban": 7,
@@ -43280,7 +43609,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 27
         },
         {
           "umaban": 8,
@@ -43343,7 +43673,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 36,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 9,
@@ -43406,7 +43737,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 63,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 44
         },
         {
           "umaban": 10,
@@ -43469,7 +43801,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 24
         },
         {
           "umaban": 11,
@@ -43532,7 +43865,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         }
       ],
       "recommendations": [],
@@ -43565,6 +43899,7 @@
           "tansho_odds": 23.0,
           "myomi_score": 0.04,
           "kyaku_label": "先行",
+          "fit_score": 44,
           "reason": "評価の決め手: atama、クラス、前走の着差。"
         },
         {
@@ -43578,6 +43913,7 @@
           "tansho_odds": 2.0,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 0,
           "reason": "評価の決め手: 騎手の複勝率、騎手の勝率、前走の着差。"
         },
         {
@@ -43591,10 +43927,11 @@
           "tansho_odds": 19.8,
           "myomi_score": 0.003,
           "kyaku_label": "先行",
+          "fit_score": 35,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:13.602561"
+      "updated_at": "2026-06-27T07:56:49.649125"
     },
     {
       "race_id": "20260628_小倉_7",
@@ -43772,7 +44109,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 45,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         },
         {
           "umaban": 2,
@@ -43936,7 +44274,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 20
         },
         {
           "umaban": 3,
@@ -44100,7 +44439,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 45
         },
         {
           "umaban": 4,
@@ -44264,7 +44604,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 73,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 40
         },
         {
           "umaban": 5,
@@ -44428,7 +44769,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         },
         {
           "umaban": 6,
@@ -44592,7 +44934,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 59,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 7,
@@ -44756,7 +45099,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 35
         },
         {
           "umaban": 8,
@@ -44920,7 +45264,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 49
         },
         {
           "umaban": 9,
@@ -45084,7 +45429,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 61,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 24
         },
         {
           "umaban": 10,
@@ -45228,7 +45574,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 38
         }
       ],
       "recommendations": [
@@ -45557,6 +45904,7 @@
           "tansho_odds": 8.7,
           "myomi_score": 0.019,
           "kyaku_label": "先行",
+          "fit_score": 40,
           "reason": "評価の決め手: atama、通算複勝率、近3走の複勝率。"
         },
         {
@@ -45570,6 +45918,7 @@
           "tansho_odds": 3.2,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 24,
           "reason": "評価の決め手: 前走の着順、通算複勝率、atama。"
         },
         {
@@ -45583,10 +45932,11 @@
           "tansho_odds": 40.5,
           "myomi_score": 0.029,
           "kyaku_label": "逃げ",
+          "fit_score": 50,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:14.119163"
+      "updated_at": "2026-06-27T07:56:50.219496"
     },
     {
       "race_id": "20260628_小倉_8",
@@ -45764,7 +46114,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 8
         },
         {
           "umaban": 2,
@@ -45888,7 +46239,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 64,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 44
         },
         {
           "umaban": 3,
@@ -46052,7 +46404,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 22
         },
         {
           "umaban": 4,
@@ -46218,7 +46571,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 23,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 13
         },
         {
           "umaban": 5,
@@ -46384,7 +46738,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 45
         },
         {
           "umaban": 6,
@@ -46550,7 +46905,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 30,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 25
         },
         {
           "umaban": 7,
@@ -46716,7 +47072,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 26,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 21
         },
         {
           "umaban": 8,
@@ -46882,7 +47239,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 46,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 43
         },
         {
           "umaban": 9,
@@ -47026,7 +47384,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 0
         }
       ],
       "recommendations": [],
@@ -47059,6 +47418,7 @@
           "tansho_odds": 11.7,
           "myomi_score": 0.012,
           "kyaku_label": "先行",
+          "fit_score": 44,
           "reason": "評価の決め手: 前走の着順、atama、前走の着差。"
         },
         {
@@ -47072,6 +47432,7 @@
           "tansho_odds": 2.6,
           "myomi_score": 0.0,
           "kyaku_label": "逃げ",
+          "fit_score": 8,
           "reason": "評価の決め手: atama、前走の着差、血統の距離適性。"
         },
         {
@@ -47085,10 +47446,11 @@
           "tansho_odds": 2.3,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 0,
           "reason": "評価の決め手: atama、career_count、前走の着順。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:14.165787"
+      "updated_at": "2026-06-27T07:56:50.264116"
     },
     {
       "race_id": "20260628_小倉_9",
@@ -47268,7 +47630,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 44,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 42
         },
         {
           "umaban": 2,
@@ -47432,7 +47795,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 36,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 3,
@@ -47596,7 +47960,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 62,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 4,
@@ -47762,7 +48127,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 64,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 44
         },
         {
           "umaban": 5,
@@ -47926,7 +48292,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 65,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 42
         },
         {
           "umaban": 6,
@@ -48090,7 +48457,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 46,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 23
         },
         {
           "umaban": 7,
@@ -48254,7 +48622,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 60,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 14
         },
         {
           "umaban": 8,
@@ -48418,7 +48787,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 69,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         }
       ],
       "recommendations": [
@@ -48747,6 +49117,7 @@
           "tansho_odds": 14.3,
           "myomi_score": 0.014,
           "kyaku_label": "中団",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -48760,6 +49131,7 @@
           "tansho_odds": 5.3,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 42,
           "reason": "評価の決め手: 前走の着順、atama、通算複勝率。"
         },
         {
@@ -48773,10 +49145,11 @@
           "tansho_odds": 14.7,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:14.704860"
+      "updated_at": "2026-06-27T07:56:50.778676"
     },
     {
       "race_id": "20260628_福島_1",
@@ -48954,7 +49327,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         },
         {
           "umaban": 2,
@@ -49118,7 +49492,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 57,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 24
         },
         {
           "umaban": 3,
@@ -49284,7 +49659,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 58,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 4,
@@ -49450,7 +49826,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 22
         },
         {
           "umaban": 5,
@@ -49614,7 +49991,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 44,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 36
         },
         {
           "umaban": 6,
@@ -49778,7 +50156,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 40
         },
         {
           "umaban": 7,
@@ -49942,7 +50321,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 45,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         },
         {
           "umaban": 8,
@@ -50106,7 +50486,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         },
         {
           "umaban": 9,
@@ -50270,7 +50651,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 81,
-          "confidence_rank": "SS"
+          "confidence_rank": "SS",
+          "fit_score": 45
         },
         {
           "umaban": 10,
@@ -50436,7 +50818,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 11,
@@ -50603,7 +50986,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 41
         },
         {
           "umaban": 12,
@@ -50767,7 +51151,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 44
         },
         {
           "umaban": 13,
@@ -50933,7 +51318,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 14,
@@ -51097,7 +51483,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 29
         }
       ],
       "recommendations": [
@@ -51426,6 +51813,7 @@
           "tansho_odds": 5.0,
           "myomi_score": 0.004,
           "kyaku_label": "先行",
+          "fit_score": 45,
           "reason": "評価の決め手: 前走の着順、騎手の複勝率、クラス。"
         },
         {
@@ -51439,6 +51827,7 @@
           "tansho_odds": 4.2,
           "myomi_score": 0.0,
           "kyaku_label": "逃げ",
+          "fit_score": 24,
           "reason": "評価の決め手: 前走の着順、騎手の複勝率、クラス。"
         },
         {
@@ -51452,10 +51841,11 @@
           "tansho_odds": 12.2,
           "myomi_score": 0.003,
           "kyaku_label": "中団",
+          "fit_score": 40,
           "reason": "評価の決め手: 血統の距離適性、prev_agari、クラス。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:15.239740"
+      "updated_at": "2026-06-27T07:56:51.297293"
     },
     {
       "race_id": "20260628_福島_10",
@@ -51633,7 +52023,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 44,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 27
         },
         {
           "umaban": 2,
@@ -51797,7 +52188,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 56,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 3,
@@ -51961,7 +52353,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 33
         },
         {
           "umaban": 4,
@@ -52125,7 +52518,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 58,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 21
         },
         {
           "umaban": 5,
@@ -52289,7 +52683,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 44
         },
         {
           "umaban": 6,
@@ -52453,7 +52848,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 59,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 7,
@@ -52619,7 +53015,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 36
         },
         {
           "umaban": 8,
@@ -52785,7 +53182,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 59,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 9,
@@ -52951,7 +53349,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 20
         },
         {
           "umaban": 10,
@@ -53115,7 +53514,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 47
         },
         {
           "umaban": 11,
@@ -53279,7 +53679,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 69,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         }
       ],
       "recommendations": [
@@ -53608,6 +54009,7 @@
           "tansho_odds": 19.8,
           "myomi_score": 0.006,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -53621,6 +54023,7 @@
           "tansho_odds": 19.8,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -53634,10 +54037,11 @@
           "tansho_odds": 2.3,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 21,
           "reason": "評価の決め手: 前走の着順、通算複勝率、騎手の複勝率。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:15.765180"
+      "updated_at": "2026-06-27T07:56:51.813202"
     },
     {
       "race_id": "20260628_福島_11",
@@ -53667,12 +54071,12 @@
           "age": 3,
           "p_ability": 5.1,
           "p_place": 14.6,
-          "divergence": -0.058,
+          "divergence": -0.047,
           "myomi_score": 0.0,
-          "tansho_odds": 9.2,
-          "fukusho_odds": 4.05,
-          "ev_tansho": 0.467,
-          "ev_fukusho": 0.59,
+          "tansho_odds": 10.2,
+          "fukusho_odds": 4.2,
+          "ev_tansho": 0.518,
+          "ev_fukusho": 0.612,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -53774,8 +54178,9 @@
           "agari_rank1_rate": 0.333,
           "is_keshi": false,
           "keshi_reasons": [],
-          "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_score": 52,
+          "confidence_rank": "A",
+          "fit_score": 45
         },
         {
           "umaban": 2,
@@ -53791,12 +54196,12 @@
           "age": 3,
           "p_ability": 7.0,
           "p_place": 20.0,
-          "divergence": -0.022,
+          "divergence": -0.012,
           "myomi_score": 0.0,
-          "tansho_odds": 10.9,
-          "fukusho_odds": 4.4,
-          "ev_tansho": 0.764,
-          "ev_fukusho": 0.878,
+          "tansho_odds": 12.2,
+          "fukusho_odds": 4.800000000000001,
+          "ev_tansho": 0.855,
+          "ev_fukusho": 0.958,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -53879,7 +54284,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 46,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 36
         },
         {
           "umaban": 3,
@@ -53897,10 +54303,10 @@
           "p_place": 14.9,
           "divergence": 0.0,
           "myomi_score": 0.0,
-          "tansho_odds": 23.0,
-          "fukusho_odds": 5.55,
-          "ev_tansho": 1.002,
-          "ev_fukusho": 0.826,
+          "tansho_odds": 23.1,
+          "fukusho_odds": 5.6,
+          "ev_tansho": 1.007,
+          "ev_fukusho": 0.833,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -54043,7 +54449,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 47
         },
         {
           "umaban": 4,
@@ -54059,12 +54466,12 @@
           "age": 3,
           "p_ability": 2.4,
           "p_place": 13.0,
-          "divergence": 0.009,
-          "myomi_score": 0.009,
-          "tansho_odds": 67.4,
-          "fukusho_odds": 15.3,
-          "ev_tansho": 1.634,
-          "ev_fukusho": 1.995,
+          "divergence": 0.012,
+          "myomi_score": 0.012,
+          "tansho_odds": 80.4,
+          "fukusho_odds": 13.85,
+          "ev_tansho": 1.95,
+          "ev_fukusho": 1.806,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -54207,7 +54614,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 45
         },
         {
           "umaban": 5,
@@ -54223,11 +54631,11 @@
           "age": 3,
           "p_ability": 8.4,
           "p_place": 23.8,
-          "divergence": -0.092,
+          "divergence": -0.12,
           "myomi_score": 0.0,
-          "tansho_odds": 5.7,
+          "tansho_odds": 4.9,
           "fukusho_odds": 2.35,
-          "ev_tansho": 0.477,
+          "ev_tansho": 0.41,
           "ev_fukusho": 0.56,
           "ev_tansho_anomaly": false,
           "blinker": 0,
@@ -54330,8 +54738,9 @@
           "agari_rank1_rate": 0.0,
           "is_keshi": false,
           "keshi_reasons": [],
-          "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_score": 37,
+          "confidence_rank": "B",
+          "fit_score": 25
         },
         {
           "umaban": 6,
@@ -54347,12 +54756,12 @@
           "age": 3,
           "p_ability": 5.0,
           "p_place": 16.0,
-          "divergence": -0.055,
+          "divergence": -0.058,
           "myomi_score": 0.0,
-          "tansho_odds": 9.6,
-          "fukusho_odds": 3.25,
-          "ev_tansho": 0.476,
-          "ev_fukusho": 0.521,
+          "tansho_odds": 9.3,
+          "fukusho_odds": 3.0999999999999996,
+          "ev_tansho": 0.461,
+          "ev_fukusho": 0.497,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -54495,7 +54904,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         },
         {
           "umaban": 7,
@@ -54511,12 +54921,12 @@
           "age": 3,
           "p_ability": 3.6,
           "p_place": 11.1,
-          "divergence": 0.015,
-          "myomi_score": 0.015,
-          "tansho_odds": 47.7,
-          "fukusho_odds": 15.25,
-          "ev_tansho": 1.726,
-          "ev_fukusho": 1.686,
+          "divergence": 0.017,
+          "myomi_score": 0.017,
+          "tansho_odds": 51.8,
+          "fukusho_odds": 13.95,
+          "ev_tansho": 1.875,
+          "ev_fukusho": 1.543,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -54659,7 +55069,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 49,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 44
         },
         {
           "umaban": 8,
@@ -54675,12 +55086,12 @@
           "age": 3,
           "p_ability": 5.8,
           "p_place": 20.5,
-          "divergence": 0.002,
-          "myomi_score": 0.001,
-          "tansho_odds": 17.6,
-          "fukusho_odds": 6.1,
-          "ev_tansho": 1.029,
-          "ev_fukusho": 1.249,
+          "divergence": 0.004,
+          "myomi_score": 0.002,
+          "tansho_odds": 18.4,
+          "fukusho_odds": 5.550000000000001,
+          "ev_tansho": 1.076,
+          "ev_fukusho": 1.137,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -54803,7 +55214,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 43
         },
         {
           "umaban": 9,
@@ -54819,12 +55231,12 @@
           "age": 3,
           "p_ability": 3.8,
           "p_place": 15.2,
-          "divergence": -0.017,
+          "divergence": -0.043,
           "myomi_score": 0.0,
-          "tansho_odds": 18.0,
-          "fukusho_odds": 4.6,
-          "ev_tansho": 0.689,
-          "ev_fukusho": 0.701,
+          "tansho_odds": 12.3,
+          "fukusho_odds": 4.3,
+          "ev_tansho": 0.471,
+          "ev_fukusho": 0.655,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -54967,7 +55379,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 44,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         },
         {
           "umaban": 10,
@@ -54983,12 +55396,12 @@
           "age": 3,
           "p_ability": 4.4,
           "p_place": 10.1,
-          "divergence": 0.02,
-          "myomi_score": 0.017,
-          "tansho_odds": 41.5,
-          "fukusho_odds": 18.9,
-          "ev_tansho": 1.846,
-          "ev_fukusho": 1.917,
+          "divergence": 0.025,
+          "myomi_score": 0.025,
+          "tansho_odds": 51.2,
+          "fukusho_odds": 18.3,
+          "ev_tansho": 2.277,
+          "ev_fukusho": 1.856,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -55131,7 +55544,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 56,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 11,
@@ -55147,12 +55561,12 @@
           "age": 3,
           "p_ability": 4.2,
           "p_place": 15.7,
-          "divergence": 0.016,
-          "myomi_score": 0.012,
-          "tansho_odds": 38.5,
-          "fukusho_odds": 7.1,
-          "ev_tansho": 1.625,
-          "ev_fukusho": 1.113,
+          "divergence": 0.017,
+          "myomi_score": 0.014,
+          "tansho_odds": 40.0,
+          "fukusho_odds": 7.4,
+          "ev_tansho": 1.688,
+          "ev_fukusho": 1.16,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -55295,7 +55709,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 52,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 46
         },
         {
           "umaban": 12,
@@ -55311,12 +55726,12 @@
           "age": 3,
           "p_ability": 13.4,
           "p_place": 31.8,
-          "divergence": -0.016,
+          "divergence": -0.011,
           "myomi_score": 0.0,
-          "tansho_odds": 6.7,
-          "fukusho_odds": 2.75,
-          "ev_tansho": 0.896,
-          "ev_fukusho": 0.875,
+          "tansho_odds": 6.9,
+          "fukusho_odds": 2.5,
+          "ev_tansho": 0.922,
+          "ev_fukusho": 0.795,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "評価の決め手: 前走の着順、平均スピード指数、直線距離。",
@@ -55459,7 +55874,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 38,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 18
         },
         {
           "umaban": 13,
@@ -55475,12 +55891,12 @@
           "age": 3,
           "p_ability": 6.9,
           "p_place": 18.9,
-          "divergence": -0.092,
+          "divergence": -0.098,
           "myomi_score": 0.0,
-          "tansho_odds": 6.2,
-          "fukusho_odds": 2.5999999999999996,
-          "ev_tansho": 0.427,
-          "ev_fukusho": 0.492,
+          "tansho_odds": 6.0,
+          "fukusho_odds": 2.55,
+          "ev_tansho": 0.413,
+          "ev_fukusho": 0.483,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -55623,7 +56039,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 23
         },
         {
           "umaban": 14,
@@ -55639,12 +56056,12 @@
           "age": 3,
           "p_ability": 9.7,
           "p_place": 26.4,
-          "divergence": -0.043,
+          "divergence": -0.025,
           "myomi_score": 0.0,
-          "tansho_odds": 7.1,
-          "fukusho_odds": 2.0,
-          "ev_tansho": 0.691,
-          "ev_fukusho": 0.529,
+          "tansho_odds": 8.2,
+          "fukusho_odds": 2.3,
+          "ev_tansho": 0.798,
+          "ev_fukusho": 0.608,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "評価の決め手: 騎手の複勝率、前走の着順、平均スピード指数。",
@@ -55747,7 +56164,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 28,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 14
         },
         {
           "umaban": 15,
@@ -55763,12 +56181,12 @@
           "age": 3,
           "p_ability": 8.9,
           "p_place": 22.9,
-          "divergence": 0.048,
-          "myomi_score": 0.024,
-          "tansho_odds": 24.7,
-          "fukusho_odds": 6.95,
-          "ev_tansho": 2.19,
-          "ev_fukusho": 1.593,
+          "divergence": 0.052,
+          "myomi_score": 0.028,
+          "tansho_odds": 27.1,
+          "fukusho_odds": 6.35,
+          "ev_tansho": 2.403,
+          "ev_fukusho": 1.455,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "評価の決め手: 通算複勝率、chakusa_2ago、平均スピード指数。",
@@ -55910,8 +56328,9 @@
           "agari_rank1_rate": 0.2,
           "is_keshi": false,
           "keshi_reasons": [],
-          "confidence_score": 60,
-          "confidence_rank": "A"
+          "confidence_score": 68,
+          "confidence_rank": "S",
+          "fit_score": 50
         },
         {
           "umaban": 16,
@@ -55927,12 +56346,12 @@
           "age": 3,
           "p_ability": 7.0,
           "p_place": 25.0,
-          "divergence": 0.027,
-          "myomi_score": 0.013,
-          "tansho_odds": 23.4,
-          "fukusho_odds": 4.15,
-          "ev_tansho": 1.634,
-          "ev_fukusho": 1.037,
+          "divergence": 0.029,
+          "myomi_score": 0.015,
+          "tansho_odds": 24.8,
+          "fukusho_odds": 4.800000000000001,
+          "ev_tansho": 1.731,
+          "ev_fukusho": 1.2,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -56075,10 +56494,349 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 40
         }
       ],
-      "recommendations": [],
+      "recommendations": [
+        {
+          "bet_type": "単勝",
+          "combination": [
+            15
+          ],
+          "points": 1,
+          "ev": 2.403,
+          "hit_rate": 8.9,
+          "odds": 27.1,
+          "myomi_score": 0.028,
+          "profile": "穴馬派",
+          "recommended": true,
+          "confidence_rank": "S",
+          "kelly_stake_pct": 1.34
+        },
+        {
+          "bet_type": "単勝",
+          "combination": [
+            10
+          ],
+          "points": 1,
+          "ev": 2.277,
+          "hit_rate": 4.4,
+          "odds": 51.2,
+          "myomi_score": 0.025,
+          "profile": "穴馬派",
+          "recommended": false,
+          "confidence_rank": "A",
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "単勝",
+          "combination": [
+            7
+          ],
+          "points": 1,
+          "ev": 1.875,
+          "hit_rate": 3.6,
+          "odds": 51.8,
+          "myomi_score": 0.017,
+          "profile": "穴馬派",
+          "recommended": false,
+          "confidence_rank": "A",
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "複勝",
+          "combination": [
+            10
+          ],
+          "points": 1,
+          "ev": 1.856,
+          "hit_rate": 10.1,
+          "odds": 18.3,
+          "myomi_score": 0.025,
+          "profile": "安定派",
+          "recommended": false,
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "複勝",
+          "combination": [
+            7
+          ],
+          "points": 1,
+          "ev": 1.543,
+          "hit_rate": 11.1,
+          "odds": 13.95,
+          "myomi_score": 0.017,
+          "profile": "安定派",
+          "recommended": false,
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "複勝",
+          "combination": [
+            15
+          ],
+          "points": 1,
+          "ev": 1.455,
+          "hit_rate": 22.9,
+          "odds": 6.35,
+          "myomi_score": 0.028,
+          "profile": "安定派",
+          "recommended": true,
+          "kelly_stake_pct": 2.13
+        },
+        {
+          "bet_type": "馬連",
+          "combination": [
+            12,
+            14
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 2.9,
+          "odds": null,
+          "profile": "中穴",
+          "recommended": false,
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "馬連",
+          "combination": [
+            12,
+            15
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 2.7,
+          "odds": null,
+          "profile": "中穴",
+          "recommended": false,
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "馬連",
+          "combination": [
+            14,
+            15
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 1.9,
+          "odds": null,
+          "profile": "中穴",
+          "recommended": false,
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "ワイド",
+          "combination": [
+            12,
+            14
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 8.4,
+          "odds": null,
+          "profile": "安定",
+          "recommended": false,
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "ワイド",
+          "combination": [
+            12,
+            16
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 8.0,
+          "odds": null,
+          "profile": "安定",
+          "recommended": false,
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "ワイド",
+          "combination": [
+            5,
+            12
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 7.6,
+          "odds": null,
+          "profile": "安定",
+          "recommended": false,
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "三連複",
+          "combination": [
+            12,
+            14,
+            15
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 0.99,
+          "odds": null,
+          "profile": "中穴",
+          "recommended": false,
+          "ev_anomaly": true,
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "三連複",
+          "combination": [
+            5,
+            12,
+            14
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 0.93,
+          "odds": null,
+          "profile": "中穴",
+          "recommended": false,
+          "ev_anomaly": true,
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "三連複",
+          "combination": [
+            5,
+            12,
+            15
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 0.83,
+          "odds": null,
+          "profile": "中穴",
+          "recommended": false,
+          "ev_anomaly": true,
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "三連複",
+          "combination": [
+            5,
+            14,
+            15
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 0.58,
+          "odds": null,
+          "profile": "中穴",
+          "recommended": false,
+          "ev_anomaly": true,
+          "kelly_stake_pct": 0.0
+        },
+        {
+          "bet_type": "三連単",
+          "combination": [
+            12,
+            14,
+            15
+          ],
+          "points": 1,
+          "ev": 0.257,
+          "hit_rate": 0.17,
+          "odds": 148.5,
+          "profile": "大穴",
+          "recommended": false,
+          "ev_anomaly": false,
+          "kelly_stake_pct": 0.0,
+          "note": "1着軸→2,3着流し"
+        },
+        {
+          "bet_type": "三連単",
+          "combination": [
+            12,
+            15,
+            14
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 0.17,
+          "odds": null,
+          "profile": "大穴",
+          "recommended": false,
+          "ev_anomaly": true,
+          "kelly_stake_pct": 0.0,
+          "note": "1着軸→2,3着流し"
+        },
+        {
+          "bet_type": "三連単",
+          "combination": [
+            12,
+            14,
+            5
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 0.16,
+          "odds": null,
+          "profile": "大穴",
+          "recommended": false,
+          "ev_anomaly": true,
+          "kelly_stake_pct": 0.0,
+          "note": "1着軸→2,3着流し"
+        },
+        {
+          "bet_type": "三連単",
+          "combination": [
+            12,
+            5,
+            14
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 0.16,
+          "odds": null,
+          "profile": "大穴",
+          "recommended": false,
+          "ev_anomaly": true,
+          "kelly_stake_pct": 0.0,
+          "note": "1着軸→2,3着流し"
+        },
+        {
+          "bet_type": "三連単",
+          "combination": [
+            12,
+            15,
+            5
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 0.15,
+          "odds": null,
+          "profile": "大穴",
+          "recommended": false,
+          "ev_anomaly": true,
+          "kelly_stake_pct": 0.0,
+          "note": "1着軸→2,3着流し"
+        },
+        {
+          "bet_type": "三連単",
+          "combination": [
+            12,
+            5,
+            15
+          ],
+          "points": 1,
+          "ev": null,
+          "hit_rate": 0.15,
+          "odds": null,
+          "profile": "大穴",
+          "recommended": false,
+          "ev_anomaly": true,
+          "kelly_stake_pct": 0.0,
+          "note": "1着軸→2,3着流し"
+        }
+      ],
       "pace_score": 0.8,
       "escape_count": 2,
       "front_runner_rate": 0.5,
@@ -56090,24 +56848,25 @@
         "front_ok": true,
         "verdict": "前残り有利展開",
         "keshi_count": 0,
-        "buy_flag": false,
-        "buy_reason": "高自信度の妙味馬なし → 見送り推奨"
+        "buy_flag": true,
+        "buy_reason": "展開明確×SS/S馬あり"
       },
-      "buy_flag": false,
-      "buy_reason": "高自信度の妙味馬なし → 見送り推奨",
+      "buy_flag": true,
+      "buy_reason": "展開明確×SS/S馬あり",
       "keshi_count": 0,
       "honmei": [
         {
           "umaban": 15,
           "horse_name": "バドリナート",
-          "confidence_rank": "A",
-          "confidence_score": 60,
+          "confidence_rank": "S",
+          "confidence_score": 68,
           "p_ability": 8.9,
           "p_place": 22.9,
-          "ev_tansho": 2.19,
-          "tansho_odds": 24.7,
-          "myomi_score": 0.024,
+          "ev_tansho": 2.403,
+          "tansho_odds": 27.1,
+          "myomi_score": 0.028,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": "評価の決め手: 通算複勝率、chakusa_2ago、平均スピード指数。"
         },
         {
@@ -56117,10 +56876,11 @@
           "confidence_score": 56,
           "p_ability": 4.4,
           "p_place": 10.1,
-          "ev_tansho": 1.846,
-          "tansho_odds": 41.5,
-          "myomi_score": 0.017,
+          "ev_tansho": 2.277,
+          "tansho_odds": 51.2,
+          "myomi_score": 0.025,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -56130,14 +56890,15 @@
           "confidence_score": 53,
           "p_ability": 4.4,
           "p_place": 14.9,
-          "ev_tansho": 1.002,
-          "tansho_odds": 23.0,
+          "ev_tansho": 1.007,
+          "tansho_odds": 23.1,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 47,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:15.846573"
+      "updated_at": "2026-06-27T07:56:52.394176"
     },
     {
       "race_id": "20260628_福島_12",
@@ -56315,7 +57076,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 33
         },
         {
           "umaban": 2,
@@ -56439,7 +57201,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 36
         },
         {
           "umaban": 3,
@@ -56603,7 +57366,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 45
         },
         {
           "umaban": 4,
@@ -56747,7 +57511,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 67,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 48
         },
         {
           "umaban": 5,
@@ -56871,7 +57636,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 36
         },
         {
           "umaban": 6,
@@ -57037,7 +57803,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 46
         },
         {
           "umaban": 7,
@@ -57201,7 +57968,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 28
         },
         {
           "umaban": 8,
@@ -57365,7 +58133,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 76,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         },
         {
           "umaban": 9,
@@ -57529,7 +58298,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 47,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 45
         },
         {
           "umaban": 10,
@@ -57695,7 +58465,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         },
         {
           "umaban": 11,
@@ -57861,7 +58632,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 58,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 50
         },
         {
           "umaban": 12,
@@ -58025,7 +58797,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 65,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         },
         {
           "umaban": 13,
@@ -58169,7 +58942,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 49,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 31
         },
         {
           "umaban": 14,
@@ -58333,7 +59107,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 68,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         }
       ],
       "recommendations": [
@@ -58662,6 +59437,7 @@
           "tansho_odds": 26.5,
           "myomi_score": 0.02,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -58675,6 +59451,7 @@
           "tansho_odds": 18.2,
           "myomi_score": 0.019,
           "kyaku_label": "中団",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -58688,10 +59465,11 @@
           "tansho_odds": 9.2,
           "myomi_score": 0.004,
           "kyaku_label": "逃げ",
+          "fit_score": 48,
           "reason": "評価の決め手: 騎手の複勝率、騎手の勝率、近3走の複勝率。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:16.449701"
+      "updated_at": "2026-06-27T07:56:52.916606"
     },
     {
       "race_id": "20260628_福島_2",
@@ -58869,7 +59647,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 29
         },
         {
           "umaban": 2,
@@ -59033,7 +59812,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 29
         },
         {
           "umaban": 3,
@@ -59199,7 +59979,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 24,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 23
         },
         {
           "umaban": 4,
@@ -59345,7 +60126,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 25,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 23
         },
         {
           "umaban": 5,
@@ -59509,7 +60291,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 49,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 18
         },
         {
           "umaban": 6,
@@ -59633,7 +60416,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 29
         },
         {
           "umaban": 7,
@@ -59799,7 +60583,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 37,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 35
         },
         {
           "umaban": 8,
@@ -59945,7 +60730,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 24,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 23
         },
         {
           "umaban": 9,
@@ -60109,7 +60895,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 10,
@@ -60172,7 +60959,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 31
         },
         {
           "umaban": 11,
@@ -60258,7 +61046,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 19,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 17
         },
         {
           "umaban": 12,
@@ -60422,7 +61211,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 46,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 0
         },
         {
           "umaban": 13,
@@ -60586,7 +61376,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 44,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 21
         },
         {
           "umaban": 14,
@@ -60752,7 +61543,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 29,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 26
         },
         {
           "umaban": 15,
@@ -60916,7 +61708,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 29
         }
       ],
       "recommendations": [],
@@ -60949,6 +61742,7 @@
           "tansho_odds": 5.2,
           "myomi_score": 0.002,
           "kyaku_label": "中団",
+          "fit_score": 18,
           "reason": "評価の決め手: 騎手の複勝率、クラス、prev_baju。"
         },
         {
@@ -60962,6 +61756,7 @@
           "tansho_odds": 1.4,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 0,
           "reason": "評価の決め手: 前走の着順、クラス、通算複勝率。"
         },
         {
@@ -60975,10 +61770,11 @@
           "tansho_odds": 8.2,
           "myomi_score": 0.006,
           "kyaku_label": "中団",
+          "fit_score": 21,
           "reason": "評価の決め手: chakusa_2ago、平均スピード指数、クラス。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:16.565447"
+      "updated_at": "2026-06-27T07:56:52.988030"
     },
     {
       "race_id": "20260628_福島_3",
@@ -61076,7 +61872,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 60,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 49
         },
         {
           "umaban": 2,
@@ -61160,7 +61957,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 35
         },
         {
           "umaban": 3,
@@ -61244,7 +62042,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 59,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 40
         },
         {
           "umaban": 4,
@@ -61307,7 +62106,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 66,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         },
         {
           "umaban": 5,
@@ -61391,7 +62191,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 60,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 10
         }
       ],
       "recommendations": [],
@@ -61424,6 +62225,7 @@
           "tansho_odds": 19.4,
           "myomi_score": 0.012,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -61437,6 +62239,7 @@
           "tansho_odds": 14.6,
           "myomi_score": 0.003,
           "kyaku_label": "先行",
+          "fit_score": 49,
           "reason": ""
         },
         {
@@ -61450,10 +62253,11 @@
           "tansho_odds": 1.1,
           "myomi_score": 0.0,
           "kyaku_label": "逃げ",
+          "fit_score": 10,
           "reason": "評価の決め手: atama、前走の着順、前走の着差。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:16.606911"
+      "updated_at": "2026-06-27T07:56:53.013366"
     },
     {
       "race_id": "20260628_福島_4",
@@ -61530,7 +62334,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 36,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 31
         },
         {
           "umaban": 2,
@@ -61593,7 +62398,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 36,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 3,
@@ -61656,7 +62462,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 35
         },
         {
           "umaban": 4,
@@ -61719,7 +62526,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 38,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 28
         },
         {
           "umaban": 5,
@@ -61782,7 +62590,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 36,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 31
         },
         {
           "umaban": 6,
@@ -61845,7 +62654,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 28
         },
         {
           "umaban": 7,
@@ -61908,7 +62718,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 36
         },
         {
           "umaban": 8,
@@ -61971,7 +62782,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 12
         },
         {
           "umaban": 9,
@@ -62034,7 +62846,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 29,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 17
         },
         {
           "umaban": 10,
@@ -62097,7 +62910,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 36
         },
         {
           "umaban": 11,
@@ -62160,7 +62974,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 36,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 12,
@@ -62223,7 +63038,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 49,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 41
         },
         {
           "umaban": 13,
@@ -62286,7 +63102,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 35,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 14,
@@ -62349,7 +63166,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 55,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 36
         }
       ],
       "recommendations": [],
@@ -62382,6 +63200,7 @@
           "tansho_odds": 10.3,
           "myomi_score": 0.007,
           "kyaku_label": "先行",
+          "fit_score": 36,
           "reason": "評価の決め手: 騎手の複勝率、騎手の勝率、クラス。"
         },
         {
@@ -62395,6 +63214,7 @@
           "tansho_odds": 6.8,
           "myomi_score": 0.003,
           "kyaku_label": "先行",
+          "fit_score": 28,
           "reason": "評価の決め手: 騎手の複勝率、クラス、騎手の勝率。"
         },
         {
@@ -62408,10 +63228,11 @@
           "tansho_odds": 35.8,
           "myomi_score": 0.021,
           "kyaku_label": "先行",
+          "fit_score": 41,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:16.689843"
+      "updated_at": "2026-06-27T07:56:53.070303"
     },
     {
       "race_id": "20260628_福島_5",
@@ -62488,7 +63309,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 37,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 2,
@@ -62551,7 +63373,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 3,
@@ -62614,7 +63437,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 17
         },
         {
           "umaban": 4,
@@ -62677,7 +63501,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 37,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 5,
@@ -62740,7 +63565,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 54,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 37
         },
         {
           "umaban": 6,
@@ -62803,7 +63629,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 60,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 47
         },
         {
           "umaban": 7,
@@ -62866,7 +63693,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 35,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 21
         },
         {
           "umaban": 8,
@@ -62929,7 +63757,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 29,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 17
         },
         {
           "umaban": 9,
@@ -62992,7 +63821,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 36,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 10,
@@ -63055,7 +63885,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 38
         },
         {
           "umaban": 11,
@@ -63118,7 +63949,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         },
         {
           "umaban": 12,
@@ -63181,7 +64013,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 39
         },
         {
           "umaban": 13,
@@ -63244,7 +64077,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 35,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 31
         },
         {
           "umaban": 14,
@@ -63307,7 +64141,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 36,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         }
       ],
       "recommendations": [],
@@ -63340,6 +64175,7 @@
           "tansho_odds": 30.0,
           "myomi_score": 0.036,
           "kyaku_label": "先行",
+          "fit_score": 47,
           "reason": ""
         },
         {
@@ -63353,6 +64189,7 @@
           "tansho_odds": 11.3,
           "myomi_score": 0.006,
           "kyaku_label": "先行",
+          "fit_score": 37,
           "reason": "評価の決め手: 騎手の複勝率、騎手の勝率、クラス。"
         },
         {
@@ -63366,10 +64203,11 @@
           "tansho_odds": 14.6,
           "myomi_score": 0.011,
           "kyaku_label": "先行",
+          "fit_score": 38,
           "reason": "評価の決め手: 騎手の複勝率、騎手の勝率、クラス。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:16.761474"
+      "updated_at": "2026-06-27T07:56:53.125509"
     },
     {
       "race_id": "20260628_福島_6",
@@ -63547,7 +64385,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 49,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 46
         },
         {
           "umaban": 2,
@@ -63711,7 +64550,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 55,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 41
         },
         {
           "umaban": 3,
@@ -63774,7 +64614,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 49,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 46
         },
         {
           "umaban": 4,
@@ -63938,7 +64779,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 51,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 45
         },
         {
           "umaban": 5,
@@ -64082,7 +64924,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 48,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 44
         },
         {
           "umaban": 6,
@@ -64246,7 +65089,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 53,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 25
         },
         {
           "umaban": 7,
@@ -64410,7 +65254,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 52,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 26
         },
         {
           "umaban": 8,
@@ -64496,7 +65341,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         },
         {
           "umaban": 9,
@@ -64559,7 +65405,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 46
         },
         {
           "umaban": 10,
@@ -64645,7 +65492,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 11,
@@ -64809,7 +65657,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 56,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 32
         },
         {
           "umaban": 12,
@@ -64973,7 +65822,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 65,
-          "confidence_rank": "S"
+          "confidence_rank": "S",
+          "fit_score": 50
         },
         {
           "umaban": 13,
@@ -65059,7 +65909,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 14,
@@ -65225,7 +66076,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 42
         },
         {
           "umaban": 15,
@@ -65311,7 +66163,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 16,
@@ -65477,7 +66330,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 56,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 42
         }
       ],
       "recommendations": [
@@ -65806,6 +66660,7 @@
           "tansho_odds": 34.6,
           "myomi_score": 0.03,
           "kyaku_label": "先行",
+          "fit_score": 50,
           "reason": ""
         },
         {
@@ -65819,6 +66674,7 @@
           "tansho_odds": 5.8,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 32,
           "reason": "評価の決め手: 騎手の複勝率、前走の着順、chakusa_2ago。"
         },
         {
@@ -65832,10 +66688,11 @@
           "tansho_odds": 8.7,
           "myomi_score": 0.0,
           "kyaku_label": "逃げ",
+          "fit_score": 41,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:17.337267"
+      "updated_at": "2026-06-27T07:56:53.658496"
     },
     {
       "race_id": "20260628_福島_7",
@@ -65953,7 +66810,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 32,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 30
         },
         {
           "umaban": 2,
@@ -66079,7 +66937,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 19,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 17
         },
         {
           "umaban": 3,
@@ -66163,7 +67022,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 26,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 25
         },
         {
           "umaban": 4,
@@ -66247,7 +67107,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 41,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 37
         },
         {
           "umaban": 5,
@@ -66371,7 +67232,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 27
         },
         {
           "umaban": 6,
@@ -66475,7 +67337,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 34
         },
         {
           "umaban": 7,
@@ -66599,7 +67462,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 9
         },
         {
           "umaban": 8,
@@ -66662,7 +67526,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         },
         {
           "umaban": 9,
@@ -66748,7 +67613,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 19,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 17
         },
         {
           "umaban": 10,
@@ -66914,7 +67780,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 19,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 17
         },
         {
           "umaban": 11,
@@ -67000,7 +67867,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 25,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 23
         },
         {
           "umaban": 12,
@@ -67086,7 +67954,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 25,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 23
         },
         {
           "umaban": 13,
@@ -67252,7 +68121,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 33
         },
         {
           "umaban": 14,
@@ -67416,7 +68286,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 0
         },
         {
           "umaban": 15,
@@ -67580,7 +68451,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 37,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 19
         },
         {
           "umaban": 16,
@@ -67666,7 +68538,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 24,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 23
         }
       ],
       "recommendations": [],
@@ -67699,6 +68572,7 @@
           "tansho_odds": 17.1,
           "myomi_score": 0.001,
           "kyaku_label": "先行",
+          "fit_score": 34,
           "reason": ""
         },
         {
@@ -67712,6 +68586,7 @@
           "tansho_odds": 1.8,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 0,
           "reason": "評価の決め手: 前走の着順、クラス、通算複勝率。"
         },
         {
@@ -67725,10 +68600,11 @@
           "tansho_odds": 3.8,
           "myomi_score": 0.0,
           "kyaku_label": "逃げ",
+          "fit_score": 9,
           "reason": "評価の決め手: 前走の着順、クラス、近3走の複勝率。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:17.450409"
+      "updated_at": "2026-06-27T07:56:53.726126"
     },
     {
       "race_id": "20260628_福島_8",
@@ -67908,7 +68784,8 @@
             "同コース複数戦複勝ゼロ（コース不適性確定）"
           ],
           "confidence_score": 50,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 21
         },
         {
           "umaban": 2,
@@ -68054,7 +68931,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 27,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 21
         },
         {
           "umaban": 3,
@@ -68158,7 +69036,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 62,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 44
         },
         {
           "umaban": 4,
@@ -68322,7 +69201,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 38
         },
         {
           "umaban": 5,
@@ -68446,7 +69326,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 18,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 0
         },
         {
           "umaban": 6,
@@ -68610,7 +69491,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 35,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         },
         {
           "umaban": 7,
@@ -68774,7 +69656,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 56,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 36
         },
         {
           "umaban": 8,
@@ -68938,7 +69821,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 37,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 9,
@@ -69084,7 +69968,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 20,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 17
         },
         {
           "umaban": 10,
@@ -69228,7 +70113,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 9
         },
         {
           "umaban": 11,
@@ -69394,7 +70280,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 25,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 24
         },
         {
           "umaban": 12,
@@ -69560,7 +70447,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 24,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 23
         },
         {
           "umaban": 13,
@@ -69724,7 +70612,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 40,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 39
         }
       ],
       "recommendations": [],
@@ -69757,6 +70646,7 @@
           "tansho_odds": 13.9,
           "myomi_score": 0.015,
           "kyaku_label": "先行",
+          "fit_score": 44,
           "reason": ""
         },
         {
@@ -69770,6 +70660,7 @@
           "tansho_odds": 12.1,
           "myomi_score": 0.014,
           "kyaku_label": "中団",
+          "fit_score": 36,
           "reason": "評価の決め手: 前走の着順、前走の着差、直線距離。"
         },
         {
@@ -69783,10 +70674,11 @@
           "tansho_odds": 365.4,
           "myomi_score": 0.01,
           "kyaku_label": "先行",
+          "fit_score": 39,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T07:00:17.548200"
+      "updated_at": "2026-06-27T07:56:53.787734"
     },
     {
       "race_id": "20260628_福島_9",
@@ -69964,7 +70856,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 54,
-          "confidence_rank": "A"
+          "confidence_rank": "A",
+          "fit_score": 34
         },
         {
           "umaban": 2,
@@ -70128,7 +71021,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 34,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 31
         },
         {
           "umaban": 3,
@@ -70292,7 +71186,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 36,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 29
         },
         {
           "umaban": 4,
@@ -70458,7 +71353,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 24,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 23
         },
         {
           "umaban": 5,
@@ -70622,7 +71518,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 26,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 22
         },
         {
           "umaban": 6,
@@ -70786,7 +71683,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 43,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 4
         },
         {
           "umaban": 7,
@@ -70950,7 +71848,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 39,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 31
         },
         {
           "umaban": 8,
@@ -71114,7 +72013,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 31,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 30
         },
         {
           "umaban": 9,
@@ -71280,7 +72180,8 @@
             "追い込み×前残りコース（末脚実績なし）"
           ],
           "confidence_score": 29,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 18
         },
         {
           "umaban": 10,
@@ -71444,7 +72345,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 44,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 11,
@@ -71608,7 +72510,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 36,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 30
         },
         {
           "umaban": 12,
@@ -71772,7 +72675,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 42,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 15
         },
         {
           "umaban": 13,
@@ -71936,7 +72840,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 33,
-          "confidence_rank": "B"
+          "confidence_rank": "B",
+          "fit_score": 32
         },
         {
           "umaban": 14,
@@ -72100,7 +73005,8 @@
           "is_keshi": false,
           "keshi_reasons": [],
           "confidence_score": 24,
-          "confidence_rank": "C"
+          "confidence_rank": "C",
+          "fit_score": 23
         }
       ],
       "recommendations": [],
@@ -72133,6 +73039,7 @@
           "tansho_odds": 7.9,
           "myomi_score": 0.001,
           "kyaku_label": "先行",
+          "fit_score": 34,
           "reason": "評価の決め手: 前走の着順、通算複勝率、近3走の複勝率。"
         },
         {
@@ -72146,6 +73053,7 @@
           "tansho_odds": 12.8,
           "myomi_score": 0.005,
           "kyaku_label": "中団",
+          "fit_score": 30,
           "reason": ""
         },
         {
@@ -72159,10 +73067,11 @@
           "tansho_odds": 1.9,
           "myomi_score": 0.0,
           "kyaku_label": "先行",
+          "fit_score": 4,
           "reason": "評価の決め手: 前走の着順、通算複勝率、近3走の複勝率。"
         }
       ],
-      "updated_at": "2026-06-27T07:00:17.668180"
+      "updated_at": "2026-06-27T07:56:53.853362"
     }
   ]
 }

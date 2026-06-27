@@ -566,6 +566,9 @@ function renderRight(r){
             <div class="hm-stat ${evGood?'good':''}">
               <div class="sk">EV</div><div class="sv">${h.ev_tansho!=null?Number(h.ev_tansho).toFixed(2):'—'}</div>
             </div>
+            <div class="hm-stat ${(h.fit_score||0)>=30?'good':''}">
+              <div class="sk">展開適合</div><div class="sv">${h.fit_score??'—'}</div>
+            </div>
             <div class="hm-stat ${myHigh?'good':''}">
               <div class="sk">妙味</div><div class="sv">${((h.myomi_score||0)*100).toFixed(0)}</div>
             </div>
