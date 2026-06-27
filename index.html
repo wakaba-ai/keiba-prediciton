@@ -270,6 +270,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 /* フッター */
 .disc{font-size:9px;color:var(--t4);padding:14px 16px;text-align:center;
   line-height:1.8;border-top:1px solid var(--border);margin-top:8px}
+.name-young{color:var(--turf) !important}
+.mark-female{font-size:9px;color:var(--purple);font-weight:800;margin-left:3px}
 </style>
 </head>
 <body>
@@ -488,7 +490,7 @@ function renderTable(r){
     return `<tr class="${h.is_keshi?'keshi':''}">
       <td>${wb(h.umaban,h.waku)}</td>
       <td class="ht-name">
-        <div style="font-weight:800;font-size:12.5px;${h.age===2||h.age===3?'color:var(--turf)':''}">${h.horse_name} ${marks.join(' ')}${h.sex&&h.sex.includes('牝')?'<span style="font-size:9px;color:var(--purple);font-weight:800;margin-left:3px">♀</span>':''}</div>
+        <div style="font-weight:800;font-size:12.5px" class="${h.age<=3?'name-young':''}">${h.horse_name} ${marks.join(' ')}${h.sex==='牝'?'<span class="mark-female">♀</span>':''}</div>
         <span class="sub">${h.sex||''}${h.age||''}歳 ${h.sire||''}</span>
         ${ktags?`<div class="ktags">${ktags}</div>`:''}
       </td>
