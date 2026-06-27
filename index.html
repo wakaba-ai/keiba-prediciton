@@ -384,9 +384,7 @@ function renderSidebar(){
     const hasHighEV = r.recommendations?.some(x=>x.recommended && x.ev!=null && x.ev>=1.2);
     if(hasSSS && hasHighEV && !r.skip) bgs.push('<span class="badge hot">激熱</span>');
     if(r.honmei?.[0]?.confidence_rank==='SS') bgs.push('<span class="badge ss">SS</span>');
-    // 前残り: 逃げ1頭でスロー明確 かつ 小回りor標準直線（前残り展開が読みやすい）
-    const frontClear = rv.pace_type==='slow' && r.escape_count===1 && !rv.favors_late;
-    if(frontClear&&!r.skip) bgs.push('<span class="badge front">前残り</span>');
+
     return `<div class="ri ${on?'on':''}" onclick="selectRace('${r.race_id}')">
       <div class="ri-no">${r.race_no}</div>
       <div class="ri-body">
