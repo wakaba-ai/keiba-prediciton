@@ -713,19 +713,25 @@ async function load(){
     const res = await fetch('predictions.json');
     DATA = await res.json();
   }catch(e){
+    console.error('fetch/parse error:', e);
     $('racelist').innerHTML='<div class="empty"><div class="ei">⚠</div><p>predictions.json を読み込めませんでした</p></div>';
     return;
   }
-  const d=DATA.date||'';
-  if(d) $('headDate').textContent=`${d.slice(0,4)}.${d.slice(4,6)}.${d.slice(6,8)}`;
-  if(DATA.generated_at){
-    const t=new Date(DATA.generated_at);
-    $('genTime').textContent=`生成 ${t.getHours()}:${String(t.getMinutes()).padStart(2,'0')}`;
+  try{
+    const d=DATA.date||'';
+    if(d) $('headDate').textContent=`${d.slice(0,4)}.${d.slice(4,6)}.${d.slice(6,8)}`;
+    if(DATA.generated_at){
+      const t=new Date(DATA.generated_at);
+      $('genTime').textContent=`生成 ${t.getHours()}:${String(t.getMinutes()).padStart(2,'0')}`;
+    }
+    renderVenueTabs();
+    renderSidebar();
+    const first=DATA.races.sort((a,b)=>a.race_no-b.race_no)[0];
+    if(first) selectRace(first.race_id);
+  }catch(e){
+    console.error('render error:', e);
+    $('racelist').innerHTML='<div class="empty"><div class="ei">⚠</div><p>描画エラー: '+e.message+'</p></div>';
   }
-  renderVenueTabs();
-  renderSidebar();
-  const first=DATA.races.sort((a,b)=>a.race_no-b.race_no)[0];
-  if(first) selectRace(first.race_id);
 }
 load();
 </script>
