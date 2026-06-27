@@ -490,8 +490,8 @@ function renderTable(r){
     return `<tr class="${h.is_keshi?'keshi':''}">
       <td>${wb(h.umaban,h.waku)}</td>
       <td class="ht-name">
-        <div style="font-weight:800;font-size:12.5px" class="${h.age<=3?'name-young':''}">${h.horse_name} ${marks.join(' ')}${h.sex==='牝'?'<span class="mark-female">♀</span>':''}</div>
-        <span class="sub">${h.sex||''}${h.age||''}歳 ${h.sire||''}</span>
+        <div style="font-weight:800;font-size:12.5px">${h.horse_name} ${marks.join(' ')}</div>
+        <span class="sub">${h.sex==='牝'?'<span style="color:var(--purple)">♀</span>':''}<span style="color:${h.age<=3?'var(--turf)':'var(--t3)'};font-weight:${h.age<=3?'700':'400'}">${h.age<=3?h.age+'歳':h.sex+(h.age||'')+'歳'}</span> ${h.sire||''}</span>
         ${ktags?`<div class="ktags">${ktags}</div>`:''}
       </td>
       <td style="text-align:left;font-size:11px;white-space:nowrap">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
