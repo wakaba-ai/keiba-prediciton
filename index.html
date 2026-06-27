@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏇</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wakaba AI Keiba</title>
 <style>
@@ -276,7 +277,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 
 <!-- TOPBAR -->
 <div id="topbar">
-  <div class="logo"><em>●</em> Wakaba AI Keiba <span class="logo-tag">Momo Style v4</span></div>
+  <div class="logo"><em>●</em> Wakaba AI Keiba </div>
   <div id="headMeta">
     <span id="headDate">—</span>
     <span id="genTime"></span>
@@ -448,8 +449,7 @@ function renderTable(r){
   $('hthead').innerHTML = `<tr>
     ${th('umaban','番')}${th('ability','馬名')}${th('kyaku','脚質')}
     ${th('odds','オッズ')}${th('ability','単%')}${th('place','複%')}
-    ${th('ev','EV')}${th('myomi','妙味')}${th('conf','自信')}
-    <th>騎手</th>
+    ${th('ev','EV')}${th('myomi','妙味')}${th('conf','自信')}<th>適合</th>
     ${RK_DEFS.map(({l})=>`<th>${l}</th>`).join('')}
     <th>調教</th><th>前走</th><th>2走</th><th>3走</th>
   </tr>`;
@@ -478,6 +478,7 @@ function renderTable(r){
       <td>${wb(h.umaban,h.waku)}</td>
       <td class="ht-name">
         <div style="font-weight:800;font-size:12.5px">${h.horse_name} ${marks.join(' ')}</div>
+        <div style="font-size:10px;margin-top:1px"><span style="color:var(--t1)">${h.jockey||'—'}</span> <span style="color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></div>
         <span class="sub">${h.sex||''}${h.age||''}歳 ${h.sire||''}</span>
         ${ktags?`<div class="ktags">${ktags}</div>`:''}
       </td>
@@ -488,7 +489,7 @@ function renderTable(r){
       <td class="num-ev ${evGood?'good':''}">${h.ev_tansho!=null&&!h.ev_tansho_anomaly?Number(h.ev_tansho).toFixed(2):'—'}<br>${div}</td>
       <td class="num-my ${myHigh?'high':''}">${((h.myomi_score||0)*100).toFixed(0)}</td>
       <td>${confHtml(h.confidence_rank)}<br><span style="font-size:8.5px;color:var(--t3);font-family:var(--mono)">${h.confidence_score||0}</span></td>
-      <td style="text-align:left;font-size:11px">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
+
       ${RK_DEFS.map(({k})=>{const rv=rks[h.umaban]?.[k]; const c={'S':'var(--turf)','A':'var(--gold)','B':'var(--blue)','C':'var(--t3)','D':'var(--t4)'}[rv]||'var(--t4)'; return `<td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${c}">${rv||'—'}</td>`;}).join('')}
       <td style="font-family:var(--mono);font-size:10px;color:var(--gold)">${trainingVal(h)}</td>
       ${pastCell(pr[0])}${pastCell(pr[1])}${pastCell(pr[2])}
@@ -551,7 +552,7 @@ function renderRight(r){
         return `<div class="${cardCls}">
           <div class="hm-top">
             ${confHtml(h.confidence_rank)}
-            ${wb(h.umaban, h.waku)}
+            <span style="font-family:var(--mono);font-weight:800;font-size:14px;color:var(--t1);background:var(--border2);padding:3px 7px;border-radius:5px">${h.umaban}</span>
             <div class="hm-name-block">
               <div class="hm-name">${h.horse_name} <span class="hm-jockey">${h.jockey||'—'}</span></div>
             </div>
@@ -683,7 +684,7 @@ function selectVenue(v){
 // ─── LOAD ───────────────────────────────────────────────────
 // ─── 能力ランク計算（レース内相対順位）──────────────────────
 const RK_DEFS = [
-  {k:'speed',  l:'速', fn: h=>h.prev_speed_index??h.avg_speed_index??null},
+  {k:'speed',  l:'速', fn: h=>h.prev_speed_index??h.avg_speed_index??(h.past_races?.[0]?.speed_index??null)},
   {k:'agari',  l:'上', fn: h=>h.agari_rank_avg!=null?-h.agari_rank_avg:null},
   {k:'jockey', l:'騎', fn: h=>h.jockey_win_rate??null},
   {k:'trainer',l:'厩', fn: h=>h.trainer_win_rate??null},
@@ -713,25 +714,19 @@ async function load(){
     const res = await fetch('predictions.json');
     DATA = await res.json();
   }catch(e){
-    console.error('fetch/parse error:', e);
     $('racelist').innerHTML='<div class="empty"><div class="ei">⚠</div><p>predictions.json を読み込めませんでした</p></div>';
     return;
   }
-  try{
-    const d=DATA.date||'';
-    if(d) $('headDate').textContent=`${d.slice(0,4)}.${d.slice(4,6)}.${d.slice(6,8)}`;
-    if(DATA.generated_at){
-      const t=new Date(DATA.generated_at);
-      $('genTime').textContent=`生成 ${t.getHours()}:${String(t.getMinutes()).padStart(2,'0')}`;
-    }
-    renderVenueTabs();
-    renderSidebar();
-    const first=DATA.races.sort((a,b)=>a.race_no-b.race_no)[0];
-    if(first) selectRace(first.race_id);
-  }catch(e){
-    console.error('render error:', e);
-    $('racelist').innerHTML='<div class="empty"><div class="ei">⚠</div><p>描画エラー: '+e.message+'</p></div>';
+  const d=DATA.date||'';
+  if(d) $('headDate').textContent=`${d.slice(0,4)}.${d.slice(4,6)}.${d.slice(6,8)}`;
+  if(DATA.generated_at){
+    const t=new Date(DATA.generated_at);
+    $('genTime').textContent=`生成 ${t.getHours()}:${String(t.getMinutes()).padStart(2,'0')}`;
   }
+  renderVenueTabs();
+  renderSidebar();
+  const first=DATA.races.sort((a,b)=>a.race_no-b.race_no)[0];
+  if(first) selectRace(first.race_id);
 }
 load();
 </script>
