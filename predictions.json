@@ -1,6 +1,6 @@
 {
   "date": "20260628",
-  "generated_at": "2026-06-27T08:10:06.913523",
+  "generated_at": "2026-06-27T08:15:14.253536",
   "ev_threshold": 1.05,
   "total_races": 36,
   "races": [
@@ -777,7 +777,7 @@
           "reason": "評価の決め手: 前走の着順、atama、近3走の複勝率。"
         }
       ],
-      "updated_at": "2026-06-27T08:09:55.399881"
+      "updated_at": "2026-06-27T08:15:03.045014"
     },
     {
       "race_id": "20260628_函館_10",
@@ -2682,7 +2682,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:09:55.451870"
+      "updated_at": "2026-06-27T08:15:03.105949"
     },
     {
       "race_id": "20260628_函館_11",
@@ -2713,11 +2713,11 @@
           "p_ability": 4.4,
           "p_place": 17.9,
           "divergence": 0.003,
-          "myomi_score": 0.001,
-          "tansho_odds": 24.1,
-          "fukusho_odds": 6.4,
-          "ev_tansho": 1.072,
-          "ev_fukusho": 1.144,
+          "myomi_score": 0.002,
+          "tansho_odds": 24.3,
+          "fukusho_odds": 6.5,
+          "ev_tansho": 1.081,
+          "ev_fukusho": 1.162,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -2881,9 +2881,9 @@
           "divergence": -0.106,
           "myomi_score": 0.0,
           "tansho_odds": 7.4,
-          "fukusho_odds": 3.35,
+          "fukusho_odds": 3.45,
           "ev_tansho": 0.219,
-          "ev_fukusho": 0.296,
+          "ev_fukusho": 0.305,
           "ev_tansho_anomaly": false,
           "blinker": 1,
           "reason": "",
@@ -3046,12 +3046,12 @@
           "age": 5,
           "p_ability": 3.2,
           "p_place": 11.0,
-          "divergence": -0.026,
+          "divergence": -0.027,
           "myomi_score": 0.0,
-          "tansho_odds": 17.2,
-          "fukusho_odds": 6.0,
-          "ev_tansho": 0.555,
-          "ev_fukusho": 0.66,
+          "tansho_odds": 16.9,
+          "fukusho_odds": 5.95,
+          "ev_tansho": 0.545,
+          "ev_fukusho": 0.654,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -3381,9 +3381,9 @@
           "divergence": -0.016,
           "myomi_score": 0.0,
           "tansho_odds": 5.6,
-          "fukusho_odds": 2.7,
+          "fukusho_odds": 2.8,
           "ev_tansho": 0.913,
-          "ev_fukusho": 0.964,
+          "ev_fukusho": 1.0,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "評価の決め手: 前走の着順、最高スピード指数、騎手の複勝率。",
@@ -3544,12 +3544,12 @@
           "age": 7,
           "p_ability": 1.5,
           "p_place": 8.2,
-          "divergence": -0.059,
+          "divergence": -0.058,
           "myomi_score": 0.0,
-          "tansho_odds": 13.4,
-          "fukusho_odds": 3.0999999999999996,
-          "ev_tansho": 0.205,
-          "ev_fukusho": 0.255,
+          "tansho_odds": 13.6,
+          "fukusho_odds": 3.15,
+          "ev_tansho": 0.208,
+          "ev_fukusho": 0.259,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -3692,7 +3692,7 @@
           "agari_rank1_rate": 0.276,
           "is_keshi": true,
           "keshi_reasons": [
-            "同コース2戦掲示板なし（コース不適性）"
+            "同コース2戦複勝ゼロ（コース不適性）"
           ],
           "confidence_score": 44,
           "confidence_rank": "B",
@@ -3712,12 +3712,12 @@
           "age": 8,
           "p_ability": 2.6,
           "p_place": 15.9,
-          "divergence": 0.008,
-          "myomi_score": 0.008,
-          "tansho_odds": 55.6,
-          "fukusho_odds": 10.600000000000001,
-          "ev_tansho": 1.441,
-          "ev_fukusho": 1.69,
+          "divergence": 0.006,
+          "myomi_score": 0.006,
+          "tansho_odds": 50.0,
+          "fukusho_odds": 9.8,
+          "ev_tansho": 1.296,
+          "ev_fukusho": 1.563,
           "ev_tansho_anomaly": false,
           "blinker": 1,
           "reason": "",
@@ -3881,9 +3881,9 @@
           "divergence": -0.081,
           "myomi_score": 0.0,
           "tansho_odds": 6.9,
-          "fukusho_odds": 3.35,
+          "fukusho_odds": 3.45,
           "ev_tansho": 0.439,
-          "ev_fukusho": 0.646,
+          "ev_fukusho": 0.665,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -4046,10 +4046,10 @@
           "p_place": 4.7,
           "divergence": -0.02,
           "myomi_score": 0.0,
-          "tansho_odds": 31.2,
-          "fukusho_odds": 6.1,
-          "ev_tansho": 0.375,
-          "ev_fukusho": 0.287,
+          "tansho_odds": 31.4,
+          "fukusho_odds": 6.05,
+          "ev_tansho": 0.378,
+          "ev_fukusho": 0.284,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -4210,12 +4210,12 @@
           "age": 4,
           "p_ability": 5.1,
           "p_place": 19.6,
-          "divergence": 0.007,
+          "divergence": 0.006,
           "myomi_score": 0.003,
-          "tansho_odds": 22.7,
-          "fukusho_odds": 5.199999999999999,
-          "ev_tansho": 1.168,
-          "ev_fukusho": 1.019,
+          "tansho_odds": 22.2,
+          "fukusho_odds": 5.1,
+          "ev_tansho": 1.142,
+          "ev_fukusho": 0.999,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -4379,10 +4379,10 @@
           "p_ability": 13.6,
           "p_place": 31.2,
           "divergence": 0.04,
-          "myomi_score": 0.008,
-          "tansho_odds": 10.4,
+          "myomi_score": 0.009,
+          "tansho_odds": 10.5,
           "fukusho_odds": 3.8,
-          "ev_tansho": 1.411,
+          "ev_tansho": 1.425,
           "ev_fukusho": 1.184,
           "ev_tansho_anomaly": false,
           "blinker": 0,
@@ -4544,12 +4544,12 @@
           "age": 4,
           "p_ability": 12.0,
           "p_place": 27.8,
-          "divergence": 0.016,
+          "divergence": 0.017,
           "myomi_score": 0.003,
-          "tansho_odds": 9.6,
-          "fukusho_odds": 2.8,
-          "ev_tansho": 1.155,
-          "ev_fukusho": 0.778,
+          "tansho_odds": 9.7,
+          "fukusho_odds": 2.9000000000000004,
+          "ev_tansho": 1.167,
+          "ev_fukusho": 0.806,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -4712,9 +4712,9 @@
           "p_place": 13.8,
           "divergence": -0.006,
           "myomi_score": 0.0,
-          "tansho_odds": 41.3,
+          "tansho_odds": 41.1,
           "fukusho_odds": 6.2,
-          "ev_tansho": 0.769,
+          "ev_tansho": 0.766,
           "ev_fukusho": 0.857,
           "ev_tansho_anomaly": false,
           "blinker": 0,
@@ -5042,12 +5042,12 @@
           "age": 7,
           "p_ability": 6.6,
           "p_place": 25.2,
-          "divergence": -0.018,
+          "divergence": -0.02,
           "myomi_score": 0.0,
-          "tansho_odds": 11.9,
-          "fukusho_odds": 5.45,
-          "ev_tansho": 0.784,
-          "ev_fukusho": 1.375,
+          "tansho_odds": 11.6,
+          "fukusho_odds": 5.300000000000001,
+          "ev_tansho": 0.764,
+          "ev_fukusho": 1.337,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -5199,13 +5199,28 @@
         {
           "bet_type": "単勝",
           "combination": [
+            11
+          ],
+          "points": 1,
+          "ev": 1.425,
+          "hit_rate": 13.6,
+          "odds": 10.5,
+          "myomi_score": 0.009,
+          "profile": "穴馬派",
+          "recommended": true,
+          "confidence_rank": "S",
+          "kelly_stake_pct": 1.12
+        },
+        {
+          "bet_type": "単勝",
+          "combination": [
             7
           ],
           "points": 1,
-          "ev": 1.441,
+          "ev": 1.296,
           "hit_rate": 2.6,
-          "odds": 55.6,
-          "myomi_score": 0.008,
+          "odds": 50.0,
+          "myomi_score": 0.006,
           "profile": "穴馬派",
           "recommended": false,
           "confidence_rank": "A",
@@ -5214,32 +5229,17 @@
         {
           "bet_type": "単勝",
           "combination": [
-            11
-          ],
-          "points": 1,
-          "ev": 1.411,
-          "hit_rate": 13.6,
-          "odds": 10.4,
-          "myomi_score": 0.008,
-          "profile": "穴馬派",
-          "recommended": true,
-          "confidence_rank": "S",
-          "kelly_stake_pct": 1.09
-        },
-        {
-          "bet_type": "単勝",
-          "combination": [
             12
           ],
           "points": 1,
-          "ev": 1.155,
+          "ev": 1.167,
           "hit_rate": 12.0,
-          "odds": 9.6,
+          "odds": 9.7,
           "myomi_score": 0.003,
           "profile": "穴馬派",
           "recommended": true,
           "confidence_rank": "A",
-          "kelly_stake_pct": 0.45
+          "kelly_stake_pct": 0.48
         },
         {
           "bet_type": "複勝",
@@ -5247,10 +5247,10 @@
             7
           ],
           "points": 1,
-          "ev": 1.69,
+          "ev": 1.563,
           "hit_rate": 15.9,
-          "odds": 10.600000000000001,
-          "myomi_score": 0.008,
+          "odds": 9.8,
+          "myomi_score": 0.006,
           "profile": "安定派",
           "recommended": false,
           "kelly_stake_pct": 0.0
@@ -5264,7 +5264,7 @@
           "ev": 1.184,
           "hit_rate": 31.2,
           "odds": 3.8,
-          "myomi_score": 0.008,
+          "myomi_score": 0.009,
           "profile": "安定派",
           "recommended": true,
           "kelly_stake_pct": 1.64
@@ -5275,9 +5275,9 @@
             12
           ],
           "points": 1,
-          "ev": 0.778,
+          "ev": 0.806,
           "hit_rate": 27.8,
-          "odds": 2.8,
+          "odds": 2.9000000000000004,
           "myomi_score": 0.003,
           "profile": "安定派",
           "recommended": false,
@@ -5439,9 +5439,9 @@
             12
           ],
           "points": 1,
-          "ev": 0.308,
+          "ev": 0.309,
           "hit_rate": 0.45,
-          "odds": 68.0,
+          "odds": 68.1,
           "profile": "大穴",
           "recommended": false,
           "ev_anomaly": false,
@@ -5559,9 +5559,9 @@
           "confidence_score": 70,
           "p_ability": 13.6,
           "p_place": 31.2,
-          "ev_tansho": 1.411,
-          "tansho_odds": 10.4,
-          "myomi_score": 0.008,
+          "ev_tansho": 1.425,
+          "tansho_odds": 10.5,
+          "myomi_score": 0.009,
           "kyaku_label": "先行",
           "fit_score": 50,
           "reason": "評価の決め手: 騎手の複勝率、最高スピード指数、通算複勝率。"
@@ -5573,8 +5573,8 @@
           "confidence_score": 58,
           "p_ability": 12.0,
           "p_place": 27.8,
-          "ev_tansho": 1.155,
-          "tansho_odds": 9.6,
+          "ev_tansho": 1.167,
+          "tansho_odds": 9.7,
           "myomi_score": 0.003,
           "kyaku_label": "先行",
           "fit_score": 40,
@@ -5587,15 +5587,15 @@
           "confidence_score": 57,
           "p_ability": 4.4,
           "p_place": 17.9,
-          "ev_tansho": 1.072,
-          "tansho_odds": 24.1,
-          "myomi_score": 0.001,
+          "ev_tansho": 1.081,
+          "tansho_odds": 24.3,
+          "myomi_score": 0.002,
           "kyaku_label": "先行",
           "fit_score": 50,
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:09:56.093611"
+      "updated_at": "2026-06-27T08:15:03.701730"
     },
     {
       "race_id": "20260628_函館_12",
@@ -8296,7 +8296,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:09:56.797798"
+      "updated_at": "2026-06-27T08:15:04.236945"
     },
     {
       "race_id": "20260628_函館_2",
@@ -10799,7 +10799,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:09:57.372874"
+      "updated_at": "2026-06-27T08:15:04.766626"
     },
     {
       "race_id": "20260628_函館_3",
@@ -12968,7 +12968,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:09:57.885247"
+      "updated_at": "2026-06-27T08:15:05.287511"
     },
     {
       "race_id": "20260628_函館_4",
@@ -15369,7 +15369,7 @@
           "reason": "評価の決め手: 前走の着順、通算複勝率、近3走の複勝率。"
         }
       ],
-      "updated_at": "2026-06-27T08:09:57.960824"
+      "updated_at": "2026-06-27T08:15:05.359121"
     },
     {
       "race_id": "20260628_函館_5",
@@ -15838,7 +15838,7 @@
           "reason": "評価の決め手: 騎手の複勝率、atama、騎手の勝率。"
         }
       ],
-      "updated_at": "2026-06-27T08:09:57.985054"
+      "updated_at": "2026-06-27T08:15:05.382870"
     },
     {
       "race_id": "20260628_函館_6",
@@ -18675,7 +18675,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:09:58.528867"
+      "updated_at": "2026-06-27T08:15:05.955241"
     },
     {
       "race_id": "20260628_函館_7",
@@ -20692,7 +20692,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:09:59.084102"
+      "updated_at": "2026-06-27T08:15:06.467903"
     },
     {
       "race_id": "20260628_函館_8",
@@ -23125,7 +23125,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:09:59.644896"
+      "updated_at": "2026-06-27T08:15:06.978695"
     },
     {
       "race_id": "20260628_函館_9",
@@ -25166,7 +25166,7 @@
           "reason": "評価の決め手: 前走の着順、atama、通算複勝率。"
         }
       ],
-      "updated_at": "2026-06-27T08:10:00.213904"
+      "updated_at": "2026-06-27T08:15:07.503658"
     },
     {
       "race_id": "20260628_小倉_1",
@@ -27375,7 +27375,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:00.290497"
+      "updated_at": "2026-06-27T08:15:07.582417"
     },
     {
       "race_id": "20260628_小倉_10",
@@ -30412,7 +30412,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:00.830522"
+      "updated_at": "2026-06-27T08:15:08.116721"
     },
     {
       "race_id": "20260628_小倉_11",
@@ -31819,7 +31819,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:00.872529"
+      "updated_at": "2026-06-27T08:15:08.162720"
     },
     {
       "race_id": "20260628_小倉_12",
@@ -32501,7 +32501,7 @@
           "agari_rank1_rate": 0.0,
           "is_keshi": true,
           "keshi_reasons": [
-            "同コース2戦掲示板なし（コース不適性）"
+            "同コース2戦複勝ゼロ（コース不適性）"
           ],
           "confidence_score": 68,
           "confidence_rank": "S",
@@ -34636,7 +34636,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:01.430363"
+      "updated_at": "2026-06-27T08:15:08.688108"
     },
     {
       "race_id": "20260628_小倉_2",
@@ -37175,7 +37175,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:01.971484"
+      "updated_at": "2026-06-27T08:15:09.213580"
     },
     {
       "race_id": "20260628_小倉_3",
@@ -40170,7 +40170,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:02.536913"
+      "updated_at": "2026-06-27T08:15:09.750196"
     },
     {
       "race_id": "20260628_小倉_4",
@@ -42325,7 +42325,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:02.608630"
+      "updated_at": "2026-06-27T08:15:09.826586"
     },
     {
       "race_id": "20260628_小倉_5",
@@ -43054,7 +43054,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:02.647473"
+      "updated_at": "2026-06-27T08:15:09.888738"
     },
     {
       "race_id": "20260628_小倉_6",
@@ -43848,7 +43848,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:02.689245"
+      "updated_at": "2026-06-27T08:15:09.974102"
     },
     {
       "race_id": "20260628_小倉_7",
@@ -45863,7 +45863,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:03.205779"
+      "updated_at": "2026-06-27T08:15:10.522290"
     },
     {
       "race_id": "20260628_小倉_8",
@@ -46833,7 +46833,7 @@
           "agari_rank1_rate": 0.077,
           "is_keshi": true,
           "keshi_reasons": [
-            "同コース2戦掲示板なし（コース不適性）"
+            "同コース2戦複勝ゼロ（コース不適性）"
           ],
           "confidence_score": 30,
           "confidence_rank": "C",
@@ -47382,7 +47382,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:03.252088"
+      "updated_at": "2026-06-27T08:15:10.593839"
     },
     {
       "race_id": "20260628_小倉_9",
@@ -49087,7 +49087,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:03.770700"
+      "updated_at": "2026-06-27T08:15:11.135202"
     },
     {
       "race_id": "20260628_福島_1",
@@ -50932,7 +50932,7 @@
           "is_keshi": true,
           "keshi_reasons": [
             "追い込み×前残りコース（末脚実績なし）",
-            "同コース2戦掲示板なし（コース不適性）"
+            "同コース2戦複勝ゼロ（コース不適性）"
           ],
           "confidence_score": 42,
           "confidence_rank": "B",
@@ -51797,7 +51797,7 @@
           "reason": "評価の決め手: 血統の距離適性、prev_agari、クラス。"
         }
       ],
-      "updated_at": "2026-06-27T08:10:04.311782"
+      "updated_at": "2026-06-27T08:15:11.702230"
     },
     {
       "race_id": "20260628_福島_10",
@@ -54000,7 +54000,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:04.837496"
+      "updated_at": "2026-06-27T08:15:12.231057"
     },
     {
       "race_id": "20260628_福島_11",
@@ -54030,11 +54030,11 @@
           "age": 3,
           "p_ability": 5.1,
           "p_place": 14.6,
-          "divergence": -0.044,
+          "divergence": -0.046,
           "myomi_score": 0.0,
-          "tansho_odds": 10.5,
+          "tansho_odds": 10.3,
           "fukusho_odds": 3.55,
-          "ev_tansho": 0.533,
+          "ev_tansho": 0.523,
           "ev_fukusho": 0.517,
           "ev_tansho_anomaly": false,
           "blinker": 0,
@@ -54265,9 +54265,9 @@
           "divergence": 0.001,
           "myomi_score": 0.0,
           "tansho_odds": 23.4,
-          "fukusho_odds": 5.550000000000001,
+          "fukusho_odds": 5.5,
           "ev_tansho": 1.02,
-          "ev_fukusho": 0.826,
+          "ev_fukusho": 0.818,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -54430,10 +54430,10 @@
           "p_place": 13.0,
           "divergence": 0.012,
           "myomi_score": 0.012,
-          "tansho_odds": 79.9,
-          "fukusho_odds": 12.850000000000001,
-          "ev_tansho": 1.938,
-          "ev_fukusho": 1.675,
+          "tansho_odds": 79.6,
+          "fukusho_odds": 12.75,
+          "ev_tansho": 1.93,
+          "ev_fukusho": 1.662,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -54720,11 +54720,11 @@
           "age": 3,
           "p_ability": 5.0,
           "p_place": 16.0,
-          "divergence": -0.058,
+          "divergence": -0.059,
           "myomi_score": 0.0,
-          "tansho_odds": 9.3,
+          "tansho_odds": 9.2,
           "fukusho_odds": 3.15,
-          "ev_tansho": 0.461,
+          "ev_tansho": 0.456,
           "ev_fukusho": 0.505,
           "ev_tansho_anomaly": false,
           "blinker": 0,
@@ -54888,10 +54888,10 @@
           "p_place": 11.1,
           "divergence": 0.017,
           "myomi_score": 0.017,
-          "tansho_odds": 52.9,
-          "fukusho_odds": 14.25,
-          "ev_tansho": 1.914,
-          "ev_fukusho": 1.576,
+          "tansho_odds": 52.7,
+          "fukusho_odds": 14.3,
+          "ev_tansho": 1.907,
+          "ev_fukusho": 1.581,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -55054,10 +55054,10 @@
           "p_place": 20.5,
           "divergence": 0.002,
           "myomi_score": 0.001,
-          "tansho_odds": 17.7,
-          "fukusho_odds": 5.5,
-          "ev_tansho": 1.035,
-          "ev_fukusho": 1.127,
+          "tansho_odds": 17.8,
+          "fukusho_odds": 5.550000000000001,
+          "ev_tansho": 1.04,
+          "ev_fukusho": 1.137,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -55366,10 +55366,10 @@
           "p_place": 10.1,
           "divergence": 0.025,
           "myomi_score": 0.025,
-          "tansho_odds": 52.5,
-          "fukusho_odds": 18.7,
-          "ev_tansho": 2.335,
-          "ev_fukusho": 1.897,
+          "tansho_odds": 52.6,
+          "fukusho_odds": 18.8,
+          "ev_tansho": 2.34,
+          "ev_fukusho": 1.907,
           "ev_tansho_anomaly": false,
           "blinker": 0,
           "reason": "",
@@ -55532,9 +55532,9 @@
           "p_place": 15.7,
           "divergence": 0.018,
           "myomi_score": 0.014,
-          "tansho_odds": 40.6,
+          "tansho_odds": 40.7,
           "fukusho_odds": 7.5,
-          "ev_tansho": 1.713,
+          "ev_tansho": 1.717,
           "ev_fukusho": 1.175,
           "ev_tansho_anomaly": false,
           "blinker": 0,
@@ -56155,10 +56155,10 @@
           "p_ability": 8.9,
           "p_place": 22.9,
           "divergence": 0.051,
-          "myomi_score": 0.028,
-          "tansho_odds": 26.8,
+          "myomi_score": 0.027,
+          "tansho_odds": 26.7,
           "fukusho_odds": 6.45,
-          "ev_tansho": 2.376,
+          "ev_tansho": 2.367,
           "ev_fukusho": 1.478,
           "ev_tansho_anomaly": false,
           "blinker": 0,
@@ -56322,9 +56322,9 @@
           "p_place": 25.0,
           "divergence": 0.028,
           "myomi_score": 0.014,
-          "tansho_odds": 24.1,
+          "tansho_odds": 24.2,
           "fukusho_odds": 4.85,
-          "ev_tansho": 1.682,
+          "ev_tansho": 1.689,
           "ev_fukusho": 1.212,
           "ev_tansho_anomaly": false,
           "blinker": 0,
@@ -56480,10 +56480,10 @@
             15
           ],
           "points": 1,
-          "ev": 2.376,
+          "ev": 2.367,
           "hit_rate": 8.9,
-          "odds": 26.8,
-          "myomi_score": 0.028,
+          "odds": 26.7,
+          "myomi_score": 0.027,
           "profile": "穴馬派",
           "recommended": true,
           "confidence_rank": "S",
@@ -56495,9 +56495,9 @@
             10
           ],
           "points": 1,
-          "ev": 2.335,
+          "ev": 2.34,
           "hit_rate": 4.4,
-          "odds": 52.5,
+          "odds": 52.6,
           "myomi_score": 0.025,
           "profile": "穴馬派",
           "recommended": false,
@@ -56510,9 +56510,9 @@
             7
           ],
           "points": 1,
-          "ev": 1.914,
+          "ev": 1.907,
           "hit_rate": 3.6,
-          "odds": 52.9,
+          "odds": 52.7,
           "myomi_score": 0.017,
           "profile": "穴馬派",
           "recommended": false,
@@ -56525,9 +56525,9 @@
             10
           ],
           "points": 1,
-          "ev": 1.897,
+          "ev": 1.907,
           "hit_rate": 10.1,
-          "odds": 18.7,
+          "odds": 18.8,
           "myomi_score": 0.025,
           "profile": "安定派",
           "recommended": false,
@@ -56539,9 +56539,9 @@
             7
           ],
           "points": 1,
-          "ev": 1.576,
+          "ev": 1.581,
           "hit_rate": 11.1,
-          "odds": 14.25,
+          "odds": 14.3,
           "myomi_score": 0.017,
           "profile": "安定派",
           "recommended": false,
@@ -56556,7 +56556,7 @@
           "ev": 1.478,
           "hit_rate": 22.9,
           "odds": 6.45,
-          "myomi_score": 0.028,
+          "myomi_score": 0.027,
           "profile": "安定派",
           "recommended": true,
           "kelly_stake_pct": 2.19
@@ -56837,9 +56837,9 @@
           "confidence_score": 68,
           "p_ability": 8.9,
           "p_place": 22.9,
-          "ev_tansho": 2.376,
-          "tansho_odds": 26.8,
-          "myomi_score": 0.028,
+          "ev_tansho": 2.367,
+          "tansho_odds": 26.7,
+          "myomi_score": 0.027,
           "kyaku_label": "先行",
           "fit_score": 50,
           "reason": "評価の決め手: 通算複勝率、chakusa_2ago、平均スピード指数。"
@@ -56851,8 +56851,8 @@
           "confidence_score": 56,
           "p_ability": 4.4,
           "p_place": 10.1,
-          "ev_tansho": 2.335,
-          "tansho_odds": 52.5,
+          "ev_tansho": 2.34,
+          "tansho_odds": 52.6,
           "myomi_score": 0.025,
           "kyaku_label": "先行",
           "fit_score": 50,
@@ -56873,7 +56873,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:05.451985"
+      "updated_at": "2026-06-27T08:15:12.799689"
     },
     {
       "race_id": "20260628_福島_12",
@@ -59456,7 +59456,7 @@
           "reason": "評価の決め手: 騎手の複勝率、騎手の勝率、近3走の複勝率。"
         }
       ],
-      "updated_at": "2026-06-27T08:10:05.979755"
+      "updated_at": "2026-06-27T08:15:13.320222"
     },
     {
       "race_id": "20260628_福島_2",
@@ -61772,7 +61772,7 @@
           "reason": "評価の決め手: chakusa_2ago、平均スピード指数、クラス。"
         }
       ],
-      "updated_at": "2026-06-27T08:10:06.050586"
+      "updated_at": "2026-06-27T08:15:13.390140"
     },
     {
       "race_id": "20260628_福島_3",
@@ -62260,7 +62260,7 @@
           "reason": "評価の決め手: atama、前走の着順、前走の着差。"
         }
       ],
-      "updated_at": "2026-06-27T08:10:06.073672"
+      "updated_at": "2026-06-27T08:15:13.412684"
     },
     {
       "race_id": "20260628_福島_4",
@@ -63249,7 +63249,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:06.125258"
+      "updated_at": "2026-06-27T08:15:13.462588"
     },
     {
       "race_id": "20260628_福島_5",
@@ -64238,7 +64238,7 @@
           "reason": "評価の決め手: 騎手の複勝率、騎手の勝率、クラス。"
         }
       ],
-      "updated_at": "2026-06-27T08:10:06.176782"
+      "updated_at": "2026-06-27T08:15:13.511390"
     },
     {
       "race_id": "20260628_福島_6",
@@ -66735,7 +66735,7 @@
           "reason": ""
         }
       ],
-      "updated_at": "2026-06-27T08:10:06.698680"
+      "updated_at": "2026-06-27T08:15:14.051122"
     },
     {
       "race_id": "20260628_福島_7",
@@ -68661,7 +68661,7 @@
           "reason": "評価の決め手: 前走の着順、クラス、近3走の複勝率。"
         }
       ],
-      "updated_at": "2026-06-27T08:10:06.770853"
+      "updated_at": "2026-06-27T08:15:14.122918"
     },
     {
       "race_id": "20260628_福島_8",
@@ -70746,7 +70746,7 @@
           "reason": "評価の決め手: 前走の着順、騎手の複勝率、前走の着差。"
         }
       ],
-      "updated_at": "2026-06-27T08:10:06.848310"
+      "updated_at": "2026-06-27T08:15:14.186054"
     },
     {
       "race_id": "20260628_福島_9",
@@ -73153,7 +73153,7 @@
           "reason": "評価の決め手: 前走の着順、通算複勝率、近3走の複勝率。"
         }
       ],
-      "updated_at": "2026-06-27T08:10:06.912778"
+      "updated_at": "2026-06-27T08:15:14.252778"
     }
   ]
 }
