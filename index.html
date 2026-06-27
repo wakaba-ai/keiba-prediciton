@@ -170,8 +170,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .num-my{font-family:var(--mono);font-weight:800}
 .num-my.high{color:var(--purple)}
 /* 自信度バッジ */
-.conf{width:24px;height:24px;border-radius:5px;display:inline-flex;align-items:center;
-  justify-content:center;font-family:var(--mono);font-weight:800;font-size:11px;flex-shrink:0}
+.conf{min-width:28px;height:20px;padding:0 7px;border-radius:99px;display:inline-flex;align-items:center;
+  justify-content:center;font-family:var(--mono);font-weight:800;font-size:10px;flex-shrink:0;letter-spacing:.03em}
 .conf.SS{background:var(--purple);color:#fff}
 .conf.S{background:var(--gold);color:#1a1200}
 .conf.A{background:var(--turf);color:#001a0e}
@@ -222,7 +222,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .hm-card.top{border-color:rgba(0,217,126,.25);background:rgba(0,217,126,.03)}
 .hm-card.myomi{border-color:rgba(168,85,247,.25);background:rgba(168,85,247,.03)}
 .hm-top{display:flex;align-items:center;gap:8px;margin-bottom:7px}
-.hm-name{font-size:13.5px;font-weight:800;flex:1}
+.hm-name-block{flex:1;min-width:0}
+.hm-name{font-size:13px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hm-jockey{font-size:10.5px;font-weight:400;color:var(--t2);margin-left:5px}
 .hm-kyaku{font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px}
 .kyaku-0.hm-kyaku{background:var(--red-dim);color:var(--red)}
 .kyaku-1.hm-kyaku{background:var(--gold-dim);color:var(--gold)}
@@ -374,12 +376,17 @@ function renderSidebar(){
   $('racelist').innerHTML = races.map(r=>{
     const on = curRace&&curRace.race_id===r.race_id;
     const bgs=[];
+    const rv=r.race_verdict||{};
     if(r.buy_flag&&!r.skip) bgs.push('<span class="badge buy">◎ 買い</span>');
     else if(r.skip) bgs.push('<span class="badge skip">見送り</span>');
-    if(r.recommendations?.some(x=>x.recommended)) bgs.push('<span class="badge hot">激熱</span>');
+    // 激アツ: SS/S馬がいて かつ EV1.2以上の推奨がある
+    const hasSSS = r.honmei?.some(h=>['SS','S'].includes(h.confidence_rank));
+    const hasHighEV = r.recommendations?.some(x=>x.recommended && x.ev!=null && x.ev>=1.2);
+    if(hasSSS && hasHighEV && !r.skip) bgs.push('<span class="badge hot">激熱</span>');
     if(r.honmei?.[0]?.confidence_rank==='SS') bgs.push('<span class="badge ss">SS</span>');
-    const rv=r.race_verdict||{};
-    if(rv.front_ok&&!r.skip) bgs.push('<span class="badge front">前残り</span>');
+    // 前残り: 逃げ1頭でスロー明確 かつ 小回りor標準直線（前残り展開が読みやすい）
+    const frontClear = rv.pace_type==='slow' && r.escape_count===1 && !rv.favors_late;
+    if(frontClear&&!r.skip) bgs.push('<span class="badge front">前残り</span>');
     return `<div class="ri ${on?'on':''}" onclick="selectRace('${r.race_id}')">
       <div class="ri-no">${r.race_no}</div>
       <div class="ri-body">
@@ -436,11 +443,14 @@ function renderTable(r){
     const arr=on?(curDir===-1?'▼':'▲'):'';
     return `<th data-s="${k}" class="${on?'sorted':''}">${l}${arr?` <span style="font-size:8px">${arr}</span>`:''}`;
   };
+  const rks = computeRanks(r.horses);
   $('hthead').innerHTML = `<tr>
     ${th('umaban','番')}${th('ability','馬名')}${th('kyaku','脚質')}
     ${th('odds','オッズ')}${th('ability','単%')}${th('place','複%')}
     ${th('ev','EV')}${th('myomi','妙味')}${th('conf','自信')}
-    <th>騎手</th><th>調教</th><th>前走</th><th>2走</th><th>3走</th>
+    <th>騎手</th>
+    ${RK_DEFS.map(({l})=>`<th>${l}</th>`).join('')}
+    <th>調教</th><th>前走</th><th>2走</th><th>3走</th>
   </tr>`;
 
   $('htbody').innerHTML = horses.map(h => {
@@ -478,6 +488,7 @@ function renderTable(r){
       <td class="num-my ${myHigh?'high':''}">${((h.myomi_score||0)*100).toFixed(0)}</td>
       <td>${confHtml(h.confidence_rank)}<br><span style="font-size:8.5px;color:var(--t3);font-family:var(--mono)">${h.confidence_score||0}</span></td>
       <td style="text-align:left;font-size:11px">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
+      ${RK_DEFS.map(({k})=>{const rv=rks[h.umaban]?.[k]; const c={'S':'var(--turf)','A':'var(--gold)','B':'var(--blue)','C':'var(--t3)','D':'var(--t4)'}[rv]||'var(--t4)'; return `<td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${c}">${rv||'—'}</td>`;}).join('')}
       <td style="font-family:var(--mono);font-size:10px;color:var(--gold)">${trainingVal(h)}</td>
       ${pastCell(pr[0])}${pastCell(pr[1])}${pastCell(pr[2])}
     </tr>`;
@@ -539,8 +550,10 @@ function renderRight(r){
         return `<div class="${cardCls}">
           <div class="hm-top">
             ${confHtml(h.confidence_rank)}
-            ${wb(h.umaban,null)}
-            <div class="hm-name">${h.horse_name}</div>
+            ${wb(h.umaban, h.waku)}
+            <div class="hm-name-block">
+              <div class="hm-name">${h.horse_name} <span class="hm-jockey">${h.jockey||'—'}</span></div>
+            </div>
             <span class="hm-kyaku kyaku-${kc}">${h.kyaku_label||'—'}</span>
             <div class="hm-probs">
               <span class="pp win">${pct(h.p_ability)}%</span>
@@ -664,6 +677,33 @@ function selectVenue(v){
 }
 
 // ─── LOAD ───────────────────────────────────────────────────
+// ─── 能力ランク計算（レース内相対順位）──────────────────────
+const RK_DEFS = [
+  {k:'speed',  l:'速', fn: h=>h.prev_speed_index??h.avg_speed_index??null},
+  {k:'agari',  l:'上', fn: h=>h.agari_rank_avg!=null?-h.agari_rank_avg:null},
+  {k:'jockey', l:'騎', fn: h=>h.jockey_win_rate??null},
+  {k:'trainer',l:'厩', fn: h=>h.trainer_win_rate??null},
+  {k:'blood',  l:'血', fn: h=>h.blood_stamina_score??null},
+  {k:'waku',   l:'枠', fn: h=>h.waku_win_rate??null},
+  {k:'train',  l:'調', fn: h=>h.training_score??null},
+  {k:'mining', l:'指', fn: h=>h.mining??null},
+];
+
+function computeRanks(horses){
+  const ranks = {};
+  horses.forEach(h=>ranks[h.umaban]={});
+  RK_DEFS.forEach(({k, fn})=>{
+    const vals = horses.map(h=>({u:h.umaban, v:fn(h)})).filter(x=>x.v!=null);
+    vals.sort((a,b)=>b.v-a.v);
+    const n = vals.length;
+    vals.forEach((x,i)=>{
+      const p = n>1 ? i/(n-1) : 0;
+      ranks[x.u][k] = p<=.1?'S': p<=.3?'A': p<=.6?'B': p<=.85?'C': 'D';
+    });
+  });
+  return ranks;
+}
+
 async function load(){
   try{
     const res = await fetch('predictions.json');
