@@ -293,7 +293,12 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 <!-- CENTER -->
 <div id="center">
   <div id="raceHeader"></div>
-  <div class="sortbar" id="sortbar"></div>
+  <div style="display:flex;align-items:center;gap:0">
+    <div class="sortbar" id="sortbar"></div>
+    <div style="font-size:9.5px;color:var(--t3);margin-left:8px;white-space:nowrap;padding-bottom:5px">
+      💣消し &nbsp;👁Bブリンカー &nbsp;🔄乗替 &nbsp;🔀コース替
+    </div>
+  </div>
   <div class="ht-wrap"><table class="ht"><thead id="hthead"></thead><tbody id="htbody"></tbody></table></div>
   <div id="paceDiv"></div>
   <div class="disc">
@@ -446,6 +451,12 @@ function renderTable(r){
     return `<th data-s="${k}" class="${on?'sorted':''}">${l}${arr?` <span style="font-size:8px">${arr}</span>`:''}`;
   };
   const rks = computeRanks(r.horses);
+  // 今日のオッズ順（人気順位）を計算
+  const oddsRank = {};
+  const sorted_by_odds = [...r.horses]
+    .filter(h=>h.tansho_odds!=null)
+    .sort((a,b)=>a.tansho_odds-b.tansho_odds);
+  sorted_by_odds.forEach((h,i)=>{ oddsRank[h.umaban]=i+1; });
   $('hthead').innerHTML = `<tr>
     ${th('umaban','番')}${th('ability','馬名')}<th>騎手</th>${th('kyaku','脚質')}
     ${th('odds','オッズ')}${th('ability','単%')}${th('place','複%')}
@@ -470,20 +481,20 @@ function renderTable(r){
     // 特殊マーク
     const marks=[];
     if(h.is_keshi) marks.push('💣');
-    if(h.blinker) marks.push('👁B');
+    if(h.blinker) marks.push('<span style="font-size:9px;font-weight:800;border:1px solid var(--t2);border-radius:3px;padding:1px 3px;color:var(--t2)">B</span>');
     if(h.jockey_changed) marks.push('🔄');
     if(h.surface_changed) marks.push('🔀');
 
     return `<tr class="${h.is_keshi?'keshi':''}">
       <td>${wb(h.umaban,h.waku)}</td>
       <td class="ht-name">
-        <div style="font-weight:800;font-size:12.5px">${h.horse_name} ${marks.join(' ')}</div>
+        <div style="font-weight:800;font-size:12.5px;${h.age===2||h.age===3?'color:var(--turf)':''}">${h.horse_name} ${marks.join(' ')}${h.sex&&h.sex.includes('牝')?'<span style="font-size:9px;color:var(--purple);font-weight:800;margin-left:3px">♀</span>':''}</div>
         <span class="sub">${h.sex||''}${h.age||''}歳 ${h.sire||''}</span>
         ${ktags?`<div class="ktags">${ktags}</div>`:''}
       </td>
       <td style="text-align:left;font-size:11px;white-space:nowrap">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
       <td>${kyakuHtml(kc)}</td>
-      <td class="num-od">${h.tansho_odds!=null?Number(h.tansho_odds).toFixed(1):'—'}</td>
+      <td class="num-od">${h.tansho_odds!=null?Number(h.tansho_odds).toFixed(1):'—'}<br><span style="font-size:9px;color:var(--t3);font-family:var(--mono)">${oddsRank[h.umaban]?oddsRank[h.umaban]+'人気':''}</span></td>
       <td class="num-ab">${pct(h.p_ability)}</td>
       <td class="num-pl">${pct(h.p_place)}</td>
       <td class="num-ev ${evGood?'good':''}">${h.ev_tansho!=null&&!h.ev_tansho_anomaly?Number(h.ev_tansho).toFixed(2):'—'}<br>${div}</td>
