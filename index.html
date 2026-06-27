@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hara AI Keiba — Momo Style</title>
+<title>Wakaba AI Keiba</title>
 <style>
 /* ─── DESIGN TOKENS ─────────────────────────────────────────
    競馬の世界: 芝の緑、ダートの茶、勝負の赤
@@ -276,7 +276,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 
 <!-- TOPBAR -->
 <div id="topbar">
-  <div class="logo"><em>●</em> Hara AI Keiba <span class="logo-tag">Momo Style v4</span></div>
+  <div class="logo"><em>●</em> Wakaba AI Keiba <span class="logo-tag">Momo Style v4</span></div>
   <div id="headMeta">
     <span id="headDate">—</span>
     <span id="genTime"></span>
@@ -450,7 +450,6 @@ function renderTable(r){
     ${th('odds','オッズ')}${th('ability','単%')}${th('place','複%')}
     ${th('ev','EV')}${th('myomi','妙味')}${th('conf','自信')}
     <th>騎手</th>
-    <th>適合</th>
     ${RK_DEFS.map(({l})=>`<th>${l}</th>`).join('')}
     <th>調教</th><th>前走</th><th>2走</th><th>3走</th>
   </tr>`;
@@ -490,7 +489,6 @@ function renderTable(r){
       <td class="num-my ${myHigh?'high':''}">${((h.myomi_score||0)*100).toFixed(0)}</td>
       <td>${confHtml(h.confidence_rank)}<br><span style="font-size:8.5px;color:var(--t3);font-family:var(--mono)">${h.confidence_score||0}</span></td>
       <td style="text-align:left;font-size:11px">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
-      <td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${(h.fit_score||0)>=30?'var(--orange)':(h.fit_score||0)>=15?'var(--t2)':'var(--t4)'}">${h.fit_score??'—'}</td>
       ${RK_DEFS.map(({k})=>{const rv=rks[h.umaban]?.[k]; const c={'S':'var(--turf)','A':'var(--gold)','B':'var(--blue)','C':'var(--t3)','D':'var(--t4)'}[rv]||'var(--t4)'; return `<td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${c}">${rv||'—'}</td>`;}).join('')}
       <td style="font-family:var(--mono);font-size:10px;color:var(--gold)">${trainingVal(h)}</td>
       ${pastCell(pr[0])}${pastCell(pr[1])}${pastCell(pr[2])}
