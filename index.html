@@ -63,6 +63,11 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .rnav-tab:hover{color:var(--t1);background:var(--border2)}
 .rnav-tab.active{background:var(--bg);color:var(--t1);border:1px solid var(--border2);border-bottom:1px solid var(--bg);margin-bottom:-1px}
 .rnav-races{display:flex;gap:6px;padding:8px 0;flex-wrap:wrap}
+.sortbar{display:flex;gap:4px;flex-wrap:wrap;padding:4px 0 8px;border-bottom:1px solid var(--border2);margin-bottom:4px}
+.sch{padding:3px 8px;border-radius:5px;border:1px solid var(--border2);background:transparent;
+  color:var(--t3);font-size:10px;cursor:pointer;transition:all .12s}
+.sch:hover{color:var(--t1);background:var(--border2)}
+.sch.on{background:var(--turf);border-color:var(--turf);color:#000;font-weight:700}
 .rnav-btn{
   min-width:68px;padding:10px 4px;border-radius:8px;border:1px solid var(--border2);
   background:transparent;color:var(--t2);font-size:14px;font-family:var(--mono);
@@ -309,7 +314,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 
 <!-- SIDEBAR -->
 <div id="sidebar"></div>
-<div id="racenav"></div>
+<div id="racenav"><div class="sortbar" id="sortbar"></div></div>
 
 <!-- CENTER -->
 <div id="center">
@@ -688,17 +693,21 @@ function renderVenueTabs(){
   const nav = $('racenav');
   nav.innerHTML = `
     <div class="rnav-tabs">
-      ${venues.map(v=>`<button class="rnav-tab${v===curVenue?' active':''}" onclick="
-        curVenue='${v}';
-        document.querySelectorAll('.rnav-tab').forEach(t=>t.classList.remove('active'));
-        this.classList.add('active');
-        renderRaceButtons();
-      ">${v}</button>`).join('')}
+      ${venues.map(v=>`<button class="rnav-tab${v===curVenue?' active':''}" data-venue="${v}">${v}</button>`).join('')}
     </div>
     <div class="rnav-races"></div>
   `;
 
-  // renderRaceButtonsをグローバルに
+  // 会場タブのクリックイベント
+  nav.querySelectorAll('.rnav-tab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      curVenue = tab.dataset.venue;
+      nav.querySelectorAll('.rnav-tab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      renderRaceButtons();
+    });
+  });
+
   window._renderRaceButtons = renderRaceButtons;
   window._setCurVenue = (v)=>{ curVenue=v; };
   renderRaceButtons();
@@ -707,6 +716,20 @@ function renderVenueTabs(){
 
 function selectVenue(v){
   curVenue=v;
+  // sortbar描画
+  if($('sortbar')){
+    $('sortbar').innerHTML = SORT_DEFS.map(({k,l})=>
+      `<button class="sch ${curSort===k?'on':''}" data-s="${k}">${l}</button>`
+    ).join('');
+    $('sortbar').querySelectorAll('.sch').forEach(c=>{
+      c.addEventListener('click', ()=>{
+        if(curSort===c.dataset.s) curDir=-curDir;
+        else{curSort=c.dataset.s;curDir=-1;}
+        $('sortbar').querySelectorAll('.sch').forEach(x=>x.classList.toggle('on',x.dataset.s===curSort));
+        renderTable(curRace);
+      });
+    });
+  }
   renderVenueTabs();
   renderSidebar();
   const first=DATA.races.filter(r=>r.place===v).sort((a,b)=>a.race_no-b.race_no)[0];
