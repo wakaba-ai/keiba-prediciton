@@ -56,9 +56,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .rnav-venue{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
 .rnav-label{font-size:10px;font-weight:700;color:var(--t3);min-width:28px;letter-spacing:.05em}
 .rnav-btn{
-  padding:3px 8px;border-radius:6px;border:1px solid var(--border2);
+  width:48px;padding:3px 0;border-radius:6px;border:1px solid var(--border2);
   background:transparent;color:var(--t2);font-size:11px;font-family:var(--mono);
-  cursor:pointer;transition:all .12s;white-space:nowrap;
+  cursor:pointer;transition:all .12s;white-space:nowrap;text-align:center;
 }
 .rnav-btn:hover{background:var(--border2);color:var(--t1)}
 .rnav-btn.active{background:var(--turf);border-color:var(--turf);color:#000;font-weight:700}
@@ -386,34 +386,7 @@ function sortKey(h){
 function doSort(arr){ const s=[...arr].sort((a,b)=>sortKey(b)-sortKey(a)); return curDir===-1?s:s.reverse(); }
 
 // ─── RENDER RACE LIST ───────────────────────────────────────
-function renderSidebar(){
-  const races = DATA.races.filter(r=>r.place===curVenue).sort((a,b)=>a.race_no-b.race_no);
-  $('racelist').innerHTML = races.map(r=>{
-    const on = curRace&&curRace.race_id===r.race_id;
-    const bgs=[];
-    const rv=r.race_verdict||{};
-    if(r.buy_flag&&!r.skip) bgs.push('<span class="badge buy">◎ 買い</span>');
-    else if(r.skip) bgs.push('<span class="badge skip">見送り</span>');
-    // 激アツ: 本命候補（SS/S）のオッズが10倍以上 = 妙味ゾーンの有力馬
-    const topHonmei = r.honmei?.[0];
-    const isHot = topHonmei && ['SS','S'].includes(topHonmei.confidence_rank) && (topHonmei.tansho_odds??0) >= 10;
-    if(isHot && !r.skip) bgs.push('<span class="badge hot">激熱</span>');
-    // SS/Sバッジ
-    const topRank = topHonmei?.confidence_rank;
-    if(topRank==='SS') bgs.push('<span class="badge ss">SS</span>');
-    else if(topRank==='S') bgs.push('<span class="badge ss" style="background:rgba(245,200,66,.15);color:var(--gold);border-color:rgba(245,200,66,.3)">S</span>');
-
-    return `<div class="ri ${on?'on':''}" onclick="selectRace('${r.race_id}')">
-      <div class="ri-no">${r.race_no}</div>
-      <div class="ri-body">
-        <div class="ri-g">${r.grade||'—'}</div>
-        <div class="ri-m">${r.surface}${r.distance}m ${r.atama}頭 ${r.baba||'良'}</div>
-        ${bgs.length?`<div class="ri-bgs">${bgs.join('')}</div>`:''}
-      </div>
-      <div class="ri-t">${r.start_time||'—'}</div>
-    </div>`;
-  }).join('');
-}
+function renderSidebar(){}
 
 // ─── RENDER RACE HEADER ────────────────────────────────────
 function renderHeader(r){
@@ -690,8 +663,13 @@ function renderVenueTabs(){
       const buy = r.buy_flag && !r.skip;
       const topRank = (r.honmei||[])[0]?.confidence_rank;
       const dot = topRank==='SS'?'var(--purple)':topRank==='S'?'var(--gold)':buy?'var(--turf)':'';
+      const rankTag = topRank==='SS'
+        ? `<span style="font-size:8px;font-weight:800;color:var(--purple);margin-left:2px">SS</span>`
+        : topRank==='S'
+        ? `<span style="font-size:8px;font-weight:800;color:var(--gold);margin-left:2px">S</span>`
+        : '';
       return `<button class="rnav-btn${buy?' buy':''}" onclick="selectRace('${r.race_id}')" id="rnav_${r.race_id}">
-        ${r.race_no}R${dot?`<span class="badge-dot" style="background:${dot}"></span>`:''}
+        ${r.race_no}R${rankTag}
       </button>`;
     }).join('');
     return `<div class="rnav-venue"><span class="rnav-label">${venue}</span>${btns}</div>`;
@@ -740,7 +718,7 @@ async function load(){
     const res = await fetch('predictions.json');
     DATA = await res.json();
   }catch(e){
-    $('racelist').innerHTML='<div class="empty"><div class="ei">⚠</div><p>predictions.json を読み込めませんでした</p></div>';
+    $('center').innerHTML='<div class="empty"><div class="ei">⚠</div><p>predictions.json を読み込めませんでした</p></div>';
     return;
   }
   const d=DATA.date||'';
