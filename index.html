@@ -53,18 +53,25 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 #right{display:none}
 
 /* ─── RACE NAV ───────────────────────────────────────── */
-.rnav-venue{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-.rnav-label{font-size:10px;font-weight:700;color:var(--t3);min-width:28px;letter-spacing:.05em}
+#racenav{padding:0 12px;display:flex;flex-direction:column;gap:0}
+.rnav-tabs{display:flex;gap:4px;padding:6px 0 0;border-bottom:1px solid var(--border2)}
+.rnav-tab{
+  padding:6px 16px;border-radius:6px 6px 0 0;border:none;
+  background:transparent;color:var(--t3);font-size:12px;font-weight:700;
+  cursor:pointer;transition:all .12s;letter-spacing:.05em;
+}
+.rnav-tab:hover{color:var(--t1);background:var(--border2)}
+.rnav-tab.active{background:var(--bg);color:var(--t1);border:1px solid var(--border2);border-bottom:1px solid var(--bg);margin-bottom:-1px}
+.rnav-races{display:flex;gap:6px;padding:8px 0;flex-wrap:wrap}
 .rnav-btn{
-  width:48px;padding:3px 0;border-radius:6px;border:1px solid var(--border2);
-  background:transparent;color:var(--t2);font-size:11px;font-family:var(--mono);
-  cursor:pointer;transition:all .12s;white-space:nowrap;text-align:center;
+  min-width:56px;padding:7px 4px;border-radius:8px;border:1px solid var(--border2);
+  background:transparent;color:var(--t2);font-size:12px;font-family:var(--mono);
+  cursor:pointer;transition:all .12s;white-space:nowrap;text-align:center;line-height:1.3;
 }
 .rnav-btn:hover{background:var(--border2);color:var(--t1)}
 .rnav-btn.active{background:var(--turf);border-color:var(--turf);color:#000;font-weight:700}
 .rnav-btn.buy{border-color:var(--turf);color:var(--turf)}
 .rnav-btn.active.buy{background:var(--turf);color:#000}
-.rnav-btn .badge-dot{display:inline-block;width:5px;height:5px;border-radius:50%;margin-left:3px;vertical-align:middle}
 
 ::-webkit-scrollbar{width:3px;height:3px}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
@@ -641,6 +648,22 @@ function selectRace(rid){
   document.querySelectorAll('.rnav-btn').forEach(b=>b.classList.remove('active'));
   const ab=document.getElementById('rnav_'+rid);
   if(ab) ab.classList.add('active');
+  // 会場が違う場合はタブも切り替え
+  const r=DATA.races.find(x=>x.race_id===rid);
+  if(r && window._setCurVenue){
+    const tabs=document.querySelectorAll('.rnav-tab');
+    tabs.forEach(t=>{
+      t.classList.toggle('active', t.textContent.trim()===r.place);
+    });
+    window._setCurVenue(r.place);
+    if(window._renderRaceButtons) window._renderRaceButtons();
+    // 再描画後に再度アクティブにする
+    setTimeout(()=>{
+      document.querySelectorAll('.rnav-btn').forEach(b=>b.classList.remove('active'));
+      const ab2=document.getElementById('rnav_'+rid);
+      if(ab2) ab2.classList.add('active');
+    },0);
+  }
   curRace = DATA.races.find(r=>r.race_id===rid);
   if(!curRace) return;
   renderSidebar();
@@ -656,24 +679,42 @@ function selectRace(rid){
 // ─── VENUE TABS ─────────────────────────────────────────────
 function renderVenueTabs(){
   const venues = [...new Set(DATA.races.map(r=>r.place))];
-  const nav = $('racenav');
-  nav.innerHTML = venues.map(venue=>{
-    const races = DATA.races.filter(r=>r.place===venue).sort((a,b)=>a.race_no-b.race_no);
-    const btns = races.map(r=>{
+  let curVenue = venues[0];
+
+  function renderRaceButtons(){
+    const races = DATA.races.filter(r=>r.place===curVenue).sort((a,b)=>a.race_no-b.race_no);
+    document.querySelector('.rnav-races').innerHTML = races.map(r=>{
       const buy = r.buy_flag && !r.skip;
       const topRank = (r.honmei||[])[0]?.confidence_rank;
-      const dot = topRank==='SS'?'var(--purple)':topRank==='S'?'var(--gold)':buy?'var(--turf)':'';
       const rankTag = topRank==='SS'
-        ? `<span style="font-size:8px;font-weight:800;color:var(--purple);margin-left:2px">SS</span>`
+        ? `<span style="display:block;font-size:8px;font-weight:800;color:var(--purple)">SS</span>`
         : topRank==='S'
-        ? `<span style="font-size:8px;font-weight:800;color:var(--gold);margin-left:2px">S</span>`
-        : '';
+        ? `<span style="display:block;font-size:8px;font-weight:800;color:var(--gold)">S</span>`
+        : buy ? `<span style="display:block;font-size:8px;color:var(--turf)">◎</span>`
+        : `<span style="display:block;font-size:8px;color:transparent">-</span>`;
       return `<button class="rnav-btn${buy?' buy':''}" onclick="selectRace('${r.race_id}')" id="rnav_${r.race_id}">
-        ${r.race_no}R${rankTag}
+        ${rankTag}${r.race_no}R
       </button>`;
     }).join('');
-    return `<div class="rnav-venue"><span class="rnav-label">${venue}</span>${btns}</div>`;
-  }).join('');
+  }
+
+  const nav = $('racenav');
+  nav.innerHTML = `
+    <div class="rnav-tabs">
+      ${venues.map(v=>`<button class="rnav-tab${v===curVenue?' active':''}" onclick="
+        curVenue='${v}';
+        document.querySelectorAll('.rnav-tab').forEach(t=>t.classList.remove('active'));
+        this.classList.add('active');
+        renderRaceButtons();
+      ">${v}</button>`).join('')}
+    </div>
+    <div class="rnav-races"></div>
+  `;
+
+  // renderRaceButtonsをグローバルに
+  window._renderRaceButtons = renderRaceButtons;
+  window._setCurVenue = (v)=>{ curVenue=v; };
+  renderRaceButtons();
 }
 
 
