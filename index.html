@@ -44,7 +44,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
   font-family:var(--sans);font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased}
 
 /* ─── LAYOUT ─────────────────────────────────────────────── */
-#app{display:grid;grid-template-columns:1fr;grid-template-rows:46px auto 1fr;height:100vh}
+#app{display:grid;grid-template-columns:1fr;grid-template-rows:46px auto auto 1fr;height:100vh}
 #topbar{grid-column:1;display:flex;align-items:center;gap:12px;
   border-bottom:1px solid var(--border);background:var(--panel);padding:0 16px;z-index:10}
 #racenav{grid-column:1;background:var(--panel);border-bottom:1px solid var(--border);padding:6px 12px;display:flex;flex-direction:column;gap:4px}
@@ -63,7 +63,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .rnav-tab:hover{color:var(--t1);background:var(--border2)}
 .rnav-tab.active{background:var(--bg);color:var(--t1);border:1px solid var(--border2);border-bottom:1px solid var(--bg);margin-bottom:-1px}
 .rnav-races{display:flex;gap:6px;padding:8px 0;flex-wrap:wrap}
-.sortbar{display:flex;gap:4px;flex-wrap:wrap;padding:4px 0 8px;border-bottom:1px solid var(--border2);margin-bottom:4px}
+.sortbar{display:flex;gap:4px;flex-wrap:wrap;padding:6px 14px;border-bottom:1px solid var(--border);background:var(--panel)}
 .sch{padding:3px 8px;border-radius:5px;border:1px solid var(--border2);background:transparent;
   color:var(--t3);font-size:10px;cursor:pointer;transition:all .12s}
 .sch:hover{color:var(--t1);background:var(--border2)}
@@ -314,7 +314,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 
 <!-- SIDEBAR -->
 <div id="sidebar"></div>
-<div id="racenav"><div class="sortbar" id="sortbar"></div></div>
+<div id="racenav"></div>
+<div class="sortbar" id="sortbar"></div>
 
 <!-- CENTER -->
 <div id="center">
