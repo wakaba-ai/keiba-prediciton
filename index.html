@@ -44,12 +44,25 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
   font-family:var(--sans);font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased}
 
 /* ─── LAYOUT ─────────────────────────────────────────────── */
-#app{display:grid;grid-template-columns:200px 1fr 320px;grid-template-rows:46px 1fr;height:100vh}
-#topbar{grid-column:1/4;display:flex;align-items:center;gap:12px;
+#app{display:grid;grid-template-columns:200px 1fr;grid-template-rows:46px 1fr;height:100vh;transition:grid-template-columns .25s ease}
+#app.sidebar-hidden{grid-template-columns:0px 1fr}
+#topbar{grid-column:1/3;display:flex;align-items:center;gap:12px;
   border-bottom:1px solid var(--border);background:var(--panel);padding:0 16px;z-index:10}
-#sidebar{grid-column:1;overflow-y:auto;border-right:1px solid var(--border);background:var(--panel)}
+#sidebar{grid-column:1;overflow-y:auto;overflow-x:hidden;border-right:1px solid var(--border);background:var(--panel);transition:opacity .2s}
+#app.sidebar-hidden #sidebar{opacity:0;pointer-events:none}
 #center{grid-column:2;overflow-y:auto;padding:14px 16px}
-#right{grid-column:3;overflow-y:auto;background:var(--panel);border-left:1px solid var(--border);padding:14px}
+#right{display:none}
+
+/* ─── SIDEBAR TOGGLE ─────────────────────────────────── */
+#sidebarToggle{
+  display:flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:8px;border:none;cursor:pointer;
+  background:var(--border2);color:var(--t2);
+  transition:background .15s, transform .25s;flex-shrink:0;margin-right:4px;
+}
+#sidebarToggle:hover{background:var(--border);color:var(--t1)}
+#sidebarToggle svg{transition:transform .25s}
+#app.sidebar-hidden #sidebarToggle svg{transform:rotate(180deg)}
 ::-webkit-scrollbar{width:3px;height:3px}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 
@@ -269,8 +282,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 /* フッター */
 .disc{font-size:9px;color:var(--t4);padding:14px 16px;text-align:center;
   line-height:1.8;border-top:1px solid var(--border);margin-top:8px}
-.name-young{color:var(--turf);font-weight:700}
-.mark-female{font-size:9px;color:var(--purple);font-weight:800;margin-left:2px}
 </style>
 </head>
 <body>
@@ -278,6 +289,12 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 
 <!-- TOPBAR -->
 <div id="topbar">
+  <button id="sidebarToggle" onclick="toggleSidebar()" title="レース一覧を表示/非表示">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <rect x="1" y="1" width="14" height="14" rx="2"/>
+      <line x1="5" y1="1" x2="5" y2="15"/>
+    </svg>
+  </button>
   <div class="logo"><em>●</em> Wakaba AI Keiba <span class="logo-tag">Momo Style v4</span></div>
   <div id="headMeta">
     <span id="headDate">—</span>
@@ -297,7 +314,11 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
   <div class="sortbar" id="sortbar"></div>
   <div class="ht-wrap"><table class="ht"><thead id="hthead"></thead><tbody id="htbody"></tbody></table></div>
   <div id="paceDiv"></div>
-  <div class="disc">当サイトはAI予測情報です。馬券の購入は自己責任で。</div>
+  <div class="disc">
+    Momo式分析: 場（展開）→ 馬（前残り適性）→ オッズ（妙味）の順番で評価。<br>
+    追い込み馬は小回り〜標準直線では基本消し。前走着順・着差は消し理由に使わない。<br>
+    当サイトはAI予測情報です。馬券の購入は自己責任で。
+  </div>
 </div>
 
 <!-- RIGHT -->
@@ -355,23 +376,14 @@ const SORT_DEFS = [
 ];
 function sortKey(h){
   const m={
-    conf:     ()=>h.confidence_score??-1,
-    ability:  ()=>h.p_ability??-1,
-    place:    ()=>h.p_place??-1,
-    myomi:    ()=>h.myomi_score??-1,
-    ev:       ()=>(h.ev_tansho!=null&&!h.ev_tansho_anomaly)?h.ev_tansho:-1,
-    odds:     ()=>h.tansho_odds!=null?-h.tansho_odds:-9999,
-    kyaku:    ()=>-(h.kyaku_code??9),
-    umaban:   ()=>-(h.umaban??99),
-    fit:      ()=>h.fit_score??-1,
-    training: ()=>h.training_score??-1,
-    speed:    ()=>h.prev_speed_index??h.avg_speed_index??(h.past_races?.[0]?.speed_index??-1),
-    agari:    ()=>h.agari_rank_avg!=null?-h.agari_rank_avg:-99,
-    jockey:   ()=>h.jockey_win_rate??-1,
-    trainer:  ()=>h.trainer_win_rate??-1,
-    blood:    ()=>h.blood_stamina_score??-1,
-    waku:     ()=>h.waku_win_rate??-1,
-    mining:   ()=>h.mining??-1,
+    conf:    ()=>h.confidence_score??-1,
+    ability: ()=>h.p_ability??-1,
+    place:   ()=>h.p_place??-1,
+    myomi:   ()=>h.myomi_score??-1,
+    ev:      ()=>(h.ev_tansho!=null&&!h.ev_tansho_anomaly)?h.ev_tansho:-1,
+    odds:    ()=>h.tansho_odds!=null?-h.tansho_odds:-9999,
+    kyaku:   ()=>-(h.kyaku_code??9),
+    umaban:  ()=>-(h.umaban??99),
   };
   return (m[curSort]||m.conf)();
 }
@@ -452,17 +464,13 @@ function renderTable(r){
     return `<th data-s="${k}" class="${on?'sorted':''}">${l}${arr?` <span style="font-size:8px">${arr}</span>`:''}`;
   };
   const rks = computeRanks(r.horses);
-  const hasSenior = r.horses.some(h => h.age >= 4);
-  const oddsRank = {};
-  [...r.horses].filter(h=>h.tansho_odds!=null)
-    .sort((a,b)=>a.tansho_odds-b.tansho_odds)
-    .forEach((h,i)=>{ oddsRank[h.umaban]=i+1; });
   $('hthead').innerHTML = `<tr>
-    ${th('umaban','番')}${th('ability','馬名')}<th data-s="jockey">騎手</th>${th('kyaku','脚質')}
+    ${th('umaban','番')}${th('ability','馬名')}${th('kyaku','脚質')}
     ${th('odds','オッズ')}${th('ability','単%')}${th('place','複%')}
-    ${th('ev','EV')}${th('myomi','妙味')}${th('conf','自信')}${th('fit','適合')}
-    ${RK_DEFS.map(({k,l})=>`<th data-s="${k}">${l}</th>`).join('')}
-    ${th('training','調教')}<th>前走</th><th>2走</th><th>3走</th>
+    ${th('ev','EV')}${th('myomi','妙味')}${th('conf','自信')}
+    <th>騎手</th>
+    ${RK_DEFS.map(({l})=>`<th>${l}</th>`).join('')}
+    <th>調教</th><th>前走</th><th>2走</th><th>3走</th>
   </tr>`;
 
   $('htbody').innerHTML = horses.map(h => {
@@ -489,18 +497,17 @@ function renderTable(r){
       <td>${wb(h.umaban,h.waku)}</td>
       <td class="ht-name">
         <div style="font-weight:800;font-size:12.5px">${h.horse_name} ${marks.join(' ')}</div>
-        <span class="sub">${h.sex==='牝'?'<span style="color:var(--purple)">♀</span>':''}<span class="${h.age===3&&hasSenior?'name-young':''}">${h.sex+(h.age||'')+'歳'}</span> ${h.sire||''}</span>
+        <span class="sub">${h.sex||''}${h.age||''}歳 ${h.sire||''}</span>
         ${ktags?`<div class="ktags">${ktags}</div>`:''}
       </td>
-      <td style="text-align:left;font-size:11px;white-space:nowrap">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
       <td>${kyakuHtml(kc)}</td>
-      <td class="num-od">${h.tansho_odds!=null?Number(h.tansho_odds).toFixed(1):'—'}<br><span style="font-size:9px;color:var(--t3);font-family:var(--mono)">${oddsRank[h.umaban]?oddsRank[h.umaban]+'人気':''}</span></td>
+      <td class="num-od">${h.tansho_odds!=null?Number(h.tansho_odds).toFixed(1):'—'}</td>
       <td class="num-ab">${pct(h.p_ability)}</td>
       <td class="num-pl">${pct(h.p_place)}</td>
       <td class="num-ev ${evGood?'good':''}">${h.ev_tansho!=null&&!h.ev_tansho_anomaly?Number(h.ev_tansho).toFixed(2):'—'}<br>${div}</td>
       <td class="num-my ${myHigh?'high':''}">${((h.myomi_score||0)*100).toFixed(0)}</td>
-      <td style="white-space:nowrap">${confHtml(h.confidence_rank)} <span style="font-size:9.5px;color:var(--t3);font-family:var(--mono)">${h.confidence_score||0}</span></td>
-      <td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${(h.fit_score||0)>=30?'var(--orange)':(h.fit_score||0)>=15?'var(--t2)':'var(--t4)'}">${h.fit_score??'—'}</td>
+      <td>${confHtml(h.confidence_rank)}<br><span style="font-size:8.5px;color:var(--t3);font-family:var(--mono)">${h.confidence_score||0}</span></td>
+      <td style="text-align:left;font-size:11px">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
       ${RK_DEFS.map(({k})=>{const rv=rks[h.umaban]?.[k]; const c={'S':'var(--turf)','A':'var(--gold)','B':'var(--blue)','C':'var(--t3)','D':'var(--t4)'}[rv]||'var(--t4)'; return `<td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${c}">${rv||'—'}</td>`;}).join('')}
       <td style="font-family:var(--mono);font-size:10px;color:var(--gold)">${trainingVal(h)}</td>
       ${pastCell(pr[0])}${pastCell(pr[1])}${pastCell(pr[2])}
@@ -550,13 +557,7 @@ function renderRight(r){
   $('rVerdict').innerHTML='';
 
   // 本命候補
-  const honmei = (r.honmei||[]).map(h=>{
-    if(h.waku==null){
-      const full=(r.horses||[]).find(x=>x.umaban===h.umaban);
-      if(full) h={...h, waku:full.waku};
-    }
-    return h;
-  });
+  const honmei = r.honmei||[];
   if(honmei.length){
     const isBuy = r.buy_flag && !r.skip;
     $('rHonmei').innerHTML = `
@@ -701,7 +702,7 @@ function selectVenue(v){
 // ─── LOAD ───────────────────────────────────────────────────
 // ─── 能力ランク計算（レース内相対順位）──────────────────────
 const RK_DEFS = [
-  {k:'speed',  l:'速', fn: h=>h.prev_speed_index??h.avg_speed_index??(h.past_races?.[0]?.speed_index??null)},
+  {k:'speed',  l:'速', fn: h=>h.prev_speed_index??h.avg_speed_index??null},
   {k:'agari',  l:'上', fn: h=>h.agari_rank_avg!=null?-h.agari_rank_avg:null},
   {k:'jockey', l:'騎', fn: h=>h.jockey_win_rate??null},
   {k:'trainer',l:'厩', fn: h=>h.trainer_win_rate??null},
@@ -724,6 +725,15 @@ function computeRanks(horses){
     });
   });
   return ranks;
+}
+
+function toggleSidebar(){
+  document.getElementById('app').classList.toggle('sidebar-hidden');
+  localStorage.setItem('sidebarHidden', document.getElementById('app').classList.contains('sidebar-hidden'));
+}
+// 前回の状態を復元
+if(localStorage.getItem('sidebarHidden')==='true'){
+  document.getElementById('app').classList.add('sidebar-hidden');
 }
 
 async function load(){
