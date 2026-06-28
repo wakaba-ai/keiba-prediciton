@@ -166,10 +166,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .ht tr.keshi td{opacity:.35}
 .ht tr.keshi td:nth-child(1),.ht tr.keshi td:nth-child(2){opacity:.6}
 /* sticky */
-.ht th:nth-child(1),.ht td:nth-child(1){position:sticky;left:0;z-index:2;min-width:34px;background:var(--card)}
-.ht th:nth-child(2),.ht td:nth-child(2){position:sticky;left:34px;z-index:2;min-width:130px;background:var(--card)}
-.ht th:nth-child(3),.ht td:nth-child(3){position:sticky;left:164px;z-index:2;min-width:50px;
-  background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.5)}
 .ht tr:hover td:nth-child(-n+3){background:var(--border)}
 /* 脚質カラム: 逃げ/先行を強調 */
 .kyaku-0{color:var(--red);font-weight:800}     /* 逃げ */
@@ -185,7 +181,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 /* 数値セル */
 .num-ab{font-family:var(--mono);font-weight:800;font-size:14px;color:var(--turf)}
 .num-pl{font-family:var(--mono);font-weight:800;font-size:14px;color:var(--gold)}
-.num-od{font-family:var(--mono);font-weight:700}
+.num-od,.num-ab,.num-pl,.num-ev,.num-my{font-family:var(--mono);font-weight:700;font-size:11px}
+.num-od{min-width:44px}
 .num-ev{font-family:var(--mono);font-weight:800}
 .num-ev.good{color:var(--orange)}
 .num-my{font-family:var(--mono);font-weight:800}
@@ -293,11 +290,16 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .ht{border-collapse:collapse;white-space:nowrap}
 .ht td,.ht th{position:relative}
 /* 固定列: 番・馬名・騎手・脚質 */
-.ht th:nth-child(1),.ht td:nth-child(1){position:sticky;left:0;z-index:2;background:var(--bg)}
-.ht th:nth-child(2),.ht td:nth-child(2){position:sticky;left:32px;z-index:2;background:var(--bg)}
-.ht th:nth-child(3),.ht td:nth-child(3){position:sticky;left:182px;z-index:2;background:var(--bg)}
-.ht th:nth-child(4),.ht td:nth-child(4){position:sticky;left:262px;z-index:2;background:var(--bg);border-right:1px solid var(--border2)}
-.ht-wrap{overflow-x:auto}
+.ht-wrap{overflow-x:auto;position:relative}
+.ht{border-collapse:separate;border-spacing:0;white-space:nowrap;table-layout:fixed}
+.ht th,.ht td{box-sizing:border-box}
+/* 固定列 */
+.ht th:nth-child(1),.ht td:nth-child(1){position:sticky;left:0;z-index:3;background:var(--panel);width:32px;min-width:32px}
+.ht th:nth-child(2),.ht td:nth-child(2){position:sticky;left:32px;z-index:3;background:var(--panel);width:150px;min-width:150px}
+.ht th:nth-child(3),.ht td:nth-child(3){position:sticky;left:182px;z-index:3;background:var(--panel);width:75px;min-width:75px}
+.ht th:nth-child(4),.ht td:nth-child(4){position:sticky;left:257px;z-index:3;background:var(--panel);width:38px;min-width:38px;border-right:2px solid var(--border2)}
+.ht tr:hover td{background:var(--border2)!important}
+.ht tr.keshi td{opacity:.45}
 </style>
 </head>
 <body>
@@ -443,10 +445,14 @@ function renderTable(r){
 
   const th = (k,l) => {
     const on=curSort===k;
-    const arr=on?(curDir===-1?'▼':'▲'):'↕';
-    return `<th data-s="${k}" class="${on?'sorted':''}" style="cursor:pointer;user-select:none">${l}<span style="font-size:8px;opacity:${on?1:0.25};margin-left:2px">${arr}</span>`;
+    return `<th data-s="${k}">${l}`;
   };
   const rks = computeRanks(r.horses);
+  const hasSenior = r.horses.some(h => h.age >= 4);
+  const oddsRank = {};
+  [...r.horses].filter(h=>h.tansho_odds!=null)
+    .sort((a,b)=>a.tansho_odds-b.tansho_odds)
+    .forEach((h,i)=>{ oddsRank[h.umaban]=i+1; });
   $('hthead').innerHTML = `<tr>
     ${th('umaban','番')}${th('ability','馬名')}<th data-s="jockey" class="sticky-col3">騎手</th>${th('kyaku','脚質')}
     ${th('odds','オッズ')}${th('ability','単%')}${th('place','複%')}
@@ -484,7 +490,7 @@ function renderTable(r){
       </td>
       <td class="sticky-col3" style="text-align:left;font-size:11px;white-space:nowrap">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
       <td>${kyakuHtml(kc)}</td>
-      <td class="num-od">${h.tansho_odds!=null?Number(h.tansho_odds).toFixed(1):'—'}</td>
+      <td class="num-od">${h.tansho_odds!=null?Number(h.tansho_odds).toFixed(1):'—'}<br><span style="font-size:9px;color:var(--t3)">${oddsRank[h.umaban]?oddsRank[h.umaban]+'人気':''}</span></td>
       <td class="num-ab">${pct(h.p_ability)}</td>
       <td class="num-pl">${pct(h.p_place)}</td>
       <td class="num-ev ${evGood?'good':''}">${h.ev_tansho!=null&&!h.ev_tansho_anomaly?Number(h.ev_tansho).toFixed(2):'—'}<br>${div}</td>
@@ -497,13 +503,7 @@ function renderTable(r){
     </tr>`;
   }).join('');
 
-  $('hthead').querySelectorAll('th[data-s]').forEach(th=>{
-    th.onclick = ()=>{
-      if(curSort===th.dataset.s) curDir=-curDir;
-      else{curSort=th.dataset.s;curDir=-1;}
-      renderTable(curRace);
-    };
-  });
+
 }
 
 // ─── RENDER PACE DIAGRAM ───────────────────────────────────
