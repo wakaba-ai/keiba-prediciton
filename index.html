@@ -701,7 +701,7 @@ function selectVenue(v){
 // ─── LOAD ───────────────────────────────────────────────────
 // ─── 能力ランク計算（レース内相対順位）──────────────────────
 const RK_DEFS = [
-  {k:'speed',  l:'速', fn: h=>h.prev_speed_index??h.avg_speed_index??null},
+  {k:'speed',  l:'速', fn: h=>h.prev_speed_index??h.avg_speed_index??(h.past_races?.[0]?.speed_index??null)},
   {k:'agari',  l:'上', fn: h=>h.agari_rank_avg!=null?-h.agari_rank_avg:null},
   {k:'jockey', l:'騎', fn: h=>h.jockey_win_rate??null},
   {k:'trainer',l:'厩', fn: h=>h.trainer_win_rate??null},
