@@ -450,6 +450,7 @@ function renderTable(r){
     return `<th data-s="${k}" class="${on?'sorted':''}">${l}${arr?` <span style="font-size:8px">${arr}</span>`:''}`;
   };
   const rks = computeRanks(r.horses);
+  const hasSenior = r.horses.some(h => h.age >= 4);
   $('hthead').innerHTML = `<tr>
     ${th('umaban','番')}${th('ability','馬名')}<th data-s="jockey">騎手</th>${th('kyaku','脚質')}
     ${th('odds','オッズ')}${th('ability','単%')}${th('place','複%')}
