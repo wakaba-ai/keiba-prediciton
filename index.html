@@ -269,6 +269,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 /* フッター */
 .disc{font-size:9px;color:var(--t4);padding:14px 16px;text-align:center;
   line-height:1.8;border-top:1px solid var(--border);margin-top:8px}
+.name-young{color:var(--turf);font-weight:700}
+.mark-female{font-size:9px;color:var(--purple);font-weight:800;margin-left:2px}
 </style>
 </head>
 <body>
@@ -544,7 +546,13 @@ function renderRight(r){
   $('rVerdict').innerHTML='';
 
   // 本命候補
-  const honmei = r.honmei||[];
+  const honmei = (r.honmei||[]).map(h=>{
+    if(h.waku==null){
+      const full=(r.horses||[]).find(x=>x.umaban===h.umaban);
+      if(full) h={...h, waku:full.waku};
+    }
+    return h;
+  });
   if(honmei.length){
     const isBuy = r.buy_flag && !r.skip;
     $('rHonmei').innerHTML = `
