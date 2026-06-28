@@ -451,7 +451,7 @@ function renderTable(r){
   };
   const rks = computeRanks(r.horses);
   $('hthead').innerHTML = `<tr>
-    ${th('umaban','番')}${th('ability','馬名 / 騎手')}${th('kyaku','脚質')}
+    ${th('umaban','番')}${th('ability','馬名')}<th data-s="jockey">騎手</th>${th('kyaku','脚質')}
     ${th('odds','オッズ')}${th('ability','単%')}${th('place','複%')}
     ${th('ev','EV')}${th('myomi','妙味')}${th('conf','自信')}${th('fit','適合')}
     ${RK_DEFS.map(({k,l})=>`<th data-s="${k}">${l}</th>`).join('')}
@@ -482,10 +482,10 @@ function renderTable(r){
       <td>${wb(h.umaban,h.waku)}</td>
       <td class="ht-name">
         <div style="font-weight:800;font-size:12.5px">${h.horse_name} ${marks.join(' ')}</div>
-        <div style="font-size:10px;margin-top:1px"><span style="color:var(--t1)">${h.jockey||'—'}</span> <span style="color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></div>
         <span class="sub">${h.sex==='牝'?'<span style="color:var(--purple)">♀</span>':''}<span class="${h.age===3&&hasSenior?'name-young':''}">${h.sex+(h.age||'')+'歳'}</span> ${h.sire||''}</span>
         ${ktags?`<div class="ktags">${ktags}</div>`:''}
       </td>
+      <td style="text-align:left;font-size:11px;white-space:nowrap">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
       <td>${kyakuHtml(kc)}</td>
       <td class="num-od">${h.tansho_odds!=null?Number(h.tansho_odds).toFixed(1):'—'}</td>
       <td class="num-ab">${pct(h.p_ability)}</td>
