@@ -766,14 +766,18 @@ function computeRanks(horses){
 let ALL_DATA = [];
 
 async function load(){
-  // candidate filenames: predictions.json + 直近数日分の日付ファイル
-  const today = new Date();
-  const candidates = ['predictions.json'];
-  for(let i=-1;i<=2;i++){
-    const d2 = new Date(today); d2.setDate(d2.getDate()+i);
-    const ymd = d2.getFullYear()+String(d2.getMonth()+1).padStart(2,'0')+String(d2.getDate()).padStart(2,'0');
-    candidates.push(`predictions_${ymd}.json`);
-  }
+  // manifest.json から公開済み日付一覧を取得
+  let dates = [];
+  try{
+    const mres = await fetch('manifest.json', {cache:'no-store'});
+    if(mres.ok){
+      const m = await mres.json();
+      dates = m.dates || [];
+    }
+  }catch(e){ /* manifest.jsonなし */ }
+
+  const candidates = dates.map(d=>`predictions_${d}.json`);
+  if(candidates.length === 0) candidates.push('predictions.json');  // フォールバック
 
   const loaded = [];
   for(const fname of candidates){
