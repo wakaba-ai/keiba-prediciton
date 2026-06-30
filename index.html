@@ -162,16 +162,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .ht th{background:var(--panel);color:var(--t3);font-weight:700;font-size:9.5px;padding:6px 7px;
   text-align:center;white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:3;
   border-bottom:1px solid var(--border);letter-spacing:.04em}
-.ht th:hover,.ht th.sorted{color:var(--turf)}
+
 .ht td{padding:6px 7px;border-bottom:1px solid var(--border);text-align:center;
   white-space:nowrap;vertical-align:middle}
 .ht tr:last-child td{border-bottom:none}
-.ht tr:hover td{background:rgba(255,255,255,.025)}
+
 /* 消し馬: 半透明 */
 .ht tr.keshi td{opacity:.35}
 .ht tr.keshi td:nth-child(1),.ht tr.keshi td:nth-child(2){opacity:.6}
-/* sticky */
-.ht tr:hover td:nth-child(-n+3){background:var(--border)}
+
 /* 脚質カラム: 逃げ/先行を強調 */
 .kyaku-0{color:var(--red);font-weight:800}     /* 逃げ */
 .kyaku-1{color:var(--gold);font-weight:800}    /* 先行 */
@@ -332,11 +331,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
   <div id="raceHeader"></div>
   <div class="ht-wrap"><table class="ht"><thead id="hthead"></thead><tbody id="htbody"></tbody></table></div>
   <div id="paceDiv"></div>
-  <div class="disc">
-    Momo式分析: 場（展開）→ 馬（前残り適性）→ オッズ（妙味）の順番で評価。<br>
-    追い込み馬は小回り〜標準直線では基本消し。前走着順・着差は消し理由に使わない。<br>
-    当サイトはAI予測情報です。馬券の購入は自己責任で。
-  </div>
+  <div class="disc">当サイトはAI予測情報です。馬券の購入は自己責任で。</div>
 </div>
 
 <!-- RIGHT -->
@@ -388,9 +383,10 @@ function trainingVal(h){
 
 // ─── SORT ──────────────────────────────────────────────────
 const SORT_DEFS = [
-  {k:'conf',l:'自信度'},{k:'ability',l:'AI勝率'},{k:'place',l:'複勝率'},
-  {k:'myomi',l:'妙味'},{k:'ev',l:'EV'},{k:'odds',l:'オッズ'},
-  {k:'kyaku',l:'脚質'},{k:'umaban',l:'馬番'},
+  {k:'umaban',l:'馬番'},{k:'odds',l:'オッズ'},{k:'conf',l:'自信度'},
+  {k:'ability',l:'AI勝率'},{k:'place',l:'AI複勝率'},{k:'ev',l:'EV'},
+  {k:'kyaku',l:'脚質'},{k:'speed',l:'速度'},{k:'agari',l:'上り'},
+  {k:'blood',l:'血統'},{k:'waku',l:'枠順'},{k:'training',l:'調教'},{k:'mining',l:'指数'},
 ];
 function sortKey(h){
   const m={
@@ -402,6 +398,13 @@ function sortKey(h){
     odds:    ()=>h.tansho_odds!=null?-h.tansho_odds:-9999,
     kyaku:   ()=>-(h.kyaku_code??9),
     umaban:  ()=>-(h.umaban??99),
+    fit:      ()=>h.fit_score??-1,
+    speed:    ()=>h.prev_speed_index??h.avg_speed_index??(h.past_races?.[0]?.speed_index??-1),
+    agari:    ()=>h.agari_rank_avg!=null?-h.agari_rank_avg:-99,
+    blood:    ()=>h.blood_stamina_score??-1,
+    waku:     ()=>h.waku_win_rate??-1,
+    training: ()=>h.training_score??-1,
+    mining:   ()=>h.mining??-1,
   };
   return (m[curSort]||m.conf)();
 }
@@ -717,9 +720,10 @@ function selectVenue(v){
   // sortbar描画
   const sw = $('sortbar-wrap');
   if(sw){
-    sw.innerHTML = SORT_DEFS.map(({k,l})=>
-      `<button class="sch ${curSort===k?'on':''}" data-s="${k}">${l}</button>`
-    ).join('');
+    sw.innerHTML = '<span style="font-size:10px;color:var(--t3);font-weight:700;align-self:center;margin-right:4px">ソート:</span>' +
+      SORT_DEFS.map(({k,l})=>
+        `<button class="sch ${curSort===k?'on':''}" data-s="${k}">${l}</button>`
+      ).join('');
     sw.querySelectorAll('.sch').forEach(c=>{
       c.onclick = ()=>{
         if(curSort===c.dataset.s) curDir=-curDir;
@@ -829,9 +833,10 @@ function renderAfterDateChange(){
   // sortbar描画
   const sw = $('sortbar-wrap');
   if(sw){
-    sw.innerHTML = SORT_DEFS.map(({k,l})=>
-      `<button class="sch ${curSort===k?'on':''}" data-s="${k}">${l}</button>`
-    ).join('');
+    sw.innerHTML = '<span style="font-size:10px;color:var(--t3);font-weight:700;align-self:center;margin-right:4px">ソート:</span>' +
+      SORT_DEFS.map(({k,l})=>
+        `<button class="sch ${curSort===k?'on':''}" data-s="${k}">${l}</button>`
+      ).join('');
     sw.querySelectorAll('.sch').forEach(c=>{
       c.onclick = ()=>{
         if(curSort===c.dataset.s) curDir=-curDir;
