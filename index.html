@@ -78,6 +78,11 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .logo{font-weight:900;font-size:14px;letter-spacing:-.03em;color:var(--t1)}
 .logo em{color:var(--turf);font-style:normal}
 .logo-tag{font-size:9px;font-weight:700;color:var(--t3);letter-spacing:.12em;text-transform:uppercase;margin-left:4px}
+#dateTabs{display:flex;gap:4px;margin-left:16px}
+.date-tab{padding:4px 12px;border-radius:6px;border:1px solid var(--border2);background:transparent;
+  color:var(--t3);font-size:12px;font-weight:700;cursor:pointer;transition:all .12s;font-family:var(--mono)}
+.date-tab:hover{color:var(--t1);background:var(--border2)}
+.date-tab.active{background:var(--turf);border-color:var(--turf);color:#000}
 #headMeta{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--t3);display:flex;gap:10px}
 
 /* ─── VENUE TABS ─────────────────────────────────────────── */
@@ -308,7 +313,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 <!-- TOPBAR -->
 <div id="topbar">
 
-  <div class="logo"><em>●</em> Wakaba AI Keiba <span class="logo-tag">Momo Style v4</span></div>
+  <div class="logo"><em>●</em> Wakaba AI Keiba</div>
+  <div id="dateTabs"></div>
   <div id="headMeta">
     <span id="headDate">—</span>
     <span id="genTime"></span>
@@ -757,20 +763,65 @@ function computeRanks(horses){
   return ranks;
 }
 
+let ALL_DATA = [];
+
 async function load(){
-  try{
-    const res = await fetch('predictions.json');
-    DATA = await res.json();
-  }catch(e){
+  // candidate filenames: predictions.json + 直近数日分の日付ファイル
+  const today = new Date();
+  const candidates = ['predictions.json'];
+  for(let i=-1;i<=2;i++){
+    const d2 = new Date(today); d2.setDate(d2.getDate()+i);
+    const ymd = d2.getFullYear()+String(d2.getMonth()+1).padStart(2,'0')+String(d2.getDate()).padStart(2,'0');
+    candidates.push(`predictions_${ymd}.json`);
+  }
+
+  const loaded = [];
+  for(const fname of candidates){
+    try{
+      const res = await fetch(fname, {cache:'no-store'});
+      if(!res.ok) continue;
+      const json = await res.json();
+      if(json && json.races && json.races.length && !loaded.some(x=>x.date===json.date)){
+        loaded.push(json);
+      }
+    }catch(e){}
+  }
+
+  if(loaded.length === 0){
     $('center').innerHTML='<div class="empty"><div class="ei">⚠</div><p>predictions.json を読み込めませんでした</p></div>';
     return;
   }
-  const d=DATA.date||'';
-  if(d) $('headDate').textContent=`${d.slice(0,4)}.${d.slice(4,6)}.${d.slice(6,8)}`;
-  if(DATA.generated_at){
-    const t=new Date(DATA.generated_at);
-    $('genTime').textContent=`生成 ${t.getHours()}:${String(t.getMinutes()).padStart(2,'0')}`;
+
+  loaded.sort((a,b)=>a.date.localeCompare(b.date));
+  ALL_DATA = loaded;
+  DATA = loaded[0];
+
+  // 日付タブ描画（2日以上ある場合のみ表示）
+  const dt = $('dateTabs');
+  if(dt){
+    if(loaded.length > 1){
+      dt.innerHTML = loaded.map((d2,i)=>{
+        const label = `${d2.date.slice(4,6)}/${d2.date.slice(6,8)}`;
+        return `<button class="date-tab${i===0?' active':''}" data-i="${i}">${label}</button>`;
+      }).join('');
+      dt.querySelectorAll('.date-tab').forEach(btn=>{
+        btn.onclick = ()=>{
+          dt.querySelectorAll('.date-tab').forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+          DATA = ALL_DATA[parseInt(btn.dataset.i)];
+          window._navVenue = null;
+          renderAfterDateChange();
+        };
+      });
+    } else {
+      dt.innerHTML = '';
+    }
   }
+
+  renderAfterDateChange();
+}
+
+function renderAfterDateChange(){
   // sortbar描画
   const sw = $('sortbar-wrap');
   if(sw){
@@ -785,6 +836,12 @@ async function load(){
         if(curRace) renderTable(curRace);
       };
     });
+  }
+  const d=DATA.date||'';
+  if(d) $('headDate').textContent=`${d.slice(0,4)}.${d.slice(4,6)}.${d.slice(6,8)}`;
+  if(DATA.generated_at){
+    const t=new Date(DATA.generated_at);
+    $('genTime').textContent=`生成 ${t.getHours()}:${String(t.getMinutes()).padStart(2,'0')}`;
   }
   renderVenueTabs();
   renderSidebar();
