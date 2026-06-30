@@ -649,14 +649,13 @@ function renderSortBar(){
 
 // ─── SELECT RACE ────────────────────────────────────────────
 function selectRace(rid){
-  // 会場が違う場合はタブ切り替え
-  const _r = DATA.races.find(x=>x.race_id===rid);
-  if(_r && _r.place !== window._navVenue){
-    window._navVenue = _r.place;
-  }
-  if(window._rebuildNav) window._rebuildNav();
   curRace = DATA.races.find(r=>r.race_id===rid);
   if(!curRace) return;
+  // 会場が違う場合はタブ切り替え（curRace更新後に呼ぶ）
+  if(curRace.place !== window._navVenue){
+    window._navVenue = curRace.place;
+  }
+  if(window._rebuildNav) window._rebuildNav();
   renderSidebar();
   renderHeader(curRace);
   renderSortBar();
