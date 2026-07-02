@@ -1,0 +1,38 @@
+name: オッズ自動更新
+
+on:
+  schedule:
+    # 土日の9:00〜16:55（JST）を5分おきに実行
+    # GitHub ActionsのタイムゾーンはUTC（JSTはUTC+9）
+    # JST 9:00 = UTC 0:00、JST 17:00 = UTC 8:00
+    - cron: '*/5 0-7 * * 6,0'   # 土(6)日(0) UTC 0:00〜7:55
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  update-odds:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Python セットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 依存パッケージをインストール
+        run: pip install requests
+
+      - name: オッズ更新スクリプトを実行
+        run: python update_odds.py
+
+      - name: 変更をコミット・プッシュ
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add predictions_*.json
+          git diff --staged --quiet || git commit -m "Auto: オッズ更新 $(date '+%Y-%m-%d %H:%M JST' -d '+9 hours')"
+          git push
