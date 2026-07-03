@@ -397,7 +397,7 @@ function trainingVal(h){
   const parts=[];
   if(s) parts.push(`坂${s}`);
   if(w) parts.push(`W${w}`);
-  return parts.length?parts.join(' '):(h.training_score!=null?`${Number(h.training_score).toFixed(0)}pt`:'—');
+  return parts.length?parts.join(' '):'—';
 }
 
 // ─── SORT ──────────────────────────────────────────────────
@@ -526,7 +526,7 @@ function renderTable(r){
       <td style="white-space:nowrap">${confHtml(h.confidence_rank)} <span style="font-size:9.5px;color:var(--t3);font-family:var(--mono)">${h.confidence_score||0}</span></td>
       <td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${(h.fit_score||0)>=30?'var(--orange)':(h.fit_score||0)>=15?'var(--t2)':'var(--t4)'}">${h.fit_score??'—'}</td>
       ${RK_DEFS.map(({k})=>{const rv=rks[h.umaban]?.[k]; const c={'S':'var(--turf)','A':'var(--gold)','B':'var(--blue)','C':'var(--t3)','D':'var(--t4)'}[rv]||'var(--t4)'; return `<td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${c}">${rv||'—'}</td>`;}).join('')}
-      <td style="font-family:var(--mono);font-size:10px;color:var(--gold)">${trainingVal(h)}</td>
+      <td style="font-family:var(--mono);font-size:10px;color:var(--gold)!important">${trainingVal(h)}</td>
       ${pastCell(pr[0])}${pastCell(pr[1])}${pastCell(pr[2])}${pastCell(pr[3])}${pastCell(pr[4])}
     </tr>`;
   }).join('');
