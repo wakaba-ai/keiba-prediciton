@@ -164,9 +164,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
   text-align:center;white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:3;
   border-bottom:1px solid var(--border);letter-spacing:.04em}
 
-.ht td{padding:4px 4px;border-bottom:1px solid var(--border);text-align:center;
+.ht td{padding:3px 3px;border-bottom:1px solid var(--border);text-align:center;
   white-space:nowrap;vertical-align:middle}
-.ht th{padding:4px 4px;text-align:center;white-space:nowrap}
+.ht th{padding:3px 3px;text-align:center;white-space:nowrap;font-size:10px}
 .ht tr:last-child td{border-bottom:none}
 
 /* 消し馬: 半透明 */
@@ -180,8 +180,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .kyaku-2{color:var(--t2)}                       /* 中団 */
 .kyaku-3{color:var(--t4)}                       /* 追込 */
 /* 馬名セル */
-.ht-name{text-align:left;font-weight:800;font-size:12.5px}
-.ht-name .sub{display:block;font-size:9.5px;color:var(--t3);font-weight:400;margin-top:1px}
+.ht-name{text-align:left;font-weight:800;font-size:11.5px}
+.ht-name .sub{display:block;font-size:9px;color:var(--t3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:108px}
 .ht-name .ktags{display:flex;gap:3px;flex-wrap:wrap;margin-top:3px}
 .ktag{font-size:8px;font-weight:700;padding:1px 4px;border-radius:3px;
   background:var(--red-dim);color:var(--red)}
@@ -299,11 +299,26 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 /* 固定列: 番・馬名・騎手・脚質 */
 .ht-wrap{overflow-x:auto;position:relative}
 .ht{border-collapse:separate;border-spacing:0;white-space:nowrap;table-layout:fixed}
-.ht th,.ht td{box-sizing:border-box}
+.ht th,.ht td{box-sizing:border-box;font-size:11px}
+/* 列幅最適化 */
+.ht td:nth-child(1),.ht th:nth-child(1){width:28px;min-width:28px;max-width:28px}
+.ht td:nth-child(2),.ht th:nth-child(2){width:110px;min-width:110px;max-width:110px}
+.ht td:nth-child(3),.ht th:nth-child(3){width:65px;min-width:65px}
+.ht td:nth-child(4),.ht th:nth-child(4){width:30px;min-width:30px}
+.ht td:nth-child(5),.ht th:nth-child(5){width:44px}
+.ht td:nth-child(6),.ht th:nth-child(6){width:28px}
+.ht td:nth-child(7),.ht th:nth-child(7){width:28px}
+.ht td:nth-child(8),.ht th:nth-child(8){width:38px}
+.ht td:nth-child(9),.ht th:nth-child(9){width:24px}
+.ht td:nth-child(10),.ht th:nth-child(10){width:40px}
+.ht td:nth-child(11),.ht th:nth-child(11){width:24px}
+.ht td:nth-child(n+12):nth-child(-n+20),.ht th:nth-child(n+12):nth-child(-n+20){width:22px;min-width:22px}
+.ht td:nth-child(n+21),.ht th:nth-child(n+21){width:95px;min-width:90px}
 /* 固定列 */
 .ht th:nth-child(1),.ht td:nth-child(1){position:sticky;left:0;z-index:3;background:var(--panel);width:30px;min-width:30px}
 .ht th:nth-child(2),.ht td:nth-child(2){position:sticky;left:30px;z-index:3;background:var(--panel);width:120px;min-width:120px;border-right:2px solid var(--border2)}
 .ht th:nth-child(n+3),.ht td:nth-child(n+3){z-index:1}
+.ht thead th:nth-child(1),.ht thead th:nth-child(2){z-index:5}
 
 .ht tr:hover td{background:var(--border2)!important}
 .ht tr:hover td:nth-child(1),.ht tr:hover td:nth-child(2){background:var(--border)!important}
@@ -471,7 +486,7 @@ function renderTable(r){
     ${th('odds','オッズ')}${th('ability','単%')}${th('place','複%')}
     ${th('ev','EV')}${th('myomi','妙味')}${th('conf','自信')}${th('fit','適合')}
     ${RK_DEFS.map(({k,l})=>`<th data-s="${k}">${l}</th>`).join('')}
-    ${th('training','調教')}<th>前走</th><th>2走</th><th>3走</th>
+    ${th('training','調教')}<th>前走</th><th>2走</th><th>3走</th><th>4走</th><th>5走</th>
   </tr>`;
 
   $('htbody').innerHTML = horses.map(h => {
@@ -483,7 +498,7 @@ function renderTable(r){
           ? `<span style="color:var(--turf);font-size:9px">+${(h.divergence*100).toFixed(0)}</span>`
           : `<span style="color:var(--t3);font-size:9px">${(h.divergence*100).toFixed(0)}</span>`)
       : '';
-    const pr = h.past_races||[];
+    const pr = (h.past_races||[]).slice(0,5);
 
     // 消し理由タグ
     const ktags = (h.keshi_reasons||[]).map(r=>`<span class="ktag">${r}</span>`).join('');
@@ -512,7 +527,7 @@ function renderTable(r){
       <td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${(h.fit_score||0)>=30?'var(--orange)':(h.fit_score||0)>=15?'var(--t2)':'var(--t4)'}">${h.fit_score??'—'}</td>
       ${RK_DEFS.map(({k})=>{const rv=rks[h.umaban]?.[k]; const c={'S':'var(--turf)','A':'var(--gold)','B':'var(--blue)','C':'var(--t3)','D':'var(--t4)'}[rv]||'var(--t4)'; return `<td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${c}">${rv||'—'}</td>`;}).join('')}
       <td style="font-family:var(--mono);font-size:10px;color:var(--gold)">${trainingVal(h)}</td>
-      ${pastCell(pr[0])}${pastCell(pr[1])}${pastCell(pr[2])}
+      ${pastCell(pr[0])}${pastCell(pr[1])}${pastCell(pr[2])}${pastCell(pr[3])}${pastCell(pr[4])}
     </tr>`;
   }).join('');
 
