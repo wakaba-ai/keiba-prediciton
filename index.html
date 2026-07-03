@@ -180,7 +180,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .kyaku-2{color:var(--t2)}                       /* 中団 */
 .kyaku-3{color:var(--t4)}                       /* 追込 */
 /* 馬名セル */
-.ht-name{text-align:left;font-weight:800;font-size:11.5px}
+.ht-name{text-align:left;font-weight:800;font-size:11.5px;overflow:hidden;max-width:118px}
 .ht-name .sub{display:block;font-size:9px;color:var(--t3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:108px}
 .ht-name .ktags{display:flex;gap:3px;flex-wrap:wrap;margin-top:3px}
 .ktag{font-size:8px;font-weight:700;padding:1px 4px;border-radius:3px;
@@ -316,7 +316,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .ht td:nth-child(n+21),.ht th:nth-child(n+21){width:95px;min-width:90px}
 /* 固定列 */
 .ht th:nth-child(1),.ht td:nth-child(1){position:sticky;left:0;z-index:3;background:var(--panel);width:30px;min-width:30px}
-.ht th:nth-child(2),.ht td:nth-child(2){position:sticky;left:30px;z-index:3;background:var(--panel);width:120px;min-width:120px;border-right:2px solid var(--border2)}
+.ht th:nth-child(2),.ht td:nth-child(2){position:sticky;left:30px;z-index:3;background:var(--panel);width:120px;min-width:120px;max-width:120px;border-right:2px solid var(--border2);overflow:hidden}
 .ht th:nth-child(n+3),.ht td:nth-child(n+3){z-index:1}
 .ht thead th:nth-child(1),.ht thead th:nth-child(2){z-index:5}
 
