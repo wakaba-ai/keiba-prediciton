@@ -164,13 +164,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
   text-align:center;white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:3;
   border-bottom:1px solid var(--border);letter-spacing:.04em}
 
-.ht td{padding:6px 7px;border-bottom:1px solid var(--border);text-align:center;
+.ht td{padding:4px 4px;border-bottom:1px solid var(--border);text-align:center;
   white-space:nowrap;vertical-align:middle}
+.ht th{padding:4px 4px;text-align:center;white-space:nowrap}
 .ht tr:last-child td{border-bottom:none}
 
 /* 消し馬: 半透明 */
-.ht tr.keshi td{opacity:.35}
-.ht tr.keshi td:nth-child(1),.ht tr.keshi td:nth-child(2){opacity:.6}
+.ht tr.keshi{opacity:.5}
+.ht tr.keshi td:nth-child(1),.ht tr.keshi td:nth-child(2){opacity:1;background:var(--panel)}
+
 
 /* 脚質カラム: 逃げ/先行を強調 */
 .kyaku-0{color:var(--red);font-weight:800}     /* 逃げ */
@@ -299,11 +301,12 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .ht{border-collapse:separate;border-spacing:0;white-space:nowrap;table-layout:fixed}
 .ht th,.ht td{box-sizing:border-box}
 /* 固定列 */
-.ht th:nth-child(1),.ht td:nth-child(1){position:sticky;left:0;z-index:3;background:var(--panel);width:32px;min-width:32px}
-.ht th:nth-child(2),.ht td:nth-child(2){position:sticky;left:32px;z-index:3;background:var(--panel);width:150px;min-width:150px}
-.ht th:nth-child(3),.ht td:nth-child(3){position:sticky;left:182px;z-index:3;background:var(--panel);width:75px;min-width:75px}
-.ht th:nth-child(4),.ht td:nth-child(4){position:sticky;left:257px;z-index:3;background:var(--panel);width:38px;min-width:38px;border-right:2px solid var(--border2)}
+.ht th:nth-child(1),.ht td:nth-child(1){position:sticky;left:0;z-index:3;background:var(--panel);width:30px;min-width:30px}
+.ht th:nth-child(2),.ht td:nth-child(2){position:sticky;left:30px;z-index:3;background:var(--panel);width:120px;min-width:120px;border-right:2px solid var(--border2)}
+.ht th:nth-child(n+3),.ht td:nth-child(n+3){z-index:1}
+
 .ht tr:hover td{background:var(--border2)!important}
+.ht tr:hover td:nth-child(1),.ht tr:hover td:nth-child(2){background:var(--border)!important}
 .ht tr.keshi td{opacity:.45}
 </style>
 </head>
@@ -354,7 +357,7 @@ const f2  = v => v==null?'—':Number(v).toFixed(2);
 const f3  = v => v==null?'—':Number(v).toFixed(3);
 
 // 枠番カラー
-function wb(u, w){ return `<span class="wb w${w||1}">${u}</span>`; }
+function wb(u, w){ const wk=(w&&w>0)?w:Math.ceil(u/2); return `<span class="wb w${wk}">${u}</span>`; }
 
 // 脚質ラベル
 const KYAKU_LABEL = {0:'逃',1:'先',2:'中',3:'追'};
