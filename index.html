@@ -313,8 +313,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .ht td:nth-child(10),.ht th:nth-child(10){width:40px}
 .ht td:nth-child(11),.ht th:nth-child(11){width:24px}
 .ht td:nth-child(n+12):nth-child(-n+20),.ht th:nth-child(n+12):nth-child(-n+20){width:22px;min-width:22px}
-.ht td:nth-child(21),.ht th:nth-child(21){width:80px;min-width:80px}
-.ht td:nth-child(n+22),.ht th:nth-child(n+22){width:95px;min-width:90px}
+.ht td:nth-child(n+20),.ht th:nth-child(n+20){width:110px;min-width:105px}
 /* 固定列 */
 .ht th:nth-child(1),.ht td:nth-child(1){position:sticky;left:0;z-index:3;background:var(--panel);width:30px;min-width:30px}
 .ht th:nth-child(2),.ht td:nth-child(2){position:sticky;left:30px;z-index:3;background:var(--panel);width:120px;min-width:120px;max-width:120px;border-right:2px solid var(--border2);overflow:hidden}
@@ -373,7 +372,7 @@ const f2  = v => v==null?'—':Number(v).toFixed(2);
 const f3  = v => v==null?'—':Number(v).toFixed(3);
 
 // 枠番カラー
-function wb(u, w){ const wk=(w&&w>0)?w:Math.ceil(u/2); return `<span class="wb w${wk}">${u}</span>`; }
+function wb(u, w){ return `<span class="wb">${u}</span>`; }
 
 // 脚質ラベル
 const KYAKU_LABEL = {0:'逃',1:'先',2:'中',3:'追'};
@@ -401,7 +400,7 @@ const SORT_DEFS = [
   {k:'umaban',l:'馬番'},{k:'odds',l:'オッズ'},{k:'conf',l:'自信度'},
   {k:'ability',l:'AI勝率'},{k:'place',l:'AI複勝率'},{k:'ev',l:'EV'},
   {k:'kyaku',l:'脚質'},{k:'speed',l:'速度'},{k:'agari',l:'上り'},
-  {k:'blood',l:'血統'},{k:'waku',l:'枠順'},{k:'training',l:'調教'},
+  {k:'blood',l:'血統'},{k:'waku',l:'枠順'},
 ];
 function sortKey(h){
   const m={
@@ -481,7 +480,7 @@ function renderTable(r){
     ${th('odds','オッズ')}${th('ability','単%')}${th('place','複%')}
     ${th('ev','EV')}${th('myomi','妙味')}${th('conf','自信')}${th('fit','適合')}
     ${RK_DEFS.map(({k,l})=>`<th data-s="${k}">${l}</th>`).join('')}
-    ${th('training','調教')}<th>前走</th><th>2走</th><th>3走</th><th>4走</th><th>5走</th>
+    <th>前走</th><th>2走</th><th>3走</th><th>4走</th><th>5走</th>
   </tr>`;
 
   $('htbody').innerHTML = horses.map(h => {
@@ -521,7 +520,6 @@ function renderTable(r){
       <td style="white-space:nowrap">${confHtml(h.confidence_rank)} <span style="font-size:9.5px;color:var(--t3);font-family:var(--mono)">${h.confidence_score||0}</span></td>
       <td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${(h.fit_score||0)>=30?'var(--orange)':(h.fit_score||0)>=15?'var(--t2)':'var(--t4)'}">${h.fit_score??'—'}</td>
       ${RK_DEFS.map(({k})=>{const rv=rks[h.umaban]?.[k]; const c={'S':'var(--turf)','A':'var(--gold)','B':'var(--blue)','C':'var(--t3)','D':'var(--t4)'}[rv]||'var(--t4)'; return `<td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${c}">${rv||'—'}</td>`;}).join('')}
-      <td style="font-family:var(--mono);font-size:9.5px;color:var(--gold)!important;white-space:nowrap;min-width:75px;padding-right:10px">${trainingVal(h)}</td>
       ${pastCell(pr[0])}${pastCell(pr[1])}${pastCell(pr[2])}${pastCell(pr[3])}${pastCell(pr[4])}
     </tr>`;
   }).join('');
@@ -761,7 +759,6 @@ const RK_DEFS = [
   {k:'trainer',l:'厩', fn: h=>h.trainer_win_rate??null},
   {k:'blood',  l:'血', fn: h=>h.blood_stamina_score??null},
   {k:'waku',   l:'枠', fn: h=>h.waku_win_rate??null},
-  {k:'train',  l:'調', fn: h=>h.training_score??null},
 ];
 
 function computeRanks(horses){
