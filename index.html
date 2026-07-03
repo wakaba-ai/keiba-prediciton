@@ -787,6 +787,36 @@ function computeRanks(horses){
 
 let ALL_DATA = [];
 
+// zlib+base64エンコードされたJSONを展開
+async function decodeData(text){
+  try{
+    // base64デコード
+    const bin = atob(text.trim());
+    const bytes = new Uint8Array(bin.length);
+    for(let i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+    // DecompressionStream (zlib)
+    const ds = new DecompressionStream('deflate');
+    const writer = ds.writable.getWriter();
+    const reader = ds.readable.getReader();
+    writer.write(bytes);
+    writer.close();
+    const chunks = [];
+    while(true){
+      const {done, value} = await reader.read();
+      if(done) break;
+      chunks.push(value);
+    }
+    const total = chunks.reduce((a,b)=>a+b.length, 0);
+    const result = new Uint8Array(total);
+    let offset = 0;
+    for(const chunk of chunks){ result.set(chunk, offset); offset+=chunk.length; }
+    return JSON.parse(new TextDecoder().decode(result));
+  }catch(e){
+    // 展開失敗時はそのままJSONとしてパース（旧フォーマット互換）
+    return JSON.parse(text);
+  }
+}
+
 async function load(){
   // manifest.json から公開済み日付一覧を取得
   let dates = [];
@@ -806,7 +836,8 @@ async function load(){
     try{
       const res = await fetch(fname, {cache:'no-store'});
       if(!res.ok) continue;
-      const json = await res.json();
+      const text = await res.text();
+      const json = await decodeData(text);
       if(json && json.races && json.races.length && !loaded.some(x=>x.date===json.date)){
         loaded.push(json);
       }

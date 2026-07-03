@@ -66,7 +66,14 @@ def fetch_odds(nk_race_id):
 def update_predictions_file(filepath):
     """predictions_YYYYMMDD.jsonのオッズとEVを更新"""
     with open(filepath, encoding='utf-8') as f:
-        data = json.load(f)
+        raw = f.read().strip()
+    # zlib+base64エンコードされている場合は展開
+    import zlib, base64
+    try:
+        compressed = base64.b64decode(raw)
+        data = json.loads(zlib.decompress(compressed).decode('utf-8'))
+    except Exception:
+        data = json.loads(raw)
 
     date_str = data['date']
     print(f"  日付: {date_str} / {len(data['races'])}レース")
@@ -114,8 +121,13 @@ def update_predictions_file(filepath):
     data['generated_at'] = datetime.now().isoformat()
     data['odds_updated_at'] = datetime.now().isoformat()
 
+    # zlib+base64で再エンコードして保存
+    import zlib, base64
+    raw_json = json.dumps(data, ensure_ascii=False)
+    compressed = zlib.compress(raw_json.encode('utf-8'), level=9)
+    encoded = base64.b64encode(compressed).decode('ascii')
     with open(filepath, 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+        f.write(encoded)
 
     return True
 
