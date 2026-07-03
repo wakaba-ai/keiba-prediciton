@@ -516,7 +516,7 @@ function renderTable(r){
         <span class="sub">${h.sex||''}${h.age||''}歳 ${h.sire||''}</span>
         ${ktags?`<div class="ktags">${ktags}</div>`:''}
       </td>
-      <td class="sticky-col3" style="text-align:left;font-size:11px;white-space:nowrap">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
+      <td class="sticky-col3" style="text-align:left;font-size:11px;white-space:nowrap;padding-left:6px">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
       <td>${kyakuHtml(kc)}</td>
       <td class="num-od">${h.tansho_odds!=null?Number(h.tansho_odds).toFixed(1):'—'}<br><span style="font-size:9px;color:var(--t3)">${oddsRank[h.umaban]?oddsRank[h.umaban]+'人気':''}</span></td>
       <td class="num-ab">${pct(h.p_ability)}</td>
