@@ -210,7 +210,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .w4{background:#2980b9;color:#fff}.w5{background:#f39c12;color:#000}.w6{background:#27ae60;color:#fff}
 .w7{background:#e67e22;color:#fff}.w8{background:#e91e8c;color:#fff}
 /* 過去走セル */
-.past-cell{text-align:left;font-family:var(--mono);font-size:9.5px;color:var(--t3);min-width:70px}
+.past-cell{text-align:left;font-family:var(--mono);font-size:9.5px;color:var(--t3);min-width:70px;max-width:95px;overflow:hidden}
 .pc1{color:var(--gold);font-weight:800}.pc23{color:var(--turf);font-weight:700}
 
 /* ─── 展開図 ─────────────────────────────────────────────── */
@@ -392,13 +392,8 @@ function pastCell(p){
 
 // 調教コメント
 function trainingVal(h){
-  const c=h.training_comment||'';
-  const s=(c.match(/坂路終い([\d.]+)/)||[])[1];
-  const w=(c.match(/ウッド終い([\d.]+)/)||[])[1];
-  const parts=[];
-  if(s) parts.push(`坂${s}`);
-  if(w) parts.push(`W${w}`);
-  return parts.length?parts.join(' '):'—';
+  if(h.training_score==null) return '—';
+  return `${Number(h.training_score).toFixed(0)}pt`;
 }
 
 // ─── SORT ──────────────────────────────────────────────────
@@ -406,7 +401,7 @@ const SORT_DEFS = [
   {k:'umaban',l:'馬番'},{k:'odds',l:'オッズ'},{k:'conf',l:'自信度'},
   {k:'ability',l:'AI勝率'},{k:'place',l:'AI複勝率'},{k:'ev',l:'EV'},
   {k:'kyaku',l:'脚質'},{k:'speed',l:'速度'},{k:'agari',l:'上り'},
-  {k:'blood',l:'血統'},{k:'waku',l:'枠順'},{k:'training',l:'調教'},{k:'mining',l:'指数'},
+  {k:'blood',l:'血統'},{k:'waku',l:'枠順'},{k:'training',l:'調教'},
 ];
 function sortKey(h){
   const m={
@@ -424,7 +419,6 @@ function sortKey(h){
     blood:    ()=>h.blood_stamina_score??-1,
     waku:     ()=>h.waku_win_rate??-1,
     training: ()=>h.training_score??-1,
-    mining:   ()=>h.mining??-1,
   };
   return (m[curSort]||m.conf)();
 }
@@ -768,7 +762,6 @@ const RK_DEFS = [
   {k:'blood',  l:'血', fn: h=>h.blood_stamina_score??null},
   {k:'waku',   l:'枠', fn: h=>h.waku_win_rate??null},
   {k:'train',  l:'調', fn: h=>h.training_score??null},
-  {k:'mining', l:'指', fn: h=>h.mining??null},
 ];
 
 function computeRanks(horses){
