@@ -155,9 +155,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
   text-align:center;white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:3;
   border-bottom:1px solid var(--border);letter-spacing:.04em}
 
-.ht td{padding:3px 3px;border-bottom:1px solid var(--border);text-align:center;
+.ht td{padding:2px 3px;border-bottom:1px solid var(--border);text-align:center;
   white-space:nowrap;vertical-align:middle}
-.ht th{padding:3px 3px;text-align:center;white-space:nowrap;font-size:10px}
+.ht th{padding:2px 3px;text-align:center;white-space:nowrap;font-size:10px}
 .ht tr:last-child td{border-bottom:none}
 
 /* 消し馬: 半透明 */
@@ -201,7 +201,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .w4{background:#2980b9;color:#fff}.w5{background:#f39c12;color:#000}.w6{background:#27ae60;color:#fff}
 .w7{background:#e67e22;color:#fff}.w8{background:#e91e8c;color:#fff}
 /* 過去走セル */
-.past-cell{text-align:left;font-family:var(--mono);font-size:9.5px;color:var(--t3);width:100%;white-space:normal;word-break:break-all}
+.past-cell{text-align:left;font-family:var(--mono);font-size:9px;color:var(--t3);line-height:1.35}
 .pc1{color:var(--gold);font-weight:800}.pc23{color:var(--turf);font-weight:700}
 
 /* ─── 展開図 ─────────────────────────────────────────────── */
@@ -303,12 +303,12 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .ht td:nth-child(9),.ht th:nth-child(9){width:24px}
 .ht td:nth-child(10),.ht th:nth-child(10){width:40px}
 .ht td:nth-child(11),.ht th:nth-child(11){width:24px}
-.ht td:nth-child(n+12):nth-child(-n+17),.ht th:nth-child(n+12):nth-child(-n+17){width:22px;min-width:22px}
-.ht td:nth-child(18),.ht th:nth-child(18){width:110px;min-width:110px;max-width:110px}
-.ht td:nth-child(19),.ht th:nth-child(19){width:110px;min-width:110px;max-width:110px}
-.ht td:nth-child(20),.ht th:nth-child(20){width:110px;min-width:110px;max-width:110px}
-.ht td:nth-child(21),.ht th:nth-child(21){width:110px;min-width:110px;max-width:110px}
-.ht td:nth-child(22),.ht th:nth-child(22){width:110px;min-width:110px;max-width:110px}
+.ht td:nth-child(n+12):nth-child(-n+17),.ht th:nth-child(n+12):nth-child(-n+17){width:28px;min-width:28px}
+.ht td:nth-child(18),.ht th:nth-child(18){width:90px;min-width:90px;max-width:90px}
+.ht td:nth-child(19),.ht th:nth-child(19){width:90px;min-width:90px;max-width:90px}
+.ht td:nth-child(20),.ht th:nth-child(20){width:90px;min-width:90px;max-width:90px}
+.ht td:nth-child(21),.ht th:nth-child(21){width:90px;min-width:90px;max-width:90px}
+.ht td:nth-child(22),.ht th:nth-child(22){width:90px;min-width:90px;max-width:90px}
 .ht td:nth-child(17),.ht th:nth-child(17){width:110px;min-width:110px;max-width:110px}
 .ht td:nth-child(18),.ht th:nth-child(18){width:110px;min-width:110px;max-width:110px}
 .ht td:nth-child(19),.ht th:nth-child(19){width:110px;min-width:110px;max-width:110px}
@@ -494,8 +494,8 @@ function renderTable(r){
   $('hthead').innerHTML = `<tr>
     ${th('umaban','番')}${th('ability','馬名')}<th data-s="jockey" class="sticky-col3">騎手</th>${th('kyaku','脚質')}
     ${th('odds','オッズ')}${th('conf','自信')}${th('ability','単%')}${th('place','複%')}${th('fit','適合')}
-    ${th('ev','EV')}${th('myomi','妙味')}
-    ${RK_DEFS.map(({k,l})=>`<th data-s="${k}">${l}</th>`).join('')}
+    ${th('ev','EV')}
+    ${RK_DEFS.map(({k,l})=>{const _on=curSort===k;const _arr=_on?(curDir===-1?'▼':'▲'):'';return `<th data-s="${k}" style="cursor:pointer" onclick="setSortKey('${k}')">${l}${_arr?`<span style="font-size:8px;margin-left:2px">${_arr}</span>`:''}</th>`;}).join('')}
     <th>前走</th><th>2走</th><th>3走</th><th>4走</th><th>5走</th>
   </tr>`;
 
@@ -534,7 +534,6 @@ function renderTable(r){
       <td class="num-pl">${pct(h.p_place)}</td>
       <td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${(h.fit_score||0)>=30?'var(--orange)':(h.fit_score||0)>=15?'var(--t2)':'var(--t4)'}">${h.fit_score??'—'}</td>
       <td class="num-ev ${evGood?'good':''}">${h.ev_tansho!=null&&!h.ev_tansho_anomaly?Number(h.ev_tansho).toFixed(2):'—'}<br>${div}</td>
-      <td class="num-my ${myHigh?'high':''}">${((h.myomi_score||0)*100).toFixed(0)}</td>
       ${RK_DEFS.map(({k})=>{const rv=rks[h.umaban]?.[k]; const c={'S':'var(--turf)','A':'var(--gold)','B':'var(--blue)','C':'var(--t3)','D':'var(--t4)'}[rv]||'var(--t4)'; return `<td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${c}">${rv||'—'}</td>`;}).join('')}
       ${pastCell(pr[0])}${pastCell(pr[1])}${pastCell(pr[2])}${pastCell(pr[3])}${pastCell(pr[4])}
     </tr>`;
