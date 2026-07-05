@@ -819,6 +819,12 @@ if(localStorage.getItem('compactMode')==='true'){
   document.body.classList.add('compact');
 }
 
+function setSortKey(k){
+  if(curSort===k) curDir=-curDir;
+  else{curSort=k;curDir=-1;}
+  if(curRace) renderTable(curRace);
+}
+
 async function load(){
   // manifest.json から公開済み日付一覧を取得
   let dates = [];
