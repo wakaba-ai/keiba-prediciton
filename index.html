@@ -329,29 +329,14 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .ht tr.keshi td{opacity:.45}
 
 /* ─── コンパクトモード ───────────────────────────────── */
-body.compact .ht th, body.compact .ht td { font-size:10px }
-/* コンパクト時に非表示にする列 */
-/* 単%(6) 複%(7) EV(8) 妙味(9) 適合(11) 速上騎厩血枠(12-17) 前走〜5走(17-21) */
-body.compact .ht th:nth-child(6),
-body.compact .ht td:nth-child(6),
-body.compact .ht th:nth-child(7),
-body.compact .ht td:nth-child(7),
-body.compact .ht th:nth-child(8),
-body.compact .ht td:nth-child(8),
-body.compact .ht th:nth-child(9),
-body.compact .ht td:nth-child(9),
-body.compact .ht th:nth-child(11),
-body.compact .ht td:nth-child(11),
-body.compact .ht th:nth-child(n+12),
-body.compact .ht td:nth-child(n+12) { display:none }
-/* コンパクト時の追加列（ソート選択中の列）*/
-body.compact .ht th.compact-extra,
-body.compact .ht td.compact-extra { display:table-cell!important }
-/* コンパクトモードトグルボタン */
+body.compact .ht th:nth-child(8),body.compact .ht td:nth-child(8),
+body.compact .ht th:nth-child(9),body.compact .ht td:nth-child(9),
+body.compact .ht th:nth-child(n+12),body.compact .ht td:nth-child(n+12){display:none}
+body.compact .ht th,.ht td{font-size:10px}
 #compactBtn{
   padding:4px 10px;border-radius:6px;border:1px solid var(--border2);
   background:transparent;color:var(--t3);font-size:11px;font-weight:700;
-  cursor:pointer;transition:all .12s;margin-left:auto;
+  cursor:pointer;transition:all .12s;margin-left:8px;
 }
 #compactBtn:hover{background:var(--border2);color:var(--t1)}
 #compactBtn.active{background:var(--turf);border-color:var(--turf);color:#000}
@@ -430,10 +415,10 @@ function trainingVal(h){
 
 // ─── SORT ──────────────────────────────────────────────────
 const SORT_DEFS = [
-  {k:'umaban',l:'馬番',col:1},{k:'odds',l:'オッズ',col:5},{k:'conf',l:'自信度',col:10},
-  {k:'ability',l:'AI勝率',col:6},{k:'place',l:'AI複勝率',col:7},{k:'ev',l:'EV',col:8},
-  {k:'kyaku',l:'脚質',col:4},{k:'speed',l:'速度',col:12},{k:'agari',l:'上り',col:13},
-  {k:'blood',l:'血統',col:16},{k:'waku',l:'枠順',col:17},
+  {k:'umaban',l:'馬番'},{k:'odds',l:'オッズ'},{k:'conf',l:'自信度'},
+  {k:'ability',l:'AI勝率'},{k:'place',l:'AI複勝率'},{k:'ev',l:'EV'},
+  {k:'kyaku',l:'脚質'},{k:'speed',l:'速度'},{k:'agari',l:'上り'},
+  {k:'blood',l:'血統'},{k:'waku',l:'枠順'},
 ];
 function sortKey(h){
   const m={
@@ -773,8 +758,6 @@ function selectVenue(v){
         if(curSort===c.dataset.s) curDir=-curDir;
         else{curSort=c.dataset.s;curDir=-1;}
         sw.querySelectorAll('.sch').forEach(x=>x.classList.toggle('on',x.dataset.s===curSort));
-        // コンパクトモード時: 選択列をextraとしてマーク
-        updateCompactExtra();
         if(curRace) renderTable(curRace);
       };
     });
@@ -854,20 +837,6 @@ if(localStorage.getItem('compactMode')==='true'){
   document.body.classList.add('compact');
 }
 
-function updateCompactExtra(){
-  const def = SORT_DEFS.find(d=>d.k===curSort);
-  const col = def ? def.col : null;
-  // ヘッダーとボディ全tdのcompact-extraクラスを更新
-  document.querySelectorAll('.ht th, .ht td').forEach(el=>{
-    el.classList.remove('compact-extra');
-  });
-  if(col){
-    document.querySelectorAll(`.ht th:nth-child(${col}), .ht td:nth-child(${col})`).forEach(el=>{
-      el.classList.add('compact-extra');
-    });
-  }
-}
-
 async function load(){
   // manifest.json から公開済み日付一覧を取得
   let dates = [];
@@ -942,8 +911,6 @@ function renderAfterDateChange(){
         if(curSort===c.dataset.s) curDir=-curDir;
         else{curSort=c.dataset.s;curDir=-1;}
         sw.querySelectorAll('.sch').forEach(x=>x.classList.toggle('on',x.dataset.s===curSort));
-        // コンパクトモード時: 選択列をextraとしてマーク
-        updateCompactExtra();
         if(curRace) renderTable(curRace);
       };
     });
