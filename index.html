@@ -483,7 +483,7 @@ function renderTable(r){
     const on=curSort===k;
     const _on = curSort===k;
     const _arr = _on?(curDir===-1?'▼':'▲'):'';
-    return `<th data-s="${k}" style="cursor:pointer" onclick="doSort('${k}')">${l}${_arr?`<span style="font-size:8px;margin-left:2px">${_arr}</span>`:''}`;
+    return `<th data-s="${k}" style="cursor:pointer" onclick="setSortKey('${k}')">${l}${_arr?`<span style="font-size:8px;margin-left:2px">${_arr}</span>`:''}`;
   };
   const rks = computeRanks(r.horses);
   const hasSenior = r.horses.some(h => h.age >= 4);
