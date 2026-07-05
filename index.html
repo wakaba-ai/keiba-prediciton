@@ -313,7 +313,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .ht td:nth-child(10),.ht th:nth-child(10){width:40px}
 .ht td:nth-child(11),.ht th:nth-child(11){width:24px}
 .ht td:nth-child(n+12):nth-child(-n+20),.ht th:nth-child(n+12):nth-child(-n+20){width:22px;min-width:22px}
-.ht td:nth-child(n+19),.ht th:nth-child(n+19){width:110px;min-width:105px}
+.ht td:nth-child(n+18),.ht th:nth-child(n+18){width:110px;min-width:105px}
 /* 固定列 */
 .ht th:nth-child(1),.ht td:nth-child(1){position:sticky;left:0;z-index:3;background:var(--panel);width:30px;min-width:30px}
 .ht th:nth-child(2),.ht td:nth-child(2){position:sticky;left:30px;z-index:3;background:var(--panel);width:120px;min-width:120px;max-width:120px;border-right:2px solid var(--border2);overflow:hidden}
@@ -507,7 +507,7 @@ function renderTable(r){
       <td>${wb(h.umaban,h.waku)}</td>
       <td class="ht-name">
         <div style="font-weight:800;font-size:12.5px">${h.horse_name} ${marks.join(' ')}</div>
-        <span class="sub">${h.sex||''}${h.age||''}歳 ${h.sire||''}</span>
+        <span class="sub">${h.sex||''}${h.age||''}歳 ${h.sire||''}${h.bms?` / ${h.bms}`:''}</span>
         ${ktags?`<div class="ktags">${ktags}</div>`:''}
       </td>
       <td class="sticky-col3" style="text-align:center;font-size:11px;white-space:nowrap">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
