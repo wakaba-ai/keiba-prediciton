@@ -181,7 +181,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .kyaku-3{color:var(--t4)}                       /* 追込 */
 /* 馬名セル */
 .ht-name{text-align:left;font-weight:800;font-size:11.5px;overflow:hidden;max-width:118px}
-.ht-name .sub{display:block;font-size:9px;color:var(--t3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:108px}
+.ht-name .sub{display:block;font-size:9px;color:var(--t3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px}
 .ht-name .ktags{display:flex;gap:3px;flex-wrap:wrap;margin-top:3px}
 .ktag{font-size:8px;font-weight:700;padding:1px 4px;border-radius:3px;
   background:var(--red-dim);color:var(--red)}
@@ -210,7 +210,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .w4{background:#2980b9;color:#fff}.w5{background:#f39c12;color:#000}.w6{background:#27ae60;color:#fff}
 .w7{background:#e67e22;color:#fff}.w8{background:#e91e8c;color:#fff}
 /* 過去走セル */
-.past-cell{text-align:left;font-family:var(--mono);font-size:9.5px;color:var(--t3);min-width:70px;max-width:95px;overflow:hidden}
+.past-cell{text-align:left;font-family:var(--mono);font-size:9.5px;color:var(--t3);width:100%;white-space:normal;word-break:break-all}
 .pc1{color:var(--gold);font-weight:800}.pc23{color:var(--turf);font-weight:700}
 
 /* ─── 展開図 ─────────────────────────────────────────────── */
@@ -313,7 +313,11 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .ht td:nth-child(10),.ht th:nth-child(10){width:40px}
 .ht td:nth-child(11),.ht th:nth-child(11){width:24px}
 .ht td:nth-child(n+12):nth-child(-n+20),.ht th:nth-child(n+12):nth-child(-n+20){width:22px;min-width:22px}
-.ht td:nth-child(n+18),.ht th:nth-child(n+18){width:110px;min-width:105px}
+.ht td:nth-child(17),.ht th:nth-child(17){width:110px;min-width:110px;max-width:110px}
+.ht td:nth-child(18),.ht th:nth-child(18){width:110px;min-width:110px;max-width:110px}
+.ht td:nth-child(19),.ht th:nth-child(19){width:110px;min-width:110px;max-width:110px}
+.ht td:nth-child(20),.ht th:nth-child(20){width:110px;min-width:110px;max-width:110px}
+.ht td:nth-child(21),.ht th:nth-child(21){width:110px;min-width:110px;max-width:110px}
 /* 固定列 */
 .ht th:nth-child(1),.ht td:nth-child(1){position:sticky;left:0;z-index:3;background:var(--panel);width:30px;min-width:30px}
 .ht th:nth-child(2),.ht td:nth-child(2){position:sticky;left:30px;z-index:3;background:var(--panel);width:120px;min-width:120px;max-width:120px;border-right:2px solid var(--border2);overflow:hidden}
