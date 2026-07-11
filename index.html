@@ -297,7 +297,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t1);
 .ht td:nth-child(3),.ht th:nth-child(3){width:65px;min-width:65px}
 .ht td:nth-child(4),.ht th:nth-child(4){width:30px;min-width:30px}
 .ht td:nth-child(5),.ht th:nth-child(5){width:44px}
-.ht td:nth-child(6),.ht th:nth-child(6){width:28px}
+.ht td:nth-child(6),.ht th:nth-child(6){width:46px;min-width:46px}
 .ht td:nth-child(7),.ht th:nth-child(7){width:28px}
 .ht td:nth-child(8),.ht th:nth-child(8){width:38px}
 .ht td:nth-child(9),.ht th:nth-child(9){width:24px}
@@ -534,7 +534,7 @@ function renderTable(r){
       <td class="sticky-col3" style="text-align:center;font-size:11px;white-space:nowrap">${h.jockey||'—'}<br><span style="font-size:9.5px;color:var(--t3)">${Number(h.kinryo||55).toFixed(1)}kg</span></td>
       <td>${kyakuHtml(kc)}</td>
       <td class="num-od">${h.tansho_odds!=null?Number(h.tansho_odds).toFixed(1):'—'}<br><span style="font-size:9px;color:var(--t3)">${oddsRank[h.umaban]?oddsRank[h.umaban]+'人気':''}</span></td>
-      <td style="white-space:nowrap">${confHtml(h.confidence_rank)} <span style="font-size:9.5px;color:var(--t3);font-family:var(--mono)">${h.confidence_score||0}</span></td>
+      <td style="white-space:nowrap;text-align:center">${confHtml(h.confidence_rank)}<br><span style="font-size:9px;color:var(--t3);font-family:var(--mono)">${h.confidence_score||0}</span></td>
       <td class="num-ab">${pct(h.p_ability)}</td>
       <td class="num-pl">${pct(h.p_place)}</td>
       <td style="font-family:var(--mono);font-weight:800;font-size:11px;color:${(h.fit_score||0)>=30?'var(--orange)':(h.fit_score||0)>=15?'var(--t2)':'var(--t4)'}">${h.fit_score??'—'}</td>
