@@ -37,7 +37,11 @@ def build_race_map(races, nk_ids):
     return mapping
 
 def fetch_odds(nk_race_id):
-    """netkeibaから単勝オッズを取得"""
+    """netkeibaから単勝オッズを取得
+    APIのdata.odds["1"]は「馬番をキーにした辞書」形式：
+      {"1": ["2.1", "1"], "10": ["15.3", "9"], ...}   # 値は [オッズ, 人気] のリスト
+    リストではなく辞書なので .items() で回す必要がある。
+    """
     url = f"https://race.netkeiba.com/api/api_get_jra_odds.html?race_id={nk_race_id}&type=1&action=update"
     try:
         resp = requests.get(url, headers=HEADERS, timeout=10)
@@ -50,14 +54,27 @@ def fetch_odds(nk_race_id):
         except:
             data = resp.json()
 
+        odds_raw = data.get('data', {}).get('odds', {}).get('1', {})
+
         odds_map = {}
-        for item in data.get('data', {}).get('odds', {}).get('1', []):
-            try:
-                umaban = int(item[0])
-                odds   = float(item[1])
-                odds_map[umaban] = odds
-            except:
-                pass
+        # 想定どおり辞書（馬番文字列 → [オッズ, 人気, ...]）の場合
+        if isinstance(odds_raw, dict):
+            for umaban_str, val in odds_raw.items():
+                try:
+                    umaban = int(umaban_str)
+                    odds = float(val[0]) if isinstance(val, (list, tuple)) else float(val)
+                    odds_map[umaban] = odds
+                except Exception:
+                    pass
+        # 念のため、万一リスト形式で返ってきた場合のフォールバック
+        elif isinstance(odds_raw, list):
+            for i, val in enumerate(odds_raw, start=1):
+                try:
+                    odds = float(val[0]) if isinstance(val, (list, tuple)) else float(val)
+                    odds_map[i] = odds
+                except Exception:
+                    pass
+
         return odds_map
     except Exception as e:
         print(f"      オッズ取得失敗 {nk_race_id}: {e}")
@@ -91,6 +108,10 @@ def update_predictions_file(filepath):
         odds_map = fetch_odds(nk_id)
         if not odds_map:
             continue
+
+        n_horses = len(r.get('horses', []))
+        if len(odds_map) < n_horses:
+            print(f"      ⚠ {r['place']}{r['race_no']}R: オッズ取得 {len(odds_map)}/{n_horses}頭のみ（一部欠損）")
 
         # 各馬のオッズとEVを更新
         for h in r.get('horses', []):
