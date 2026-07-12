@@ -683,6 +683,7 @@ function selectRace(rid){
   renderRight(curRace);
   $('center').scrollTop=0;
   $('right').scrollTop=0;
+  saveViewState();
 }
 
 // ─── VENUE TABS ─────────────────────────────────────────────
@@ -701,11 +702,19 @@ function renderVenueTabs(){
       ).join('') +
       '</div><div class="rnav-races" id="rnav-races"></div>';
 
-    // タブイベント
+    // タブイベント（同じレース番号があればそれを維持して切り替える）
     nav.querySelectorAll('.rnav-tab').forEach(btn=>{
       btn.onclick = ()=>{
-        window._navVenue = btn.dataset.v;
-        buildNav();
+        const targetVenue = btn.dataset.v;
+        const prevRaceNo = curRace ? curRace.race_no : null;
+        const venueRaces = DATA.races.filter(r=>r.place===targetVenue).sort((a,b)=>a.race_no-b.race_no);
+        const target = (prevRaceNo!=null && venueRaces.find(r=>r.race_no===prevRaceNo)) || venueRaces[0];
+        if(target){
+          selectRace(target.race_id);   // selectRace内でwindow._navVenueの更新とbuildNav()再実行が行われる
+        } else {
+          window._navVenue = targetVenue;
+          buildNav();
+        }
       };
     });
 
@@ -750,6 +759,7 @@ const RK_DEFS = [
   {k:'trainer',l:'厩', fn: h=>h.trainer_win_rate??null},
   {k:'blood',  l:'血', fn: h=>h.blood_stamina_score??null},
   {k:'waku',   l:'枠', fn: h=>h.waku_win_rate??null},
+  {k:'training',l:'調', fn: h=>h.training_score??null},
 ];
 
 function computeRanks(horses){
@@ -805,7 +815,29 @@ function setSortKey(k){
   if(curRace) renderTable(curRace);
 }
 
-async function load(){
+// ─── 表示状態の保存/復元（リロードで土曜1Rに戻らないように）───
+const VIEW_STATE_KEY = 'wakaba_keiba_view_state';
+
+function saveViewState(){
+  if(!curRace || !DATA) return;
+  try{
+    localStorage.setItem(VIEW_STATE_KEY, JSON.stringify({
+      date: DATA.date,
+      venue: curRace.place,
+      raceNo: curRace.race_no
+    }));
+  }catch(e){ /* 保存できなくても致命的ではない */ }
+}
+
+function loadViewState(){
+  try{
+    const raw = localStorage.getItem(VIEW_STATE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  }catch(e){ return null; }
+}
+
+// ─── データ取得（初回ロードと自動更新の両方から使う）──────────
+async function fetchAllData(){
   // manifest.json から公開済み日付一覧を取得
   let dates = [];
   try{
@@ -832,41 +864,63 @@ async function load(){
     }catch(e){}
   }
 
+  loaded.sort((a,b)=>a.date.localeCompare(b.date));
+  return loaded;
+}
+
+// ─── 日付タブ描画（初回・自動更新の両方から呼ぶ）──────────────
+function renderDateTabs(loaded, activeIndex){
+  const dt = $('dateTabs');
+  if(!dt) return;
+  if(loaded.length > 1){
+    dt.innerHTML = loaded.map((d2,i)=>{
+      const label = `${d2.date.slice(4,6)}/${d2.date.slice(6,8)}`;
+      return `<button class="date-tab${i===activeIndex?' active':''}" data-i="${i}">${label}</button>`;
+    }).join('');
+    dt.querySelectorAll('.date-tab').forEach(btn=>{
+      btn.onclick = ()=>{
+        dt.querySelectorAll('.date-tab').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        DATA = ALL_DATA[parseInt(btn.dataset.i)];
+        window._navVenue = null;
+        renderAfterDateChange();
+      };
+    });
+  } else {
+    dt.innerHTML = '';
+  }
+}
+
+async function load(){
+  const loaded = await fetchAllData();
+
   if(loaded.length === 0){
     $('center').innerHTML='<div class="empty"><div class="ei">⚠</div><p>predictions.json を読み込めませんでした</p></div>';
     return;
   }
 
-  loaded.sort((a,b)=>a.date.localeCompare(b.date));
   ALL_DATA = loaded;
-  DATA = loaded[0];
 
-  // 日付タブ描画（2日以上ある場合のみ表示）
-  const dt = $('dateTabs');
-  if(dt){
-    if(loaded.length > 1){
-      dt.innerHTML = loaded.map((d2,i)=>{
-        const label = `${d2.date.slice(4,6)}/${d2.date.slice(6,8)}`;
-        return `<button class="date-tab${i===0?' active':''}" data-i="${i}">${label}</button>`;
-      }).join('');
-      dt.querySelectorAll('.date-tab').forEach(btn=>{
-        btn.onclick = ()=>{
-          dt.querySelectorAll('.date-tab').forEach(b=>b.classList.remove('active'));
-          btn.classList.add('active');
-          DATA = ALL_DATA[parseInt(btn.dataset.i)];
-          window._navVenue = null;
-          renderAfterDateChange();
-        };
-      });
-    } else {
-      dt.innerHTML = '';
-    }
+  // 前回見ていた日付があればそこから復元
+  const saved = loadViewState();
+  let initialIndex = 0;
+  if(saved && saved.date){
+    const idx = loaded.findIndex(d=>d.date===saved.date);
+    if(idx>=0) initialIndex = idx;
   }
+  DATA = loaded[initialIndex];
 
-  renderAfterDateChange();
+  renderDateTabs(loaded, initialIndex);
+  renderAfterDateChange(saved);
+
+  // 一定間隔でバックグラウンド自動更新（ページはリロードしない）
+  setInterval(refreshData, REFRESH_INTERVAL_MS);
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.visibilityState === 'visible') refreshData();
+  });
 }
 
-function renderAfterDateChange(){
+function renderAfterDateChange(saved){
   // sortbar描画
   const sw = $('sortbar-wrap');
   if(sw){
@@ -889,11 +943,67 @@ function renderAfterDateChange(){
     const t=new Date(DATA.generated_at);
     $('genTime').textContent=`生成 ${t.getHours()}:${String(t.getMinutes()).padStart(2,'0')}`;
   }
+
+  // 保存されていた会場が今日のデータに存在するなら先に反映しておく
+  if(saved && saved.venue && DATA.races.some(r=>r.place===saved.venue)){
+    window._navVenue = saved.venue;
+  }
+
   renderVenueTabs();
   renderSidebar();
-  const first=DATA.races.sort((a,b)=>a.race_no-b.race_no)[0];
-  if(first) selectRace(first.race_id);
+
+  let target = null;
+  if(saved && saved.venue && saved.raceNo!=null){
+    target = DATA.races.find(r=>r.place===saved.venue && r.race_no===saved.raceNo);
+  }
+  if(!target){
+    const venueRaces = DATA.races.filter(r=>r.place===window._navVenue);
+    target = (venueRaces.length?venueRaces:DATA.races).sort((a,b)=>a.race_no-b.race_no)[0];
+  }
+  if(target) selectRace(target.race_id);
 }
+
+// ─── バックグラウンド自動更新 ─────────────────────────────────
+const REFRESH_INTERVAL_MS = 120000; // 2分おき（cronの更新頻度に合わせる）
+
+async function refreshData(){
+  const loaded = await fetchAllData();
+  if(!loaded.length) return;
+
+  const curDate   = DATA ? DATA.date : null;
+  const curVenue  = window._navVenue;
+  const curRaceNo = curRace ? curRace.race_no : null;
+
+  ALL_DATA = loaded;
+  let idx = loaded.findIndex(d=>d.date===curDate);
+  if(idx<0) idx = 0;
+  DATA = loaded[idx];
+
+  renderDateTabs(loaded, idx);
+
+  if(curVenue && DATA.races.some(r=>r.place===curVenue)){
+    window._navVenue = curVenue;
+  }
+
+  let target = null;
+  if(curVenue && curRaceNo!=null){
+    target = DATA.races.find(r=>r.place===curVenue && r.race_no===curRaceNo);
+  }
+  if(!target){
+    const venueRaces = DATA.races.filter(r=>r.place===window._navVenue);
+    target = (venueRaces.length?venueRaces:DATA.races).sort((a,b)=>a.race_no-b.race_no)[0];
+  }
+
+  if(DATA.generated_at){
+    const t=new Date(DATA.generated_at);
+    $('genTime').textContent=`生成 ${t.getHours()}:${String(t.getMinutes()).padStart(2,'0')}`;
+  }
+
+  renderVenueTabs();
+  renderSidebar();
+  if(target) selectRace(target.race_id);
+}
+
 load();
 </script>
 </body>
